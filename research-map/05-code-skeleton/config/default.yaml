@@ -1,0 +1,127 @@
+# FocalGNN Configuration
+# ========================
+
+# Data
+data:
+  catalog: "scsn_hash"
+  years_train: [2000, 2018]
+  years_val: [2019, 2020]
+  years_test: [2021, 2022]
+  magnitude_range: [2.0, 5.5]
+  hash_quality: ["A", "B"]
+  min_stations: 8
+  min_snr: 3.0
+  waveform_window_sec: 10.0  # seconds post P-arrival
+  pre_p_sec: 1.0             # seconds before P-arrival included
+  sampling_rate: 100          # Hz
+  filter_band: [1.0, 20.0]   # Hz bandpass
+  velocity_model: "socal"     # 1D velocity model for TauP
+
+# Graph Construction
+graph:
+  connection: "fully_connected"  # or "knn", "distance_threshold"
+  knn_k: 15                      # if using knn
+  distance_threshold_km: 200.0   # if using distance_threshold
+  node_features:
+    waveform_embed_dim: 256
+    geometry_embed_dim: 64
+    geometry_inputs: ["azimuth", "takeoff", "distance", "cos_az", "sin_az", "cos_to", "sin_to"]
+  edge_features:
+    inputs: ["delta_azimuth", "cos_delta_az", "sin_delta_az", "delta_takeoff", "inter_station_dist"]
+    embed_dim: 32
+
+# Model Architecture
+model:
+  encoder:
+    type: "resnet1d"
+    input_channels: 3
+    layers: [2, 2, 2, 2]  # ResNet-18 config
+    channels: [32, 64, 128, 256]
+    kernel_size: 3
+    first_kernel_size: 7
+    first_stride: 2
+
+  gat:
+    num_layers: 3
+    hidden_dim: 320
+    num_heads: 4
+    head_dim: 80
+    dropout: 0.1
+    residual: true
+    layer_norm: true
+    edge_feature_dim: 32
+    version: "gatv2"
+
+  readout:
+    type: "attention_pool"  # or "mean", "max", "set2set"
+    gate_hidden_dim: 128
+
+  prediction_head:
+    hidden_dims: [256, 128]
+    output_dim: 12  # 6 MT components (mean) + 6 (log_variance)
+    dropout: 0.1
+    activation: "relu"
+
+# Loss
+loss:
+  nll_weight: 1.0
+  dc_constraint_weight: 0.1
+  polarity_weight: 0.05
+  polarity_start_epoch: 5  # delay polarity loss for stable training
+
+# Training
+training:
+  batch_size: 32
+  num_epochs: 100
+  optimizer:
+    type: "adamw"
+    lr: 0.001
+    weight_decay: 0.0001
+  scheduler:
+    type: "cosine"
+    T_max: 100
+    eta_min: 0.00001
+  gradient_clip_norm: 1.0
+  early_stopping:
+    patience: 15
+    metric: "val_kagan_median"
+    mode: "min"
+
+# Data Augmentation
+augmentation:
+  station_dropout:
+    enabled: true
+    drop_rate: [0.1, 0.5]  # uniform random between these
+    min_stations: 5
+  noise_addition:
+    enabled: true
+    snr_range: [5.0, 50.0]  # dB
+  time_shift:
+    enabled: true
+    max_shift_sec: 0.5
+
+# Uncertainty
+uncertainty:
+  mc_dropout:
+    enabled: true
+    num_samples: 50
+    dropout_rate: 0.1
+  calibration:
+    temperature_scaling: true
+    num_bins: 10
+
+# Evaluation
+evaluation:
+  metrics: ["kagan_angle", "fault_type_accuracy", "calibration_ece", "coverage_90"]
+  station_dropout_test: [5, 8, 10, 15, 20, 30, 50]  # test at these station counts
+
+# Experiment
+experiment:
+  name: "focalgnn_baseline"
+  seed: 42
+  device: "cuda"
+  num_workers: 8
+  wandb:
+    enabled: true
+    project: "focalgnn"
+    entity: null
