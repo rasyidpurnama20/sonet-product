@@ -1,0 +1,20 @@
+{
+  "_comment": "File ini untuk fallback manual jika scraping Instagram gagal (sering terjadi di cloud/sandbox karena Instagram block).",
+  "_format_example": {
+    "username_di_sini": {
+      "full_name": "Nama Lengkap",
+      "followers": 1234,
+      "following": 56,
+      "posts_total": 78,
+      "biography": "Bio singkat",
+      "recent_posts": [
+        {
+          "date": "2026-05-01",
+          "caption_preview": "Selamat kepada mahasiswa yang meraih juara 1 lomba...",
+          "topics": ["Prestasi"],
+          "url": "https://www.instagram.com/p/XYZ/"
+        }
+      ]
+    }
+  }
+}
