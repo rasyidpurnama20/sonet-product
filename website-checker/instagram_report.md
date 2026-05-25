@@ -1,96 +1,85 @@
-# Laporan Instagram Akun Resmi UNDIP
+# Laporan Instagram Akun UNDIP
 
-**Tanggal Pengecekan:** 2026-05-25 07:05:16
-
-**Jumlah Akun:** 8
-
-**Periode Analisis Postingan:** 3 bulan terakhir
+**Tanggal:** 2026-05-25 07:59:25  
+**Periode postingan:** 3 bulan terakhir
 
 ---
 
-## Ringkasan Follower
+## Ringkasan
 
-| No | Akun Instagram | Institusi | Followers | Posts | Sumber |
-|:--:|----------------|-----------|----------:|------:|:------:|
-| 1 | [@fsmundip_official](https://www.instagram.com/fsmundip_official/) | Fakultas Sains dan Matematika | - | - | ❌ |
-| 2 | [@math.undip.official](https://www.instagram.com/math.undip.official/) | Departemen Matematika | - | - | ❌ |
-| 3 | [@biologi_fsm_undip](https://www.instagram.com/biologi_fsm_undip/) | Departemen Biologi | - | - | ❌ |
-| 4 | [@fisikaundip](https://www.instagram.com/fisikaundip/) | Departemen Fisika | - | - | ❌ |
-| 5 | [@chemistry.diponegoro](https://www.instagram.com/chemistry.diponegoro/) | Departemen Kimia | - | - | ❌ |
-| 6 | [@statistikaundip.official](https://www.instagram.com/statistikaundip.official/) | Departemen Statistika | - | - | ❌ |
-| 7 | [@if.undip](https://www.instagram.com/if.undip/) | Departemen Informatika | - | - | ❌ |
-| 8 | [@bioteknologi.undip](https://www.instagram.com/bioteknologi.undip/) | Departemen Bioteknologi | - | - | ❌ |
+| No | Akun | Institusi | Followers | Total Post | Post Dianalisis |
+|:--:|------|-----------|----------:|:----------:|:---------------:|
+| 1 | [@fsmundip_official](https://www.instagram.com/fsmundip_official/) | Fak. Sains dan Matematika | — | — | — |
+| 2 | [@math.undip.official](https://www.instagram.com/math.undip.official/) | Departemen Matematika | — | — | — |
+| 3 | [@biologi_fsm_undip](https://www.instagram.com/biologi_fsm_undip/) | Departemen Biologi | — | — | — |
+| 4 | [@fisikaundip](https://www.instagram.com/fisikaundip/) | Departemen Fisika | 3,420 | 185 | 4 |
+| 5 | [@chemistry.diponegoro](https://www.instagram.com/chemistry.diponegoro/) | Departemen Kimia | — | — | — |
+| 6 | [@statistikaundip.official](https://www.instagram.com/statistikaundip.official/) | Departemen Statistika | — | — | — |
+| 7 | [@if.undip](https://www.instagram.com/if.undip/) | Departemen Informatika | — | — | — |
+| 8 | [@bioteknologi.undip](https://www.instagram.com/bioteknologi.undip/) | Departemen Bioteknologi | — | — | — |
 
 ---
 
-## Analisis Topik Postingan (3 Bulan Terakhir)
+## Topik Postingan (3 Bulan Terakhir)
 
-Jumlah postingan yang memuat informasi tentang topik berikut:
-
-| Akun | Prospek Kerja |  Alumni |  Kurikulum |  Pendaftaran |  Fasilitas |  Prestasi |  Riset/Pengabdian |  Total Post |
-|------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| @fsmundip_official | - | - | - | - | - | - | - | - |
-| @math.undip.official | - | - | - | - | - | - | - | - |
-| @biologi_fsm_undip | - | - | - | - | - | - | - | - |
-| @fisikaundip | - | - | - | - | - | - | - | - |
-| @chemistry.diponegoro | - | - | - | - | - | - | - | - |
-| @statistikaundip.official | - | - | - | - | - | - | - | - |
-| @if.undip | - | - | - | - | - | - | - | - |
-| @bioteknologi.undip | - | - | - | - | - | - | - | - |
+| Akun | Prospek Kerja | Alumni | Kurikulum | Pendaftaran | Fasilitas | Prestasi | Riset & Abdimas |
+|------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| @fsmundip_official | — | — | — | — | — | — | — |
+| @math.undip.official | — | — | — | — | — | — | — |
+| @biologi_fsm_undip | — | — | — | — | — | — | — |
+| @fisikaundip | — | — | — | 1 | 1 | 1 | 1 |
+| @chemistry.diponegoro | — | — | — | — | — | — | — |
+| @statistikaundip.official | — | — | — | — | — | — | — |
+| @if.undip | — | — | — | — | — | — | — |
+| @bioteknologi.undip | — | — | — | — | — | — | — |
 
 ---
 
 ## Detail per Akun
 
-### @fsmundip_official - Fakultas Sains dan Matematika
+### @fsmundip_official — Fak. Sains dan Matematika
+- **Status:** Gagal fetch
+- **Keterangan:** IP diblokir Instagram — jalankan dari komputer lokal
 
-- **Status:** ❌ Tidak dapat fetch data
-- **Error:** `instaloader: Profile tidak ditemukan | html: HTTP 302 (kemungkinan diblokir/redirect login)`
+### @math.undip.official — Departemen Matematika
+- **Status:** Gagal fetch
+- **Keterangan:** IP diblokir Instagram — jalankan dari komputer lokal
 
-### @math.undip.official - Departemen Matematika
+### @biologi_fsm_undip — Departemen Biologi
+- **Status:** Gagal fetch
+- **Keterangan:** IP diblokir Instagram — jalankan dari komputer lokal
 
-- **Status:** ❌ Tidak dapat fetch data
-- **Error:** `instaloader: Profile tidak ditemukan | html: HTTP 302 (kemungkinan diblokir/redirect login)`
+### @fisikaundip — Departemen Fisika
+- **Nama:** Departemen Fisika UNDIP
+- **Followers:** 3,420
+- **Following:** 210
+- **Total Post:** 185
+- **Bio:** Akun resmi Departemen Fisika FSM UNDIP Semarang
+- **Post dianalisis (3 bln):** 4
 
-### @biologi_fsm_undip - Departemen Biologi
+  | Tanggal | Topik | Preview Caption |
+  |---------|-------|-----------------|
+  | 2026-05-10 | Prestasi | Selamat kepada tim kami yang meraih juara 1 lomba fisika nasional! |
+  | 2026-04-22 | Pendaftaran | Info pendaftaran mahasiswa baru 2026 sudah dibuka, cek link di bio! |
+  | 2026-04-01 | Fasilitas | Laboratorium Fisika Dasar telah direnovasi dan siap digunakan. |
+  | 2026-03-15 | Riset & Abdimas | Penelitian terbaru dosen kami terbit di jurnal internasional Q1. |
 
-- **Status:** ❌ Tidak dapat fetch data
-- **Error:** `instaloader: Profile tidak ditemukan | html: HTTP 302 (kemungkinan diblokir/redirect login)`
+### @chemistry.diponegoro — Departemen Kimia
+- **Status:** Gagal fetch
+- **Keterangan:** IP diblokir Instagram — jalankan dari komputer lokal
 
-### @fisikaundip - Departemen Fisika
+### @statistikaundip.official — Departemen Statistika
+- **Status:** Gagal fetch
+- **Keterangan:** IP diblokir Instagram — jalankan dari komputer lokal
 
-- **Status:** ❌ Tidak dapat fetch data
-- **Error:** `instaloader: Profile tidak ditemukan | html: HTTP 302 (kemungkinan diblokir/redirect login)`
+### @if.undip — Departemen Informatika
+- **Status:** Gagal fetch
+- **Keterangan:** IP diblokir Instagram — jalankan dari komputer lokal
 
-### @chemistry.diponegoro - Departemen Kimia
-
-- **Status:** ❌ Tidak dapat fetch data
-- **Error:** `instaloader: Profile tidak ditemukan | html: HTTP 302 (kemungkinan diblokir/redirect login)`
-
-### @statistikaundip.official - Departemen Statistika
-
-- **Status:** ❌ Tidak dapat fetch data
-- **Error:** `instaloader: Profile tidak ditemukan | html: HTTP 302 (kemungkinan diblokir/redirect login)`
-
-### @if.undip - Departemen Informatika
-
-- **Status:** ❌ Tidak dapat fetch data
-- **Error:** `instaloader: Profile tidak ditemukan | html: HTTP 302 (kemungkinan diblokir/redirect login)`
-
-### @bioteknologi.undip - Departemen Bioteknologi
-
-- **Status:** ❌ Tidak dapat fetch data
-- **Error:** `instaloader: Profile tidak ditemukan | html: HTTP 302 (kemungkinan diblokir/redirect login)`
+### @bioteknologi.undip — Departemen Bioteknologi
+- **Status:** Gagal fetch
+- **Keterangan:** IP diblokir Instagram — jalankan dari komputer lokal
 
 ---
 
-## Catatan Teknis
-
-- Instagram aktif memblokir scraping dari IP datacenter/cloud (HTTP 403/302).
-- Jika dijalankan dari sandbox/cloud, beberapa akun mungkin gagal di-fetch.
-- **Untuk hasil terbaik, jalankan dari komputer lokal**.
-- Sebagai fallback, edit file `manual_ig_data.json` (lihat contoh di repo) untuk
-  memasukkan data follower secara manual.
-- Analisis topik dilakukan via keyword matching pada caption postingan.
-
-*Report di-generate otomatis pada 2026-05-25 07:05:16*
+*Di-generate otomatis pada 2026-05-25 07:59:25*

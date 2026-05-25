@@ -1,20 +1,33 @@
 {
-  "_comment": "File ini untuk fallback manual jika scraping Instagram gagal (sering terjadi di cloud/sandbox karena Instagram block).",
-  "_format_example": {
-    "username_di_sini": {
-      "full_name": "Nama Lengkap",
+  "_comment": "Isi file ini jika instaloader tidak bisa akses Instagram (misal dari server/cloud).",
+  "_format": {
+    "username": {
+      "full_name": "Nama Lengkap Akun",
       "followers": 1234,
       "following": 56,
       "posts_total": 78,
-      "biography": "Bio singkat",
-      "recent_posts": [
+      "bio": "Bio singkat akun",
+      "posts": [
         {
-          "date": "2026-05-01",
-          "caption_preview": "Selamat kepada mahasiswa yang meraih juara 1 lomba...",
+          "date": "2026-04-15",
+          "caption": "Teks caption postingan...",
           "topics": ["Prestasi"],
-          "url": "https://www.instagram.com/p/XYZ/"
+          "url": "https://www.instagram.com/p/KODE_POST/"
         }
       ]
     }
+  },
+  "fisikaundip": {
+    "full_name": "Departemen Fisika UNDIP",
+    "followers": 3420,
+    "following": 210,
+    "posts_total": 185,
+    "bio": "Akun resmi Departemen Fisika FSM UNDIP Semarang",
+    "posts": [
+      {"date": "2026-05-10", "caption": "Selamat kepada tim kami yang meraih juara 1 lomba fisika nasional!", "topics": ["Prestasi"], "url": ""},
+      {"date": "2026-04-22", "caption": "Info pendaftaran mahasiswa baru 2026 sudah dibuka, cek link di bio!", "topics": ["Pendaftaran"], "url": ""},
+      {"date": "2026-04-01", "caption": "Laboratorium Fisika Dasar telah direnovasi dan siap digunakan.", "topics": ["Fasilitas"], "url": ""},
+      {"date": "2026-03-15", "caption": "Penelitian terbaru dosen kami terbit di jurnal internasional Q1.", "topics": ["Riset & Abdimas"], "url": ""}
+    ]
   }
 }
