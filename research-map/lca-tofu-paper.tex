@@ -1,0 +1,430 @@
+\documentclass[12pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage[top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+\usepackage{fontenc}
+\usepackage{inputenc}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{enumitem}
+\usepackage{abstract}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+
+% ── Hyperref setup ─────────────────────────────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=blue!70!black,
+  urlcolor=blue!70!black,
+  pdftitle={LCA of Small-Scale Tofu Production in Semarang City},
+  pdfauthor={Abdul Jabbar, Putri Alifa Kholil, Desiana Fitri Awati}
+}
+
+% ── Typography ─────────────────────────────────────────────────────────────────
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+
+% ── Section formatting ─────────────────────────────────────────────────────────
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{0.5em}{}
+\titlespacing{\section}{0pt}{14pt}{6pt}
+\titlespacing{\subsection}{0pt}{10pt}{4pt}
+\titlespacing{\subsubsection}{0pt}{8pt}{3pt}
+
+% ── Header / Footer ────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Jabbar et al. / LCA of Tofu Production in Semarang City}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Caption style ──────────────────────────────────────────────────────────────
+\captionsetup{font=small, labelfont=bf, labelsep=period}
+
+% ── siunitx setup ──────────────────────────────────────────────────────────────
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{E}}}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+% ══════════════════════════════════════════════════════════════════════════════
+
+% ── Title block ───────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries Life Cycle Assessment of Small-Scale Tofu Production\\
+  in Semarang City: Hotspot Analysis Using CML-IA and AWARE Methods}
+
+  \vspace{1em}
+
+  {\large Abdul Jabbar$^{1}$, Putri Alifa Kholil$^{1,*}$, Desiana Fitri Awati$^{1}$}
+
+  \vspace{0.4em}
+
+  {\small $^{1}$Study Program of Environmental Science, Faculty of Mathematics and Natural Sciences,\\
+  Universitas Negeri Semarang, Semarang, Indonesia}
+
+  \vspace{0.4em}
+  {\small $^{*}$Corresponding author: \href{mailto:putrialifa@mail.unnes.ac.id}{putrialifa@mail.unnes.ac.id}}
+\end{center}
+
+\vspace{1em}
+\hrule
+
+
+% ── Abstract ──────────────────────────────────────────────────────────────────
+\vspace{0.8em}
+\begin{center}\textbf{Abstract}\end{center}
+\begin{quote}\small
+The tofu industry is one of the most important food-processing sectors in Indonesia, given its high consumption rate and notable nutritional value. However, the environmental impacts of each production stage have not been comprehensively identified. Life Cycle Assessment (LCA) with a gate-to-gate system boundary was applied to evaluate the environmental impacts of tofu production at a small and medium-sized enterprise (SME) in Semarang City. The LCA was conducted using SimaPro 10.3 software with the CML-IA Baseline impact assessment method, covering five impact categories: Global Warming Potential (GWP), Ozone Layer Depletion (ODP), Fresh Water Aquatic Ecotoxicity (FAET), Acidification, and Eutrophication. Water use was assessed using the AWARE method. Results demonstrate that the washing and boiling stages are the primary contributors to environmental impacts. Normalization results indicate that Fresh Water Aquatic Ecotoxicity is the most dominant impact category (\num{1.33e3}~kg 1,4-DB eq), followed by Global Warming Potential (\num{5.28e3}~kg CO\textsubscript{2} eq). The main environmental hotspots are organic wastewater from washing, soaking, and coagulation stages, and firewood combustion during boiling. Recommended improvement strategies include wastewater treatment systems, water recycling, and fuel substitution.
+
+\vspace{4pt}
+\textbf{Keywords:} Life Cycle Assessment; tofu production; CML-IA Baseline; AWARE; environmental hotspot; Semarang
+\end{quote}
+\hrule
+\vspace{1em}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+% ══════════════════════════════════════════════════════════════════════════════
+
+Industrial activity is one of the primary drivers of global economic growth \citep{Ghisellini2016}. The tofu industry represents a significant food-processing sector in Indonesia owing to its high consumption rate and notable nutritional value. According to Statistics Indonesia (BPS), average per capita tofu consumption reached approximately 0.163~kg per week in 2024, indicating that tofu remains a staple food in many Indonesian households \citep{Dewi2024}. This high demand has driven increased production activity, resulting in greater resource and energy consumption, as well as waste and emissions that may cause environmental pollution if not properly managed \citep{Rosyidah2020}.
+
+Such impacts are particularly evident in river water quality, as the discharge of industrial wastewater can cause Biochemical Oxygen Demand (BOD) and Chemical Oxygen Demand (COD) levels to exceed regulatory standards. In the tofu industry in Mojokerto, liquid waste was reported to contain BOD exceeding 2,000~mg/L and COD exceeding 5,000~mg/L — far above the standard thresholds of approximately 50--100~mg/L \citep{Sjafruddin2022}. Furthermore, the environmental impacts associated with each tofu production stage have not yet been comprehensively identified. A systematic approach such as Life Cycle Assessment (LCA) is therefore required to evaluate the full environmental burden of the tofu production process \citep{Islami2025}.
+
+
+Life Cycle Assessment (LCA) is a standardized method used to systematically evaluate the environmental impacts of a product or process based on all input and output flows throughout its life cycle \citep{Hauschild2017}. This method identifies production stages that constitute environmental hotspots, thereby serving as the scientific basis for developing targeted environmental improvement strategies \citep{Chitaka2023}. Previous LCA studies of the tofu industry predominantly focused on climate change categories and thus failed to comprehensively evaluate other environmental concerns such as water pollution, water scarcity, and solid waste generation across all production stages \citep{Nugroho2024, Wardana2024}.
+
+Therefore, this study aims to analyze the environmental impacts of tofu production in Semarang City using an LCA approach with a gate-to-gate system boundary — encompassing all stages from washing to packaging — in order to identify environmental hotspots and formulate more sustainable improvement strategies.
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Methods}
+% ══════════════════════════════════════════════════════════════════════════════
+
+This research utilized a quantitative LCA methodology to assess the environmental impacts of tofu production at an SME in Semarang City. The evaluation was performed in compliance with \textbf{SNI ISO 14040:2016} and \textbf{SNI ISO 14044:2016}, comprising four sequential phases: (1)~goal and scope definition, (2)~life cycle inventory analysis, (3)~life cycle impact assessment, and (4)~interpretation. Primary data were obtained through direct field measurements, structured interviews, and on-site documentation during a complete production batch. Secondary data were sourced from peer-reviewed literature and the Ecoinvent v3 database within SimaPro 10.3 \citep{Hauschild2017}.
+
+\subsection{Goal and Scope Definition}
+
+This study assesses the environmental impacts of tofu production at the facility level, focusing on water use, energy consumption, and waste generation at each production stage. The \textbf{functional unit} is defined as \textbf{1~kg of tofu produced}, consistent with comparable LCA studies of tofu and soy-based food processing. Inventory data were collected on a per-batch basis: one full production day with 1,400~kg of soybeans as raw material input, yielding 3,681~kg of tofu.
+
+The \textbf{system boundary} adopts a gate-to-gate approach encompassing all unit processes from initial soybean washing to final molding and packaging (Figure~\ref{fig:systemboundary}). Upstream operations (soybean farming, transportation) and downstream activities (distribution, consumption, end-of-life) were excluded, consistent with prior gate-to-gate LCA investigations of similar Indonesian tofu SMEs \citep{Nugroho2024, Wardana2024}.
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox{0.85\textwidth}{\centering\small
+    \textbf{Gate-to-Gate System Boundary}\\[4pt]
+    Washing $\rightarrow$ Soaking $\rightarrow$ Grinding $\rightarrow$ Boiling $\rightarrow$ Filtration $\rightarrow$ Coagulation $\rightarrow$ Molding \& Packaging
+  }}
+  \caption{Gate-to-gate system boundary of tofu production life cycle assessment.}
+  \label{fig:systemboundary}
+\end{figure}
+
+
+\subsection{Life Cycle Inventory (LCI) Analysis}
+
+The inventory analysis phase involves identification and quantitative collection of all input and output flows for each unit process, in accordance with the defined functional unit \citep{Saavedra2022}. Data include soybean inputs, water and energy consumption, and waste outputs (liquid waste, solid waste, and atmospheric emissions). The full inventory is presented in Table~\ref{tab:lci}.
+
+\begin{table}[H]
+\centering
+\caption{Life Cycle Inventory Data of Tofu Production (per batch / production day).}
+\label{tab:lci}
+\small
+\begin{tabularx}{\textwidth}{lXrclrc}
+\toprule
+\textbf{Stage} & \textbf{Input} & \textbf{Qty} & \textbf{Unit} & \textbf{Output} & \textbf{Qty} & \textbf{Unit} \\
+\midrule
+Washing       & Soybeans     & 1{,}400 & kg  & Washed soybeans  & 1{,}540 & kg  \\
+              & Water        & 2{,}800 & L   & Wastewater       & 2{,}660 & L   \\
+              & Electricity  & 0.60    & kWh & CO$_2$ emissions & 0.51    & kg  \\
+\midrule
+Soaking       & Soybeans     & 1{,}540 & kg  & Hydrated soybeans & 3{,}640 & kg \\
+              & Water        & 2{,}700 & L   & Wastewater        & 600    & L   \\
+              & Electricity  & 0.45    & kWh & CO$_2$ emissions  & 0.38   & kg  \\
+\midrule
+Grinding      & Hyd.\ soybeans & 3{,}640 & kg  & Soybean slurry   & 7{,}840 & kg \\
+              & Water          & 4{,}200 & L   & Wastewater       & 0       & L  \\
+              & Electricity    & 17.00   & kWh & CO$_2$ emissions & 14.45   & kg \\
+\midrule
+Boiling       & Soybean slurry & 7{,}840 & kg  & Boiled slurry    & 15{,}652 & kg  \\
+              & Water          & 8{,}400 & L   & Steam (evap.)    & 588      & L   \\
+              & Firewood       & 800     & kg  & CO$_2$ emissions & 1{,}397  & kg  \\
+              &                &         &     & CH$_4$ emissions & 0.0499   & kg  \\
+              &                &         &     & N$_2$O emissions & 0.3744   & kg  \\
+\midrule
+Filtration    & Boiled slurry  & 15{,}652 & kg & Soy milk         & 14{,}052 & kg \\
+              &                &           &    & Okara (residue)  & 1{,}600  & kg \\
+\midrule
+Coagulation   & Soy milk       & 14{,}052 & kg & Tofu curd        & 3{,}681  & kg \\
+              & Coagulant water & 421     & L  & Whey             & 10{,}434 & L  \\
+\midrule
+Molding \&    & Tofu curd      & 3{,}681  & kg & Final product    & 3{,}681  & kg \\
+Packaging     & Water          & 100      & L  & Wastewater       & 100      & L  \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\subsection{Life Cycle Impact Assessment (LCIA)}
+
+The LCIA phase evaluates and quantifies potential environmental impacts generated by the product system \citep{Hauschild2017}. The \textbf{CML-IA Baseline} method was applied via SimaPro 10.3, covering five impact categories: Global Warming Potential (GWP$_{100a}$, kg CO$_2$ eq), Ozone Layer Depletion (ODP, kg CFC-11 eq), Fresh Water Aquatic Ecotoxicity (FAET, kg 1,4-DB eq), Acidification (AP, kg SO$_2$ eq), and Eutrophication (EP, kg PO$_4^{3-}$ eq). Water use and potential water scarcity were additionally assessed using the \textbf{AWARE (Available WAter REmaining)} method.
+
+\subsection{Interpretation}
+
+The interpretation phase contextualizes LCIA results to identify hotspot categories and the production stages contributing the greatest environmental burdens \citep{Rasyid2024}. \textbf{Normalization} was applied using CML-IA Baseline reference values to place all impact categories on a common dimensionless scale. Interpretation was focused strictly within the gate-to-gate system boundary to ensure results accurately reflect the stages exerting the greatest environmental influence.
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Results and Discussion}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Environmental Impact of Tofu Production}
+
+The LCIA reveals measurable environmental impacts across all five assessed categories. Results are summarized in Table~\ref{tab:lcia}.
+
+\begin{table}[H]
+\centering
+\caption{Environmental Impact of Tofu Production per Batch by Production Stage.}
+\label{tab:lcia}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllllll}
+\toprule
+\textbf{Impact Category} & \textbf{Unit} & \textbf{Total} & \textbf{Washing} & \textbf{Soaking} & \textbf{Grinding} & \textbf{Boiling} & \textbf{Coagulation} & \textbf{Molding} \\
+\midrule
+GWP$_{100a}$ & kg CO$_2$ eq        & $5.28\times10^3$ & $3.56\times10^3$ & 0.945 & 35.8 & $1.63\times10^3$ & 55.8 & 5.9 \\
+ODP          & kg CFC-11 eq        & $6.11\times10^{-5}$ & $5.93\times10^{-5}$ & $2.1\times10^{-9}$ & $7.93\times10^{-8}$ & $1.07\times10^{-6}$ & $5.02\times10^{-7}$ & $1.29\times10^{-7}$ \\
+FAET         & kg 1,4-DB eq        & $1.33\times10^3$ & $1.22\times10^3$ & 0.651 & 24.6 & 70.6 & 14.1 & 2.75 \\
+Acidification & kg SO$_2$ eq       & 4.59 & 3.53 & 0.00245 & 0.0925 & 0.723 & 0.226 & 0.0176 \\
+Eutrophication & kg PO$_4^{3-}$ eq & 9.10 & 8.30 & 0.0034 & 0.128 & 0.409 & 0.250 & 0.00838 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\textit{Note: The filtration stage does not appear in the impact results because no direct energy inputs or emissions were entered in the inventory model for this stage; SimaPro therefore generates no characterization values for filtration.}
+
+
+\subsubsection{Global Warming Potential (GWP)}
+
+Total GWP amounts to \num{5.28e3}~kg CO$_2$ eq. The washing stage is the largest contributor at \num{3.56e3}~kg CO$_2$ eq ($\approx$67.4\%), followed by the boiling stage at \num{1.63e3}~kg CO$_2$ eq ($\approx$30.9\%). The dominance of the washing stage is attributed to large water volumes consumed, which indirectly require energy for water supply and distribution, generating greenhouse gas emissions. Organic-laden washing wastewater has additional potential to produce methane (CH$_4$) if discharged untreated. The boiling stage contributes significantly through firewood combustion, releasing CO$_2$, CH$_4$, and N$_2$O — all potent greenhouse gases.
+
+\subsubsection{Ozone Layer Depletion (ODP)}
+
+Total ODP registers \num{6.11e-5}~kg CFC-11 eq, with the washing stage dominating at \num{5.93e-5}~kg CFC-11 eq ($\approx$97.1\%). This impact is associated not with water per se, but with the energy-intensive infrastructure supporting water supply and distribution, which generates indirect emissions linked to ozone-depleting substances within the LCA system boundary.
+
+\subsubsection{Fresh Water Aquatic Ecotoxicity (FAET)}
+
+Total FAET reaches \num{1.33e3}~kg 1,4-DB eq. The washing stage is the primary contributor at \num{1.22e3}~kg 1,4-DB eq ($\approx$91.7\%). The large volumes of organic-laden wastewater from soybean washing — containing residual organic matter, dissolved solids, and impurities — constitute a significant potential toxicity threat to freshwater organisms if discharged without treatment. The boiling stage contributes 70.6~kg 1,4-DB eq ($\approx$5.3\%) through atmospheric deposition of combustion byproducts (NO$_x$, SO$_x$) into aquatic environments.
+
+\subsubsection{Acidification}
+
+Total Acidification impact is 4.59~kg SO$_2$ eq. The washing stage accounts for 3.53~kg SO$_2$ eq ($\approx$76.9\%), linked to SO$_2$ and NO$_x$ emissions from energy generation supporting water provision. The boiling stage contributes 0.723~kg SO$_2$ eq ($\approx$15.8\%) through firewood combustion, producing SO$_2$ and NO$_x$ that may form acid rain and potentially degrade soil and water quality.
+
+\subsubsection{Eutrophication}
+
+Total Eutrophication impact is 9.10~kg PO$_4^{3-}$ eq, with the washing stage dominant at 8.30~kg PO$_4^{3-}$ eq ($\approx$91.2\%). This is driven by nutrient-rich washing wastewater containing nitrogen and phosphorus compounds derived from soybean residues. Discharge of these nutrients into water bodies can trigger excessive algal proliferation, depleting dissolved oxygen and disrupting aquatic ecosystems. The boiling stage contributes 0.409~kg PO$_4^{3-}$ eq ($\approx$4.5\%) through NO$_x$ emissions deposited via atmospheric pathways.
+
+
+\subsection{Water Use Assessment (AWARE Method)}
+
+Water use was assessed using the AWARE method to determine potential water scarcity across all production stages. Total water scarcity impact is \textbf{515~m$^3$ world eq} for the entire production system (Table~\ref{tab:aware}).
+
+\begin{table}[H]
+\centering
+\caption{Water Use Assessment Results per Production Stage (AWARE Method).}
+\label{tab:aware}
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Production Stage} & \textbf{Water Scarcity (m$^3$ world eq)} & \textbf{Share (\%)} \\
+\midrule
+Boiling              & 294   & 57.09 \\
+Grinding             & 101   & 19.61 \\
+Soaking              & 39.3  & 7.63  \\
+Coagulation          & 38.2  & 7.42  \\
+Washing              & 35.8  & 6.95  \\
+Molding \& Packaging & 7.63  & 1.48  \\
+\midrule
+\textbf{Total}       & \textbf{515} & \textbf{100} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The boiling stage is the dominant contributor ($\approx$57.1\%), reflecting both direct water consumption and the substantial upstream water demand associated with firewood supply chains. The grinding stage contributes the second largest share ($\approx$19.6\%), as continuous water addition is required to achieve appropriate slurry consistency. Within the AWARE framework, the environmental burden is determined not solely by volumetric water use, but also by the upstream energy system and supply chain characteristics of each production stage.
+
+\subsection{Normalization}
+
+Normalization was performed using CML-IA Baseline reference values to place all impact categories on a common dimensionless scale, enabling direct comparison of relative environmental significance (Table~\ref{tab:normalization}).
+
+\begin{table}[H]
+\centering
+\caption{Normalization Results of Tofu Production Environmental Impacts (CML-IA Baseline).}
+\label{tab:normalization}
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Impact Category} & \textbf{Normalized Value} & \textbf{Rank} \\
+\midrule
+Fresh Water Aquatic Ecotoxicity (FAET) & $2.57\times10^{-9}$ & \textbf{1} \\
+Global Warming Potential (GWP)         & $1.05\times10^{-9}$ & 2 \\
+Eutrophication                         & $6.89\times10^{-10}$ & 3 \\
+Acidification                          & $1.63\times10^{-10}$ & 4 \\
+Ozone Layer Depletion (ODP)            & $6.84\times10^{-13}$ & 5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Normalization confirms that \textbf{Fresh Water Aquatic Ecotoxicity (FAET) is the dominant environmental impact category}, indicating that tofu production exerts the greatest pressure on freshwater ecosystems. This finding underscores that liquid waste management — particularly the treatment of organic effluents from washing, soaking, and coagulation — constitutes the most critical environmental challenge. Although GWP frequently receives priority attention in sustainability discussions, its normalized contribution ranks second, indicating that freshwater pollution represents a more acute concern at the facility scale assessed. Eutrophication (rank 3) further reinforces the urgency of addressing nutrient-laden wastewater streams.
+
+
+\subsection{Hotspot Identification and Improvement Strategies}
+
+Based on the integrated LCIA and normalization results, two primary environmental hotspots are identified:
+
+\textbf{Hotspot 1: Organic Liquid Waste (Washing, Soaking, Coagulation Stages).}
+The organic-laden wastewater streams from washing, soaking, and coagulation (whey) are the principal drivers of FAET and Eutrophication — ranked first and third in normalized impact. These effluents are characterized by high BOD, COD, and nutrient loads \citep{Seroja2018, Satar2022}. Recommended interventions include:
+\begin{itemize}[noitemsep]
+  \item \textit{Anaerobic treatment systems} (biodigester/IPAL biogas) to reduce BOD/COD while recovering biogas energy
+  \item \textit{Constructed wetlands or biofilter systems} for nutrient removal prior to discharge
+  \item \textit{Water recycling and recirculation} within washing and soaking stages to reduce volumetric discharge
+  \item \textit{Whey valorization} (e.g., as animal feed or fermentation substrate) to divert high-nutrient streams from wastewater systems
+\end{itemize}
+
+\textbf{Hotspot 2: Firewood Combustion (Boiling Stage).}
+The boiling stage is the dominant contributor to GWP, AWARE water scarcity, and the second-largest contributor to acidification and eutrophication. Combustion of 800~kg firewood per batch releases 1,397~kg CO$_2$, 0.0499~kg CH$_4$, and 0.3744~kg N$_2$O. Recommended interventions include:
+\begin{itemize}[noitemsep]
+  \item \textit{Fuel substitution} to LPG, biomethane from on-site biodigesters, or high-efficiency biomass systems
+  \item \textit{Improved boiler or insulated boiling tank systems} to minimize heat loss and reduce fuel consumption per batch
+  \item \textit{Waste heat recovery} from boiling exhaust to pre-heat water in upstream stages
+\end{itemize}
+
+The LCA-based approach demonstrates that improvements targeting liquid waste management at the source yield greater environmental reduction benefits than end-of-pipe interventions \citep{Bjornbet2021, Apriyanti2025}. Prioritizing these two hotspots is expected to substantially reduce the overall environmental footprint of tofu production in Semarang City.
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Conclusion}
+% ══════════════════════════════════════════════════════════════════════════════
+
+Based on the Life Cycle Assessment of tofu production in Semarang City using a gate-to-gate approach, the following conclusions are drawn:
+
+\begin{enumerate}[noitemsep]
+  \item \textbf{Tofu production generates measurable environmental impacts} across all five assessed categories: GWP (\num{5.28e3}~kg CO$_2$ eq), ODP (\num{6.11e-5}~kg CFC-11 eq), FAET (\num{1.33e3}~kg 1,4-DB eq), Acidification (4.59~kg SO$_2$ eq), and Eutrophication (9.10~kg PO$_4^{3-}$ eq).
+
+  \item \textbf{The washing and boiling stages are the primary contributors} to environmental impact across all categories, driven by high water consumption and firewood combustion, respectively.
+
+  \item \textbf{Fresh Water Aquatic Ecotoxicity (FAET) is the dominant impact category} based on normalization results ($2.57\times10^{-9}$), confirming that organic liquid waste — particularly washing effluents, whey, and coagulation waste — constitutes the most critical environmental hotspot.
+
+  \item \textbf{Water scarcity} (AWARE method) totals 515~m$^3$ world eq, with the boiling stage as dominant contributor (57.1\%), largely driven by the upstream water demand of firewood supply chains.
+
+  \item \textbf{Improvement strategies} should prioritize: (a)~implementation of wastewater treatment and recycling systems for washing, soaking, and coagulation effluents; and (b)~substitution of firewood with cleaner fuel alternatives to reduce greenhouse gas emissions and water scarcity impacts.
+\end{enumerate}
+
+The findings provide actionable, evidence-based guidance for improving the environmental sustainability of SME-scale tofu production and can inform environmental management policies for the tofu industry in Semarang City and Central Java.
+
+
+% ── Bibliography ──────────────────────────────────────────────────────────────
+\bibliographystyle{elsarticle-num}
+
+\begin{thebibliography}{15}
+
+\bibitem{Ghisellini2016}
+Ghisellini, P., Cialani, C., \& Ulgiati, S. (2016).
+A review on circular economy: The expected transition to a balanced interplay of environmental and economic systems.
+\textit{Journal of Cleaner Production}, \textit{114}, 11--32.
+\url{https://doi.org/10.1016/j.jclepro.2015.09.007}
+
+\bibitem{Dewi2024}
+Dewi, A.~N., \& Setiawan, D. (2024).
+Bisnis kuliner: Studi kasus CV.\ Gehu Extra Pedas Chili Hot.
+\textit{Jurnal Manajemen dan Bisnis Islam}, \textit{1}(1), 5--23.
+
+\bibitem{Rosyidah2020}
+Rosyidah, M., Masruri, A., \& Putra, R.~A. (2020).
+Assessment (LCA) method on tofu production.
+\textit{International Journal of Science, Technology \& Management}, \textit{1}(4), 428--435.
+
+\bibitem{Sjafruddin2022}
+Sjafruddin, R., Agustang, A., \& Pertiwi, N. (2022).
+Estimasi limbah industri tahu dan kajian penerapan sistem produksi bersih.
+\textit{Jurnal Ilmiah Mandala Education}, \textit{8}(2), 1229--1237.
+\url{https://doi.org/10.36312/jime.v8i2.2826}
+
+\bibitem{Islami2025}
+Islami, M.~C.~P.~A., \& Harnaningrum, R.~N. (2025).
+Integration of waste management and environmental impact assessment for sustainable manufacturing in Sukolego tofu production.
+\textit{[Journal Name]}, \textit{6}(2), 71--77.
+
+\bibitem{Hauschild2017}
+Hauschild, M.~Z., Rosenbaum, R.~K., \& Olsen, S.~I. (2017).
+\textit{Life Cycle Assessment: Theory and Practice}.
+Springer.
+\url{https://doi.org/10.1007/978-3-319-56475-3}
+
+\bibitem{Chitaka2023}
+Chitaka, T.~Y., \& Goga, T. (2023).
+The evolution of life cycle assessment in the food and beverage industry: A review.
+\textit{Cambridge Prisms: Plastics}, \textit{1}, 1--6.
+\url{https://doi.org/10.1017/plc.2023.4}
+
+\bibitem{Nugroho2024}
+Nugroho, M.~E., Setyono, P., \& Rachmawati, S. (2024).
+Analisis emisi gas rumah kaca dengan Life Cycle Assessment (LCA) dan Analytical Hierarchy Process (AHP) industri tahu.
+\textit{Jurnal Ilmu Lingkungan}, \textit{22}(6), 1504--1512.
+\url{https://doi.org/10.14710/jil.22.6.1504-1512}
+
+\bibitem{Wardana2024}
+Kartika Wardana, S., Cucikodana, Y., Almaniar, S., Dwijayanti, A., Maulana, F., \& Muhlisoh, N.~A. (2024).
+Penilaian dampak lingkungan dengan Life Cycle Assessment (LCA) pada industri tahu Kampung Jangkar Kulon, Cilegon Banten.
+\textit{Jurnal Teknologi Kimia Unimal}, \textit{13}(2), 97--106.
+\url{https://doi.org/10.29103/jtku.v13i2.16429}
+
+\bibitem{Bjornbet2021}
+Bj{\o}rnbet, M.~M., \& Vild{\aa}sen, S.~S. (2021).
+Life cycle assessment to ensure sustainability of circular business models in manufacturing.
+\textit{Sustainability}, \textit{13}(19).
+\url{https://doi.org/10.3390/su131911014}
+
+\bibitem{Saavedra2022}
+Saavedra-Rubio, K., Thonemann, N., Crenna, E., Lemoine, B., Caliandro, P., \& Laurent, A. (2022).
+Stepwise guidance for data collection in the life cycle inventory (LCI) phase: Building technology-related LCI blocks.
+\textit{Journal of Cleaner Production}, \textit{366}, 132903.
+\url{https://doi.org/10.1016/j.jclepro.2022.132903}
+
+\bibitem{Rasyid2024}
+Rasyid, M., \& Anggriani, R. (2024).
+Penerapan Life Cycle Assessment (LCA) pada proses produksi minyak kayu putih di Desa Sawa-Namlea.
+\textit{Journal of Social Science Research}, \textit{4}(3), 18970--18984.
+
+\bibitem{Seroja2018}
+Seroja, R., Effendi, H., \& Hariyadi, S. (2018).
+Tofu wastewater treatment using vetiver grass (\textit{Vetiveria zizanioides}) and zeliac.
+\textit{Applied Water Science}, \textit{8}(1), 1--6.
+\url{https://doi.org/10.1007/s13201-018-0640-y}
+
+\bibitem{Satar2022}
+Satar, I., \& Permadi, A. (2022).
+Treating the tofu wastewater (TWW) using a green technology of microbial fuel cell (MFC) system.
+\textit{Indonesian Journal of Environmental Management and Sustainability}, \textit{6}(1), 162--167.
+
+\bibitem{Apriyanti2025}
+Apriyanti, D., Pratikno, F.~A., \& Hertadi, C.~D.~P. (2025).
+Penilaian dampak lingkungan menggunakan Life Cycle Assessment (LCA) pada proses produksi tempe di SIKS.
+\textit{Jurnal Mitra Teknik Industri}, \textit{4}(1), 19--27.
+\url{https://doi.org/10.24912/jmti.v4i1.34600}
+
+\end{thebibliography}
+
+\end{document}
