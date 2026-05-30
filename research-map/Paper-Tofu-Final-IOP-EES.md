@@ -169,32 +169,32 @@ These findings indicate that freshwater pollution—rather than climate impact a
 
 ## References
 
-[1] Badan Pusat Statistik 2026 *Rata-Rata Konsumsi per Kapita Seminggu Beberapa Macam Bahan Makanan Penting 2007–2025* (Jakarta: Badan Pusat Statistik)
+[1] Badan Pusat Statistik 2026 *Rata-Rata Konsumsi per Kapita Seminggu Beberapa Macam Bahan Makanan Penting 2007–2025* (Jakarta: Badan Pusat Statistik) Available at: https://www.bps.go.id
 
-[2] Seroja R, Effendi H and Hariyadi S 2018 Tofu wastewater treatment using vetiver grass (*Vetiveria zizanioides*) and zeliac *Appl. Water Sci.* **8** 2
+[2] Seroja R, Effendi H and Hariyadi S 2018 Tofu wastewater treatment using vetiver grass (*Vetiveria zizanioides*) and zeliac *Appl. Water Sci.* **8** 2 https://doi.org/10.1007/s13201-018-0640-y
 
-[3] Sjafruddin R, Agustang A and Pertiwi N 2022 Estimasi limbah industri tahu dan kajian penerapan sistem produksi bersih *J. Ilm. Mandala Educ.* **8** 1229–37
+[3] Sjafruddin R, Agustang A and Pertiwi N 2022 Estimasi limbah industri tahu dan kajian penerapan sistem produksi bersih *J. Ilm. Mandala Educ.* **8** 1229–37 https://doi.org/10.36312/jime.v8i2.2826
 
-[4] Basuki T M, Nugroho H Y S H, Indrajaya Y, Pramono I B, Nugroho N P, Supangat A B *et al.* 2024 Water pollution of some major rivers in Indonesia: status, institution, regulation, and recommendation for mitigation *Pol. J. Environ. Stud.* **33** 3515–30
+[4] Basuki T M, Nugroho H Y S H, Indrajaya Y, Pramono I B, Nugroho N P, Supangat A B *et al.* 2024 Water pollution of some major rivers in Indonesia: status, institution, regulation, and recommendation for mitigation *Pol. J. Environ. Stud.* **33** 3515–30 https://doi.org/10.15244/pjoes/178532
 
-[5] Chitaka T Y and Goga T 2023 The evolution of life cycle assessment in the food and beverage industry: a review *Cambridge Prisms: Plast.* **1** e2
+[5] Chitaka T Y and Goga T 2023 The evolution of life cycle assessment in the food and beverage industry: a review *Cambridge Prisms: Plast.* **1** e2 https://doi.org/10.1017/plc.2023.4
 
-[6] Rosyidah M, Masruri A and Putra R A 2020 Analysis of environmental impact with the Life Cycle Assessment (LCA) method on tofu production *Int. J. Sci. Technol. Manag.* **1** 428–35
+[6] Rosyidah M, Masruri A and Putra R A 2020 Analysis of environmental impact with the Life Cycle Assessment (LCA) method on tofu production *Int. J. Sci. Technol. Manag.* **1** 428–35 https://doi.org/10.46729/ijstm.v1i4.73
 
-[7] Nugroho M E, Setyono P and Rachmawati S 2024 Analisis emisi gas rumah kaca dengan Life Cycle Assessment (LCA) dan Analytical Hierarchy Process (AHP) industri tahu *J. Ilmu Lingkung.* **22** 1504–12
+[7] Nugroho M E, Setyono P and Rachmawati S 2024 Analisis emisi gas rumah kaca dengan Life Cycle Assessment (LCA) dan Analytical Hierarchy Process (AHP) industri tahu *J. Ilmu Lingkung.* **22** 1504–12 https://doi.org/10.14710/jil.22.6.1504-1512
 
-[8] Sari I P, Kurniawan W and Sia F L 2021 Environmental impact of tofu production in West Jakarta using a life cycle assessment approach *IOP Conf. Ser.: Earth Environ. Sci.* **896** 012050
+[8] Sari I P, Kurniawan W and Sia F L 2021 Environmental impact of tofu production in West Jakarta using a life cycle assessment approach *IOP Conf. Ser.: Earth Environ. Sci.* **896** 012050 https://doi.org/10.1088/1755-1315/896/1/012050
 
-[9] Hartini S, Fatliana A N, Handayani N U, Wicaksono P A, Ramadan B S and Matsumoto T 2024 Life cycle assessment and life cycle cost of tofu production and its extended recycling scenario *Glob. J. Environ. Sci. Manag.* **10** 487–504
+[9] Hartini S, Fatliana A N, Handayani N U, Wicaksono P A, Ramadan B S and Matsumoto T 2024 Life cycle assessment and life cycle cost of tofu production and its extended recycling scenario *Glob. J. Environ. Sci. Manag.* **10** 487 [DOI: add from published version, prefix 10.22034/gjesm]
 
-[10] Kartika Wardana S, Cucikodana Y, Almaniar S, Dwijayanti A, Maulana F and Muhlisoh N A 2024 Penilaian dampak lingkungan dengan menggunakan Life Cycle Assessment (LCA) pada industri tahu Kampung Jangkar Kulon, Cilegon Banten *J. Teknol. Kim. Unimal* **13** 97–106
+[10] Kartika Wardana S, Cucikodana Y, Almaniar S, Dwijayanti A, Maulana F and Muhlisoh N A 2024 Penilaian dampak lingkungan dengan menggunakan Life Cycle Assessment (LCA) pada industri tahu Kampung Jangkar Kulon, Cilegon Banten *J. Teknol. Kim. Unimal* **13** 97–106 https://doi.org/10.29103/jtku.v13i2.16429
 
-[11] Mir B A, Nurdiawati A and Al-Ghamdi S G 2025 Assessing the environmental impact of freshwater use in LCA: established practices and current methods *Environ. Sci.: Water Res. Technol.* **11** 196–221
+[11] Mir B A, Nurdiawati A and Al-Ghamdi S G 2025 Assessing the environmental impact of freshwater use in LCA: established practices and current methods *Environ. Sci.: Water Res. Technol.* **11** 196–221 https://doi.org/10.1039/D4EW00641K
 
-[12] Saavedra-Rubio K, Thonemann N, Crenna E, Lemoine B, Caliandro P and Laurent A 2022 Stepwise guidance for data collection in the life cycle inventory (LCI) phase: building technology-related LCI blocks *J. Clean. Prod.* **366** 132903
+[12] Saavedra-Rubio K, Thonemann N, Crenna E, Lemoine B, Caliandro P and Laurent A 2022 Stepwise guidance for data collection in the life cycle inventory (LCI) phase: building technology-related LCI blocks *J. Clean. Prod.* **366** 132903 https://doi.org/10.1016/j.jclepro.2022.132903
 
-[13] Bjørnbet M M and Vildåsen S S 2021 Life cycle assessment to ensure sustainability of circular business models in manufacturing *Sustainability* **13** 11014
+[13] Bjørnbet M M and Vildåsen S S 2021 Life cycle assessment to ensure sustainability of circular business models in manufacturing *Sustainability* **13** 11014 https://doi.org/10.3390/su131911014
 
-[14] Satar I and Permadi A 2022 Treating the tofu wastewater (TWW) using a green technology of microbial fuel cell (MFC) system *Indones. J. Environ. Manag. Sustain.* **6** 1–6
+[14] Satar I and Permadi A 2022 Treating the tofu wastewater (TWW) using a green technology of microbial fuel cell (MFC) system *Indones. J. Environ. Manag. Sustain.* **6** 162–7 https://doi.org/10.26554/ijems.2022.6.1.162-167
 
-[15] Ningsih L M, Mazancová J, Hasanudin U and Roubík H 2026 Energy audits in the tofu industry: an evaluation of energy consumption towards a green and sustainable industry *Environ. Dev. Sustain.* **28** 3737–59
+[15] Ningsih L M, Mazancová J, Hasanudin U and Roubík H 2026 Energy audits in the tofu industry: an evaluation of energy consumption towards a green and sustainable industry *Environ. Dev. Sustain.* **28** 3737–59 https://doi.org/10.1007/s10668-024-05109-z
