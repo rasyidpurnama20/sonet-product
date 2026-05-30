@@ -157,7 +157,7 @@ EEW methodologies are broadly classified into two operational paradigms based on
 \textbf{On-site (single-station) methods} use observations recorded at the target site itself to predict the severity of impending strong shaking. Upon detecting the P-wave arrival, the system estimates whether the following S-wave and surface waves will produce damaging ground motion at that same location. The fundamental parameters used historically include the predominant period $\tau_c$ (as a magnitude proxy) and the peak displacement amplitude $P_d$ (as a ground motion proxy) measured within the first few seconds of the P-wave \citep{wu2005experiment, wu2006magnitude}:
 
 \begin{equation}
-\tau_c = 2\pi \frac{\sqrt{\frac{\int_0^{\tau_0} \dot{u}^2(t) \, dt}{\int_0^{\tau_0} u^2(t) \, dt}}}{\sqrt{\frac{\int_0^{\tau_0} u^2(t) \, dt}{\int_0^{\tau_0} \dot{u}^2(t) \, dt}}}
+\tau_c = 2\pi \sqrt{\frac{\int_0^{\tau_0} u^2(t) \, dt}{\int_0^{\tau_0} \dot{u}^2(t) \, dt}}
 \label{eq:tau_c}
 \end{equation}
 
