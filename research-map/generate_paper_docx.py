@@ -173,7 +173,9 @@ BODY = [
         "anaerobic decomposition if discharged untreated [2]. Boiling contributes substantially "
         "through the direct combustion of 800 kg of firewood per batch, releasing CO\u2082, "
         "CH\u2084, and N\u2082O\u2014consistent with comparative LCA studies of wood-fired tofu "
-        "production in Indonesia, where boiling was identified as the primary emission source [6]."},
+        "production in Indonesia, where boiling was identified as the primary emission source, "
+        "accounting for up to ~98% of total CO\u2082-equivalent emissions in some production "
+        "configurations [6]."},
     {"t": "body_lead", "lead": "Ozone Layer Depletion (ODP).", "text":
         " Total ODP is 6.11 \u00d7 10\u207b\u2075 kg CFC-11 eq, with washing contributing "
         "5.93 \u00d7 10\u207b\u2075 kg CFC-11 eq (\u224897.1%). This result may appear "
@@ -220,10 +222,12 @@ BODY = [
         "its scarcity value beyond what direct water consumption alone would suggest [11]. Grinding "
         "contributes the second-largest share (101 m\u00b3 world eq; \u224819.6%), consistent with "
         "the continuous water addition required to achieve appropriate slurry consistency "
-        "(4,200 L; Table 1). The comparatively lower scarcity value of washing\u2014despite "
-        "generating the largest effluent volume\u2014illustrates that water-scarcity "
-        "characterization is governed not solely by effluent volume but by regional water "
-        "availability and the embedded water footprint of upstream inputs [11]."},
+        "(4,200 L; Table 1). The soaking, coagulation, and washing stages contribute 39.3, 38.2, "
+        "and 35.8 m\u00b3 world eq (\u22487.6%, 7.4%, and 7.0%, respectively), and molding and "
+        "packaging the least (7.63 m\u00b3 world eq; \u22481.5%). The comparatively lower scarcity "
+        "value of washing\u2014despite generating the largest effluent volume\u2014illustrates that "
+        "water-scarcity characterization is governed not solely by effluent volume but by regional "
+        "water availability and the embedded water footprint of upstream inputs [11]."},
     {"t": "h2", "text": "3.3 Normalization"},
     {"t": "body", "text":
         "Normalization was performed using the CML-IA Baseline reference values to place all "
@@ -273,6 +277,14 @@ BODY = [
         "fuel consumption [15]. Overall, the LCA evidence demonstrates that interventions targeting "
         "liquid-waste management and energy efficiency at the source yield substantially greater "
         "environmental benefit than conventional end-of-pipe approaches [13]."},
+    {"t": "body", "text":
+        "Taken together, the disproportionate contribution of the washing stage to FAET, GWP, "
+        "acidification, and eutrophication\u2014evidenced consistently across Tables 2 and 4 and "
+        "Figure 2\u2014indicates that process-level modifications at the earliest stages of the "
+        "production chain deliver the greatest systemic environmental benefit. This conclusion is "
+        "consistent with the waste-reduction hierarchy embedded in the ISO 14040/14044 framework "
+        "[5] and with circular-production principles that prioritize source reduction and resource "
+        "recovery over end-of-pipe control [13]."},
 
     {"t": "h1", "text": "4. Conclusion"},
     {"t": "body", "text":
