@@ -1,0 +1,33 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Write the comprehensive review article in LaTeX format about Graph Neural Networks for Earthquake Early Warning Systems. The article must be written from the perspective of a professor expert in AI (deep learning/GNNs) and seismology, targeting Earth-Science Reviews (Elsevier, high impact factor). Minimum 30 pages when compiled. Must include 100+ references in the .bib file.",
+  "status": "completed",
+  "steps": [
+    "Create /projects/sandbox/sonet-product/artikel_review/main.tex with the complete review article using Elsevier elsarticle document class (or article class with Elsevier-compatible formatting). Structure: Title, Authors, Abstract (300+ words), Keywords, 1. Introduction (2-3 pages), 2. Background on Earthquake Early Warning Systems (3-4 pages covering P-wave detection, magnitude estimation, alert time, existing EEW systems worldwide), 3. Seismic Networks as Graphs (2-3 pages on network topology, why graph representations are natural for seismic stations), 4. Graph Neural Network Fundamentals (3-4 pages covering GCN, GAT, GraphSAGE, message passing, spectral vs spatial methods), 5. GNN Applications in Seismology (6-8 pages covering phase picking, event detection, source characterization, ground motion prediction, magnitude estimation), 6. Temporal-Spatial Graph Networks for Seismic Data (3-4 pages on dynamic graphs, attention mechanisms, temporal convolutions), 7. Comparison with Traditional and CNN-based Approaches (3-4 pages with comparison tables), 8. Benchmark Datasets and Evaluation (2-3 pages on STEAD, INSTANCE, LEN-DB, SCEDC), 9. Challenges and Limitations (2-3 pages on real-time constraints, sparse networks, transfer learning, label noise), 10. Future Directions (2-3 pages on foundation models, federated learning, physics-informed GNNs, multi-modal fusion, edge computing), 11. Ethical and Operational Considerations (1-2 pages), 12. Conclusions (1-2 pages). Include Tables and Figures using TikZ/pgfplots.",
+    "Create /projects/sandbox/sonet-product/artikel_review/references.bib with 100+ properly formatted BibTeX entries covering: seminal GNN papers (Kipf & Welling 2017, Velickovic et al 2018, Hamilton et al 2017), earthquake early warning papers (Allen & Kanamori 2003, Gasparini et al 2007, Allen 2012), deep learning in seismology (Mousavi et al 2020, Ross et al 2018, Zhu & Beroza 2019, Perol et al 2018), GNN applications in geoscience (recent 2020-2024 papers), benchmark datasets (Mousavi et al 2019 STEAD, Michelini et al 2021 INSTANCE), physics-informed neural networks (Raissi et al 2019, Moseley et al 2020), and relevant review articles",
+    "Include at least 5 TikZ figures: (1) Architecture diagram of a GNN-based EEW system, (2) Taxonomy of GNN methods applied to seismology, (3) Comparison of traditional vs GNN pipeline, (4) Seismic station network as graph representation, (5) Timeline of key developments in GNN-EEW research",
+    "Include at least 4 tables: (1) Comparison of GNN architectures for seismic tasks, (2) Summary of benchmark datasets, (3) Performance comparison across methods, (4) Summary of operational EEW systems worldwide",
+    "Ensure professional academic writing: formal tone, critical analysis (not just description), synthesis across studies, identification of research gaps, clear argumentation"
+  ],
+  "acceptance_criteria": [
+    "main.tex file exists at /projects/sandbox/sonet-product/artikel_review/main.tex",
+    "references.bib file exists at /projects/sandbox/sonet-product/artikel_review/references.bib with 100+ entries",
+    "The document compiles successfully with pdflatex+bibtex",
+    "The compiled PDF has 30+ pages",
+    "All sections listed in the steps are present in the document",
+    "At least 5 figures and 4 tables are included",
+    "Abstract is 300+ words",
+    "Writing is at professor-level academic quality for a top journal"
+  ],
+  "verification": [
+    "Run: cd /projects/sandbox/sonet-product/artikel_review && pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex",
+    "Run: pdfinfo /projects/sandbox/sonet-product/artikel_review/main.pdf | grep Pages",
+    "Run: grep -c '@' /projects/sandbox/sonet-product/artikel_review/references.bib",
+    "Run: grep -c '\\\\section' /projects/sandbox/sonet-product/artikel_review/main.tex",
+    "Run: grep -c '\\\\begin{figure}' /projects/sandbox/sonet-product/artikel_review/main.tex",
+    "Run: grep -c '\\\\begin{table}' /projects/sandbox/sonet-product/artikel_review/main.tex"
+  ],
+  "blocked_reason": null,
+  "findings": "Article compiles to 42 pages with pdflatex+bibtex. 122 bib entries, 6 TikZ figures, 5 tables, 12 main sections with 388-word abstract. All bibtex warnings are non-critical (empty pages fields). Hyperref warnings about Unicode in bookmarks are cosmetic only. The elsarticle-harv bibliography style works with natbib authoryear. Build time is approximately 30s for full pdflatex+bibtex+pdflatex+pdflatex cycle."
+}

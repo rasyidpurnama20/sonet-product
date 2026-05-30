@@ -1,0 +1,25 @@
+{
+  "id": "FEAT-001",
+  "type": "chore",
+  "description": "Install LaTeX distribution and required packages for PDF compilation in the sandbox environment",
+  "status": "completed",
+  "steps": [
+    "Install texlive and required LaTeX packages using dnf: texlive, texlive-collection-latexrecommended, texlive-collection-fontsrecommended, texlive-collection-bibtexextra, texlive-collection-science, texlive-natbib, texlive-bibtex, texlive-algorithms, texlive-algorithmicx, texlive-tikz-cd, texlive-pgfplots, texlive-standalone, texlive-tcolorbox, texlive-multirow, texlive-wrapfig, texlive-subcaption, texlive-elsarticle",
+    "Install poppler-utils for pdfinfo verification",
+    "Verify pdflatex is available by running: pdflatex --version",
+    "Verify bibtex is available by running: bibtex --version",
+    "Create the output directory: /projects/sandbox/sonet-product/artikel_review/"
+  ],
+  "acceptance_criteria": [
+    "pdflatex --version returns successfully",
+    "bibtex --version returns successfully",
+    "pdfinfo command is available",
+    "Directory /projects/sandbox/sonet-product/artikel_review/ exists"
+  ],
+  "verification": [
+    "Run: pdflatex --version && bibtex --version && which pdfinfo",
+    "Run: ls -d /projects/sandbox/sonet-product/artikel_review/"
+  ],
+  "blocked_reason": null,
+  "findings": "Sandbox is Amazon Linux 2023 (not Fedora). The nss package failed to install normally due to transaction error, but was resolved by extracting libs from the downloaded RPM. Some texlive sub-packages (texlive-subcaption, texlive-inputenc, texlive-fontenc, texlive-graphicx, texlive-tikz, texlive-tabularx, texlive-array, texlive-longtable) do not exist as standalone packages - they are included in texlive-collection-latexrecommended or base texlive. pdflatex is TeX Live 2021. All required tools verified working."
+}
