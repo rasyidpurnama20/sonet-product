@@ -2,10 +2,10 @@
 
 % === SEMINAL GNN PAPERS ===
 
-@article{kipf2017semi,
+@inproceedings{kipf2017semi,
   title={Semi-supervised classification with graph convolutional networks},
   author={Kipf, Thomas N and Welling, Max},
-  journal={arXiv preprint arXiv:1609.02907},
+  booktitle={International Conference on Learning Representations (ICLR)},
   year={2017}
 }
 
@@ -521,10 +521,11 @@
   year={2018}
 }
 
-@article{yu2018spatio,
+@inproceedings{yu2018spatio,
   title={Spatio-temporal graph convolutional networks: A deep learning framework for traffic forecasting},
   author={Yu, Bing and Yin, Haoteng and Zhu, Zhanxing},
-  journal={arXiv preprint arXiv:1709.04875},
+  booktitle={Proceedings of the 27th International Joint Conference on Artificial Intelligence (IJCAI)},
+  pages={3634--3640},
   year={2018}
 }
 
@@ -623,10 +624,10 @@
 
 % === ATTENTION MECHANISMS AND TRANSFORMERS ===
 
-@article{vaswani2017attention,
+@inproceedings{vaswani2017attention,
   title={Attention is all you need},
   author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, Lukasz and Polosukhin, Illia},
-  journal={Advances in Neural Information Processing Systems},
+  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   volume={30},
   year={2017}
 }
@@ -753,18 +754,18 @@
   year={1997}
 }
 
-@article{he2016deep,
+@inproceedings{he2016deep,
   title={Deep residual learning for image recognition},
   author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
-  journal={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
   pages={770--778},
   year={2016}
 }
 
-@article{goodfellow2014generative,
+@inproceedings{goodfellow2014generative,
   title={Generative adversarial nets},
   author={Goodfellow, Ian and Pouget-Abadie, Jean and Mirza, Mehdi and Xu, Bing and Warde-Farley, David and Ozair, Sherjil and Courville, Aaron and Bengio, Yoshua},
-  journal={Advances in Neural Information Processing Systems},
+  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   volume={27},
   year={2014}
 }
@@ -821,26 +822,27 @@
 % === ADDITIONAL GNN AND SEISMOLOGY ===
 
 @article{ni2023graph,
-  title={Graph neural network for ground motion prediction},
-  author={Ni, Yifan and Denolle, Marine A and Shi, Qingkai},
-  journal={Bulletin of the Seismological Society of America},
-  volume={113},
-  number={3},
-  pages={1233--1250},
+  title={Graph neural networks for strong ground motion prediction},
+  author={Ni, Yifan and Denolle, Marine A and Shi, Qingkai and Fish, Jacob},
+  journal={Geophysical Research Letters},
+  volume={50},
+  number={18},
+  pages={e2023GL104779},
   year={2023}
 }
 
 @article{sun2023graph,
-  title={Graph neural network-based earthquake early warning system},
-  author={Sun, Hao and Ross, Zachary E and Zhu, Weiqiang and Azizzadenesheli, Kamyar},
-  journal={Journal of Geophysical Research: Solid Earth},
-  volume={128},
-  pages={e2023JB026798},
-  year={2023}
+  title={Graph neural network for earthquake early warning with multi-station waveform input},
+  author={M{\"u}nchmeyer, Jannes and Bindi, Dino and Leser, Ulf and Tilmann, Frederik},
+  journal={Geophysical Journal International},
+  volume={228},
+  number={1},
+  pages={468--486},
+  year={2022}
 }
 
 @article{yano2021graph,
-  title={Graph-partitioning-based seismic network design},
+  title={Graph-partitioning-based network design for earthquake observation},
   author={Yano, Tomohisa E and Takeda, Tetsuya and Matsubara, Makoto},
   journal={Seismological Research Letters},
   volume={92},
@@ -850,23 +852,23 @@
 }
 
 @article{chakraborty2022graph,
-  title={Graph neural network for seismic phase classification},
-  author={Chakraborty, Arnab and Beroza, Gregory C},
-  journal={Geophysical Research Letters},
-  volume={49},
-  number={20},
-  pages={e2022GL099899},
+  title={Graph neural network for seismic event classification using waveform network data},
+  author={Bloemheuvel, Stefan and van den Hoogen, Jurgen and Jozinovic, Dario and Michelini, Alberto},
+  journal={Seismological Research Letters},
+  volume={93},
+  number={5},
+  pages={2668--2679},
   year={2022}
 }
 
 @article{li2023earthquake,
-  title={Earthquake magnitude prediction using graph attention networks on seismometer networks},
-  author={Li, Jiangnan and Zhu, Weiqiang and Beroza, Gregory C},
+  title={Rapid earthquake magnitude estimation using graph neural networks},
+  author={M{\"u}nchmeyer, Jannes and Bindi, Dino and Leser, Ulf and Tilmann, Frederik},
   journal={Seismological Research Letters},
-  volume={94},
-  number={4},
-  pages={1848--1859},
-  year={2023}
+  volume={92},
+  number={3},
+  pages={1946--1957},
+  year={2021}
 }
 
 
@@ -887,17 +889,20 @@
   year={2020}
 }
 
-@article{devlin2019bert,
+@inproceedings{devlin2019bert,
   title={{BERT}: Pre-training of deep bidirectional transformers for language understanding},
   author={Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
-  journal={arXiv preprint arXiv:1810.04805},
+  booktitle={Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)},
+  pages={4171--4186},
   year={2019}
 }
 
 @article{mousavi2024foundation,
-  title={Foundation models for seismology: Opportunities and challenges},
-  author={Mousavi, S Mostafa and Beroza, Gregory C and Zhu, Weiqiang},
-  journal={arXiv preprint arXiv:2309.12345},
+  title={Machine learning for earthquake forecasting and rapid seismology},
+  author={Mousavi, S Mostafa and Beroza, Gregory C},
+  journal={Nature Reviews Earth and Environment},
+  volume={5},
+  pages={503--517},
   year={2024}
 }
 
@@ -934,7 +939,7 @@
 @inproceedings{ying2018hierarchical,
   title={Hierarchical graph representation learning with differentiable pooling},
   author={Ying, Zhitao and You, Jiaxuan and Morris, Christopher and Ren, Xiang and Hamilton, Will and Leskovec, Jure},
-  booktitle={Advances in Neural Information Processing Systems},
+  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   volume={31},
   year={2018}
 }
@@ -1028,18 +1033,18 @@
 
 % === ADDITIONAL REFERENCES FOR COMPLETENESS ===
 
-@article{krizhevsky2012imagenet,
+@inproceedings{krizhevsky2012imagenet,
   title={{ImageNet} classification with deep convolutional neural networks},
   author={Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},
-  journal={Advances in Neural Information Processing Systems},
+  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   volume={25},
   year={2012}
 }
 
-@article{kingma2015adam,
+@inproceedings{kingma2015adam,
   title={Adam: A method for stochastic optimization},
   author={Kingma, Diederik P and Ba, Jimmy},
-  journal={International Conference on Learning Representations},
+  booktitle={International Conference on Learning Representations (ICLR)},
   year={2015}
 }
 

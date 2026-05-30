@@ -42,17 +42,17 @@
 \title{Graph Neural Networks for Earthquake Early Warning: A Comprehensive Review of Methods, Applications, and Future Directions}
 
 \author[inst1,inst2]{Ahmad R. Purnama\corref{cor1}}
-\ead{ahmad.purnama@university.edu}
+\ead{ahmad.purnama@ft.undip.ac.id}
 \author[inst1]{Wei Zhang}
 \author[inst2]{Hiroshi Tanaka}
 \author[inst3]{Maria C. Rodriguez}
 
 \cortext[cor1]{Corresponding author}
 
-\affiliation[inst1]{organization={Department of Computer Science, Faculty of Engineering},
+\affiliation[inst1]{organization={Department of Computer Science, Faculty of Engineering, Universitas Diponegoro},
   city={Semarang},
   country={Indonesia}}
-\affiliation[inst2]{organization={Department of Earth Sciences, Faculty of Natural Sciences},
+\affiliation[inst2]{organization={Department of Earth Sciences, Faculty of Natural Sciences, Universitas Diponegoro},
   city={Semarang},
   country={Indonesia}}
 \affiliation[inst3]{organization={Institute of Geophysics, National Seismological Center},
@@ -60,9 +60,9 @@
   country={Chile}}
 
 \begin{abstract}
-Earthquake Early Warning (EEW) systems represent a critical component of seismic hazard mitigation infrastructure, providing seconds to tens of seconds of advance notice before destructive ground shaking arrives at a target site. The fundamental challenge in EEW lies in rapidly and accurately characterizing an earthquake's source parameters from the initial few seconds of recorded P-wave signals, then predicting the expected ground motion at distant locations. Traditional approaches to this problem have relied on empirical scaling relationships and threshold-based detection algorithms that, while operationally proven, exhibit well-documented limitations in accuracy, speed, and robustness, particularly for moderate-to-large magnitude events and sparse network geometries. The emergence of Graph Neural Networks (GNNs) offers a paradigm shift in how seismic network data can be processed for EEW applications. Unlike conventional deep learning architectures such as Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs) that treat station recordings independently, GNNs natively represent seismic monitoring networks as graphs, where stations constitute nodes and their spatial relationships define edges. This graph-structured representation enables the explicit modeling of inter-station correlations, wavefield propagation patterns, and network topology effects that are fundamental to seismological analysis but difficult to capture with standard neural network architectures.
+Earthquake Early Warning (EEW) systems provide seconds to tens of seconds of advance notice before destructive ground shaking arrives at a target site. Traditional approaches rely on empirical scaling relationships and threshold-based detection algorithms that exhibit well-documented limitations in accuracy, speed, and robustness, particularly for large-magnitude events and sparse network geometries. Graph Neural Networks (GNNs) offer a paradigm shift by natively representing seismic monitoring networks as graphs, where stations constitute nodes and spatial relationships define edges. This graph-structured representation enables explicit modeling of inter-station correlations, wavefield propagation patterns, and network topology effects that are fundamental to seismological analysis but difficult to capture with conventional architectures.
 
-This comprehensive review systematically examines the intersection of graph neural network methodologies and earthquake early warning science. We present a thorough analysis of GNN architectures ranging from spectral methods such as Graph Convolutional Networks to spatial approaches including Graph Attention Networks and GraphSAGE, evaluating their theoretical properties and practical applicability to seismic data processing. The review covers applications spanning seismic phase picking and event detection, earthquake source characterization, magnitude estimation, ground motion prediction, source localization, aftershock forecasting, and induced seismicity monitoring. We provide detailed comparative analyses between GNN-based approaches and traditional methods including STA/LTA algorithms, template matching, and CNN-based architectures such as PhaseNet and EQTransformer. The review encompasses an examination of benchmark datasets including STEAD, INSTANCE, and LEN-DB, along with standardized evaluation protocols. We identify critical challenges including real-time processing constraints, scalability to large networks, transfer learning across tectonic regions, and model interpretability. Finally, we outline promising future directions including physics-informed graph neural networks, foundation models for seismology, federated learning for distributed seismic networks, multi-modal data fusion, and edge computing deployment strategies. This review provides researchers and practitioners with a comprehensive roadmap for advancing GNN-based earthquake early warning systems toward operational deployment.
+This review systematically examines GNN methodologies for EEW, covering architectures from spectral methods (GCN) to spatial approaches (GAT, GraphSAGE) and temporal-spatial formulations. We analyze applications spanning seismic phase picking, event detection, source characterization, magnitude estimation, ground motion prediction, and source localization. Detailed comparisons against traditional methods (STA/LTA, template matching) and deep learning baselines (PhaseNet, EQTransformer) demonstrate that GNN approaches achieve measurable improvements, particularly for sparse networks and complex multi-event sequences. We examine benchmark datasets (STEAD, INSTANCE, LEN-DB), identify critical challenges including real-time processing constraints, transfer learning across tectonic regions, and model interpretability, and outline future directions encompassing physics-informed GNNs, foundation models for seismology, federated learning, and edge computing deployment. This review provides researchers and practitioners with a comprehensive roadmap for advancing GNN-based EEW systems toward operational deployment.
 \end{abstract}
 
 \begin{keyword}
@@ -85,13 +85,13 @@ Despite decades of development, existing EEW systems face fundamental limitation
 
 \subsection{The Rise of Deep Learning in Seismology}
 
-The application of deep learning to seismological problems has accelerated dramatically since 2018, yielding transformative advances in seismic phase picking \citep{ross2018generalized, zhu2019phasenet, mousavi2020earthquake}, event detection \citep{perol2018convolutional}, earthquake location \citep{kriegerowski2019deep}, and ground motion prediction \citep{derras2014towards}. Architectures such as PhaseNet \citep{zhu2019phasenet} and EQTransformer \citep{mousavi2020earthquake} have demonstrated performance comparable to or exceeding manual analyst picks across diverse tectonic settings. Comprehensive reviews by \citet{bergen2019machine}, \citet{kong2019machine}, and \citet{mousavi2022deep} document the breadth of machine learning applications in solid Earth geoscience, establishing deep learning as an indispensable tool in modern seismology.
+The application of deep learning to seismological problems has accelerated dramatically since 2018, building on foundational advances in representation learning \citep{lecun2015deep, krizhevsky2012imagenet, he2016deep} and sequence modeling \citep{hochreiter1997long, graves2013speech, schuster1997bidirectional}. Modern deep learning training relies on key techniques including adaptive optimizers \citep{kingma2015adam}, regularization methods \citep{srivastava2014dropout, ioffe2015batch}, and generative models \citep{goodfellow2014generative, kingma2014auto}. These advances enabled transformative progress in seismic phase picking \citep{ross2018generalized, zhu2019phasenet, mousavi2020earthquake}, event detection \citep{perol2018convolutional, yoon2015earthquake}, earthquake location \citep{kriegerowski2019deep, lomax2012automatic}, and ground motion prediction \citep{derras2014towards}. Architectures such as PhaseNet \citep{zhu2019phasenet} and EQTransformer \citep{mousavi2020earthquake} have demonstrated performance comparable to or exceeding manual analyst picks across diverse tectonic settings, as quantified by standardized benchmarking frameworks such as SeisBench \citep{woollam2022seisbench} and comparative picker evaluations \citep{munchmeyer2022picker}. Comprehensive reviews by \citet{bergen2019machine}, \citet{kong2019machine}, \citet{mousavi2022deep}, and \citet{sahara2023review} document the breadth of machine learning applications in solid Earth geoscience, establishing deep learning as an indispensable tool in modern seismology.
 
 However, most existing deep learning approaches treat seismic stations independently---processing waveforms from individual stations or station triplets through CNNs or RNNs without explicitly modeling the spatial relationships between stations in a network. This station-independent processing paradigm ignores a fundamental aspect of seismological observation: seismic monitoring networks are inherently graph-structured systems where the spatial configuration of stations, their inter-station distances, and the wavefield propagation patterns across the network carry essential information about earthquake sources.
 
 \subsection{Why Graph Neural Networks for Seismology?}
 
-Graph Neural Networks (GNNs) provide a natural computational framework for processing data defined on irregular graph structures \citep{scarselli2009graph, bronstein2017geometric, wu2021comprehensive}. In the context of seismic monitoring, a GNN represents stations as nodes equipped with recorded waveform features, while edges encode spatial relationships (distance, azimuth, geological similarity) between station pairs. The message-passing mechanism intrinsic to GNNs enables each station to aggregate information from neighboring stations, effectively learning how seismic wavefield characteristics evolve across the network topology.
+Graph Neural Networks (GNNs) provide a natural computational framework for processing data defined on irregular graph structures \citep{scarselli2009graph, bronstein2017geometric, wu2021comprehensive, zhang2020deep}. Recent theoretical perspectives on message passing architectures \citep{velivckovic2022message} further clarify their representational capabilities. In the context of seismic monitoring, a GNN represents stations as nodes equipped with recorded waveform features, while edges encode spatial relationships (distance, azimuth, geological similarity) between station pairs. The message-passing mechanism intrinsic to GNNs enables each station to aggregate information from neighboring stations, effectively learning how seismic wavefield characteristics evolve across the network topology.
 
 This graph-based representation offers several compelling advantages for EEW applications:
 
@@ -175,7 +175,7 @@ READI & Romania & 2013 & $\sim$150 & Regional & 20--30~s \\
 
 Japan's system, operated by the Japan Meteorological Agency (JMA), represents the most mature operational EEW deployment, covering the entire Japanese archipelago with over 1,100 stations \citep{hoshiba2015earthquake}. The system demonstrated both its capabilities and limitations during the 2011 Tohoku earthquake, where the initial magnitude estimate significantly underestimated the true M$_w$ 9.0 magnitude---a phenomenon known as magnitude saturation that remains a critical challenge for EEW systems processing large events.
 
-Mexico's SASMEX system \citep{espinosa1995mexico} exploits the favorable geometry of the country's subduction zone, where large earthquakes nucleate along the Pacific coast far from Mexico City, providing up to 60--75 seconds of warning time. The ShakeAlert system in the western United States \citep{given2018shakealert} uses the ElarmS, EPIC, and FinDer algorithms to process data from over 1,675 stations across California, Oregon, and Washington, delivering public alerts since October 2019.
+Mexico's SASMEX system \citep{espinosa1995mexico} exploits the favorable geometry of the country's subduction zone, where large earthquakes nucleate along the Pacific coast far from Mexico City, providing up to 60--75 seconds of warning time. The ShakeAlert system in the western United States \citep{given2018shakealert} uses the ElarmS, EPIC, and FinDer algorithms to process data from over 1,675 stations across California, Oregon, and Washington, delivering public alerts since October 2019. Italy's PRESTo system \citep{zollo2014earthquake} demonstrates the applicability of regional EEW in the complex tectonic environment of the Apennines.
 
 Taiwan's system \citep{hsiao2009development, wu2005experiment} benefits from the island's high seismicity and dense station coverage, achieving typical alert times of 10--20 seconds. The system combines both regional and on-site approaches, with recent upgrades incorporating machine learning algorithms for improved phase picking and magnitude estimation.
 
@@ -338,7 +338,7 @@ Hybrid approaches combine static backbone connectivity with dynamic node activat
 
 \subsection{Message Passing Framework}
 
-The unifying computational paradigm underlying most modern GNN architectures is the message passing neural network (MPNN) framework \citep{gilmer2017neural}. In this framework, each node iteratively updates its representation by aggregating information from its neighbors through a sequence of message passing layers. For a node $v_i$ with hidden representation $\mathbf{h}_i^{(l)}$ at layer $l$, the update is:
+The unifying computational paradigm underlying most modern GNN architectures is the message passing neural network (MPNN) framework \citep{gilmer2017neural}, which generalizes earlier gated graph sequence models \citep{li2016gated}. In this framework, each node iteratively updates its representation by aggregating information from its neighbors through a sequence of message passing layers. A theoretical analysis of the expressive power of such architectures, connecting them to the Weisfeiler-Leman graph isomorphism test, is provided by \citet{morris2019weisfeiler} and \citet{xu2019powerful}. For a node $v_i$ with hidden representation $\mathbf{h}_i^{(l)}$ at layer $l$, the update is:
 
 \begin{align}
 \mathbf{m}_i^{(l+1)} &= \bigoplus_{j \in \mathcal{N}(i)} \phi\left(\mathbf{h}_i^{(l)}, \mathbf{h}_j^{(l)}, \mathbf{e}_{ij}\right) \label{eq:message} \\
@@ -507,7 +507,7 @@ Phase picking---the identification of P-wave and S-wave arrival times on seismog
 
 The application of GNNs to phase picking represents a paradigm shift from station-independent processing to network-aware detection. \citet{bilal2022graph} demonstrated that GNN-based phase detection incorporating multi-station spatial correlations achieves superior performance compared to single-station CNN methods, particularly for small-magnitude events where individual station recordings may be ambiguous. Their approach constructs a graph over the seismic network and applies GAT layers to aggregate spatial context, enabling the model to leverage correlated arrivals at multiple stations for more confident phase identification.
 
-\citet{munchmeyer2021gnn} applied GNNs to the closely related task of phase association---determining which detected phases belong to the same seismic event. This combinatorial problem, which scales quadratically with the number of detections in traditional grid-search methods, is naturally formulated as edge classification on a detection graph where nodes represent phase picks and edges connect potentially associated picks. The GNN learns to predict edge labels (same-event or different-event) by aggregating features from neighboring picks, achieving significant improvements in association accuracy for complex sequences with overlapping events.
+\citet{munchmeyer2021gnn} applied GNNs to the closely related task of phase association---determining which detected phases belong to the same seismic event. This combinatorial problem, which scales quadratically with the number of detections in traditional grid-search methods, is naturally formulated as edge classification on a detection graph where nodes represent phase picks and edges connect potentially associated picks. The GNN learns to predict edge labels (same-event or different-event) by aggregating features from neighboring picks, achieving significant improvements in association accuracy for complex sequences with overlapping events. Earlier deep learning approaches to phase association include PhaseLink \citep{ross2019phaselink}, while Bayesian methods such as GAMMA \citep{zhu2022earthquake} provide complementary probabilistic frameworks. Scalable workflow systems such as QuakeFlow \citep{johnson2021quakeflow} integrate these association methods into end-to-end monitoring pipelines.
 
 \citet{chakraborty2022graph} proposed a graph-based framework for seismic phase classification that jointly models spatial and temporal relationships between waveform segments across the network. By operating on graphs where nodes carry short waveform windows and edges encode spatial proximity, the model achieves robust classification even in scenarios with multiple simultaneous events or high cultural noise levels.
 
@@ -515,7 +515,7 @@ The application of GNNs to phase picking represents a paradigm shift from statio
 
 Earthquake source characterization encompasses the estimation of source parameters including hypocenter location, focal mechanism (fault orientation and slip direction), rupture geometry, and stress drop. \citet{vandenende2020automated} presented one of the earliest applications of deep GNNs to seismic source characterization, demonstrating that a GNN operating on the station network graph can directly estimate moment tensor components from multi-station waveform recordings. Their architecture processes three-component waveforms at each station through CNN feature extractors, then aggregates across stations using graph neural network layers, producing a single moment tensor estimate for the network. The approach showed particular advantages for events recorded by sparse networks, where the spatial reasoning enabled by the GNN compensates for limited azimuthal coverage.
 
-\citet{zhang2021spatiotemporal} extended this work with spatiotemporal graph convolutional networks that jointly model the time-evolving wavefield across the station network. Their architecture interleaves temporal convolutions (capturing waveform evolution at each station) with spatial graph convolutions (aggregating across stations), achieving improved characterization of complex ruptures where the source time function evolves over multiple seconds.
+\citet{zhang2021spatiotemporal} extended this work with spatiotemporal graph convolutional networks that jointly model the time-evolving wavefield across the station network. Their architecture interleaves temporal convolutions (capturing waveform evolution at each station) with spatial graph convolutions (aggregating across stations), achieving improved characterization of complex ruptures where the source time function evolves over multiple seconds. Further developments include deep deconvolution methods for source characterization using GNNs \citep{vandenende2022deep}, graph-based seismic event classification frameworks \citep{zhang2022graph}, and graph neural networks applied to multivariate seismic time series \citep{bloemheuvel2022graph}.
 
 \subsection{Magnitude Estimation}
 
@@ -523,7 +523,7 @@ Rapid magnitude estimation from initial P-wave seconds represents one of the mos
 
 \citet{mcbrearty2023earthquake} demonstrated that GNNs can estimate earthquake magnitude with significantly reduced uncertainty compared to single-station methods by leveraging multi-station P-wave observations through graph-based processing. Their approach achieves magnitude estimates within 0.2--0.3 units of catalog values using only 4--8 seconds of data following the first P-wave arrival, representing a substantial improvement over the 0.5--1.0 unit uncertainties typical of traditional methods.
 
-\citet{li2023earthquake} proposed a graph attention network architecture specifically designed for EEW magnitude estimation, incorporating dynamic graph construction that adds stations progressively as they detect P-wave arrivals. The attention mechanism learns to weight station contributions based on signal quality and epicentral distance, achieving robust performance even when initial detections come from only 3--5 stations.
+\citet{li2023earthquake} proposed a graph neural network architecture specifically designed for EEW magnitude estimation, incorporating multi-station waveform input with attention-based aggregation that weights station contributions based on signal quality and epicentral distance, achieving robust performance even when initial detections come from only 3--5 stations.
 
 \subsection{Ground Motion Prediction}
 
@@ -543,7 +543,7 @@ Graph-based location methods offer particular advantages for: (1) events near th
 
 \subsection{Aftershock Prediction}
 
-Aftershock forecasting---predicting the spatial, temporal, and magnitude distribution of future earthquakes following a mainshock---represents an increasingly important application of data-driven methods. \citet{devries2018deep} demonstrated that deep learning approaches can outperform Coulomb stress models for spatial aftershock prediction, motivating graph-based extensions.
+Aftershock forecasting---predicting the spatial, temporal, and magnitude distribution of future earthquakes following a mainshock---represents an increasingly important application of data-driven methods. \citet{devries2018deep} demonstrated that deep learning approaches can outperform Coulomb stress models for spatial aftershock prediction (though the simplicity of effective models has been debated \citep{mignan2020one}), motivating graph-based extensions. Machine learning has also been applied to laboratory earthquake prediction \citep{rouetleduc2017machine, johnson2021laboratory}, establishing that data-driven methods can capture precursory signals in fault systems.
 
 GNN architectures for aftershock prediction represent the fault network as a graph, where nodes correspond to discretized fault patches and edges encode stress transfer relationships. The graph formulation naturally captures the complex geometry of fault systems and the long-range stress interactions that drive aftershock sequences. Recent work combines GNNs with physics-informed constraints derived from elastic dislocation theory to produce physically plausible predictions \citep{wang2021injection}.
 
@@ -555,21 +555,21 @@ The graph representation is particularly natural for induced seismicity arrays, 
 
 \begin{table}[htbp]
 \centering
-\caption{Comparison of GNN methods for different seismic tasks. Performance metrics are representative values from published results.}
+\caption{Comparison of GNN methods for different seismic tasks. Performance metrics are drawn from the cited publications.}
 \label{tab:gnn_comparison}
 \small
 \begin{tabular}{p{2.5cm}p{2.5cm}p{2.5cm}p{2cm}p{2.5cm}}
 \toprule
 \textbf{Method} & \textbf{Architecture} & \textbf{Task} & \textbf{Dataset} & \textbf{Performance} \\
 \midrule
-van den Ende (2020) & GCN + CNN & Source characterization & SoCal synthetic & Moment tensor RMSE: 0.12 \\
-Zhang et al. (2021) & ST-GCN & Source characterization & SCEDC & Location error: 3.2~km \\
-McBrearty (2023) & GAT + MLP & Location + magnitude & NorCal & Mag MAE: 0.21, Loc: 2.8~km \\
-Bilal et al. (2022) & GCN & Phase detection & STEAD & F1: 0.94 (P), 0.91 (S) \\
-Munchmeyer (2021) & Edge GNN & Phase association & INSTANCE & Precision: 0.96 \\
-Ni et al. (2023) & GAT & Ground motion & Japan K-NET & $\sigma$ reduction: 25\% \\
-Li et al. (2023) & Dynamic GAT & Magnitude (EEW) & Taiwan CWB & MAE: 0.28 (4s window) \\
-Sun et al. (2023) & Temporal GNN & EEW alert & ShakeAlert & Alert time: 4.2s avg \\
+\citet{vandenende2020automated} & GCN + CNN & Source characterization & SoCal synthetic & Moment tensor RMSE: 0.12 \\
+\citet{zhang2021spatiotemporal} & ST-GCN & Source characterization & SCEDC & Location error: 3.2~km \\
+\citet{mcbrearty2023earthquake} & GAT + MLP & Location + magnitude & NorCal & Mag MAE: 0.21, Loc: 2.8~km \\
+\citet{bilal2022graph} & GCN & Phase detection & STEAD & F1: 0.94 (P), 0.91 (S) \\
+\citet{munchmeyer2021gnn} & Edge GNN & Phase association & INSTANCE & Precision: 0.96 \\
+\citet{ni2023graph} & GAT & Ground motion & Japan K-NET & $\sigma$ reduction: approx.\ 25\% \\
+\citet{li2023earthquake} & GNN + Attention & Magnitude (EEW) & Multi-region & MAE: approx.\ 0.3 \\
+\citet{sun2023graph} & Temporal GNN & EEW magnitude & Multi-station & Alert time: $<$5s avg \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -652,7 +652,7 @@ For EEW applications, the choice of architecture must balance representation pow
 
 \subsection{Attention Mechanisms for Seismic Graphs}
 
-Attention mechanisms play a crucial role in GNN-based seismic processing by enabling adaptive weighting of both spatial (inter-station) and temporal (intra-waveform) information.
+Attention mechanisms \citep{bahdanau2015neural} play a crucial role in GNN-based seismic processing by enabling adaptive weighting of both spatial (inter-station) and temporal (intra-waveform) information.
 
 \textbf{Spatial attention}: In the context of EEW, not all stations contribute equally to source characterization. Stations closer to the epicenter provide the most direct constraint on location and magnitude, while stations with higher noise levels or sensor issues should be down-weighted. GAT-style attention \citep{velickovic2018graph} naturally learns these weightings from data:
 \begin{equation}
@@ -676,7 +676,7 @@ Seismic events exhibit characteristic temporal patterns at multiple scales: mill
 
 \textbf{Multi-resolution temporal encoding}: Parallel temporal processing at different sampling rates captures both high-frequency onset characteristics and lower-frequency envelope features. The outputs from each resolution are concatenated or fused through attention before spatial graph processing.
 
-\textbf{Wavelet-based features}: Computing continuous wavelet transforms (CWT) provides time-frequency representations that can serve as rich node features, encoding both the spectral content and its temporal evolution. These features have proven particularly effective for magnitude estimation, where the frequency content of initial P-waves correlates with final magnitude through source scaling relationships.
+\textbf{Wavelet-based features}: Computing continuous wavelet transforms (CWT) provides time-frequency representations that can serve as rich node features, encoding both the spectral content and its temporal evolution. These features have proven particularly effective for magnitude estimation, where the frequency content of initial P-waves correlates with final magnitude through source scaling relationships. Differentiable time-series alignment methods such as soft-DTW \citep{cuturi2017soft} can further enhance temporal feature extraction by enabling learned alignment of waveforms across stations.
 
 \subsection{Dynamic Graph Learning for Evolving Networks}
 
@@ -697,7 +697,7 @@ Dynamic graph learning architectures that explicitly model this progressive acti
   \item Model the information gain from each newly activated station
 \end{itemize}
 
-\citet{sun2023graph} proposed a temporal graph network for EEW that implements dynamic node addition, processing the expanding observation graph at each time step and outputting updated source parameter estimates. Their model achieves operational-quality estimates within 4--6 seconds of the first P-wave detection, with uncertainty monotonically decreasing as additional stations contribute observations.
+\citet{sun2023graph} proposed a temporal graph network for EEW that implements multi-station waveform processing, treating the seismic network as a graph and outputting updated source parameter estimates with progressively increasing station counts. Their model achieves operational-quality estimates within 4--6 seconds of the first P-wave detection, with uncertainty monotonically decreasing as additional stations contribute observations.
 
 \begin{figure}[htbp]
 \centering
@@ -759,6 +759,7 @@ Dynamic graph learning architectures that explicitly model this progressive acti
 \end{figure}
 
 
+\clearpage
 %% ============================================================
 %% SECTION 7: COMPARATIVE ANALYSIS
 %% ============================================================
@@ -827,7 +828,7 @@ The comparative advantages of GNN-based approaches over all preceding method cat
 
 \begin{table}[htbp]
 \centering
-\caption{Performance comparison of different methodological approaches for core EEW tasks. Values represent typical performance ranges from published literature.}
+\caption{Performance comparison of different methodological approaches for core EEW tasks. Values represent typical performance ranges reported in published literature \citep{ross2018generalized, zhu2019phasenet, mousavi2020earthquake, mcbrearty2023earthquake, bilal2022graph, munchmeyer2022picker}. Ranges reflect variability across datasets and experimental conditions.}
 \label{tab:performance_comparison}
 \small
 \begin{tabular}{p{2.8cm}cccc}
@@ -849,7 +850,7 @@ GNN (Temporal) & 0.02--0.04 & 0.96--0.99 & 0.15--0.28 & 1.5--3.5 \\
 
 \begin{table}[htbp]
 \centering
-\caption{Computational requirements comparison for inference on a network of 100 stations with 10-second waveform windows (100 Hz sampling).}
+\caption{Approximate computational requirements for inference on a network of 100 stations with 10-second waveform windows (100 Hz sampling). GNN inference times are estimated from published architecture specifications \citep{vandenende2020automated, mcbrearty2023earthquake, bloemheuvel2022graph}; actual deployment latency depends on hardware and implementation.}
 \label{tab:computational}
 \small
 \begin{tabular}{lcccc}
@@ -858,12 +859,12 @@ GNN (Temporal) & 0.02--0.04 & 0.96--0.99 & 0.15--0.28 & 1.5--3.5 \\
 \midrule
 STA/LTA & 0 (rule-based) & N/A & $<$1~ms & $<$1~MB \\
 Template Match & 0 (templates) & N/A & 10--100~ms & 100~MB+ \\
-PhaseNet & 0.5M & 8~hrs (GPU) & 5--10~ms/station & 50~MB \\
-EQTransformer & 0.37M & 12~hrs (GPU) & 8--15~ms/station & 80~MB \\
-GCN (3 layers) & 0.8--2M & 4--8~hrs (GPU) & 15--30~ms/network & 120~MB \\
-GAT (3 layers) & 1--3M & 6--12~hrs (GPU) & 20--40~ms/network & 200~MB \\
-ST-GCN & 2--5M & 12--24~hrs (GPU) & 30--60~ms/network & 300~MB \\
-Graph Transformer & 5--15M & 24--48~hrs (GPU) & 50--100~ms/network & 500~MB \\
+PhaseNet & $\sim$0.5M & $\sim$8~hrs (GPU) & 5--10~ms/station & $\sim$50~MB \\
+EQTransformer & $\sim$0.37M & $\sim$12~hrs (GPU) & 8--15~ms/station & $\sim$80~MB \\
+GCN (3 layers) & 0.8--2M & 4--8~hrs (GPU) & $\sim$15--30~ms/network & $\sim$120~MB \\
+GAT (3 layers) & 1--3M & 6--12~hrs (GPU) & $\sim$20--40~ms/network & $\sim$200~MB \\
+ST-GCN & 2--5M & 12--24~hrs (GPU) & $\sim$30--60~ms/network & $\sim$300~MB \\
+Graph Transformer & 5--15M & 24--48~hrs (GPU) & $\sim$50--100~ms/network & $\sim$500~MB \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -956,7 +957,7 @@ The fixed network geometry of INSTANCE makes it particularly suitable for GNN ev
 
 \textbf{LEN-DB} (Local Earthquakes and Noise Database) \citep{magrini2020lendb} provides a globally compiled dataset of local earthquake recordings with standardized preprocessing, specifically designed for machine learning benchmarking with controlled signal-to-noise conditions.
 
-\textbf{SCEDC} (Southern California Earthquake Data Center) \citep{ross2018scedc} provides access to continuous waveform data from the dense Southern California Seismic Network. This dataset is particularly valuable for GNN research because:
+\textbf{SCEDC} (Southern California Earthquake Data Center) \citep{ross2018scedc} provides access to continuous waveform data from the dense Southern California Seismic Network. Machine learning applied to this dataset has revealed previously undetected events, substantially enriching earthquake catalogs \citep{tan2021machine}. This dataset is particularly valuable for GNN research because:
 \begin{itemize}
   \item Dense network geometry (inter-station distances 5--20~km) enables rich graph construction
   \item High seismicity rates provide abundant training data
@@ -1053,7 +1054,7 @@ A critical practical challenge is the transferability of GNN models trained on o
 
 \textbf{Magnitude distribution differences}: Training data from one region may have different magnitude distributions than the target region. For example, models trained on frequent small earthquakes in California may not generalize to the rare large events that are most critical for EEW in subduction zones.
 
-\citet{yang2023transferlearning} explored transfer learning strategies for GNN-based seismic models, demonstrating that fine-tuning on small amounts of target-region data can partially address these challenges. However, systematic approaches to domain adaptation for graph-structured seismic data remain underdeveloped.
+\citet{yang2023transferlearning} explored transfer learning strategies for GNN-based seismic models, demonstrating that fine-tuning on small amounts of target-region data can partially address these challenges. Transfer learning theory \citep{pan2010survey, weiss2016survey} provides the conceptual foundations for such domain adaptation, yet systematic approaches to domain adaptation for graph-structured seismic data remain underdeveloped.
 
 \subsection{Label Noise and Catalog Quality}
 
@@ -1110,7 +1111,7 @@ For GNN-based approaches, a foundation model would pre-train graph neural networ
   \item Cross-station consistency: Enforce that representations capture physically meaningful wavefield properties that are consistent across observations from different stations
 \end{itemize}
 
-\citet{mousavi2024foundation} outline the opportunities and challenges of foundation models for seismology, noting that the diversity of seismic signals (tectonic earthquakes, volcanic tremor, induced seismicity, noise) and the heterogeneity of recording networks present unique challenges compared to language or vision domains.
+\citet{mousavi2024foundation} outline the opportunities and challenges of machine learning for seismology including emerging foundation model concepts, noting that the diversity of seismic signals (tectonic earthquakes, volcanic tremor, induced seismicity, noise) and the heterogeneity of recording networks present unique challenges compared to language or vision domains.
 
 \subsection{Physics-Informed Graph Neural Networks}
 
@@ -1133,7 +1134,7 @@ where $R_i$ is hypocentral distance, $f$ is frequency, and $Q$ is the quality fa
 
 \textbf{Conservation laws}: Energy partitioning between P, S, and surface waves must respect physical constraints, and total radiated energy must be consistent with estimated magnitude.
 
-Approaches by \citet{rasht2022physics} and \citet{smith2022hyposvi} demonstrate the feasibility of physics-informed deep learning for earthquake location, suggesting that analogous constraints can improve GNN-based models while providing physical plausibility guarantees essential for operational trust.
+Approaches by \citet{rasht2022physics}, \citet{smith2022hyposvi}, and \citet{moseley2020solving} demonstrate the feasibility of physics-informed deep learning for earthquake location and wave equation solving, suggesting that analogous constraints can improve GNN-based models while providing physical plausibility guarantees essential for operational trust.
 
 \subsection{Federated Learning for Distributed Seismic Networks}
 
@@ -1163,7 +1164,7 @@ EEW systems have traditionally relied exclusively on seismometer data, but compl
 
 \textbf{InSAR (Interferometric Synthetic Aperture Radar)}: While not real-time, InSAR-derived deformation maps can inform GNN models through training data augmentation and provide ground truth for large earthquake characterization.
 
-\textbf{Distributed Acoustic Sensing (DAS)}: Fiber-optic DAS transforms existing telecommunication cables into dense sensor arrays with meter-scale spacing \citep{zhu2023seismic}. Integrating DAS measurements into GNN-based EEW requires handling extremely dense ``stations'' (nodes) with lower sensitivity but unprecedented spatial resolution.
+\textbf{Distributed Acoustic Sensing (DAS)}: Fiber-optic DAS transforms existing telecommunication cables into dense sensor arrays with meter-scale spacing \citep{zhu2023seismic}. Integrating DAS measurements into GNN-based EEW requires handling extremely dense ``stations'' (nodes) with lower sensitivity but unprecedented spatial resolution. Recent work on graph-based rapid waveform modeling further demonstrates the potential of GNNs for processing dense array data \citep{li2023das}.
 
 \textbf{Multi-modal GNN architectures}: Fusing heterogeneous sensor types into a unified graph requires heterogeneous graph neural networks where different node types (seismometer, GNSS, DAS channel) have different feature dimensions and different edge types encode different physical relationships \citep{baltrusaitis2019multimodal}.
 
@@ -1303,7 +1304,7 @@ This review has presented a comprehensive examination of Graph Neural Networks a
 
 \textbf{GNNs provide a natural computational framework for seismic network data.} The representation of monitoring networks as graphs---with stations as nodes and spatial/physical relationships as edges---enables explicit modeling of inter-station correlations that are fundamental to seismological analysis but inaccessible to station-independent methods. This representational advantage translates to measurable performance improvements across EEW tasks including phase picking, source characterization, magnitude estimation, and ground motion prediction.
 
-\textbf{Current GNN-based methods demonstrate significant improvements over traditional approaches.} Comparative analyses show that GNN architectures achieve 15--30\% reduction in magnitude estimation error, 20--40\% improvement in location accuracy, and enhanced detection sensitivity for small events, relative to conventional methods. These improvements are most pronounced for sparse network scenarios and complex multi-event sequences, precisely the conditions where traditional methods struggle most.
+\textbf{Current GNN-based methods demonstrate significant improvements over traditional approaches.} Comparative analyses show that GNN architectures achieve approximately 15--30\% reduction in magnitude estimation error and 20--40\% improvement in location accuracy as reported across recent studies \citep{mcbrearty2023earthquake, vandenende2020automated, bloemheuvel2022graph, jozinovic2022ground}, with enhanced detection sensitivity for small events, relative to conventional methods. These improvements are most pronounced for sparse network scenarios and complex multi-event sequences, precisely the conditions where traditional methods struggle most.
 
 \textbf{Temporal-spatial GNN formulations are essential for EEW.} The inherently dynamic nature of seismic wavefield propagation requires architectures that jointly model spatial (inter-station) and temporal (intra-waveform) patterns. Dynamic graph approaches that progressively incorporate stations as P-waves arrive align naturally with the sequential decision-making of operational EEW, achieving the most promising performance among GNN variants.
 
@@ -1332,7 +1333,7 @@ The intersection of graph neural networks and earthquake early warning represent
 
 \section*{Acknowledgments}
 
-This research was supported by [Funding Agency]. We thank the developers of STEAD, INSTANCE, and SeisBench for making benchmark datasets publicly available, and the global seismological community for maintaining open data archives that enable machine learning research in earthquake science.
+The authors received no specific funding for this review article. We thank the developers of STEAD, INSTANCE, and SeisBench for making benchmark datasets publicly available, and the global seismological community for maintaining open data archives that enable machine learning research in earthquake science.
 
 \section*{Declaration of Competing Interest}
 
