@@ -261,7 +261,7 @@ BODY = [
         "[2, 3]. Anaerobic treatment (e.g., biodigesters or integrated biogas wastewater units) "
         "is technically appropriate for SME-scale operations because it reduces organic loading "
         "while recovering biogas as an energy resource, simultaneously lowering FAET (through "
-        "effluent-load reduction) and GWP (through fuel displacement) [2, 14]. Complementary "
+        "effluent-load reduction) and GWP (through fuel displacement) [2]. Complementary "
         "measures include constructed-wetland or biofilter polishing for nutrient removal, "
         "counter-current water recycling within washing and soaking to cut both water consumption "
         "and effluent generation, and valorization of whey as a protein-rich feed or fermentation "
@@ -272,9 +272,9 @@ BODY = [
         "CO\u2082, 0.0499 kg CH\u2084, and 0.3744 kg N\u2082O. Transitioning to cleaner energy\u2014"
         "such as LPG or biomethane recovered from on-site biodigesters\u2014would directly reduce "
         "these emissions while lowering the upstream water footprint embedded in the firewood "
-        "supply chain [15]. Adopting improved-combustion or thermally insulated boiling systems, "
+        "supply chain [14]. Adopting improved-combustion or thermally insulated boiling systems, "
         "together with waste-heat recovery to pre-heat process water, would further reduce specific "
-        "fuel consumption [15]. Overall, the LCA evidence demonstrates that interventions targeting "
+        "fuel consumption [14]. Overall, the LCA evidence demonstrates that interventions targeting "
         "liquid-waste management and energy efficiency at the source yield substantially greater "
         "environmental benefit than conventional end-of-pipe approaches [13]."},
     {"t": "body", "text":
@@ -384,14 +384,14 @@ TABLE5 = [
     ["Anaerobic wastewater treatment / biofilter system",
      "Reduces organic load (BOD, COD) from washing, soaking, and whey effluents; anaerobic "
      "digestion also recovers biogas as a renewable energy source, providing co-benefits for "
-     "FAET and GWP.", "[2, 14]"],
+     "FAET and GWP.", "[2]"],
     ["Water recycling (counter-current washing)",
      "Reuses water at the washing and soaking stages to lower clean-water consumption and "
-     "minimize effluent volume and organic concentration.", "[14]"],
+     "minimize effluent volume and organic concentration.", "[3]"],
     ["Fuel substitution and thermal-efficiency improvement at boiling",
      "Replaces firewood with LPG or biomethane (recovered from tofu wastewater) and adopts "
      "insulated/improved boilers and waste-heat recovery, reducing combustion emissions and the "
-     "embedded water footprint.", "[15]"],
+     "embedded water footprint.", "[14]"],
 ]
 
 FIG2_CAP = ("Figure 2. Environmental impact of tofu production across production stages "
@@ -440,10 +440,7 @@ REFERENCES = [
     "[13] Bj\u00f8rnbet M M and Vild\u00e5sen S S 2021 Life cycle assessment to ensure "
     "sustainability of circular business models in manufacturing Sustainability 13 11014 "
     "https://doi.org/10.3390/su131911014",
-    "[14] Satar I and Permadi A 2022 Treating the tofu wastewater (TWW) using a green technology "
-    "of microbial fuel cell (MFC) system Indones. J. Environ. Manag. Sustain. 6 162\u20137 "
-    "https://doi.org/10.26554/ijems.2022.6.1.162-167",
-    "[15] Ningsih L M, Mazancov\u00e1 J, Hasanudin U and Roub\u00edk H 2026 Energy audits in the "
+    "[14] Ningsih L M, Mazancov\u00e1 J, Hasanudin U and Roub\u00edk H 2026 Energy audits in the "
     "tofu industry: an evaluation of energy consumption towards a green and sustainable industry "
     "Environ. Dev. Sustain. 28 3737\u201359 https://doi.org/10.1007/s10668-024-05109-z",
 ]
