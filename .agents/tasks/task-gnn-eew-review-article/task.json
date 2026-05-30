@@ -1,0 +1,7 @@
+{
+  "task_id": "task-gnn-eew-review-article",
+  "task_description": "Create a comprehensive, publication-ready review article in LaTeX about Graph Neural Networks for Earthquake Early Warning Systems, targeting Earth-Science Reviews (Elsevier). Minimum 30 pages, 100+ references, expert-level academic writing from the perspective of a professor in AI and seismology.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002"],
+  "blocked_reason": null
+}

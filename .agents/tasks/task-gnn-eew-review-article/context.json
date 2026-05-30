@@ -1,0 +1,20 @@
+{
+  "project_type": "Academic review article (LaTeX) - Graph Neural Networks for Earthquake Early Warning Systems",
+  "language": "LaTeX/TeX",
+  "build_system": "pdflatex with bibtex for bibliography",
+  "test_framework": "N/A - validation is successful PDF compilation",
+  "build_command": "cd /projects/sandbox/sonet-product/artikel_review && pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex",
+  "test_command": "ls -la /projects/sandbox/sonet-product/artikel_review/main.pdf && pdfinfo /projects/sandbox/sonet-product/artikel_review/main.pdf | grep Pages",
+  "verification_instructions": "1. Compile the .tex file to PDF using pdflatex+bibtex. 2. Verify PDF exists and has 30+ pages. 3. Check PDF is not corrupted with pdfinfo.",
+  "snapshot_or_generated_files": "artikel_review/main.pdf - generated from artikel_review/main.tex via pdflatex",
+  "setup_instructions": "Install texlive-full or sufficient texlive packages: dnf install -y texlive texlive-collection-latexrecommended texlive-collection-fontsrecommended texlive-collection-bibtexextra texlive-collection-science texlive-natbib texlive-bibtex poppler-utils",
+  "environment_constraints": "OPEN_INTERNET - full package installation available. Use dnf (Fedora-based sandbox). Need texlive packages for LaTeX compilation.",
+  "contribution_requirements": "N/A - this is content creation, not code contribution",
+  "key_patterns": "Existing LaTeX paper in research-map/lca-tofu-paper.tex uses: documentclass article, natbib, hyperref, booktabs, graphicx, geometry. Follow similar high-quality LaTeX patterns but adapt for Elsevier Earth-Science Reviews format.",
+  "relevant_files": [
+    "/projects/sandbox/sonet-product/research-map/lca-tofu-paper.tex",
+    "/projects/sandbox/sonet-product/artikel_review/main.tex",
+    "/projects/sandbox/sonet-product/artikel_review/references.bib"
+  ],
+  "directory_structure": "artikel_review/ - new folder for this review article containing main.tex, references.bib, figures/, and compiled main.pdf"
+}
