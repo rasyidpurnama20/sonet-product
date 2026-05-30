@@ -1,0 +1,7 @@
+{
+  "task_id": "task-dl-eew-single-multi-station-review",
+  "task_description": "Create a comprehensive 30+ page review article in LaTeX for Earth-Science Reviews on Deep Learning for Earthquake Early Warning Systems comparing single-station vs multi-station approaches. Written from expert professor perspective in AI and seismology. Output in artikel_review_2/ folder with .tex, .bib, and compiled .pdf.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002"],
+  "blocked_reason": null
+}
