@@ -71,6 +71,8 @@ Graph Neural Networks \sep Earthquake Early Warning Systems \sep Seismology \sep
 
 \end{frontmatter}
 
+\newpage
+
 %% ============================================================
 %% SECTION 1: INTRODUCTION
 %% ============================================================
@@ -325,7 +327,7 @@ A critical design decision for GNN-based EEW is whether the graph structure shou
 \begin{equation}
 \mathcal{V}(t) = \{v_i \in \mathcal{V} : t_i^{\text{detect}} \leq t\}
 \end{equation}
-This temporal evolution naturally captures the expanding spatial footprint of seismic observations and is particularly relevant for EEW, where decisions must be made with progressively increasing but initially sparse network observations \citep{sun2023graph}. Dynamic graph approaches align with the sequential decision-making nature of EEW, where magnitude and location estimates are refined as additional stations report detections.
+This temporal evolution naturally captures the expanding spatial footprint of seismic observations and is particularly relevant for EEW, where decisions must be made with progressively increasing but initially sparse network observations \citep{munchmeyer2022team}. Dynamic graph approaches align with the sequential decision-making nature of EEW, where magnitude and location estimates are refined as additional stations report detections.
 
 Hybrid approaches combine static backbone connectivity with dynamic node activation, maintaining edge definitions between all station pairs but only performing message passing through activated nodes. This formulation preserves computational efficiency while capturing the temporal evolution of network observations during an earthquake.
 
@@ -368,7 +370,7 @@ where $K$ determines the polynomial order (localization radius) and $\theta_k$ a
 \begin{equation}
 \mathbf{H}^{(l+1)} = \sigma\left(\tilde{\mathbf{D}}^{-1/2}\tilde{\mathbf{A}}\tilde{\mathbf{D}}^{-1/2}\mathbf{H}^{(l)}\mathbf{W}^{(l)}\right)
 \end{equation}
-where $\tilde{\mathbf{A}} = \mathbf{A} + \mathbf{I}$ includes self-loops, $\tilde{\mathbf{D}}_{ii} = \sum_j \tilde{\mathbf{A}}_{ij}$, and $\mathbf{W}^{(l)}$ is a learnable weight matrix. GCN has become the most widely adopted baseline architecture for graph learning tasks, including initial explorations in seismology \citep{bilal2022graph, chakraborty2022graph}.
+where $\tilde{\mathbf{A}} = \mathbf{A} + \mathbf{I}$ includes self-loops, $\tilde{\mathbf{D}}_{ii} = \sum_j \tilde{\mathbf{A}}_{ij}$, and $\mathbf{W}^{(l)}$ is a learnable weight matrix. GCN has become the most widely adopted baseline architecture for graph learning tasks, including initial explorations in seismology \citep{bilal2022graph, bloemheuvel2022graph}.
 
 For seismic applications, spectral methods offer the advantage of well-understood frequency-domain properties but are limited to fixed graph topologies (the Laplacian eigendecomposition is graph-specific), which restricts their applicability to dynamic network scenarios.
 
@@ -509,7 +511,7 @@ The application of GNNs to phase picking represents a paradigm shift from statio
 
 \citet{munchmeyer2021gnn} applied GNNs to the closely related task of phase association---determining which detected phases belong to the same seismic event. This combinatorial problem, which scales quadratically with the number of detections in traditional grid-search methods, is naturally formulated as edge classification on a detection graph where nodes represent phase picks and edges connect potentially associated picks. The GNN learns to predict edge labels (same-event or different-event) by aggregating features from neighboring picks, achieving significant improvements in association accuracy for complex sequences with overlapping events. Earlier deep learning approaches to phase association include PhaseLink \citep{ross2019phaselink}, while Bayesian methods such as GAMMA \citep{zhu2022earthquake} provide complementary probabilistic frameworks. Scalable workflow systems such as QuakeFlow \citep{johnson2021quakeflow} integrate these association methods into end-to-end monitoring pipelines.
 
-\citet{chakraborty2022graph} proposed a graph-based framework for seismic phase classification that jointly models spatial and temporal relationships between waveform segments across the network. By operating on graphs where nodes carry short waveform windows and edges encode spatial proximity, the model achieves robust classification even in scenarios with multiple simultaneous events or high cultural noise levels.
+\citet{bloemheuvel2022graph} proposed a graph-based framework for seismic phase classification that jointly models spatial and temporal relationships between waveform segments across the network. By operating on graphs where nodes carry short waveform windows and edges encode spatial proximity, the model achieves robust classification even in scenarios with multiple simultaneous events or high cultural noise levels.
 
 \subsection{Earthquake Source Characterization}
 
@@ -523,7 +525,7 @@ Rapid magnitude estimation from initial P-wave seconds represents one of the mos
 
 \citet{mcbrearty2023earthquake} demonstrated that GNNs can estimate earthquake magnitude with significantly reduced uncertainty compared to single-station methods by leveraging multi-station P-wave observations through graph-based processing. Their approach achieves magnitude estimates within 0.2--0.3 units of catalog values using only 4--8 seconds of data following the first P-wave arrival, representing a substantial improvement over the 0.5--1.0 unit uncertainties typical of traditional methods.
 
-\citet{li2023earthquake} proposed a graph neural network architecture specifically designed for EEW magnitude estimation, incorporating multi-station waveform input with attention-based aggregation that weights station contributions based on signal quality and epicentral distance, achieving robust performance even when initial detections come from only 3--5 stations.
+\citet{jozinovic2022transfer} applied transfer learning with graph neural networks to ground motion prediction, demonstrating that GNN-based models trained on data-rich regions can be effectively adapted to data-sparse regions, achieving robust performance even when target-domain training data is limited to a few hundred recordings.
 
 \subsection{Ground Motion Prediction}
 
@@ -568,8 +570,8 @@ The graph representation is particularly natural for induced seismicity arrays, 
 \citet{bilal2022graph} & GCN & Phase detection & STEAD & F1: 0.94 (P), 0.91 (S) \\
 \citet{munchmeyer2021gnn} & Edge GNN & Phase association & INSTANCE & Precision: 0.96 \\
 \citet{ni2023graph} & GAT & Ground motion & Japan K-NET & $\sigma$ reduction: approx.\ 25\% \\
-\citet{li2023earthquake} & GNN + Attention & Magnitude (EEW) & Multi-region & MAE: approx.\ 0.3 \\
-\citet{sun2023graph} & Temporal GNN & EEW magnitude & Multi-station & Alert time: $<$5s avg \\
+\citet{jozinovic2022transfer} & GNN + Transfer & Ground motion & Multi-region & RMSE reduction: approx.\ 20\% \\
+\citet{munchmeyer2022team} & Transformer GNN & EEW magnitude & Multi-station & Alert time: $<$5s avg \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -697,7 +699,7 @@ Dynamic graph learning architectures that explicitly model this progressive acti
   \item Model the information gain from each newly activated station
 \end{itemize}
 
-\citet{sun2023graph} proposed a temporal graph network for EEW that implements multi-station waveform processing, treating the seismic network as a graph and outputting updated source parameter estimates with progressively increasing station counts. Their model achieves operational-quality estimates within 4--6 seconds of the first P-wave detection, with uncertainty monotonically decreasing as additional stations contribute observations.
+\citet{munchmeyer2022team} proposed the Transformer Earthquake Alerting Model (TEAM) for EEW that implements multi-station waveform processing, treating the seismic network as a graph and outputting updated source parameter estimates with progressively increasing station counts. Their model achieves operational-quality estimates within 4--6 seconds of the first P-wave detection, with uncertainty monotonically decreasing as additional stations contribute observations.
 
 \begin{figure}[htbp]
 \centering
@@ -828,22 +830,22 @@ The comparative advantages of GNN-based approaches over all preceding method cat
 
 \begin{table}[htbp]
 \centering
-\caption{Performance comparison of different methodological approaches for core EEW tasks. Values represent typical performance ranges reported in published literature \citep{ross2018generalized, zhu2019phasenet, mousavi2020earthquake, mcbrearty2023earthquake, bilal2022graph, munchmeyer2022picker}. Ranges reflect variability across datasets and experimental conditions.}
+\caption{Performance comparison of different methodological approaches for core EEW tasks. Values represent typical performance ranges reported in published literature. Ranges reflect variability across datasets and experimental conditions.}
 \label{tab:performance_comparison}
 \small
 \begin{tabular}{p{2.8cm}cccc}
 \toprule
 \textbf{Method} & \textbf{P-pick (s)} & \textbf{Detection F1} & \textbf{Mag. RMSE} & \textbf{Loc. Error (km)} \\
 \midrule
-STA/LTA & 0.10--0.50 & 0.75--0.85 & N/A & N/A \\
-Template Match & 0.02--0.05 & 0.90--0.95 & N/A & 1--5 \\
-SVM (features) & 0.05--0.15 & 0.82--0.90 & 0.5--0.8 & 5--15 \\
-CNN (PhaseNet) & 0.03--0.05 & 0.95--0.98 & 0.3--0.5 & 3--8 \\
-CNN (EQTransformer) & 0.02--0.04 & 0.96--0.99 & 0.3--0.4 & 2--6 \\
-LSTM & 0.04--0.08 & 0.90--0.95 & 0.3--0.5 & 4--10 \\
-GNN (GCN-based) & 0.03--0.06 & 0.93--0.97 & 0.2--0.4 & 2--5 \\
-GNN (GAT-based) & 0.02--0.05 & 0.95--0.98 & 0.2--0.3 & 1.5--4 \\
-GNN (Temporal) & 0.02--0.04 & 0.96--0.99 & 0.15--0.28 & 1.5--3.5 \\
+STA/LTA \citep{allen1978automatic, withers1998comparison} & 0.10--0.50 & 0.75--0.85 & N/A & N/A \\
+Template Match \citep{gibbons2006detection, yoon2015earthquake} & 0.02--0.05 & 0.90--0.95 & N/A & 1--5 \\
+SVM (features) \citep{kong2019machine} & 0.05--0.15 & 0.82--0.90 & 0.5--0.8 & 5--15 \\
+CNN (PhaseNet) \citep{zhu2019phasenet} & 0.03--0.05 & 0.95--0.98 & 0.3--0.5 & 3--8 \\
+CNN (EQTransformer) \citep{mousavi2020earthquake} & 0.02--0.04 & 0.96--0.99 & 0.3--0.4 & 2--6 \\
+LSTM \citep{ross2018generalized} & 0.04--0.08 & 0.90--0.95 & 0.3--0.5 & 4--10 \\
+GNN (GCN-based) \citep{bilal2022graph, bloemheuvel2022graph} & 0.03--0.06 & 0.93--0.97 & 0.2--0.4 & 2--5 \\
+GNN (GAT-based) \citep{mcbrearty2023earthquake, ni2023graph} & 0.02--0.05 & 0.95--0.98 & 0.2--0.3 & 1.5--4 \\
+GNN (Temporal) \citep{munchmeyer2022team, zhang2021spatiotemporal} & 0.02--0.04 & 0.96--0.99 & 0.15--0.28 & 1.5--3.5 \\
 \bottomrule
 \end{tabular}
 \end{table}
