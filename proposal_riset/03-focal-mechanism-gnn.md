@@ -1,0 +1,48 @@
+# Proposal 03 — Focal Mechanism Determination via Station-Network Graph Attention dengan Uncertainty Quantification
+
+**Domain:** Seismologi / Graph Neural Networks
+**Target luaran:** Q1 journal (GRL / BSSA), kontribusi metodologis (blind spot dari domain-map).
+
+---
+
+## 1. Latar Belakang
+Focal mechanism (strike/dip/rake atau moment tensor) menggambarkan geometri patahan dan medan tegangan. Solusinya sangat bergantung pada **distribusi azimut & take-off angle** stasiun di focal sphere. Metode klasik (HASH, first-motion polarity, waveform inversion) sensitif terhadap cakupan stasiun yang buruk dan kesalahan polaritas. Ini adalah masalah yang **inheren geometris/graf**, namun pendekatan DL umumnya single-station atau konkatenasi sederhana.
+
+## 2. Gap Penelitian
+1. **Struktur graf eksplisit belum dimanfaatkan:** Sangat sedikit karya yang memodelkan jaringan stasiun sebagai graf di mana **topologi (cakupan azimut, geometri take-off angle)** dipelajari/dioptimalkan untuk inversi focal mechanism (blind spot #1 domain-map).
+2. **Ketidakpastian:** Kebanyakan keluaran berupa point estimate; **posterior/uncertainty** atas strike/dip/rake masih jarang dalam kerangka DL.
+3. **Cakupan azimut buruk:** Performa pada event dengan azimuthal gap besar (umum di jaringan jarang) belum dibahas secara sistematis.
+
+## 3. Novelty
+- **GNN dengan node = stasiun** (fitur: polaritas first-motion, amplitudo P/S, waveform pendek, take-off angle, azimut) dan **edge = relasi geometris di focal sphere** (beda azimut, beda take-off angle).
+- **Graph attention (GAT)** yang belajar pasangan/triplet stasiun paling diskriminatif → interpretasi langsung di focal sphere.
+- **Uncertainty-aware output**: distribusi atas strike/dip/rake via von Mises–Fisher / quantile / Monte-Carlo dropout, plus klasifikasi tipe sesar (normal/reverse/strike-slip).
+- **Robust pada azimuthal gap**: augmentasi penghapusan stasiun untuk meniru cakupan buruk + kalibrasi ketidakpastian.
+
+## 4. Metodologi
+**Baseline:** HASH (first-motion), CNN single-station polarity → agregasi sederhana, MLP atas fitur konkatenasi.
+
+**Arsitektur usulan:**
+1. *Node features*: polaritas P (+/−), rasio amplitudo, embedding waveform pendek (CNN), take-off angle & azimut (dari lokasi + model kecepatan).
+2. *Graph*: edge berbobot berdasarkan separasi azimut/take-off; learned attention (GAT).
+3. *Readout*: graph-level pooling → head focal mechanism.
+4. *Output*: parameter sumber (representasi kontinu rake via sin/cos; normal-vector double-couple) + uncertainty; opsional komponen moment tensor.
+
+**Pelatihan:** loss geodesik pada ruang orientasi (Kagan angle) + NLL distribusi; augmentasi station-dropout & polarity-flip noise.
+
+**Ablation:** graf geometris vs distance vs fully-connected; pengaruh jumlah/cakupan azimut stasiun; uncertainty calibration (reliability diagram); transfer ke jaringan jarang.
+
+**Metrik:** Kagan angle vs solusi referensi, akurasi klasifikasi tipe sesar, kalibrasi ketidakpastian (PIT/coverage), degradasi terhadap azimuthal gap.
+
+## 5. Dataset
+- **Southern California (SCSN / SCEDC)** + **katalog focal mechanism (mis. HASH/Yang/Hauksson)** — label melimpah untuk pelatihan.
+- **Global CMT (gCMT)** — moment tensor untuk event sedang–besar.
+- **STEAD** — pretraining encoder waveform + polaritas.
+- **Indonesia BMKG / GEOFON** — uji generalisasi pada jaringan jarang & azimuthal gap besar.
+
+## 6. Risiko & Mitigasi
+- *Label focal mechanism terbatas untuk event kecil* → fokus M≥3, augmentasi sintetik dari model double-couple.
+- *Kesalahan polaritas otomatis* → gabungkan polaritas + amplitudo + waveform agar tidak bergantung satu fitur.
+
+## 7. Rencana 6 Bulan (ringkas)
+Bulan 1 kurasi katalog + baseline HASH/CNN; 2–3 GNN geometris + uncertainty; 4 ablation + kalibrasi; 5 evaluasi azimuthal-gap & transfer; 6 penulisan (GRL letter).
