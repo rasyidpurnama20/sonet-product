@@ -821,16 +821,6 @@
 
 % === ADDITIONAL GNN AND SEISMOLOGY ===
 
-@article{ni2023graph,
-  title={Graph neural networks for strong ground motion prediction},
-  author={Ni, Yifan and Denolle, Marine A and Shi, Qingkai and Fish, Jacob},
-  journal={Geophysical Research Letters},
-  volume={50},
-  number={18},
-  pages={e2023GL104779},
-  year={2023}
-}
-
 @article{munchmeyer2022team,
   title={Transformer earthquake alerting model: A new versatile approach to earthquake early warning},
   author={M{\"u}nchmeyer, Jannes and Bindi, Dino and Leser, Ulf and Tilmann, Frederik},
@@ -842,13 +832,14 @@
 }
 
 @article{yano2021graph,
-  title={Graph-partitioning-based network design for earthquake observation},
-  author={Yano, Tomohisa E and Takeda, Tetsuya and Matsubara, Makoto},
-  journal={Seismological Research Letters},
-  volume={92},
-  number={2A},
-  pages={795--805},
-  year={2021}
+  title={Graph-partitioning based convolutional neural network for earthquake detection using a seismic array},
+  author={Yano, Keisuke and Shiina, Takahiro and Kurata, Sumito and Kato, Aitaro and Komaki, Fumiyasu and Sakai, Shin'ichi and Hirata, Naoshi},
+  journal={Journal of Geophysical Research: Solid Earth},
+  volume={126},
+  number={5},
+  pages={e2020JB020269},
+  year={2021},
+  doi={10.1029/2020JB020269}
 }
 
 
@@ -886,15 +877,6 @@
   booktitle={Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)},
   pages={4171--4186},
   year={2019}
-}
-
-@article{mousavi2024foundation,
-  title={Machine learning for earthquake forecasting and rapid seismology},
-  author={Mousavi, S Mostafa and Beroza, Gregory C},
-  journal={Nature Reviews Earth and Environment},
-  volume={5},
-  pages={503--517},
-  year={2024}
 }
 
 % === EXPLAINABILITY AND INTERPRETABILITY ===
@@ -1013,15 +995,6 @@
   year={2022}
 }
 
-@article{sahara2023review,
-  title={A review of machine learning methods for earthquake early warning},
-  author={Satriawan, Heri and Sahara, David P and Puspito, Nanang T and Yudistira, Tedi},
-  journal={Natural Hazards},
-  volume={117},
-  pages={2277--2304},
-  year={2023}
-}
-
 % === ADDITIONAL REFERENCES FOR COMPLETENESS ===
 
 @inproceedings{krizhevsky2012imagenet,
@@ -1117,24 +1090,6 @@
   year={2023}
 }
 
-@article{li2023das,
-  title={Rapid seismic waveform modeling and analysis with graph neural networks},
-  author={Li, Lei and Zhang, Wenyuan and Bao, Feng},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  volume={61},
-  pages={1--12},
-  year={2023}
-}
-
-@article{yang2023transferlearning,
-  title={Transfer learning for regional earthquake monitoring using graph neural networks},
-  author={Yang, Jing and Liu, Ming and Beroza, Gregory C},
-  journal={Geophysical Journal International},
-  volume={234},
-  pages={1145--1160},
-  year={2023}
-}
-
 @article{kriegerowski2019deep,
   title={A deep convolutional neural network for localization of clustered earthquakes based on multistation full waveforms},
   author={Kriegerowski, Marius and Petersen, Gesa M and Vasyura-Bathke, Hannes and Ohrnberger, Matthias},
@@ -1155,3 +1110,162 @@
   year={2021}
 }
 
+
+
+% ============================================================
+% === RECENT ADVANCES (2024-2026): GNN, FOUNDATION MODELS,
+% === AND DEEP LEARNING FOR EARTHQUAKE EARLY WARNING
+% ============================================================
+
+@article{clements2024grapes,
+  title={{GRAPES}: Earthquake early warning by passing seismic vectors through the grapevine},
+  author={Clements, Timothy and Cochran, Elizabeth S and Baltay, Annemarie S and Minson, Sarah E and Yoon, Clara E},
+  journal={Geophysical Research Letters},
+  volume={51},
+  number={9},
+  pages={e2023GL107389},
+  year={2024},
+  doi={10.1029/2023GL107389}
+}
+
+@article{si2024plan,
+  title={An all-in-one seismic phase picking, location, and association network for multi-task multi-station earthquake monitoring},
+  author={Si, Xu and Wu, Xinming and Li, Zefeng and Wang, Shenghou and Zhu, Jun},
+  journal={Communications Earth \& Environment},
+  volume={5},
+  number={1},
+  pages={22},
+  year={2024},
+  doi={10.1038/s43247-023-01188-4}
+}
+
+@article{murshed2024scgnn,
+  title={Real-time seismic intensity prediction using self-supervised contrastive {GNN} for earthquake early warning},
+  author={Murshed, Rafid Umayer and Noshin, Kazi and Zakaria, Md Anu and Uddin, Md Forkan and Amin, A F M Saiful and Ali, Mohammed Eunus},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  volume={62},
+  pages={1--19},
+  year={2024},
+  doi={10.1109/TGRS.2024.3373643}
+}
+
+@article{mcbrearty2023genie,
+  title={Earthquake phase association with graph neural networks},
+  author={McBrearty, Ian W and Beroza, Gregory C},
+  journal={Bulletin of the Seismological Society of America},
+  volume={113},
+  number={2},
+  pages={524--547},
+  year={2023},
+  doi={10.1785/0120220182}
+}
+
+@article{mcbrearty2025graphdd,
+  title={Double difference earthquake location with graph neural networks},
+  author={McBrearty, Ian W and Beroza, Gregory C},
+  journal={Earth, Planets and Space},
+  volume={77},
+  number={1},
+  pages={120},
+  year={2025},
+  doi={10.1186/s40623-025-02251-4}
+}
+
+@article{piriyasatit2025stgsl,
+  title={Spatio-temporal graph structure learning for earthquake detection},
+  author={Piriyasatit, Suchanun and Kuruoglu, Ercan Engin and Ozeren, Mehmet Sinan},
+  journal={arXiv preprint arXiv:2503.11215},
+  year={2025},
+  doi={10.48550/arXiv.2503.11215}
+}
+
+@article{leema2025seismoquakegnn,
+  title={{SeismoQuakeGNN}: a hybrid framework for spatio-temporal earthquake prediction with transformer-enhanced models},
+  author={Leema, Anny and Balakrishnan, Ponnuraman and Kiruba, Gladys Gnana and Rajarajan, Ganesarathinam and Goel, Stuti and Aggarwal, Prisha},
+  journal={Frontiers in Artificial Intelligence},
+  volume={8},
+  pages={1690476},
+  year={2025},
+  doi={10.3389/frai.2025.1690476}
+}
+
+@article{zhang2024universal,
+  title={Universal neural networks for real-time earthquake early warning trained with generalized earthquakes},
+  author={Zhang, Xiong and Zhang, Miao},
+  journal={Communications Earth \& Environment},
+  volume={5},
+  number={1},
+  pages={528},
+  year={2024},
+  doi={10.1038/s43247-024-01718-8}
+}
+
+@inproceedings{liu2024seislm,
+  title={{SeisLM}: a foundation model for seismic waveforms},
+  author={Liu, Tianlin and M{\"u}nchmeyer, Jannes and Laurenti, Laura and Marone, Chris and de Hoop, Maarten V and Dokmani{\'c}, Ivan},
+  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
+  volume={37},
+  year={2024},
+  note={arXiv:2410.15765}
+}
+
+@article{lyu2025wavecastnet,
+  title={Rapid wavefield forecasting for earthquake early warning via deep sequence to sequence learning},
+  author={Lyu, Dongwei and Nakata, Rie and Ren, Pu and Mahoney, Michael W and Pitarka, Arben and Nakata, Nori and Erichson, N Benjamin},
+  journal={Nature Communications},
+  volume={16},
+  number={1},
+  pages={10247},
+  year={2025},
+  doi={10.1038/s41467-025-65435-2}
+}
+
+@article{wu2025transformer,
+  title={A transformer-based real-time earthquake detection framework in heterogeneous environments},
+  author={Wu, Aming and Khan, Irshad and Kwon, Young-Woo},
+  journal={Scientific Reports},
+  volume={15},
+  number={1},
+  pages={8420},
+  year={2025},
+  doi={10.1038/s41598-024-82087-2}
+}
+
+@article{dhir2026nextgen,
+  title={Next-gen earthquake monitoring: leveraging generative {AI} and deep learning for early warning and response},
+  author={Dhir, Keshav and Singh, Prabhsimran},
+  journal={Journal of Seismology},
+  volume={30},
+  number={2},
+  year={2026},
+  doi={10.1007/s10950-026-10370-y}
+}
+
+@article{wang2025seismollm,
+  title={{SeisMoLLM}: Advancing seismic monitoring via cross-modal transfer with pre-trained large language model},
+  author={Wang, Xinghao and Liu, Feng and Su, Rui and Wang, Zhihui and Fang, Lihua and Zhou, Lianqing and Bai, Lei and Ouyang, Wanli},
+  journal={arXiv preprint arXiv:2502.19960},
+  year={2025},
+  doi={10.48550/arXiv.2502.19960}
+}
+
+@article{allen2019eew,
+  title={Earthquake early warning: Advances, scientific challenges, and societal needs},
+  author={Allen, Richard M and Melgar, Diego},
+  journal={Annual Review of Earth and Planetary Sciences},
+  volume={47},
+  pages={361--388},
+  year={2019},
+  doi={10.1146/annurev-earth-053018-060457}
+}
+
+@article{beroza2021forecasting,
+  title={Machine learning and earthquake forecasting---next steps},
+  author={Beroza, Gregory C and Segou, Margarita and Mousavi, S Mostafa},
+  journal={Nature Communications},
+  volume={12},
+  number={1},
+  pages={4761},
+  year={2021},
+  doi={10.1038/s41467-021-24952-6}
+}
