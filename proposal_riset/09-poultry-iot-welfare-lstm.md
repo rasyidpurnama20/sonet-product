@@ -68,3 +68,11 @@ Bulan 1 rancang & pasang node IoT; 2 koleksi data + baseline; 3–4 fusi multi-t
 - **Dataset:** akuisisi mandiri time-series lingkungan + bobot; data cuaca BMKG sebagai konteks ambient.
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). data.gov/USDA adalah open data pemerintah AS; ekstraksi HTTP otomatis terbatas karena SPA, tautan adalah laman resmi.
+
+- USDA-ARS — Broiler Farm Particulate Matter & Ammonia Time-Series (data.gov) — https://catalog.data.gov/dataset/data-from-characterization-of-particle-size-distributions-and-water-soluble-ions-in-partic
+- USDA-NAL — Ammonia Emissions from Twelve U.S. Broiler Chicken Houses — https://www.nal.usda.gov/exhibits/ipd/frostonchickens/items/show/290
+- HF `chicken-health-behavior-multimodal` — https://huggingface.co/datasets/IceKhoffi/chicken-health-behavior-multimodal

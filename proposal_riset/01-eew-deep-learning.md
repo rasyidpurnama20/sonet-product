@@ -68,3 +68,12 @@ Bulan 1–2 kurasi data + baseline; 3–4 arsitektur & pelatihan; 5 ablation + e
 - **Dataset:** STEAD — Mousavi et al. (2019), *IEEE Access*, 7, 179464–179476; INSTANCE — Michelini et al. (2021), *Earth System Science Data*, 13, 5509–5544.
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Ekstraksi HTTP otomatis untuk beberapa portal SPA tidak selalu berhasil; tautan di bawah adalah laman resmi.
+
+- STEAD — https://github.com/smousavi05/STEAD
+- INSTANCE — https://instance.ingv.it/
+- K-NET/KiK-net (NIED) — https://www.kyoshin.bosai.go.jp/
+- GEOFON (FDSN) — https://geofon.gfz-potsdam.de/ · IRIS FDSN — https://service.iris.edu/

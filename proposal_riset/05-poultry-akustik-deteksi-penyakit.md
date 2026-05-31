@@ -71,3 +71,12 @@ Bulan 1 setup audio + koleksi data; 2 pretraining SSL + baseline; 3–4 downstre
 - **Dataset:** SmartEars / SmartEars-style spectrogram corpora; HuggingFace `chicken-vocalization-classifier` & `chicken-health-behavior-multimodal` (audio+visual) `[cek lisensi]`.
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Mendeley/Zenodo adalah repositori data ber-DOI; ekstraksi HTTP otomatis terbatas karena SPA, tautan adalah laman resmi.
+
+- Mendeley — Poultry Vocalization Signal Dataset for Early Disease Detection — https://data.mendeley.com/datasets/zp4nf2dxbh
+- Mendeley — SmartEars (respiratory monitoring) — https://data.mendeley.com/datasets/dy6gtvt4mk/2
+- Zenodo — Stress-Induced Audio Responses in Hens — https://zenodo.org/records/10433023
+- HF `chicken-health-behavior-multimodal` — https://huggingface.co/datasets/IceKhoffi/chicken-health-behavior-multimodal

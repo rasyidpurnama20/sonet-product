@@ -71,3 +71,12 @@ Bulan 1 setup kamera + pengumpulan data; 2 anotasi + baseline YOLO; 3–4 modul 
 - **Khanal, R., Wu, W., et al. (2025).** Automated Dead Chicken Detection Using Knowledge Distillation and Vision Transformers. *Applied Sciences*, 15(1), 136. — region diam → konfirmasi via klasifikasi.
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Beberapa portal (Nature/Roboflow) merupakan SPA sehingga ekstraksi HTTP otomatis terbatas; tautan adalah laman resmi.
+
+- PIO — Large-Scale Broiler Detection (Scientific Data 2026) — https://www.nature.com/articles/s41597-026-07114-5
+- Roboflow "Chicken Detection and Tracking" — https://universe.roboflow.com/chickens/chicken-detection-and-tracking
+- Chicken Carcass Instance Segmentation (benchmark) — https://arxiv.org/abs/2507.18558
+- HF `chicken-health-behavior-multimodal` — https://huggingface.co/datasets/IceKhoffi/chicken-health-behavior-multimodal

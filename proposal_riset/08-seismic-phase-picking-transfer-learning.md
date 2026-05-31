@@ -66,3 +66,12 @@ Bulan 1 kurasi waveform + baseline zero-shot; 2 SSL pretraining; 3–4 domain ad
 - **Dataset:** STEAD (Mousavi 2019, *IEEE Access*); INSTANCE (Michelini 2021, *ESSD*); waveform Indonesia via GEOFON/IRIS-FDSN/BMKG.
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- STEAD — https://github.com/smousavi05/STEAD
+- INSTANCE — https://instance.ingv.it/
+- NCEDC — https://ncedc.org/ · SCEDC (AWS) — https://registry.opendata.aws/southern-california-earthquake-data/
+- GEOFON — https://geofon.gfz-potsdam.de/ · IRIS FDSN — https://service.iris.edu/

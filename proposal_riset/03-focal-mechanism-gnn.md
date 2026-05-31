@@ -65,3 +65,12 @@ Bulan 1 kurasi katalog + baseline HASH/CNN; 2–3 GNN geometris + uncertainty; 4
 - **Dataset:** SCSN/SCEDC focal mechanism catalogs; Global CMT; STEAD.
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- SCEDC — https://scedc.caltech.edu/ · AWS Open Data — https://registry.opendata.aws/southern-california-earthquake-data/
+- Global CMT — https://www.globalcmt.org/
+- STEAD — https://github.com/smousavi05/STEAD
+- Indonesia: GEOFON — https://geofon.gfz-potsdam.de/ · IRIS FDSN — https://service.iris.edu/

@@ -67,3 +67,12 @@ Bulan 1 data + baseline; 2–3 TFT+TGNN + probabilistik; 4 calibration + ablatio
 - **Dataset:** GEFCom2012/2014; ISO-NE/PJM/ENTSO-E; London Smart Meter (UKPN); Pecan Street.
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- GEFCom2012/2014 (Hong et al.) — http://www.drhongtao.com/gefcom
+- ISO New England — https://www.iso-ne.com/isoexpress/web/reports/load-and-demand
+- PJM DataMiner2 — https://dataminer2.pjm.com/ · ENTSO-E — https://transparency.entsoe.eu/
+- London Smart Meter (UKPN) — https://data.london.gov.uk/dataset/smartmeter-energy-use-data-in-london-households · Pecan Street — https://dataport.pecanstreet.org/

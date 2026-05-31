@@ -66,3 +66,12 @@ Bulan 1 data + baseline persistence/LSTM; 2–3 multi-modal fusion + probabilist
 - **Dataset:** SKIPP'D; NSRDB (NREL); SURFRAD/BSRN; ERA5/GFS untuk fitur NWP.
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- SKIPP'D — https://github.com/yuhao-nie/Stanford-solar-forecasting-dataset
+- NSRDB (NREL) — https://nsrdb.nrel.gov/
+- SURFRAD (NOAA) — https://gml.noaa.gov/grad/surfrad/ · BSRN — https://bsrn.awi.de/
+- ERA5 (Copernicus CDS) — https://cds.climate.copernicus.eu/

@@ -67,3 +67,12 @@ Bulan 1 persiapan data + baseline GCN statis; 2–3 implementasi DST-GNN + physi
 - **Dataset:** INSTANCE (Michelini et al. 2021, *ESSD* 13:5509); STEAD (Mousavi et al. 2019, *IEEE Access* 7:179464).
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- INSTANCE — https://instance.ingv.it/
+- STEAD — https://github.com/smousavi05/STEAD
+- SCEDC (AWS Open Data) — https://registry.opendata.aws/southern-california-earthquake-data/
+- K-NET/KiK-net (NIED) — https://www.kyoshin.bosai.go.jp/ · GEOFON — https://geofon.gfz-potsdam.de/

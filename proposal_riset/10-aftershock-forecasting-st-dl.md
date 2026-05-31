@@ -67,3 +67,12 @@ Bulan 1 katalog + ETAS baseline; 2–3 neural-ETAS + fitur fisik; 4 ablation; 5 
 - **Dataset & evaluasi:** SCEDC/ComCat (USGS), JMA, INGV, BMKG; skor gaya CSEP; fitur Coulomb (Slab2/Coulomb 3.x).
 
 *Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- SCEDC (AWS Open Data) — https://registry.opendata.aws/southern-california-earthquake-data/
+- USGS ComCat — https://earthquake.usgs.gov/data/comcat/
+- JMA Unified Catalog — https://www.data.jma.go.jp/svd/eqev/data/bulletin/index_e.html
+- INGV ISIDe — http://terremoti.ingv.it/ · ISC-GEM — http://www.isc.ac.uk/iscgem/ · Slab2 (USGS) — https://www.sciencebase.gov/catalog/item/5aa1b00ee4b0b1c392e86467
