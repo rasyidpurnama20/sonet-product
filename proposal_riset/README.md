@@ -57,3 +57,4 @@
 - **Kebijakan dataset:** setiap proposal menjamin **minimal 2 dataset benchmark publik** (§5.1) yang terverifikasi terbuka; data akses-terbatas/akuisisi-mandiri hanya pelengkap (§5.2). Lihat tabel ringkasan di atas.
 - Bagian metodologi memuat baseline, arsitektur usulan, ablation, dan metrik evaluasi agar langsung dapat dieksekusi.
 - Setiap proposal memuat bagian **"Referensi Kunci / Related Work"** berisi sitasi yang sudah diverifikasi via pencarian web (Mei 2026). Entri dengan tanda `[cek]` masih perlu konfirmasi venue/tahun sebelum dikutip formal di manuskrip.
+- File **[`references.bib`](references.bib)** menyediakan seluruh sitasi + entri dataset (BibTeX) yang siap dipakai di LaTeX (mis. `\cite{team2021}`, `\cite{data_skippd_repo}`). Entri dengan field `note = {[VERIFIKASI ...]}` perlu dikonfirmasi volume/halaman/penulis sebelum submission.
