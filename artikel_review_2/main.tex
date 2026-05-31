@@ -95,7 +95,7 @@ Despite decades of operational refinement, traditional EEW algorithms face well-
 
 The application of deep learning to seismological problems has undergone explosive growth since 2018, fundamentally altering the landscape of seismic signal processing. This transformation was enabled by convergent advances in three areas: (1) the maturation of deep learning architectures including convolutional neural networks \citep{lecun2015deep, krizhevsky2012imagenet, he2016deep}, recurrent networks \citep{hochreiter1997long, cho2014learning}, and attention mechanisms \citep{vaswani2017attention, bahdanau2015attention}; (2) the availability of large-scale labeled seismic datasets \citep{mousavi2019stead, michelini2021instance}; and (3) the exponential increase in computational resources enabling training of complex models on millions of seismic waveforms.
 
-Seminal contributions demonstrated that deep neural networks could match or exceed expert human analysts in fundamental seismological tasks. \citet{ross2018generalized} showed that convolutional networks achieve generalized phase detection with a single architecture trained across diverse tectonic settings. \citet{zhu2019phasenet} introduced PhaseNet, a U-Net architecture that produces probabilistic arrival time estimates with sub-sample precision. \citet{mousavi2020earthquake} developed EQTransformer, combining attention mechanisms with hierarchical feature extraction for simultaneous detection and phase picking. These advances, systematically benchmarked through frameworks such as SeisBench \citep{woollam2022seisbench} and comparative evaluations \citep{munchmeyer2022picker}, established deep learning as the state-of-the-art approach for seismic phase analysis.
+Seminal contributions demonstrated that deep neural networks could match or exceed expert human analysts in fundamental seismological tasks. \citet{ross2018generalized} showed that convolutional networks achieve generalized phase detection with a single architecture trained across diverse tectonic settings. \citet{zhu2019phasenet} introduced PhaseNet, a U-Net architecture that produces probabilistic arrival time estimates with sub-sample precision. \citet{mousavi2020earthquake} developed EQTransformer, combining attention mechanisms with hierarchical feature extraction for simultaneous detection and phase picking. These advances, systematically benchmarked through frameworks such as SeisBench \citep{woollam2022seisbench} and comparative evaluations \citep{munchmeyer2022picker}, established deep learning as the state-of-the-art approach for seismic phase analysis. Most recently (2024--2026), the field has begun to move beyond task- and region-specific networks toward \emph{generalized} and \emph{foundation} models---architectures trained on massive, diverse datasets that transfer across networks with minimal fine-tuning \citep{zhang2024universal, liu2024seislm, saad2026utrans}. As discussed in Section~\ref{sec:future}, these emerging directions bear directly on the single-station versus multi-station question, since a single pre-trained backbone can in principle operate flexibly across arbitrary network configurations.
 
 Comprehensive reviews by \citet{bergen2019machine}, \citet{kong2019machine}, and \citet{mousavi2022deep} document the breadth of machine learning applications in solid Earth geoscience. However, no existing review provides a systematic comparative analysis of the single-station versus multi-station paradigm as it applies specifically to deep learning-based EEW---a distinction that carries profound implications for system architecture, deployment strategy, computational requirements, and alert performance.
 
@@ -188,7 +188,7 @@ EEWS & South Korea & On-site + regional & $\sim$300 stations & 2015 & Nationwide
 \end{tabular}
 \end{table}
 
-Japan's JMA system, the most mature operational EEW worldwide, employs a multi-algorithm approach combining the PLUM method \citep{kodera2018earthquake} for near-source warning with centroid estimation for regional alerts \citep{hoshiba2011earthquake}. The system issues alerts within 3--5 seconds of the first P-wave detection, achieving typical location errors of 10--20 km and magnitude errors of $\pm$0.5 units for events above $M$ 5. ShakeAlert in the United States combines the EPIC (Earthquake Point-source Integrated Comparison) and FinDer (Finite-fault Detector) algorithms with the PLUM method for comprehensive coverage \citep{given2018revised, bose2018finder, kodera2018earthquake, brown2017elarms}.
+Japan's JMA system, the most mature operational EEW worldwide, employs a multi-algorithm approach combining the PLUM method \citep{kodera2018earthquake} for near-source warning with centroid estimation for regional alerts \citep{hoshiba2011earthquake}. The system issues alerts within 3--5 seconds of the first P-wave detection, achieving typical location errors of 10--20 km and magnitude errors of $\pm$0.5 units for events above $M$ 5. ShakeAlert in the United States combines the EPIC (Earthquake Point-source Integrated Comparison) and FinDer (Finite-fault Detector) algorithms with the PLUM method for comprehensive coverage \citep{given2018revised, bose2018finder, kodera2018earthquake, brown2011elarms}.
 
 \subsection{EEW Processing Pipeline}
 
@@ -471,7 +471,10 @@ Several additional architectures have advanced the state of single-station phase
 \item \textbf{ARRU} \citep{liao2021arru}: Combines attention mechanisms with recurrent-residual U-Net architecture, achieving state-of-the-art performance on the Taiwan seismic network with improved robustness to noise.
 \item \textbf{CapsPhase} \citep{saad2020earthquake}: Applies capsule neural networks to capture hierarchical spatial relationships in seismic waveform features, demonstrating improved performance on weak events.
 \item \textbf{ConvNetQuake} \citep{perol2018convolutional}: A compact CNN for joint earthquake detection and location from single-station data, optimized for deployment in induced seismicity monitoring.
+\item \textbf{FisH} \citep{zhang2024fish}: The Fast Information Streaming Handler, a unified network that processes real-time streaming data from a single station to perform phase picking, location, and magnitude estimation jointly in an end-to-end fashion, reporting a location error of approximately 8.1 km and a magnitude error of 0.18 within 3 seconds of the P-wave arrival.
 \end{itemize}
+
+The trend exemplified by FisH---collapsing the traditionally separate detection, picking, and characterization stages into a single end-to-end model---is increasingly prominent in the most recent single-station literature, motivated by the latency savings of avoiding sequential hand-off between modules (Section~\ref{sec:future}).
 
 \subsubsection{Performance Comparison of Single-Station Pickers}
 
@@ -564,7 +567,7 @@ Deep learning approaches to multi-station association leverage the structural re
 
 \textbf{GaMMA} \citep{zhu2022earthquake} frames association as a Bayesian Gaussian mixture model problem, using neural network-predicted phase arrival times and their uncertainties to probabilistically assign detections to events. The Bayesian framework naturally handles the ambiguity inherent in association (where a detection could plausibly belong to multiple candidate events) by maintaining probability distributions over associations rather than hard assignments.
 
-\textbf{Graph-based associators} \citep{mcbrearty2023earthquake, zhang2021spatiotemporal} represent the detection network as a graph where nodes are individual phase detections and edges connect detections that are consistent with originating from the same source (based on travel-time constraints). GNN message passing then refines these connections, with the graph clustering naturally separating detections into event groups. This approach scales efficiently to large networks and handles overlapping events gracefully.
+\textbf{Graph-based associators} \citep{mcbrearty2023earthquake, zhang2021spatiotemporal} represent the detection network as a graph where nodes are individual phase detections and edges connect detections that are consistent with originating from the same source (based on travel-time constraints). GNN message passing then refines these connections, with the graph clustering naturally separating detections into event groups. This approach scales efficiently to large networks and handles overlapping events gracefully. Recent work has fused the previously separate stages into single multi-station architectures: the all-in-one PLAN framework \citep{si2024plan} performs phase picking, association, and location simultaneously within one graph neural network operating directly on multi-station waveforms, while end-to-end multitask models such as PhaseNet+ \citep{zhu2025phasenetplus} jointly predict arrival times, first-motion polarities, and associations before handing concise outputs to physics-based location and focal-mechanism solvers. These unified designs reduce the cumulative latency incurred by sequential hand-off between independent modules.
 
 \subsection{Multi-Station Source Characterization}
 
@@ -588,7 +591,9 @@ Traditional ground motion prediction relies on empirical Ground Motion Models (G
 
 \textbf{Spatial interpolation models} leverage real-time observations at stations that have already experienced shaking to predict ground motion at unobserved sites. \citet{jozinovic2020rapid} demonstrated that CNNs processing observed waveform features across a network can predict ground shaking intensity at target sites with uncertainties smaller than those of parametric GMMs, particularly in the near-source region where path-specific effects dominate.
 
-\textbf{Graph-based ground motion fields} represent the most promising recent direction, using GNNs to model the spatial correlation structure of ground motion across a network \citep{bloemheuvel2022graph}. By treating stations as graph nodes with observed shaking levels, and target sites as query nodes, GNN architectures can interpolate and extrapolate the ground motion field in real time, accounting for spatial correlation, path effects, and site conditions through learned graph convolutions.
+\textbf{Graph-based ground motion fields} represent the most promising recent direction, using GNNs to model the spatial correlation structure of ground motion across a network \citep{bloemheuvel2022graph}. By treating stations as graph nodes with observed shaking levels, and target sites as query nodes, GNN architectures can interpolate and extrapolate the ground motion field in real time, accounting for spatial correlation, path effects, and site conditions through learned graph convolutions. Building on this paradigm, the self-supervised Seismic Contrastive Graph Neural Network (SC-GNN) \citep{murshed2024scgnn} predicts shaking intensity from only a few seconds of waveforms recorded at a sparse subset of stations, while attention-based multi-station frameworks such as SENSE \citep{huang2024sense} aggregate statistics from a regional or national set of stations to forecast intensity at not-yet-shaken target sites.
+
+A complementary and conceptually distinct strategy forecasts the evolving wavefield itself rather than scalar source parameters. WaveCastNet \citep{lyu2025wavecastnet} couples a convolutional long-expressive-memory architecture with a sequence-to-sequence framework to predict the spatiotemporal evolution of ground motion across a region directly from early observations; notably, it was reported to generalize more reliably than transformer baselines to the rare, high-magnitude scenarios that matter most for early warning. Such wavefield-based approaches blur the boundary between source characterization and ground-motion prediction, sidestepping explicit magnitude and location estimation in favor of directly forecasting the quantity of operational interest.
 
 \subsection{Graph Neural Network Approaches for EEW}
 
@@ -680,6 +685,15 @@ PhaseLink & Multi & RNN & Association & Prec:0.95 & SoCal & 2--3s & 2019 \\
 GaMMA & Multi & Bayesian & Association & F1:0.97 & NorCal & 2--3s & 2022 \\
 Bloemheuvel & Multi & GNN & GMPred & R$^2$:0.89 & Italy & 5--8s & 2023 \\
 MALMI & Multi & CNN+Migration & Det+Loc & 2km & Swarm & 5--10s & 2023 \\
+\midrule
+\multicolumn{8}{l}{\textit{Recent advances (2024--2026)}} \\
+\midrule
+FisH & Single & Unified NN & Pick+Loc+Mag & MAE:0.18, 8km & DiTing & 3s & 2024 \\
+Universal-EEW & Both & CNN & Det+Param & generalizable & Multi-region & $<$1s & 2024 \\
+SENSE & Multi & Attention & Intensity & -- & Taiwan & 3--5s & 2024 \\
+SC-GNN & Multi & Contrastive GNN & Intensity & -- & Multi & 3--5s & 2024 \\
+PLAN & Multi & GNN & Pick+Loc+Assoc & multi-task & China & 3--5s & 2024 \\
+WaveCastNet & Multi & ConvLEM seq2seq & Wavefield/GM & -- & SF Bay (sim) & 2--7s & 2025 \\
 \end{longtable}
 
 \subsection{Accuracy-Latency Tradeoff Analysis}
@@ -961,6 +975,21 @@ The potential advantages of foundation models for EEW are substantial:
 \end{itemize}
 
 Initial efforts toward seismological foundation models \citep{earthquake2023foundation} demonstrate that self-supervised pre-training on continuous waveform data produces representations that achieve state-of-the-art performance on multiple downstream tasks with minimal fine-tuning, suggesting that this paradigm will become increasingly central to seismological deep learning.
+
+These ideas have rapidly materialized in concrete systems. SeisLM \citep{liu2024seislm} pre-trains a transformer encoder on a large collection of open-source seismic archives using a self-supervised contrastive objective (analogous to masked language modeling), then fine-tunes for detection, phase picking, and event classification, with the largest gains observed in low-label regimes. U-Trans \citep{saad2026utrans} combines a U-Net encoder--decoder with a compact convolutional transformer in the bottleneck and learns waveform representations that improve a range of downstream earthquake tasks. A markedly different strategy transfers knowledge across modalities: SeisMoLLM \citep{wang2025seismollm} repurposes a pre-trained large language model for seismic monitoring through cross-modal transfer, indicating that representations learned on text can be adapted to waveform analysis without seismic-specific pre-training. Together with generalized networks trained on synthetically diversified ``generalized earthquakes'' to achieve cross-region transfer \citep{zhang2024universal}, these models point toward EEW pipelines that are pre-trained once and deployed across heterogeneous networks worldwide.
+
+\subsection{Recent Advances Toward Unified and Generalizable EEW (2024--2026)}
+\label{sec:recent_advances}
+
+A striking feature of the most recent literature (2024--2026) is a convergence that progressively dissolves the single-station versus multi-station dichotomy that frames this review. Three intertwined trends stand out.
+
+\textbf{End-to-end unification of the processing pipeline.} On the single-station side, unified architectures such as FisH \citep{zhang2024fish} replace the traditional cascade of detection, picking, location, and magnitude modules with a single streaming network, eliminating inter-module hand-off latency. On the multi-station side, the all-in-one PLAN network \citep{si2024plan} and end-to-end multitask models \citep{zhu2025phasenetplus} fold picking, association, and location into one graph- or multitask architecture. Both lines of work pursue the same objective---minimizing the number of sequential stages between raw waveforms and actionable estimates---from opposite ends of the station-count spectrum.
+
+\textbf{Generalization and foundation models.} Generalized networks trained on diversified synthetic and global data \citep{zhang2024universal} and self-supervised foundation models \citep{liu2024seislm, wang2025seismollm, saad2026utrans} target a long-standing obstacle to operational deployment: the poor cross-region, cross-network transfer of models trained on a single catalog. A single pre-trained backbone that can be conditioned on whatever stations are available naturally spans the single/multi-station continuum rather than committing to one regime a priori.
+
+\textbf{Direct prediction of operational targets.} Rather than estimating intermediate source parameters, several recent methods predict the quantity of ultimate interest---ground-shaking intensity or the wavefield itself---directly from early, sparse observations. Contrastive and attention-based multi-station models \citep{murshed2024scgnn, huang2024sense} forecast intensity at target sites from a handful of triggered stations, while sequence-to-sequence wavefield forecasting \citep{lyu2025wavecastnet} predicts the evolving ground motion field, with reported robustness to the large-magnitude events where parameter-based methods saturate.
+
+Collectively, these advances suggest that the next generation of EEW will be built around flexible, pre-trained, multi-task models that ingest a variable number of stations and emit calibrated, operationally relevant predictions---realizing in practice the hybrid, progressively-refining architecture advocated in Section~\ref{sec:hybrid}.
 
 \subsection{Physics-Informed Neural Networks for EEW}
 
