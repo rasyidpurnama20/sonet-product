@@ -48,3 +48,16 @@ Short-Term Load Forecasting (STLF, horizon menit–hari) menopang unit commitmen
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 data + baseline; 2–3 TFT+TGNN + probabilistik; 4 calibration + ablation; 5 uji shift/anomali + multi-node; 6 penulisan + rilis kode.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Lim, B., Arık, S.Ö., Loeff, N., Pfister, T. (2021).** Temporal Fusion Transformers for interpretable multi-horizon time series forecasting. *International Journal of Forecasting*, 37(4), 1748–1764. — backbone temporal + variable selection interpretable.
+- **Salinas, D., Flunkert, V., Gasthaus, J., Januschowski, T. (2020).** DeepAR: probabilistic forecasting with autoregressive recurrent networks. *International Journal of Forecasting*, 36(3), 1181–1191. — baseline probabilistik.
+- **Oreshkin, B.N., et al. (2020).** N-BEATS: neural basis expansion analysis for interpretable time series forecasting. *ICLR*.
+- **(2024/2025).** Graph Neural Networks for Electricity Load Forecasting. arXiv:2507.03690. — dependensi spasial antar-node beban.
+- **Hong, T., et al. (2016).** Probabilistic energy forecasting: GEFCom2014 and beyond. *International Journal of Forecasting*, 32(3), 896–913. — benchmark + framing probabilistik.
+- **Dataset:** GEFCom2012/2014; ISO-NE/PJM/ENTSO-E; London Smart Meter (UKPN); Pecan Street.
+
+*Content was rephrased for compliance with licensing restrictions.*

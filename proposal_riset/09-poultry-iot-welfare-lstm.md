@@ -48,3 +48,15 @@ Produktivitas broiler ditentukan oleh kondisi mikroklimat (suhu, kelembapan, NH3
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 rancang & pasang node IoT; 2 koleksi data + baseline; 3–4 fusi multi-task + uncertainty; 5 uji lapangan + edge deploy; 6 penulisan + rilis.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **(2023).** Application of Machine Learning Algorithms for On-Farm Monitoring and Prediction of Broilers' Live Weight. *Agriculture*, 13(12), 2193. — prediksi bobot broiler non-invasif.
+- **(2025).** Development of an Algorithm for Predicting Broiler Shipment Weight in a Smart Farm Environment. *Agriculture*, 15(5), 539. — forecast bobot panen di smart farm.
+- **(2025).** An Integrated Multi-Sensor AI Platform for Enhanced Welfare and Productivity. arXiv:2510.15757. — sensing murah + edge analytics (Raspberry Pi 5) + forecasting; sangat dekat dengan usulan.
+- **(2019, review).** Automated techniques for monitoring the behaviour and welfare of broilers and laying hens — towards precision livestock farming. *Animal* `[cek]`. — landasan PLF.
+- **Dataset:** akuisisi mandiri time-series lingkungan + bobot; data cuaca BMKG sebagai konteks ambient.
+
+*Content was rephrased for compliance with licensing restrictions.*

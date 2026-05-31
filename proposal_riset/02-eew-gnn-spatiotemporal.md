@@ -49,3 +49,15 @@ Jaringan seismik secara alami adalah **graf**: stasiun sebagai node, relasi spas
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 persiapan data + baseline GCN statis; 2–3 implementasi DST-GNN + physics edges; 4 ablation; 5 evaluasi lintas-region + latensi; 6 penulisan.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **McBrearty, I.W. & Beroza, G.C. (2023).** Earthquake Phase Association with Graph Neural Networks (GENIE). *Bulletin of the Seismological Society of America*, 113(2), 524–547. arXiv:2209.07086. — graf stasiun + graf sumber; rujukan inti GNN seismik.
+- **McBrearty, I.W. & Beroza, G.C. (2022).** Earthquake Location and Magnitude Estimation with Graph Neural Networks. arXiv:2203.05144 (IEEE ICIP 2022) `[cek]`. — GNN mendukung jumlah/posisi stasiun bervariasi.
+- **Münchmeyer, J., et al. (2021).** TEAM. *Geophysical Journal International*, 225(1), 646–656. — baseline transformer multi-stasiun.
+- **Zhu, W., et al. (2022).** GaMMA: earthquake phase association using a Bayesian Gaussian mixture model. *JGR: Solid Earth*, 127, e2021JB023249 `[cek]`.
+- **Dataset:** INSTANCE (Michelini et al. 2021, *ESSD* 13:5509); STEAD (Mousavi et al. 2019, *IEEE Access* 7:179464).
+
+*Content was rephrased for compliance with licensing restrictions.*

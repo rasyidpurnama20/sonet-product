@@ -46,3 +46,15 @@ Phase picking (waktu tiba P/S) adalah fondasi pemrosesan katalog gempa. Model DL
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 kurasi waveform + baseline zero-shot; 2 SSL pretraining; 3–4 domain adaptation + few-shot; 5 evaluasi katalog hilir; 6 penulisan + rilis model/katalog.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Zhu, W. & Beroza, G.C. (2019).** PhaseNet. *Geophysical Journal International*, 216(1), 261–273. — picker dasar.
+- **Mousavi, S.M., et al. (2020).** EQTransformer. *Nature Communications*, 11, 3952. — deteksi + picking simultan.
+- **Münchmeyer, J., et al. (2022).** Which picker fits my data? A quantitative evaluation of deep learning based seismic pickers. *JGR: Solid Earth*, 127, e2021JB023499. — bukti domain shift lintas-dataset.
+- **Jozinović, D., et al. (2022).** Transfer learning untuk prediksi ground shaking pada area dengan data latih terbatas. *Geophysical Journal International*, 229(1), 704–718. — strategi transfer inti.
+- **Dataset:** STEAD (Mousavi 2019, *IEEE Access*); INSTANCE (Michelini 2021, *ESSD*); waveform Indonesia via GEOFON/IRIS-FDSN/BMKG.
+
+*Content was rephrased for compliance with licensing restrictions.*

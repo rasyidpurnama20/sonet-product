@@ -48,3 +48,16 @@ Setelah gempa utama, rentetan aftershock menimbulkan bahaya lanjutan. Model stan
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 katalog + ETAS baseline; 2–3 neural-ETAS + fitur fisik; 4 ablation; 5 evaluasi pseudo-prospektif CSEP; 6 penulisan.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Ogata, Y. (1988).** Statistical models for earthquake occurrences and residual analysis for point processes. *Journal of the American Statistical Association*, 83(401), 9–27. — model ETAS klasik (baseline).
+- **Dascher-Cousineau, K., Shen, O., Beroza, G.C. (2023).** Using deep learning for flexible and scalable earthquake forecasting (RECAST). *Geophysical Research Letters*, 50(17), e2023GL103909. — neural temporal point process.
+- **Stockman, S., Lawson, D.J., Werner, M.J. (2023).** Forecasting the 2016–2017 Central Apennines earthquake sequence with a neural point process. arXiv:2301.09948 `[cek venue]`. — NPP unggul saat ada incompleteness.
+- **(2023).** CL-ETAS: kombinasi deep learning + ETAS (ConvLSTM). arXiv:2310.02574. — hybrid fisika–DL.
+- **(2024).** A Benchmark for Earthquake Forecasting with Neural Point Processes. arXiv:2410.08226. — protokol evaluasi NPP.
+- **Dataset & evaluasi:** SCEDC/ComCat (USGS), JMA, INGV, BMKG; skor gaya CSEP; fitur Coulomb (Slab2/Coulomb 3.x).
+
+*Content was rephrased for compliance with licensing restrictions.*

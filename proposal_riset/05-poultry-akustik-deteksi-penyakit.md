@@ -50,3 +50,15 @@ Penyakit pernapasan (mis. Newcastle Disease, Infectious Bronchitis) menimbulkan 
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 setup audio + koleksi data; 2 pretraining SSL + baseline; 3–4 downstream + anomaly early-warning; 5 uji lapangan + validasi klinis; 6 penulisan + rilis.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Mao, A., et al. (2022).** Automated identification of chicken distress vocalizations using deep learning models. *Journal of the Royal Society Interface*, 19(186), 20210921. doi:10.1098/rsif.2021.0921. — rujukan inti vokalisasi distress.
+- **Manikandan, V., et al. (2025).** Decoding Poultry Welfare from Sound — A Machine Learning Framework for Non-Invasive Acoustic Monitoring. *Sensors*, 25(9), 2912. — kerangka monitoring akustik kesejahteraan.
+- **(2026).** Automatic chick cough detection (ASCT-CC) berbasis Audio Spectrogram Transformer dengan local multi-head attention. *Frontiers in Veterinary Science* `[cek vol]`. — deteksi batuk di lingkungan riil.
+- **AI-Driven Bioacoustics in Poultry Farming (2025).** Systematic review analisis vokalisasi untuk stres & penyakit (*preprint*) `[cek]`. — survei domain.
+- **Dataset:** SmartEars / SmartEars-style spectrogram corpora; HuggingFace `chicken-vocalization-classifier` & `chicken-health-behavior-multimodal` (audio+visual) `[cek lisensi]`.
+
+*Content was rephrased for compliance with licensing restrictions.*

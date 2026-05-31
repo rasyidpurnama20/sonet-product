@@ -46,3 +46,16 @@ Focal mechanism (strike/dip/rake atau moment tensor) menggambarkan geometri pata
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 kurasi katalog + baseline HASH/CNN; 2–3 GNN geometris + uncertainty; 4 ablation + kalibrasi; 5 evaluasi azimuthal-gap & transfer; 6 penulisan (GRL letter).
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Ross, Z.E., Meier, M.-A., Hauksson, E. (2018).** P-wave arrival picking and first-motion polarity determination with deep learning. *Journal of Geophysical Research: Solid Earth*, 123(6), 5120–5129. arXiv:1804.08804. — fondasi polaritas first-motion berbasis CNN.
+- **Hara, S., et al. (2019).** P-wave first-motion polarity determination of waveform data in western Japan using deep learning. *Earth, Planets and Space*, 71, 127 `[cek nama penulis]`.
+- **McBrearty, I.W. & Beroza, G.C. (2023).** Earthquake Phase Association with Graph Neural Networks (GENIE). *BSSA*, 113(2), 524–547. — pola pemodelan jaringan stasiun sebagai graf.
+- **Li, S., et al. (2025).** A deep-learning framework for focal mechanism determination (aplikasi gempa Luding 2022). arXiv:2511.19185 `[cek]`. — tren terbaru DL focal mechanism.
+- **Catatan blind spot:** GNN focal mechanism dengan struktur graf eksplisit + uncertainty masih jarang (lihat `research-map/01-domain-map.md`).
+- **Dataset:** SCSN/SCEDC focal mechanism catalogs; Global CMT; STEAD.
+
+*Content was rephrased for compliance with licensing restrictions.*

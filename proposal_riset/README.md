@@ -34,3 +34,4 @@
 - Setiap proposal dirancang sebagai **dokumen mandiri** sehingga dapat dipecah menjadi pengajuan terpisah.
 - Item dataset diberi tautan/identitas sumber konkret agar mudah diverifikasi.
 - Bagian metodologi memuat baseline, arsitektur usulan, ablation, dan metrik evaluasi agar langsung dapat dieksekusi.
+- Setiap proposal memuat bagian **"Referensi Kunci / Related Work"** berisi sitasi yang sudah diverifikasi via pencarian web (Mei 2026). Entri dengan tanda `[cek]` masih perlu konfirmasi venue/tahun sebelum dikutip formal di manuskrip.

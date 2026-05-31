@@ -48,3 +48,15 @@ Pembangkitan PV surya sangat fluktuatif akibat awan, sehingga menyulitkan penjad
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 data + baseline persistence/LSTM; 2–3 multi-modal fusion + probabilistik; 4 ramp-aware + ablation; 5 transfer lintas-iklim; 6 penulisan + rilis.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Nie, Y., et al. (2023).** SKIPP'D: a SKy Images and Photovoltaic Power Generation Dataset for short-term solar forecasting. *Solar Energy*, 255, 171–179. arXiv:2207.00913. — dataset citra langit + output PV (kode publik di GitHub `yuhao-nie/Stanford-solar-forecasting-dataset`).
+- **Nie, Y., et al. (2024).** Open-source sky image datasets for solar forecasting with deep learning: a comprehensive survey. *Renewable and Sustainable Energy Reviews* `[cek vol]`. — survei dataset.
+- **Nie, Y., et al. (2024).** SkyGPT: probabilistic ultra-short-term solar forecasting using synthetic sky images from a physics-constrained VideoGPT. *Advances in Applied Energy* `[cek]`. — pembangkitan citra langit + probabilistik.
+- **(2024).** Sky Image-Based Solar Forecasting Using Deep Learning With Heterogeneous Multi-Location Data: Dataset Fusion versus Transfer Learning. *Applied Energy*, 369, 123467. — relevan untuk generalisasi lintas-lokasi.
+- **Dataset:** SKIPP'D; NSRDB (NREL); SURFRAD/BSRN; ERA5/GFS untuk fitur NWP.
+
+*Content was rephrased for compliance with licensing restrictions.*

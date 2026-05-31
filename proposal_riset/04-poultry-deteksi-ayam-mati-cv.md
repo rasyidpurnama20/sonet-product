@@ -49,3 +49,16 @@ Mortalitas harian adalah indikator kesehatan flock yang kritis. Bangkai yang ter
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 setup kamera + pengumpulan data; 2 anotasi + baseline YOLO; 3–4 modul temporal + edge optimization; 5 uji lapangan lintas-kandang; 6 penulisan + rilis dataset/kode.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Hao, H., Fang, P., Duan, E., et al. (2022).** A Dead Broiler Inspection System for Large-Scale Breeding Farms Based on Deep Learning. *Agriculture*, 12(8), 1176. — sistem inspeksi broiler mati skala besar.
+- **Bist, R.B., Subedi, S., Yang, X., Chai, L. (2023).** Automatic Detection of Cage-Free Dead Hens with Deep Learning Methods. *AgriEngineering*, 5(2). — konteks cage-free.
+- **Bumbálek, R., et al. (2025).** Comparative analysis of YOLOv8/v9/v10/v11 for dead chicken detection. *Poultry Science* `[cek vol/hal]`. — benchmark detektor terbaru.
+- **Liu, H.-W., Chen, C.-H., Tsai, Y.-C., Hsieh, K.-W., et al. (2021).** Identifying Images of Dead Chickens with a Chicken Removal System Integrated with a Deep Learning Algorithm. *Sensors*, 21(11), 3579.
+- **Agriculture (2025), 15(3), 225.** Broiler Mortality Identification Based on Video and Historical Movement. — mendukung ide modul immobility temporal.
+- **Khanal, R., Wu, W., et al. (2025).** Automated Dead Chicken Detection Using Knowledge Distillation and Vision Transformers. *Applied Sciences*, 15(1), 136. — region diam → konfirmasi via klasifikasi.
+
+*Content was rephrased for compliance with licensing restrictions.*
