@@ -148,3 +148,19 @@ These findings indicate that the climate burden of firewood combustion and the f
 - **[CHECK DATA — biogenic CO₂]** Konfirmasi setelan biogenic carbon SimaPro 10.3 (mendukung narasi GWP).
 - **[Figure 2 a–e]** Pastikan grafik kontributor sudah memakai pola baru (boiling/coagulation/grinding dominan; washing minor), bukan grafik lama.
 - **[Tabel 3]** Kolom "Share (%)" per stage masih kosong — disarankan diisi: Boiling 51.7, Grinding 17.8, Washing 11.5, Soaking 11.1, Coagulation 6.7, Molding & Packing 1.3.
+
+
+---
+
+## 8. Addendum — Perbaikan Tabel yang Sudah Diterapkan di ver3 (revisi lanjutan)
+
+Dua dari empat flag manual kini **sudah diterapkan langsung** ke `Alifa Paper Tofu Production ver3.docx` (nilai numerik tidak diubah):
+
+1. **Tabel 1 — reklasifikasi (DONE).** Baris **Wastewater** (2660 / 600 / 100 L) dan **Whey** (10.434 L) dipindahkan dari grup "Output product/material" ke grup kategori baru **"Emission to water"** di akhir tabel. Grup Output kini berisi Tofu Product, Okara, Steam loss, Wood ashes; grup Emission (udara) tetap CO₂/CH₄/N₂O. Semua nilai data tidak berubah.
+2. **Tabel 3 — kolom Share (%) diisi (DONE):** Boiling 51.7 · Grinding 17.8 · Soaking 11.1 · Coagulation 6.7 · Washing 11.5 · Molding and Packing 1.3 · Total 100.
+
+Sisa flag yang **masih perlu Anda cek manual** (tidak bisa dipastikan dari sisi teks):
+- **[Figure 2 a–e]** Pastikan grafik kontributor memakai pola baru (boiling/coagulation/grinding dominan), bukan grafik washing-dominan lama.
+- **[CHECK DATA — biogenic CO₂]** Konfirmasi setelan *biogenic carbon* di SimaPro 10.3 sesuai pernyataan Methods 2.3.
+
+File telah diverifikasi: integritas dokumen (zip) OK, gambar terjaga, kelima tabel terbaca, dan struktur vertical-merge Tabel 1 valid.
