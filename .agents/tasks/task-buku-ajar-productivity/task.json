@@ -1,0 +1,7 @@
+{
+  "task_id": "task-buku-ajar-productivity",
+  "task_description": "Create a comprehensive Indonesian-language textbook (buku ajar) synthesizing 5 source books (PIM, Prompt Engineering, 4-Hour Body, CLRS Algorithms, Modern Data Protection) into a cohesive educational resource about digital productivity and modern computing.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001"],
+  "blocked_reason": null
+}

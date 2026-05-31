@@ -1,0 +1,46 @@
+{
+  "id": "FEAT-001",
+  "type": "docs",
+  "description": "Create the comprehensive Indonesian-language textbook (Buku Ajar) as a single large markdown document in productivity_boost/. The textbook synthesizes all 5 source books into a cohesive educational resource organized around the theme of 'Produktivitas Digital dan Komputasi Modern' (Digital Productivity and Modern Computing). The textbook must have proper pedagogical structure: kata pengantar, daftar isi, 10 bab (chapters) with learning objectives, material, examples, exercises, and summaries. Each chapter draws from one or more source books. The file should be named 'buku-ajar-produktivitas-digital.md'.",
+  "status": "completed",
+  "steps": [
+    "Create the file productivity_boost/buku-ajar-produktivitas-digital.md with the complete textbook content in Indonesian",
+    "Structure the textbook with the following chapters (Bab): Bab 1 - Pendahuluan: Produktivitas di Era Digital (Introduction from all books); Bab 2 - Manajemen Informasi Pribadi Digital (from Book 1: PIM, curation, keeping/management/exploitation); Bab 3 - Organisasi File dan Strategi Pengambilan Informasi (from Book 1: folders vs search vs tags, user-subjective approach); Bab 4 - Dasar-Dasar Algoritma dan Pemikiran Komputasional (from Book 4: algorithm basics, complexity, sorting, searching); Bab 5 - Struktur Data dan Algoritma Lanjutan (from Book 4: data structures, graphs, dynamic programming, greedy); Bab 6 - Memahami Large Language Models (LLM) (from Book 2: what LLMs are, tokens, transformers, RLHF, chat models); Bab 7 - Rekayasa Prompt dan Pengembangan Aplikasi LLM (from Book 2: prompt engineering techniques, content, assembly, workflows, evaluation); Bab 8 - Proteksi Data Modern dan Pemulihan Bencana (from Book 5: backup/recovery basics, 3-2-1 rule, deduplication, disaster recovery); Bab 9 - Perlindungan Beban Kerja Modern (from Book 5: cloud, containers, SaaS, ransomware, DPaaS); Bab 10 - Optimasi Diri dan Pembelajaran Cepat (from Book 3: MED, self-experimentation, rapid learning, sleep, habit formation)",
+    "Each chapter (Bab) must include: Tujuan Pembelajaran (Learning Objectives, 4-6 items using Bloom's taxonomy verbs), Materi Inti (Core Material with sub-sections, detailed explanations in clear Indonesian), Contoh dan Studi Kasus (Examples/Case Studies), Rangkuman (Summary), Latihan dan Evaluasi (Exercises, 5-10 questions mixing essay and practical), Referensi (References to source book)",
+    "Write the Kata Pengantar (Preface) explaining the textbook's purpose: synthesizing 5 international reference books into accessible Indonesian learning material for students/professionals",
+    "Write comprehensive Daftar Isi (Table of Contents) at the beginning",
+    "Write Bab 1 (Pendahuluan) - introduce the 5 thematic areas, explain why each is critical for modern productivity, discuss how the 5 areas connect (managing info + algorithms for efficiency + AI/LLM tools + data protection + personal optimization)",
+    "Write Bab 2 (Manajemen Informasi Pribadi Digital) - cover PIM concepts from Bergman & Whittaker: what is PIM, why it matters, the curation lifecycle (keeping/management/exploitation), decision-making about what to keep, overkeeping problem, personal archives complexity, information types (action vs informative), accumulation patterns",
+    "Write Bab 3 (Organisasi File dan Strategi Pengambilan) - cover: hierarchical folders and their history, the search alternative (why users still prefer navigation), the tagging alternative, group information management, the user-subjective approach (subjective importance, project classification, context principles), practical implications for daily digital organization",
+    "Write Bab 4 (Dasar-Dasar Algoritma) - cover from CLRS: what is an algorithm, why study algorithms, pseudocode, analyzing algorithms, asymptotic notation (Big-O, Omega, Theta), divide-and-conquer (merge sort, quicksort), basic data structures (arrays, stacks, queues, linked lists, hash tables), searching and sorting algorithms with Indonesian examples",
+    "Write Bab 5 (Struktur Data dan Algoritma Lanjutan) - cover: trees (BST, red-black, B-trees), graph algorithms (BFS, DFS, shortest paths, MST), dynamic programming (principles, examples like rod cutting and LCS), greedy algorithms, NP-completeness (basic concepts), brief intro to machine learning algorithms from CLRS 4th ed",
+    "Write Bab 6 (Memahami Large Language Models) - cover from Berryman & Ziegler: what LLMs are (text in/text out, document completion), training process, tokens and tokenization, how LLMs see text differently from humans, auto-regressive generation, temperature and probabilities, transformer architecture (attention), RLHF and alignment, base models vs chat models, the Chat Completion API",
+    "Write Bab 7 (Rekayasa Prompt dan Aplikasi LLM) - cover: prompt engineering as a discipline, prompt content (static vs dynamic), assembling the prompt (anatomy of ideal prompt, document types), few-shot prompting, RAG (Retrieval-Augmented Generation), taming completions, tool usage and conversational agency, LLM workflows (basic and advanced), evaluation (offline and online), multimodality and future directions",
+    "Write Bab 8 (Proteksi Data Modern) - cover from Preston: why we back up (risks: human, mechanical, natural disasters, ransomware), RPO and RTO, backup vs archive, the 3-2-1 rule, backup levels (full/incremental), deduplication (source vs target), using disk in backup systems, recovery concepts (image/file/instant), traditional and modern backup methods",
+    "Write Bab 9 (Perlindungan Beban Kerja Modern) - cover: protecting physical/virtual servers, desktops/laptops/mobile, databases, cloud (IaaS/PaaS/SaaS), containers and Kubernetes, disaster recovery planning (hot/warm/cold sites), DPaaS, replacing/upgrading backup systems, choosing solutions, ransomware-specific protections (immutability, air gaps)",
+    "Write Bab 10 (Optimasi Diri dan Pembelajaran Cepat) - cover from Ferriss: the Minimum Effective Dose concept, rules that change the rules (questioning conventional wisdom), the Harajuku Moment (decision points), self-experimentation methodology, data-driven personal improvement, sleep optimization, rapid skill acquisition principles, the value of self-experimentation, spotting bad science",
+    "Write closing section: Penutup (Closing) summarizing the 5 pillars of digital productivity, Daftar Pustaka (Bibliography) listing all 5 source books with full citations, Glosarium (Glossary) of key terms in Indonesian with English equivalents",
+    "Ensure total content is comprehensive (target 3000-4000+ lines of markdown), with clear formatting using headers (##, ###), tables, bullet points, numbered lists, blockquotes for key insights, and code blocks for algorithm pseudocode"
+  ],
+  "acceptance_criteria": [
+    "File productivity_boost/buku-ajar-produktivitas-digital.md exists and is well-formed markdown",
+    "Content is written entirely in Indonesian (Bahasa Indonesia) with technical terms in English where appropriate",
+    "All 10 chapters (Bab) are present with complete content",
+    "Each chapter has Tujuan Pembelajaran, Materi Inti, Contoh/Studi Kasus, Rangkuman, and Latihan/Evaluasi",
+    "All 5 source books are well-represented across the chapters",
+    "The textbook has a clear Kata Pengantar, Daftar Isi, and closing sections (Penutup, Daftar Pustaka, Glosarium)",
+    "Total document length is at least 3000 lines",
+    "Algorithm pseudocode examples are included in Bab 4 and 5",
+    "Prompt engineering examples are included in Bab 6 and 7",
+    "Practical exercises are included in each chapter"
+  ],
+  "verification": [
+    "Run: wc -l /projects/sandbox/sonet-product/productivity_boost/buku-ajar-produktivitas-digital.md (should be 3000+ lines)",
+    "Run: head -100 /projects/sandbox/sonet-product/productivity_boost/buku-ajar-produktivitas-digital.md (verify Indonesian content and structure)",
+    "Run: grep -c '^## ' /projects/sandbox/sonet-product/productivity_boost/buku-ajar-produktivitas-digital.md (verify chapter structure)",
+    "Run: grep -c 'Tujuan Pembelajaran' /projects/sandbox/sonet-product/productivity_boost/buku-ajar-produktivitas-digital.md (should be 10, one per chapter)",
+    "Run: grep -c 'Latihan' /projects/sandbox/sonet-product/productivity_boost/buku-ajar-produktivitas-digital.md (should be 10+, exercises in each chapter)"
+  ],
+  "blocked_reason": null,
+  "findings": "File successfully created at 3925 lines with all 10 chapters, proper pedagogical structure, pseudocode examples, tables, blockquotes, and exercises. All acceptance criteria verified: 10 Tujuan Pembelajaran sections, 10 Rangkuman sections, 10 Latihan dan Evaluasi sections, all 5 source books represented, Indonesian language throughout."
+}
