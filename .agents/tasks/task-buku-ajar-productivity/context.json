@@ -1,0 +1,60 @@
+{
+  "project_type": "Content/Documentation repository (markdown-based educational materials)",
+  "language": "Indonesian (Bahasa Indonesia) for output content, Python for extraction scripts",
+  "build_system": "None - this is a content repository. Files are markdown documents.",
+  "test_framework": "None - content verification is manual review",
+  "build_command": "N/A - markdown files, no build needed",
+  "test_command": "N/A - verify markdown renders correctly",
+  "verification_instructions": "1. Verify all output markdown files exist in productivity_boost/ folder. 2. Verify content is written in Indonesian. 3. Verify textbook structure (chapters, learning objectives, exercises). 4. Verify all 5 source books are represented.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "pip install PyPDF2 pdfplumber ebooklib beautifulsoup4 (already installed)",
+  "environment_constraints": "OPEN_INTERNET network mode. Python 3.11 available. PDF/EPUB extraction libraries installed.",
+  "contribution_requirements": "Follow existing naming convention: numbered files (e.g., 003-xxx.md). Content in Indonesian language.",
+  "key_patterns": "Existing files in productivity_boost use numbered markdown files with Indonesian content. Structure includes headers, tables, code blocks, and bullet points.",
+  "relevant_files": [
+    "productivity_boost/001-pembahasan-artikel-modul-riset-otomasi-sosmed.md",
+    "productivity_boost/002-prompt-article-review.md",
+    "productivity_boost/50-strategi-cuan-claude-opus.md"
+  ],
+  "directory_structure": "productivity_boost/ contains markdown educational content and source PDF/EPUB books. The textbook output will be a large markdown file (or multiple parts) in this same directory.",
+  "source_books": {
+    "book1": {
+      "title": "The Science of Managing Our Digital Stuff",
+      "authors": "Ofer Bergman, Steve Whittaker",
+      "year": 2017,
+      "publisher": "MIT Press",
+      "pages": 291,
+      "topics": "Personal Information Management (PIM), digital curation, keeping/management/exploitation of files, folders vs search vs tags, user-subjective approach to PIM design"
+    },
+    "book2": {
+      "title": "Prompt Engineering For LLMs: The Art And Science Of Building Large Language Model Based Applications",
+      "authors": "John Berryman, Albert Ziegler",
+      "year": 2025,
+      "publisher": "O'Reilly Media",
+      "topics": "LLM fundamentals, understanding LLMs (tokens/temperature/transformers), chat models, RLHF, designing LLM applications, prompt content, assembling prompts, taming the model, conversational agency, LLM workflows, evaluation, multimodality"
+    },
+    "book3": {
+      "title": "The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman",
+      "authors": "Timothy Ferriss",
+      "year": 2010,
+      "publisher": "Crown Archetype",
+      "topics": "Minimum Effective Dose (MED), self-experimentation methodology, rapid learning, body optimization, sleep engineering, habit formation, data-driven personal improvement"
+    },
+    "book4": {
+      "title": "Introduction to Algorithms (4th Edition)",
+      "authors": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+      "year": 2022,
+      "publisher": "MIT Press",
+      "pages": 1251,
+      "topics": "Algorithm design and analysis, sorting, data structures, graph algorithms, dynamic programming, greedy algorithms, NP-completeness, machine learning algorithms, parallel algorithms"
+    },
+    "book5": {
+      "title": "Modern Data Protection: Ensuring Recoverability of All Modern Workloads",
+      "authors": "W. Curtis Preston",
+      "year": 2021,
+      "publisher": "O'Reilly Media",
+      "pages": 387,
+      "topics": "Data backup/recovery, disaster recovery, 3-2-1 rule, deduplication, cloud protection, ransomware defense, archive vs backup, modern data sources (containers/Kubernetes/SaaS), DPaaS"
+    }
+  }
+}
