@@ -36,9 +36,17 @@ Phase picking (waktu tiba P/S) adalah fondasi pemrosesan katalog gempa. Model DL
 **Metrik:** precision/recall/F1 pick & residual waktu (s), peningkatan jumlah event terdeteksi, akurasi lokasi/magnitudo katalog, biaya pelabelan.
 
 ## 5. Dataset
-- **STEAD / INSTANCE / California (NCEDC/SCEDC)** — sumber pra-latih & label melimpah.
-- **Indonesia: BMKG, GEOFON (GFZ), IRIS-FDSN** — waveform kontinu & event regional (target adaptation/evaluasi).
-- **Label lokal**: subset event tervalidasi analis BMKG / katalog ISC sebagai ground-truth few-shot.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **STEAD** (Mousavi et al. 2019, *IEEE Access*) — waveform 3-komponen + label P/S melimpah; terbuka via GitHub. Sumber pra-latih.
+2. **INSTANCE** (Michelini et al. 2021, *ESSD*) — dataset ML seismik Italia; terbuka via INGV. Sumber/benchmark lintas-region.
+3. **NCEDC / SCEDC (California)** — waveform + pick katalog terbuka (AWS Open Data). Sumber pelatihan tambahan.
+
+> Minimal dua benchmark publik (STEAD + INSTANCE) memenuhi syarat sebagai domain sumber; NCEDC/SCEDC menambah keragaman.
+
+### 5.2 Data Pelengkap / Akses Terbatas (domain target Indonesia)
+- **GEOFON (GFZ) & IRIS-FDSN** — waveform kontinu Indonesia via FDSN web services (terbuka).
+- **BMKG** — event regional + label analis (via permohonan resmi); subset tervalidasi sebagai ground-truth few-shot; katalog **ISC** sebagai rujukan.
 
 ## 6. Risiko & Mitigasi
 - *Akses data BMKG* → gunakan FDSN/GEOFON publik + permohonan resmi; mulai dari arsip terbuka.
@@ -46,3 +54,24 @@ Phase picking (waktu tiba P/S) adalah fondasi pemrosesan katalog gempa. Model DL
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 kurasi waveform + baseline zero-shot; 2 SSL pretraining; 3–4 domain adaptation + few-shot; 5 evaluasi katalog hilir; 6 penulisan + rilis model/katalog.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Zhu, W. & Beroza, G.C. (2019).** PhaseNet. *Geophysical Journal International*, 216(1), 261–273. — picker dasar.
+- **Mousavi, S.M., et al. (2020).** EQTransformer. *Nature Communications*, 11, 3952. — deteksi + picking simultan.
+- **Münchmeyer, J., et al. (2022).** Which picker fits my data? A quantitative evaluation of deep learning based seismic pickers. *JGR: Solid Earth*, 127, e2021JB023499. — bukti domain shift lintas-dataset.
+- **Jozinović, D., et al. (2022).** Transfer learning untuk prediksi ground shaking pada area dengan data latih terbatas. *Geophysical Journal International*, 229(1), 704–718. — strategi transfer inti.
+- **Dataset:** STEAD (Mousavi 2019, *IEEE Access*); INSTANCE (Michelini 2021, *ESSD*); waveform Indonesia via GEOFON/IRIS-FDSN/BMKG.
+
+*Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- STEAD — https://github.com/smousavi05/STEAD
+- INSTANCE — https://instance.ingv.it/
+- NCEDC — https://ncedc.org/ · SCEDC (AWS) — https://registry.opendata.aws/southern-california-earthquake-data/
+- GEOFON — https://geofon.gfz-potsdam.de/ · IRIS FDSN — https://service.iris.edu/

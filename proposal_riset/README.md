@@ -23,6 +23,25 @@
 
 ---
 
+## Dataset Benchmark Publik per Proposal (≥2 wajib)
+
+> Setiap proposal **wajib** memakai minimal **2 dataset benchmark publik** yang sudah terverifikasi terbuka (lihat §5.1 di tiap file). Data restricted/akuisisi-mandiri hanya sebagai pelengkap (§5.2).
+
+| # | Dataset Publik Utama (≥2) | Akses |
+|---|----------------------------|-------|
+| 01 | STEAD, INSTANCE (+ K-NET/KiK-net) | GitHub / INGV / NIED |
+| 02 | INSTANCE, STEAD (+ SCEDC) | INGV / GitHub / AWS Open Data |
+| 03 | SCEDC focal-mechanism catalog, Global CMT (+ STEAD) | SCEDC/SCEC / globalcmt.org |
+| 04 | PIO broiler dataset, Roboflow "Chicken Detection & Tracking" (+ carcass-seg, HF multimodal) | Nature Sci. Data / Roboflow / HF |
+| 05 | Mendeley Poultry Vocalization (zp4nf2dxbh), SmartEars (dy6gtvt4mk) (+ Zenodo 10433023) | Mendeley / Zenodo |
+| 06 | GEFCom2012/2014, ISO-NE/PJM/ENTSO-E (+ London Smart Meter, Pecan Street) | open data |
+| 07 | SKIPP'D, NSRDB (+ SURFRAD/BSRN) | GitHub / NREL / NOAA |
+| 08 | STEAD, INSTANCE (+ NCEDC/SCEDC) | GitHub / INGV / AWS Open Data |
+| 09 | USDA-ARS broiler PM/ammonia (data.gov), USDA-NAL ammonia (+ HF multimodal) | data.gov / USDA NAL |
+| 10 | SCEDC/ComCat (USGS), JMA catalog (+ INGV, ISC-GEM) | USGS / JMA / INGV |
+
+---
+
 ## Ringkasan Klaster Domain
 
 - **Seismologi & Deep Learning (01, 02, 03, 08, 10):** memanfaatkan keahlian phase picking berbasis CNN serta tren GNN multi-stasiun, uncertainty-aware modeling, dan transfer learning lintas-jaringan. Target venue: GRL, JGR-SE, SRL, BSSA, GJI.
@@ -33,4 +52,7 @@
 
 - Setiap proposal dirancang sebagai **dokumen mandiri** sehingga dapat dipecah menjadi pengajuan terpisah.
 - Item dataset diberi tautan/identitas sumber konkret agar mudah diverifikasi.
+- **Kebijakan dataset:** setiap proposal menjamin **minimal 2 dataset benchmark publik** (§5.1) yang terverifikasi terbuka; data akses-terbatas/akuisisi-mandiri hanya pelengkap (§5.2). Lihat tabel ringkasan di atas.
 - Bagian metodologi memuat baseline, arsitektur usulan, ablation, dan metrik evaluasi agar langsung dapat dieksekusi.
+- Setiap proposal memuat bagian **"Referensi Kunci / Related Work"** berisi sitasi yang sudah diverifikasi via pencarian web (Mei 2026). Entri dengan tanda `[cek]` masih perlu konfirmasi venue/tahun sebelum dikutip formal di manuskrip.
+- File **[`references.bib`](references.bib)** menyediakan seluruh sitasi + entri dataset (BibTeX) yang siap dipakai di LaTeX (mis. `\cite{team2021}`, `\cite{data_skippd_repo}`). Entri dengan field `note = {[VERIFIKASI ...]}` perlu dikonfirmasi volume/halaman/penulis sebelum submission.

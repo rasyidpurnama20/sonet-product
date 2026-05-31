@@ -1,0 +1,634 @@
+% =====================================================================
+% references.bib — Kumpulan referensi untuk 10 proposal riset
+% Domain: Seismologi & Deep Learning, Smart Poultry, Energy Forecasting
+% Disusun: Mei 2026 | Diverifikasi via pencarian web.
+%
+% CATATAN VERIFIKASI:
+%  - Entri dengan field `note = {[VERIFIKASI ...]}` masih perlu konfirmasi
+%    volume/halaman/venue sebelum dikutip formal di manuskrip.
+%  - Entri @misc dataset menyertakan `url` + `urldate` (akses Mei 2026).
+% =====================================================================
+
+
+% ---------------------------------------------------------------------
+% SEISMOLOGI — model & metode inti
+% ---------------------------------------------------------------------
+
+@article{zhu2019phasenet,
+  title   = {{PhaseNet}: a deep-neural-network-based seismic arrival-time picking method},
+  author  = {Zhu, Weiqiang and Beroza, Gregory C.},
+  journal = {Geophysical Journal International},
+  volume  = {216},
+  number  = {1},
+  pages   = {261--273},
+  year    = {2019},
+  doi     = {10.1093/gji/ggy423}
+}
+
+@article{mousavi2020eqtransformer,
+  title   = {Earthquake transformer---an attentive deep-learning model for simultaneous earthquake detection and phase picking},
+  author  = {Mousavi, S. Mostafa and Ellsworth, William L. and Zhu, Weiqiang and Chuang, Lindsay Y. and Beroza, Gregory C.},
+  journal = {Nature Communications},
+  volume  = {11},
+  pages   = {3952},
+  year    = {2020},
+  doi     = {10.1038/s41467-020-17591-w}
+}
+
+@article{ross2018pwave,
+  title   = {{P} Wave Arrival Picking and First-Motion Polarity Determination With Deep Learning},
+  author  = {Ross, Zachary E. and Meier, Men-Andrin and Hauksson, Egill},
+  journal = {Journal of Geophysical Research: Solid Earth},
+  volume  = {123},
+  number  = {6},
+  pages   = {5120--5129},
+  year    = {2018},
+  doi     = {10.1029/2017JB015251}
+}
+
+@article{mcbrearty2023genie,
+  title   = {Earthquake Phase Association with Graph Neural Networks},
+  author  = {McBrearty, Ian W. and Beroza, Gregory C.},
+  journal = {Bulletin of the Seismological Society of America},
+  volume  = {113},
+  number  = {2},
+  pages   = {524--547},
+  year    = {2023},
+  doi     = {10.1785/0120220182},
+  note    = {GENIE: graf stasiun + graf sumber}
+}
+
+@inproceedings{mcbrearty2022location,
+  title     = {Earthquake Location and Magnitude Estimation with Graph Neural Networks},
+  author    = {McBrearty, Ian W. and Beroza, Gregory C.},
+  booktitle = {IEEE International Conference on Image Processing (ICIP)},
+  year      = {2022},
+  eprint    = {2203.05144},
+  archivePrefix = {arXiv},
+  note      = {[VERIFIKASI venue/halaman]}
+}
+
+@article{team2021,
+  title   = {The transformer earthquake alerting model: a new versatile approach to earthquake early warning},
+  author  = {M{\"u}nchmeyer, Jannes and Bindi, Dino and Leser, Ulf and Tilmann, Frederik},
+  journal = {Geophysical Journal International},
+  volume  = {225},
+  number  = {1},
+  pages   = {646--656},
+  year    = {2021},
+  doi     = {10.1093/gji/ggaa609}
+}
+
+@article{munchmeyer2021magnitude,
+  title   = {Earthquake magnitude and location estimation from real time seismic waveforms with a transformer network},
+  author  = {M{\"u}nchmeyer, Jannes and Bindi, Dino and Leser, Ulf and Tilmann, Frederik},
+  journal = {Geophysical Journal International},
+  volume  = {226},
+  number  = {2},
+  pages   = {1086--1100},
+  year    = {2021},
+  doi     = {10.1093/gji/ggab139}
+}
+
+@article{munchmeyer2022whichpicker,
+  title   = {Which Picker Fits My Data? A Quantitative Evaluation of Deep Learning Based Seismic Pickers},
+  author  = {M{\"u}nchmeyer, Jannes and Woollam, Jack and Rietbrock, Andreas and others},
+  journal = {Journal of Geophysical Research: Solid Earth},
+  volume  = {127},
+  number  = {1},
+  pages   = {e2021JB023499},
+  year    = {2022},
+  doi     = {10.1029/2021JB023499}
+}
+
+@article{jozinovic2022transfer,
+  title   = {Transfer learning: improving neural network based prediction of earthquake ground shaking for an area with insufficient training data},
+  author  = {Jozinovi{\'c}, Dario and Lomax, Anthony and Stajduhar, Ivan and Michelini, Alberto},
+  journal = {Geophysical Journal International},
+  volume  = {229},
+  number  = {1},
+  pages   = {704--718},
+  year    = {2022},
+  doi     = {10.1093/gji/ggab488}
+}
+
+@article{zhu2022gamma,
+  title   = {Earthquake phase association using a Bayesian Gaussian mixture model},
+  author  = {Zhu, Weiqiang and McBrearty, Ian W. and Mousavi, S. Mostafa and Ellsworth, William L. and Beroza, Gregory C.},
+  journal = {Journal of Geophysical Research: Solid Earth},
+  volume  = {127},
+  number  = {3},
+  pages   = {e2021JB023249},
+  year    = {2022},
+  doi     = {10.1029/2021JB023249},
+  note    = {[VERIFIKASI nomor/halaman]}
+}
+
+@article{hara2019polarity,
+  title   = {{P}-wave first-motion polarity determination of waveform data in western Japan using deep learning},
+  author  = {Hara, Shota and Fukahata, Yukitoshi and Iio, Yoshihisa},
+  journal = {Earth, Planets and Space},
+  volume  = {71},
+  pages   = {127},
+  year    = {2019},
+  doi     = {10.1186/s40623-019-1111-x},
+  note    = {[VERIFIKASI penulis]}
+}
+
+@misc{li2025luding,
+  title         = {A Deep-Learning-Based Framework for Focal Mechanism Determination and Its Application to the 2022 Luding Earthquake Sequence},
+  author        = {Li, S. and others},
+  year          = {2025},
+  eprint        = {2511.19185},
+  archivePrefix = {arXiv},
+  note          = {[VERIFIKASI]}
+}
+
+
+% ---------------------------------------------------------------------
+% SEISMOLOGI — forecasting / point process
+% ---------------------------------------------------------------------
+
+@article{ogata1988etas,
+  title   = {Statistical models for earthquake occurrences and residual analysis for point processes},
+  author  = {Ogata, Yosihiko},
+  journal = {Journal of the American Statistical Association},
+  volume  = {83},
+  number  = {401},
+  pages   = {9--27},
+  year    = {1988},
+  doi     = {10.1080/01621459.1988.10478560}
+}
+
+@article{dascher2023recast,
+  title   = {Using Deep Learning for Flexible and Scalable Earthquake Forecasting},
+  author  = {Dascher-Cousineau, Kelian and Shen, Oleksandr and Beroza, Gregory C.},
+  journal = {Geophysical Research Letters},
+  volume  = {50},
+  number  = {17},
+  pages   = {e2023GL103909},
+  year    = {2023},
+  doi     = {10.1029/2023GL103909},
+  note    = {RECAST: neural temporal point process}
+}
+
+@misc{stockman2023apennines,
+  title         = {Forecasting the 2016--2017 Central Apennines Earthquake Sequence with a Neural Point Process},
+  author        = {Stockman, Samuel and Lawson, Daniel J. and Werner, Maximilian J.},
+  year          = {2023},
+  eprint        = {2301.09948},
+  archivePrefix = {arXiv},
+  note          = {[VERIFIKASI venue jurnal]}
+}
+
+@misc{nppbenchmark2024,
+  title         = {A Benchmark for Earthquake Forecasting with Neural Point Processes},
+  author        = {Stockman, Samuel and others},
+  year          = {2024},
+  eprint        = {2410.08226},
+  archivePrefix = {arXiv}
+}
+
+@misc{cletas2023,
+  title         = {A combining earthquake forecasting model between deep learning and Epidemic-Type Aftershock Sequence (ETAS) model},
+  author        = {Anonymous},
+  year          = {2023},
+  eprint        = {2310.02574},
+  archivePrefix = {arXiv},
+  note          = {CL-ETAS; [VERIFIKASI penulis]}
+}
+
+
+% ---------------------------------------------------------------------
+% SMART POULTRY — computer vision (deteksi ayam mati)
+% ---------------------------------------------------------------------
+
+@article{hao2022deadbroiler,
+  title   = {A Dead Broiler Inspection System for Large-Scale Breeding Farms Based on Deep Learning},
+  author  = {Hao, Hongbo and Fang, Pengju and Duan, Enze and others},
+  journal = {Agriculture},
+  volume  = {12},
+  number  = {8},
+  pages   = {1176},
+  year    = {2022},
+  doi     = {10.3390/agriculture12081176}
+}
+
+@article{bist2023cagefree,
+  title   = {Automatic Detection of Cage-Free Dead Hens with Deep Learning Methods},
+  author  = {Bist, Ramesh Bahadur and Subedi, Sachin and Yang, Xiao and Chai, Lilong},
+  journal = {AgriEngineering},
+  volume  = {5},
+  number  = {2},
+  pages   = {1020--1038},
+  year    = {2023},
+  doi     = {10.3390/agriengineering5020064}
+}
+
+@article{bumbalek2025yolo,
+  title   = {Deep learning in poultry farming: comparative analysis of YOLOv8, YOLOv9, YOLOv10, and YOLOv11 for dead chickens detection},
+  author  = {Bumb{\'a}lek, Roman and Umurungi, Sandra Nicole and others},
+  journal = {Poultry Science},
+  year    = {2025},
+  note    = {[VERIFIKASI volume/halaman]}
+}
+
+@article{liu2021deadchicken,
+  title   = {Identifying Images of Dead Chickens with a Chicken Removal System Integrated with a Deep Learning Algorithm},
+  author  = {Liu, Hung-Wei and Chen, Chia-Hung and Tsai, Yao-Chuan and Hsieh, Kuang-Wen and Lin, Hao-Ting},
+  journal = {Sensors},
+  volume  = {21},
+  number  = {11},
+  pages   = {3579},
+  year    = {2021},
+  doi     = {10.3390/s21113579}
+}
+
+@article{mortality2025movement,
+  title   = {Research on Broiler Mortality Identification Methods Based on Video and Broiler Historical Movement},
+  author  = {Anonymous},
+  journal = {Agriculture},
+  volume  = {15},
+  number  = {3},
+  pages   = {225},
+  year    = {2025},
+  doi     = {10.3390/agriculture15030225},
+  note    = {[VERIFIKASI penulis]}
+}
+
+@article{khanal2025vit,
+  title   = {Automated Dead Chicken Detection in Poultry Farms Using Knowledge Distillation and Vision Transformers},
+  author  = {Khanal, Rahul and Wu, Wei and Lee, Joonwhoan},
+  journal = {Applied Sciences},
+  volume  = {15},
+  number  = {1},
+  pages   = {136},
+  year    = {2025},
+  doi     = {10.3390/app15010136}
+}
+
+@article{boniche2026pio,
+  title   = {{PIO}: A Large-Scale Dataset for Broiler Chicken Detection under Real Poultry Farming Conditions},
+  author  = {Boniche, Keyla and Cruz, Edmanuel and Rangel, Jos{\'e} Carlos and Hidalgo-Rodr{\'i}guez, Miguel and G{\'o}mez-Donoso, Francisco},
+  journal = {Scientific Data},
+  year    = {2026},
+  doi     = {10.1038/s41597-026-07114-5},
+  note    = {Data descriptor (dataset publik)}
+}
+
+@misc{carcass2025seg,
+  title         = {Synthetic Data Augmentation for Enhanced Chicken Carcass Instance Segmentation},
+  author        = {Anonymous},
+  year          = {2025},
+  eprint        = {2507.18558},
+  archivePrefix = {arXiv},
+  note          = {Benchmark 300 citra real + pipeline sintetik; [VERIFIKASI penulis]}
+}
+
+
+% ---------------------------------------------------------------------
+% SMART POULTRY — bioakustik (deteksi penyakit via suara)
+% ---------------------------------------------------------------------
+
+@article{mao2022distress,
+  title   = {Automated identification of chicken distress vocalizations using deep learning models},
+  author  = {Mao, Axiu and Giraudet, Claire E. and Liu, Kai and others},
+  journal = {Journal of the Royal Society Interface},
+  volume  = {19},
+  number  = {186},
+  pages   = {20210921},
+  year    = {2022},
+  doi     = {10.1098/rsif.2021.0921}
+}
+
+@article{manikandan2025welfaresound,
+  title   = {Decoding Poultry Welfare from Sound---A Machine Learning Framework for Non-Invasive Acoustic Monitoring},
+  author  = {Manikandan, V. and others},
+  journal = {Sensors},
+  volume  = {25},
+  number  = {9},
+  pages   = {2912},
+  year    = {2025},
+  doi     = {10.3390/s25092912},
+  note    = {[VERIFIKASI penulis]}
+}
+
+@article{asct2026cough,
+  title   = {Automatic chick cough detection system based on improved audio spectrogram convolutional transformer neural network},
+  author  = {Anonymous},
+  journal = {Frontiers in Veterinary Science},
+  year    = {2026},
+  note    = {ASCT-CC; [VERIFIKASI volume/penulis]}
+}
+
+
+% ---------------------------------------------------------------------
+% SMART POULTRY — IoT / welfare / weight prediction
+% ---------------------------------------------------------------------
+
+@article{broilerweight2023,
+  title   = {Application of Machine Learning Algorithms for On-Farm Monitoring and Prediction of Broilers' Live Weight: A Quantitative Study Based on Body Weight Data},
+  author  = {Anonymous},
+  journal = {Agriculture},
+  volume  = {13},
+  number  = {12},
+  pages   = {2193},
+  year    = {2023},
+  doi     = {10.3390/agriculture13122193},
+  note    = {[VERIFIKASI penulis]}
+}
+
+@article{shipmentweight2025,
+  title   = {Development of an Algorithm for Predicting Broiler Shipment Weight in a Smart Farm Environment},
+  author  = {Anonymous},
+  journal = {Agriculture},
+  volume  = {15},
+  number  = {5},
+  pages   = {539},
+  year    = {2025},
+  doi     = {10.3390/agriculture15050539},
+  note    = {[VERIFIKASI penulis]}
+}
+
+@misc{multisensor2025platform,
+  title         = {An Integrated Multi-Sensor AI Platform for Enhanced Welfare and Productivity},
+  author        = {Anonymous},
+  year          = {2025},
+  eprint        = {2510.15757},
+  archivePrefix = {arXiv},
+  note          = {[VERIFIKASI penulis]}
+}
+
+
+% ---------------------------------------------------------------------
+% ENERGY — time-series forecasting (load & solar)
+% ---------------------------------------------------------------------
+
+@article{lim2021tft,
+  title   = {Temporal Fusion Transformers for interpretable multi-horizon time series forecasting},
+  author  = {Lim, Bryan and Ar{\i}k, Sercan {\"O}. and Loeff, Nicolas and Pfister, Tomas},
+  journal = {International Journal of Forecasting},
+  volume  = {37},
+  number  = {4},
+  pages   = {1748--1764},
+  year    = {2021},
+  doi     = {10.1016/j.ijforecast.2021.03.012}
+}
+
+@article{salinas2020deepar,
+  title   = {{DeepAR}: Probabilistic forecasting with autoregressive recurrent networks},
+  author  = {Salinas, David and Flunkert, Valentin and Gasthaus, Jan and Januschowski, Tim},
+  journal = {International Journal of Forecasting},
+  volume  = {36},
+  number  = {3},
+  pages   = {1181--1191},
+  year    = {2020},
+  doi     = {10.1016/j.ijforecast.2019.07.001}
+}
+
+@inproceedings{oreshkin2020nbeats,
+  title     = {{N-BEATS}: Neural basis expansion analysis for interpretable time series forecasting},
+  author    = {Oreshkin, Boris N. and Carpov, Dmitri and Chapados, Nicolas and Bengio, Yoshua},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2020}
+}
+
+@article{hong2016gefcom,
+  title   = {Probabilistic energy forecasting: Global Energy Forecasting Competition 2014 and beyond},
+  author  = {Hong, Tao and Pinson, Pierre and Fan, Shu and Zareipour, Hamidreza and Troccoli, Alberto and Hyndman, Rob J.},
+  journal = {International Journal of Forecasting},
+  volume  = {32},
+  number  = {3},
+  pages   = {896--913},
+  year    = {2016},
+  doi     = {10.1016/j.ijforecast.2016.02.001}
+}
+
+@misc{gnnload2024,
+  title         = {Graph Neural Networks for Electricity Load Forecasting},
+  author        = {Anonymous},
+  year          = {2024},
+  eprint        = {2507.03690},
+  archivePrefix = {arXiv},
+  note          = {[VERIFIKASI penulis/tahun]}
+}
+
+@article{nie2023skippd,
+  title   = {{SKIPP'D}: A SKy Images and Photovoltaic Power Generation Dataset for short-term solar forecasting},
+  author  = {Nie, Yuhao and Li, Xiatong and Scott, Andea and Sun, Yuchi and Venugopal, Vignesh and Brandt, Adam},
+  journal = {Solar Energy},
+  volume  = {255},
+  pages   = {171--179},
+  year    = {2023},
+  doi     = {10.1016/j.solener.2023.03.043}
+}
+
+@article{nie2024survey,
+  title   = {Open-source sky image datasets for solar forecasting with deep learning: A comprehensive survey},
+  author  = {Nie, Yuhao and Paletta, Quentin and Scott, Andea and others},
+  journal = {Renewable and Sustainable Energy Reviews},
+  year    = {2024},
+  note    = {[VERIFIKASI volume/halaman]}
+}
+
+@article{nie2024skygpt,
+  title   = {{SkyGPT}: Probabilistic ultra-short-term solar forecasting using synthetic sky images from physics-constrained VideoGPT},
+  author  = {Nie, Yuhao and Zelikman, Eric and Scott, Andea and Paletta, Quentin and Brandt, Adam},
+  journal = {Advances in Applied Energy},
+  year    = {2024},
+  note    = {[VERIFIKASI volume/halaman]}
+}
+
+
+% ---------------------------------------------------------------------
+% DATASET (entri @misc dengan URL — akses Mei 2026)
+% ---------------------------------------------------------------------
+
+@misc{data_stead,
+  title        = {{STEAD}: STanford EArthquake Dataset},
+  author       = {Mousavi, S. Mostafa and Sheng, Yixiao and Zhu, Weiqiang and Beroza, Gregory C.},
+  howpublished = {\url{https://github.com/smousavi05/STEAD}},
+  year         = {2019},
+  note         = {IEEE Access 7:179464--179476, doi:10.1109/ACCESS.2019.2947848. Diakses Mei 2026}
+}
+
+@misc{data_instance,
+  title        = {{INSTANCE}: The Italian Seismic Dataset for Machine Learning},
+  author       = {Michelini, Alberto and others},
+  howpublished = {\url{https://instance.ingv.it/}},
+  year         = {2021},
+  note         = {Earth System Science Data 13:5509--5544. Diakses Mei 2026}
+}
+
+@misc{data_scedc,
+  title        = {Southern California Earthquake Data Center (SCEDC) Open Dataset},
+  author       = {{SCEDC}},
+  howpublished = {\url{https://registry.opendata.aws/southern-california-earthquake-data/}},
+  year         = {2026},
+  note         = {AWS Open Data. Diakses Mei 2026}
+}
+
+@misc{data_globalcmt,
+  title        = {Global Centroid-Moment-Tensor (CMT) Catalog},
+  author       = {{Global CMT Project}},
+  howpublished = {\url{https://www.globalcmt.org/}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_comcat,
+  title        = {{USGS} Comprehensive Earthquake Catalog (ComCat)},
+  author       = {{U.S. Geological Survey}},
+  howpublished = {\url{https://earthquake.usgs.gov/data/comcat/}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_jma,
+  title        = {{JMA} Unified Earthquake Catalogue},
+  author       = {{Japan Meteorological Agency}},
+  howpublished = {\url{https://www.data.jma.go.jp/svd/eqev/data/bulletin/index_e.html}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_knet,
+  title        = {{K-NET / KiK-net} Strong-Motion Seismograph Networks},
+  author       = {{NIED}},
+  howpublished = {\url{https://www.kyoshin.bosai.go.jp/}},
+  year         = {2026},
+  note         = {Registrasi gratis. Diakses Mei 2026}
+}
+
+@misc{data_poultryvocal,
+  title        = {Poultry Vocalization Signal Dataset for Early Disease Detection},
+  howpublished = {\url{https://data.mendeley.com/datasets/zp4nf2dxbh}},
+  year         = {2023},
+  note         = {Mendeley Data; 346 berkas (healthy/noise/unhealthy). Diakses Mei 2026}
+}
+
+@misc{data_smartears,
+  title        = {{SmartEars}: Poultry Respiratory Monitoring Audio Dataset},
+  howpublished = {\url{https://data.mendeley.com/datasets/dy6gtvt4mk/2}},
+  year         = {2025},
+  note         = {Mendeley Data; 6000 klip 5-detik (Healthy/Sick/None). Diakses Mei 2026}
+}
+
+@misc{data_henstress,
+  title        = {An Analysis of Stress-Induced Audio Responses (laying hens)},
+  howpublished = {\url{https://zenodo.org/records/10433023}},
+  year         = {2023},
+  note         = {Zenodo. Diakses Mei 2026}
+}
+
+@misc{data_chickenmultimodal,
+  title        = {chicken-health-behavior-multimodal},
+  author       = {{IceKhoffi}},
+  howpublished = {\url{https://huggingface.co/datasets/IceKhoffi/chicken-health-behavior-multimodal}},
+  year         = {2025},
+  note         = {HuggingFace; audio+visual. Diakses Mei 2026}
+}
+
+@misc{data_roboflowchicken,
+  title        = {Chicken Detection and Tracking Object Detection Dataset},
+  author       = {Traore, Mohamed and {Roboflow}},
+  howpublished = {\url{https://universe.roboflow.com/chickens/chicken-detection-and-tracking}},
+  year         = {2021},
+  note         = {Roboflow Universe. Diakses Mei 2026}
+}
+
+@misc{data_usda_pm_ammonia,
+  title        = {Characterization of particle size distributions and water-soluble ions in particulate matter measured at a broiler farm (data)},
+  author       = {{USDA-ARS}},
+  howpublished = {\url{https://catalog.data.gov/dataset/data-from-characterization-of-particle-size-distributions-and-water-soluble-ions-in-partic}},
+  year         = {2018},
+  note         = {data.gov open data; amonia + partikel time-series. Diakses Mei 2026}
+}
+
+@misc{data_usda_nal_ammonia,
+  title        = {Ammonia Emissions from Twelve U.S. Broiler Chicken Houses},
+  author       = {{USDA National Agricultural Library}},
+  howpublished = {\url{https://www.nal.usda.gov/exhibits/ipd/frostonchickens/items/show/290}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_gefcom,
+  title        = {Global Energy Forecasting Competition (GEFCom) Datasets},
+  author       = {Hong, Tao},
+  howpublished = {\url{http://www.drhongtao.com/gefcom}},
+  year         = {2014},
+  note         = {GEFCom2012/2014. Diakses Mei 2026}
+}
+
+@misc{data_isone,
+  title        = {{ISO} New England Load and Demand Reports},
+  author       = {{ISO New England}},
+  howpublished = {\url{https://www.iso-ne.com/isoexpress/web/reports/load-and-demand}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_londonsmartmeter,
+  title        = {SmartMeter Energy Consumption Data in London Households},
+  author       = {{UK Power Networks}},
+  howpublished = {\url{https://data.london.gov.uk/dataset/smartmeter-energy-use-data-in-london-households}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_pecanstreet,
+  title        = {Pecan Street Dataport},
+  author       = {{Pecan Street Inc.}},
+  howpublished = {\url{https://dataport.pecanstreet.org/}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_skippd_repo,
+  title        = {Stanford Sky Images and PV Power Generation Dataset (SKIPP'D) Repository},
+  author       = {Nie, Yuhao and others},
+  howpublished = {\url{https://github.com/yuhao-nie/Stanford-solar-forecasting-dataset}},
+  year         = {2023},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_nsrdb,
+  title        = {National Solar Radiation Database (NSRDB)},
+  author       = {{NREL}},
+  howpublished = {\url{https://nsrdb.nrel.gov/}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_surfrad,
+  title        = {{SURFRAD} Surface Radiation Budget Network},
+  author       = {{NOAA GML}},
+  howpublished = {\url{https://gml.noaa.gov/grad/surfrad/}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_era5,
+  title        = {{ERA5} Reanalysis (Copernicus Climate Data Store)},
+  author       = {{ECMWF / Copernicus}},
+  howpublished = {\url{https://cds.climate.copernicus.eu/}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}
+
+@misc{data_slab2,
+  title        = {Slab2: A Comprehensive Subduction Zone Geometry Model},
+  author       = {Hayes, Gavin P. and others},
+  howpublished = {\url{https://www.sciencebase.gov/catalog/item/5aa1b00ee4b0b1c392e86467}},
+  year         = {2018},
+  note         = {USGS ScienceBase. Diakses Mei 2026}
+}
+
+@misc{data_iscgem,
+  title        = {{ISC-GEM} Global Instrumental Earthquake Catalogue},
+  author       = {{International Seismological Centre}},
+  howpublished = {\url{http://www.isc.ac.uk/iscgem/}},
+  year         = {2026},
+  note         = {Diakses Mei 2026}
+}

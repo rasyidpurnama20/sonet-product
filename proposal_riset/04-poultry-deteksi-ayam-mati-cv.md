@@ -36,8 +36,17 @@ Mortalitas harian adalah indikator kesehatan flock yang kritis. Bangkai yang ter
 **Metrik:** precision/recall/F1 & AP deteksi, akurasi event mati (per-jam), false alarm/hari, latensi & konsumsi daya di edge, waktu hingga deteksi (detection delay).
 
 ## 5. Dataset
-- **Dataset publik unggas**: "Chicken/Poultry detection" (Roboflow Universe), **Broiler/Chicken behavior datasets** (mis. dataset deteksi & postur ayam yang tersedia publik).
-- **Akuisisi mandiri**: pemasangan kamera RGB + IR di kandang mitra (kolaborasi peternakan/Fakultas Peternakan), anotasi event kematian dengan validasi petugas.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **PIO — Large-Scale Broiler Chicken Detection Dataset** (Boniche et al. 2026, *Scientific Data*/Nature). Citra broiler beranotasi pada kondisi peternakan nyata; open access. Benchmark deteksi utama + uji domain nyata.
+2. **Roboflow Universe — "Chicken Detection and Tracking"** (Traore, Roboflow). Dataset deteksi + tracking ayam beranotasi; terbuka (CC). Untuk deteksi & tracking dasar.
+3. **Chicken Carcass Instance Segmentation Benchmark** (arXiv:2507.18558, 2025) — 300 citra dunia-nyata beranotasi + pipeline sintetik; relevan untuk postur tubuh tak bergerak/carcass.
+4. **`IceKhoffi/chicken-health-behavior-multimodal` (HuggingFace)** — citra+audio peternakan untuk deteksi dini gangguan kesehatan & perilaku anomali.
+
+> Minimal dua benchmark publik (PIO + Roboflow Chicken Detection) memenuhi syarat; carcass-segmentation & multimodal sebagai tambahan untuk isyarat immobility/anomali.
+
+### 5.2 Data Pelengkap (label rare-event)
+- **Akuisisi mandiri**: kamera RGB + IR di kandang mitra (kolaborasi Fakultas Peternakan), anotasi event kematian dengan validasi petugas.
 - **Sintetik/augmentasi**: rendering kondisi pencahayaan/kepadatan untuk memperkaya rare event.
 
 > Catatan etik: protokol animal-welfare & persetujuan mitra peternakan diperlukan.
@@ -49,3 +58,25 @@ Mortalitas harian adalah indikator kesehatan flock yang kritis. Bangkai yang ter
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 setup kamera + pengumpulan data; 2 anotasi + baseline YOLO; 3–4 modul temporal + edge optimization; 5 uji lapangan lintas-kandang; 6 penulisan + rilis dataset/kode.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Hao, H., Fang, P., Duan, E., et al. (2022).** A Dead Broiler Inspection System for Large-Scale Breeding Farms Based on Deep Learning. *Agriculture*, 12(8), 1176. — sistem inspeksi broiler mati skala besar.
+- **Bist, R.B., Subedi, S., Yang, X., Chai, L. (2023).** Automatic Detection of Cage-Free Dead Hens with Deep Learning Methods. *AgriEngineering*, 5(2). — konteks cage-free.
+- **Bumbálek, R., et al. (2025).** Comparative analysis of YOLOv8/v9/v10/v11 for dead chicken detection. *Poultry Science* `[cek vol/hal]`. — benchmark detektor terbaru.
+- **Liu, H.-W., Chen, C.-H., Tsai, Y.-C., Hsieh, K.-W., et al. (2021).** Identifying Images of Dead Chickens with a Chicken Removal System Integrated with a Deep Learning Algorithm. *Sensors*, 21(11), 3579.
+- **Agriculture (2025), 15(3), 225.** Broiler Mortality Identification Based on Video and Historical Movement. — mendukung ide modul immobility temporal.
+- **Khanal, R., Wu, W., et al. (2025).** Automated Dead Chicken Detection Using Knowledge Distillation and Vision Transformers. *Applied Sciences*, 15(1), 136. — region diam → konfirmasi via klasifikasi.
+
+*Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Beberapa portal (Nature/Roboflow) merupakan SPA sehingga ekstraksi HTTP otomatis terbatas; tautan adalah laman resmi.
+
+- PIO — Large-Scale Broiler Detection (Scientific Data 2026) — https://www.nature.com/articles/s41597-026-07114-5
+- Roboflow "Chicken Detection and Tracking" — https://universe.roboflow.com/chickens/chicken-detection-and-tracking
+- Chicken Carcass Instance Segmentation (benchmark) — https://arxiv.org/abs/2507.18558
+- HF `chicken-health-behavior-multimodal` — https://huggingface.co/datasets/IceKhoffi/chicken-health-behavior-multimodal

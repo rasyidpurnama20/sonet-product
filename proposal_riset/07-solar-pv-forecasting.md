@@ -36,10 +36,16 @@ Pembangkitan PV surya sangat fluktuatif akibat awan, sehingga menyulitkan penjad
 **Metrik:** nRMSE/nMAE per horizon, **CRPS & pinball**, PICP/PINAW, **ramp detection score** (mis. F1 ramp events), skill score vs smart-persistence.
 
 ## 5. Dataset
-- **NREL Solar Power Data / SURFRAD / BSRN** — irradiance & PV publik.
-- **SKIPP'D / sky-image datasets (Stanford)** — citra langit + output PV sinkron.
-- **NSRDB (NREL)** — irradiance historis untuk clear-sky & fitur.
-- **ERA5 / GFS NWP** — prediktor cuaca day-ahead.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **SKIPP'D** — SKy Images & PV Generation Dataset (Nie et al. 2023, *Solar Energy*). 3 tahun citra langit + output PV tersinkron, siap-pakai DL; terbuka via GitHub `yuhao-nie/Stanford-solar-forecasting-dataset`.
+2. **NSRDB (NREL)** — National Solar Radiation Database; irradiance historis terbuka untuk clear-sky & fitur.
+3. **SURFRAD / BSRN** — jaringan radiasi permukaan; irradiance berkualitas tinggi, terbuka.
+
+> Minimal dua benchmark publik (SKIPP'D + NSRDB) memenuhi syarat; SURFRAD/BSRN sebagai sumber irradiance tambahan.
+
+### 5.2 Data Pelengkap / Akses Terbatas
+- **ERA5 / GFS NWP** — prediktor cuaca day-ahead (terbuka).
 - **Data PV lokal Indonesia** (PLTS / kampus) bila tersedia — uji iklim tropis.
 
 ## 6. Risiko & Mitigasi
@@ -48,3 +54,24 @@ Pembangkitan PV surya sangat fluktuatif akibat awan, sehingga menyulitkan penjad
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 data + baseline persistence/LSTM; 2–3 multi-modal fusion + probabilistik; 4 ramp-aware + ablation; 5 transfer lintas-iklim; 6 penulisan + rilis.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Nie, Y., et al. (2023).** SKIPP'D: a SKy Images and Photovoltaic Power Generation Dataset for short-term solar forecasting. *Solar Energy*, 255, 171–179. arXiv:2207.00913. — dataset citra langit + output PV (kode publik di GitHub `yuhao-nie/Stanford-solar-forecasting-dataset`).
+- **Nie, Y., et al. (2024).** Open-source sky image datasets for solar forecasting with deep learning: a comprehensive survey. *Renewable and Sustainable Energy Reviews* `[cek vol]`. — survei dataset.
+- **Nie, Y., et al. (2024).** SkyGPT: probabilistic ultra-short-term solar forecasting using synthetic sky images from a physics-constrained VideoGPT. *Advances in Applied Energy* `[cek]`. — pembangkitan citra langit + probabilistik.
+- **(2024).** Sky Image-Based Solar Forecasting Using Deep Learning With Heterogeneous Multi-Location Data: Dataset Fusion versus Transfer Learning. *Applied Energy*, 369, 123467. — relevan untuk generalisasi lintas-lokasi.
+- **Dataset:** SKIPP'D; NSRDB (NREL); SURFRAD/BSRN; ERA5/GFS untuk fitur NWP.
+
+*Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- SKIPP'D — https://github.com/yuhao-nie/Stanford-solar-forecasting-dataset
+- NSRDB (NREL) — https://nsrdb.nrel.gov/
+- SURFRAD (NOAA) — https://gml.noaa.gov/grad/surfrad/ · BSRN — https://bsrn.awi.de/
+- ERA5 (Copernicus CDS) — https://cds.climate.copernicus.eu/

@@ -37,11 +37,17 @@ Jaringan seismik secara alami adalah **graf**: stasiun sebagai node, relasi spas
 **Metrik:** akurasi lokasi (km), MAE magnitudo vs lead-time, GM residual, warning-time, robustness node-dropout, biaya komputasi/latensi.
 
 ## 5. Dataset
-- **INSTANCE** (Italia) — metadata kaya, ideal untuk konstruksi graf multi-stasiun.
-- **STEAD** — pretraining encoder node.
-- **Japan K-NET/KiK-net (NIED)** — jaringan padat untuk pelatihan EEW.
-- **Southern California (SCSN / SCEDC)** — katalog padat + ground-truth lokasi/magnitudo.
-- **Indonesia BMKG / GEOFON (FDSN)** — uji generalisasi jaringan jarang.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **INSTANCE** (Michelini et al. 2021, *ESSD*) — metadata stasiun kaya; ideal untuk konstruksi graf multi-stasiun. Terbuka via INGV.
+2. **STEAD** (Mousavi et al. 2019, *IEEE Access*) — pretraining encoder node; terbuka via GitHub.
+3. **SCEDC / Southern California** — Southern California Earthquake Data Center; waveform + katalog lokasi/magnitudo terbuka (AWS Open Data `scedc-pds`).
+
+> Minimal dua benchmark publik (INSTANCE + STEAD) memenuhi syarat; SCEDC menambah jaringan padat dengan ground-truth.
+
+### 5.2 Data Pelengkap / Akses Terbatas
+- **Japan K-NET/KiK-net (NIED)** — registrasi gratis; jaringan padat untuk pelatihan EEW.
+- **Indonesia BMKG / GEOFON (FDSN)** — uji generalisasi jaringan jarang (BMKG via permohonan; GEOFON terbuka).
 
 ## 6. Risiko & Mitigasi
 - *Kompleksitas graf dinamis* → mulai dari graf semi-dinamis (snapshot per interval), tingkatkan bertahap.
@@ -49,3 +55,24 @@ Jaringan seismik secara alami adalah **graf**: stasiun sebagai node, relasi spas
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 persiapan data + baseline GCN statis; 2–3 implementasi DST-GNN + physics edges; 4 ablation; 5 evaluasi lintas-region + latensi; 6 penulisan.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **McBrearty, I.W. & Beroza, G.C. (2023).** Earthquake Phase Association with Graph Neural Networks (GENIE). *Bulletin of the Seismological Society of America*, 113(2), 524–547. arXiv:2209.07086. — graf stasiun + graf sumber; rujukan inti GNN seismik.
+- **McBrearty, I.W. & Beroza, G.C. (2022).** Earthquake Location and Magnitude Estimation with Graph Neural Networks. arXiv:2203.05144 (IEEE ICIP 2022) `[cek]`. — GNN mendukung jumlah/posisi stasiun bervariasi.
+- **Münchmeyer, J., et al. (2021).** TEAM. *Geophysical Journal International*, 225(1), 646–656. — baseline transformer multi-stasiun.
+- **Zhu, W., et al. (2022).** GaMMA: earthquake phase association using a Bayesian Gaussian mixture model. *JGR: Solid Earth*, 127, e2021JB023249 `[cek]`.
+- **Dataset:** INSTANCE (Michelini et al. 2021, *ESSD* 13:5509); STEAD (Mousavi et al. 2019, *IEEE Access* 7:179464).
+
+*Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- INSTANCE — https://instance.ingv.it/
+- STEAD — https://github.com/smousavi05/STEAD
+- SCEDC (AWS Open Data) — https://registry.opendata.aws/southern-california-earthquake-data/
+- K-NET/KiK-net (NIED) — https://www.kyoshin.bosai.go.jp/ · GEOFON — https://geofon.gfz-potsdam.de/

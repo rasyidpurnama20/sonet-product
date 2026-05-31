@@ -36,11 +36,17 @@ Short-Term Load Forecasting (STLF, horizon menit–hari) menopang unit commitmen
 **Metrik:** MAPE/RMSE (titik), **pinball loss & CRPS** (probabilistik), PICP/PINAW (kalibrasi interval), per-node & agregat, biaya komputasi.
 
 ## 5. Dataset
-- **GEFCom2012/2014** — benchmark load forecasting yang luas dipakai.
-- **ISO New England / PJM / ENTSO-E** — beban regional + cuaca publik.
-- **London Smart Meter (UK Power Networks) / Pecan Street** — beban level rumah/feeder untuk multi-node.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **GEFCom2012 & GEFCom2014** — Global Energy Forecasting Competition (Hong et al.). Benchmark load forecasting (titik & probabilistik) yang paling luas dipakai; terbuka.
+2. **ISO New England / PJM / ENTSO-E** — beban regional + cuaca; open data operator jaringan.
+3. **London Smart Meter (UK Power Networks)** & **Pecan Street (Dataport)** — beban level rumah/feeder untuk pemodelan multi-node/graf.
+
+> Minimal dua benchmark publik (GEFCom2014 + ISO-NE/PJM) memenuhi syarat; smart-meter datasets untuk dimensi spasial multi-node.
+
+### 5.2 Data Pelengkap / Akses Terbatas
 - **PLN / utilitas Indonesia** (bila tersedia via kerja sama) — uji konteks lokal.
-- **Cuaca**: NOAA / ERA5 / BMKG untuk fitur eksogen.
+- **Cuaca**: NOAA / ERA5 / BMKG sebagai fitur eksogen.
 
 ## 6. Risiko & Mitigasi
 - *Topologi jaringan tak tersedia* → adjacency learnable / korelasi data-driven.
@@ -48,3 +54,25 @@ Short-Term Load Forecasting (STLF, horizon menit–hari) menopang unit commitmen
 
 ## 7. Rencana 6 Bulan (ringkas)
 Bulan 1 data + baseline; 2–3 TFT+TGNN + probabilistik; 4 calibration + ablation; 5 uji shift/anomali + multi-node; 6 penulisan + rilis kode.
+
+
+## 8. Referensi Kunci / Related Work
+> Diverifikasi via pencarian web (Mei 2026). Tanda `[cek]` = venue/tahun sebaiknya dikonfirmasi ulang sebelum dikutip formal.
+
+- **Lim, B., Arık, S.Ö., Loeff, N., Pfister, T. (2021).** Temporal Fusion Transformers for interpretable multi-horizon time series forecasting. *International Journal of Forecasting*, 37(4), 1748–1764. — backbone temporal + variable selection interpretable.
+- **Salinas, D., Flunkert, V., Gasthaus, J., Januschowski, T. (2020).** DeepAR: probabilistic forecasting with autoregressive recurrent networks. *International Journal of Forecasting*, 36(3), 1181–1191. — baseline probabilistik.
+- **Oreshkin, B.N., et al. (2020).** N-BEATS: neural basis expansion analysis for interpretable time series forecasting. *ICLR*.
+- **(2024/2025).** Graph Neural Networks for Electricity Load Forecasting. arXiv:2507.03690. — dependensi spasial antar-node beban.
+- **Hong, T., et al. (2016).** Probabilistic energy forecasting: GEFCom2014 and beyond. *International Journal of Forecasting*, 32(3), 896–913. — benchmark + framing probabilistik.
+- **Dataset:** GEFCom2012/2014; ISO-NE/PJM/ENTSO-E; London Smart Meter (UKPN); Pecan Street.
+
+*Content was rephrased for compliance with licensing restrictions.*
+
+
+## 9. Tautan Akses Dataset (1-klik)
+> Verifikasi keberadaan via pencarian web (Mei 2026). Tautan adalah laman resmi penyedia.
+
+- GEFCom2012/2014 (Hong et al.) — http://www.drhongtao.com/gefcom
+- ISO New England — https://www.iso-ne.com/isoexpress/web/reports/load-and-demand
+- PJM DataMiner2 — https://dataminer2.pjm.com/ · ENTSO-E — https://transparency.entsoe.eu/
+- London Smart Meter (UKPN) — https://data.london.gov.uk/dataset/smartmeter-energy-use-data-in-london-households · Pecan Street — https://dataport.pecanstreet.org/
