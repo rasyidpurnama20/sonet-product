@@ -36,9 +36,17 @@ Produktivitas broiler ditentukan oleh kondisi mikroklimat (suhu, kelembapan, NH3
 **Metrik:** MAE bobot/FCR, lead-time & F1 early-warning heat-stress/air quality, kalibrasi interval, uptime/keandalan edge, korelasi indeks welfare dengan penilaian ahli.
 
 ## 5. Dataset
-- **Akuisisi mandiri** di kandang mitra: time-series lingkungan + bobot berkala + log kejadian (kolaborasi Fakultas Peternakan).
-- **Dataset broiler/lingkungan publik** (mis. dataset performa pertumbuhan & mikroklimat yang tersedia di repositori riset) untuk pretraining/benchmark.
-- **Data cuaca eksternal** (BMKG) sebagai konteks ambient.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **USDA-ARS Broiler Farm Particulate Matter & Ammonia Time-Series** — data.gov (USDA-ARS). Time-series amonia (ppb, interval 1 menit) + konsentrasi partikel dalam/luar kandang; open data pemerintah AS. Benchmark deret-waktu lingkungan kandang.
+2. **Ammonia Emissions from Twelve U.S. Broiler Chicken Houses** — USDA National Agricultural Library. Pengukuran amonia/ventilasi multi-kandang; open access. Benchmark kualitas udara/emisi.
+3. **`IceKhoffi/chicken-health-behavior-multimodal` (HuggingFace)** — sinyal perilaku/aktivitas (visual+audio) untuk fusi multi-modal & indeks kesejahteraan.
+
+> Minimal dua benchmark publik (USDA-ARS data.gov + USDA-NAL ammonia) memenuhi syarat untuk pemodelan lingkungan; HF multimodal menambah dimensi perilaku.
+
+### 5.2 Data Pelengkap (label bobot berpasangan)
+- **Akuisisi mandiri** di kandang mitra: time-series lingkungan + bobot berkala + log kejadian (kolaborasi Fakultas Peternakan) — diperlukan untuk label bobot/FCR berpasangan.
+- **Data cuaca eksternal** (BMKG / ERA5) sebagai konteks ambient.
 
 > Catatan etik: protokol kesejahteraan hewan & persetujuan mitra.
 

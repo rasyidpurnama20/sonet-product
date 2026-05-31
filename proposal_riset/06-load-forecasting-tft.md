@@ -36,11 +36,17 @@ Short-Term Load Forecasting (STLF, horizon menit–hari) menopang unit commitmen
 **Metrik:** MAPE/RMSE (titik), **pinball loss & CRPS** (probabilistik), PICP/PINAW (kalibrasi interval), per-node & agregat, biaya komputasi.
 
 ## 5. Dataset
-- **GEFCom2012/2014** — benchmark load forecasting yang luas dipakai.
-- **ISO New England / PJM / ENTSO-E** — beban regional + cuaca publik.
-- **London Smart Meter (UK Power Networks) / Pecan Street** — beban level rumah/feeder untuk multi-node.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **GEFCom2012 & GEFCom2014** — Global Energy Forecasting Competition (Hong et al.). Benchmark load forecasting (titik & probabilistik) yang paling luas dipakai; terbuka.
+2. **ISO New England / PJM / ENTSO-E** — beban regional + cuaca; open data operator jaringan.
+3. **London Smart Meter (UK Power Networks)** & **Pecan Street (Dataport)** — beban level rumah/feeder untuk pemodelan multi-node/graf.
+
+> Minimal dua benchmark publik (GEFCom2014 + ISO-NE/PJM) memenuhi syarat; smart-meter datasets untuk dimensi spasial multi-node.
+
+### 5.2 Data Pelengkap / Akses Terbatas
 - **PLN / utilitas Indonesia** (bila tersedia via kerja sama) — uji konteks lokal.
-- **Cuaca**: NOAA / ERA5 / BMKG untuk fitur eksogen.
+- **Cuaca**: NOAA / ERA5 / BMKG sebagai fitur eksogen.
 
 ## 6. Risiko & Mitigasi
 - *Topologi jaringan tak tersedia* → adjacency learnable / korelasi data-driven.

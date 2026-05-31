@@ -36,13 +36,17 @@ Earthquake Early Warning (EEW) memberikan jeda detik hingga puluhan detik sebelu
 **Metrik:** MAE/bias magnitudo vs lead-time, ground-motion residual (ln-units), warning time gained, false/missed alert rate pada ambang MMI, robustness terhadap k stasiun hilang.
 
 ## 5. Dataset
-- **STEAD** (STanford EArthquake Dataset) — pra-pelatihan encoder waveform.
-- **INSTANCE** (Italia) — benchmark multi-stasiun bermetadata lengkap.
-- **Japan K-NET/KiK-net (NIED)** — jaringan padat untuk pretraining EEW & label ground-motion.
-- **Indonesia BMKG / GEOFON / IRIS-FDSN** — waveform regional untuk fine-tuning & evaluasi jaringan jarang (event M≥5 katalog BMKG/USGS).
-- **Label ground-motion**: dihitung dari rekaman (PGA/PGV/SA) pada stasiun target.
 
-> Catatan akses: data BMKG via permohonan resmi / FDSN web services; K-NET/KiK-net via registrasi NIED.
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **STEAD** — STanford EArthquake Dataset (Mousavi et al. 2019, *IEEE Access*). ~1,2 juta waveform 3-komponen berlabel; terbuka via GitHub `smousavi05/STEAD`. Untuk pra-pelatihan/benchmark encoder.
+2. **INSTANCE** — Italian seismic dataset for ML (Michelini et al. 2021, *ESSD*). ~1,2 juta trace + metadata ground-motion lengkap; terbuka via INGV (pi.ingv.it/instance). Benchmark multi-stasiun + label PGA/PGV/SA.
+3. **Japan K-NET/KiK-net (NIED)** — jaringan strong-motion padat; terbuka via registrasi gratis NIED. Pretraining EEW + label ground-motion.
+
+> Minimal dua benchmark publik (STEAD + INSTANCE) sudah memenuhi syarat; K-NET/KiK-net sebagai benchmark ketiga.
+
+### 5.2 Data Pelengkap / Akses Terbatas (evaluasi lokal)
+- **Indonesia BMKG / GEOFON / IRIS-FDSN** — waveform regional untuk evaluasi jaringan jarang (event M≥5; BMKG via permohonan resmi, GEOFON/IRIS via FDSN web services terbuka).
+- **Label ground-motion** dihitung dari rekaman (PGA/PGV/SA) di stasiun target.
 
 ## 6. Risiko & Mitigasi
 - *Label M besar langka di Indonesia* → transfer learning + augmentasi dari Jepang/Italia.

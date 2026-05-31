@@ -36,8 +36,17 @@ Mortalitas harian adalah indikator kesehatan flock yang kritis. Bangkai yang ter
 **Metrik:** precision/recall/F1 & AP deteksi, akurasi event mati (per-jam), false alarm/hari, latensi & konsumsi daya di edge, waktu hingga deteksi (detection delay).
 
 ## 5. Dataset
-- **Dataset publik unggas**: "Chicken/Poultry detection" (Roboflow Universe), **Broiler/Chicken behavior datasets** (mis. dataset deteksi & postur ayam yang tersedia publik).
-- **Akuisisi mandiri**: pemasangan kamera RGB + IR di kandang mitra (kolaborasi peternakan/Fakultas Peternakan), anotasi event kematian dengan validasi petugas.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **PIO — Large-Scale Broiler Chicken Detection Dataset** (Boniche et al. 2026, *Scientific Data*/Nature). Citra broiler beranotasi pada kondisi peternakan nyata; open access. Benchmark deteksi utama + uji domain nyata.
+2. **Roboflow Universe — "Chicken Detection and Tracking"** (Traore, Roboflow). Dataset deteksi + tracking ayam beranotasi; terbuka (CC). Untuk deteksi & tracking dasar.
+3. **Chicken Carcass Instance Segmentation Benchmark** (arXiv:2507.18558, 2025) — 300 citra dunia-nyata beranotasi + pipeline sintetik; relevan untuk postur tubuh tak bergerak/carcass.
+4. **`IceKhoffi/chicken-health-behavior-multimodal` (HuggingFace)** — citra+audio peternakan untuk deteksi dini gangguan kesehatan & perilaku anomali.
+
+> Minimal dua benchmark publik (PIO + Roboflow Chicken Detection) memenuhi syarat; carcass-segmentation & multimodal sebagai tambahan untuk isyarat immobility/anomali.
+
+### 5.2 Data Pelengkap (label rare-event)
+- **Akuisisi mandiri**: kamera RGB + IR di kandang mitra (kolaborasi Fakultas Peternakan), anotasi event kematian dengan validasi petugas.
 - **Sintetik/augmentasi**: rendering kondisi pencahayaan/kepadatan untuk memperkaya rare event.
 
 > Catatan etik: protokol animal-welfare & persetujuan mitra peternakan diperlukan.

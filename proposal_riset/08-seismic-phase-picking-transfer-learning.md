@@ -36,9 +36,17 @@ Phase picking (waktu tiba P/S) adalah fondasi pemrosesan katalog gempa. Model DL
 **Metrik:** precision/recall/F1 pick & residual waktu (s), peningkatan jumlah event terdeteksi, akurasi lokasi/magnitudo katalog, biaya pelabelan.
 
 ## 5. Dataset
-- **STEAD / INSTANCE / California (NCEDC/SCEDC)** — sumber pra-latih & label melimpah.
-- **Indonesia: BMKG, GEOFON (GFZ), IRIS-FDSN** — waveform kontinu & event regional (target adaptation/evaluasi).
-- **Label lokal**: subset event tervalidasi analis BMKG / katalog ISC sebagai ground-truth few-shot.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **STEAD** (Mousavi et al. 2019, *IEEE Access*) — waveform 3-komponen + label P/S melimpah; terbuka via GitHub. Sumber pra-latih.
+2. **INSTANCE** (Michelini et al. 2021, *ESSD*) — dataset ML seismik Italia; terbuka via INGV. Sumber/benchmark lintas-region.
+3. **NCEDC / SCEDC (California)** — waveform + pick katalog terbuka (AWS Open Data). Sumber pelatihan tambahan.
+
+> Minimal dua benchmark publik (STEAD + INSTANCE) memenuhi syarat sebagai domain sumber; NCEDC/SCEDC menambah keragaman.
+
+### 5.2 Data Pelengkap / Akses Terbatas (domain target Indonesia)
+- **GEOFON (GFZ) & IRIS-FDSN** — waveform kontinu Indonesia via FDSN web services (terbuka).
+- **BMKG** — event regional + label analis (via permohonan resmi); subset tervalidasi sebagai ground-truth few-shot; katalog **ISC** sebagai rujukan.
 
 ## 6. Risiko & Mitigasi
 - *Akses data BMKG* → gunakan FDSN/GEOFON publik + permohonan resmi; mulai dari arsip terbuka.

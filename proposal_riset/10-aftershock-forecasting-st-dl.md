@@ -36,11 +36,17 @@ Setelah gempa utama, rentetan aftershock menimbulkan bahaya lanjutan. Model stan
 **Metrik:** log-likelihood/information gain per gempa (CSEP), N-test/S-test/M-test, CRPS spasial, kalibrasi, skill vs ETAS baseline.
 
 ## 5. Dataset
-- **Southern California (SCEDC) / ComCat (USGS)** — katalog aftershock berkualitas tinggi.
-- **Japan JMA catalog** — sekuens besar (mis. Tohoku) untuk uji lintas-region.
-- **Italia (INGV) / ISC-GEM global** — sekuens tambahan.
-- **Indonesia (BMKG/USGS)** — uji konteks lokal (mis. sekuens megathrust/strike-slip).
-- **Fitur fisik**: model sesar (USGS/Slab2) & perhitungan Coulomb (Coulomb 3.x / Coulomb stress dari katalog).
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **SCEDC + ComCat (USGS)** — Southern California Earthquake Data Center & USGS Comprehensive Catalog; katalog aftershock berkualitas tinggi, terbuka (AWS Open Data / API USGS). Set pelatihan/uji utama.
+2. **JMA Unified Catalog (Jepang)** — sekuens besar (mis. Tohoku 2011, Kumamoto 2016); terbuka. Uji lintas-region.
+3. **INGV (Italia) / ISC-GEM (global)** — katalog sekuens tambahan; terbuka.
+
+> Minimal dua benchmark publik (SCEDC/ComCat + JMA) memenuhi syarat; INGV/ISC-GEM untuk generalisasi lintas-tektonik.
+
+### 5.2 Data Pelengkap & Fitur Fisik
+- **Indonesia (BMKG / USGS ComCat)** — uji konteks lokal (sekuens megathrust/strike-slip).
+- **Fitur fisik**: model sesar **Slab2 (USGS)** & perhitungan Coulomb (Coulomb 3.x / ΔCFS dari katalog) — terbuka.
 
 ## 6. Risiko & Mitigasi
 - *Kelengkapan katalog (Mc) pasca-mainshock* → estimasi Mc adaptif + filtering.

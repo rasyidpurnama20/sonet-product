@@ -35,10 +35,16 @@ Focal mechanism (strike/dip/rake atau moment tensor) menggambarkan geometri pata
 **Metrik:** Kagan angle vs solusi referensi, akurasi klasifikasi tipe sesar, kalibrasi ketidakpastian (PIT/coverage), degradasi terhadap azimuthal gap.
 
 ## 5. Dataset
-- **Southern California (SCSN / SCEDC)** + **katalog focal mechanism (mis. HASH/Yang/Hauksson)** — label melimpah untuk pelatihan.
-- **Global CMT (gCMT)** — moment tensor untuk event sedang–besar.
-- **STEAD** — pretraining encoder waveform + polaritas.
-- **Indonesia BMKG / GEOFON** — uji generalisasi pada jaringan jarang & azimuthal gap besar.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **SCEDC + katalog focal mechanism Southern California** (Yang et al. / Hauksson et al.) — ribuan solusi focal mechanism + waveform; terbuka via SCEDC (AWS Open Data `scedc-pds`) & SCEC. Set pelatihan utama.
+2. **Global CMT (gCMT)** — katalog moment tensor global (event sedang–besar); terbuka via globalcmt.org. Label sumber + generalisasi global.
+3. **STEAD** — terbuka via GitHub; pretraining encoder waveform + first-motion polarity.
+
+> Minimal dua benchmark publik (SCEDC focal mechanism + Global CMT) memenuhi syarat; STEAD untuk pretraining.
+
+### 5.2 Data Pelengkap / Akses Terbatas
+- **Indonesia BMKG / GEOFON** — uji generalisasi pada jaringan jarang & azimuthal gap besar (BMKG via permohonan; GEOFON terbuka).
 
 ## 6. Risiko & Mitigasi
 - *Label focal mechanism terbatas untuk event kecil* → fokus M≥3, augmentasi sintetik dari model double-couple.

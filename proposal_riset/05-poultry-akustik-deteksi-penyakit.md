@@ -36,10 +36,19 @@ Penyakit pernapasan (mis. Newcastle Disease, Infectious Bronchitis) menimbulkan 
 **Metrik:** F1/AUC per kelas suara, AUROC anomaly, **lead-time** deteksi sebelum diagnosis klinis, robustness vs derau (dB), latensi edge.
 
 ## 5. Dataset
-- **Rekaman kandang mandiri** (mitra peternakan / kandang riset), dengan log kesehatan & diagnosis dokter hewan sebagai label lemah.
-- **Dataset bioakustik unggas publik** (mis. rekaman vokalisasi ayam/sneeze datasets yang tersedia di repositori riset).
-- **ESC-50 / AudioSet (subset farm/animal)** — pretraining tambahan & augmentasi derau.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **Poultry Vocalization Signal Dataset for Early Disease Detection** — Mendeley Data (DOI: 10.17632/zp4nf2dxbh). 346 berkas audio: *healthy* (139), *noise* (86), *unhealthy* (121). Benchmark klasifikasi suara sehat/sakit.
+2. **SmartEars** — Mendeley Data (DOI: 10.17632/dy6gtvt4mk). 6.000 klip 5-detik (Healthy / Sick / None) untuk monitoring pernapasan; open access.
+3. **Stress-Induced Audio Responses in Hens** — Zenodo (record 10433023). Audio respons stres (kontrol vs treatment); untuk deteksi anomali/stres.
+4. **`IceKhoffi/chicken-health-behavior-multimodal` (HuggingFace)** — audio (+visual) untuk deteksi dini gangguan kesehatan.
+
+> Minimal dua benchmark publik (Mendeley Poultry Vocalization + SmartEars) memenuhi syarat; Zenodo & HF menambah variasi stres/anomali.
+
+### 5.2 Data Pelengkap & Augmentasi
+- **ESC-50 / AudioSet (subset farm/animal)** — pretraining tambahan & sumber derau.
 - **Augmentasi derau industri**: mixing dengan suara kipas/blower untuk robustness.
+- **Akuisisi mandiri** (opsional): rekaman kandang + log diagnosis dokter hewan sebagai label lemah.
 
 > Catatan etik: koordinasi dengan dokter hewan & protokol kesejahteraan hewan.
 

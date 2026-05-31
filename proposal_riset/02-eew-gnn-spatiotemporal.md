@@ -37,11 +37,17 @@ Jaringan seismik secara alami adalah **graf**: stasiun sebagai node, relasi spas
 **Metrik:** akurasi lokasi (km), MAE magnitudo vs lead-time, GM residual, warning-time, robustness node-dropout, biaya komputasi/latensi.
 
 ## 5. Dataset
-- **INSTANCE** (Italia) — metadata kaya, ideal untuk konstruksi graf multi-stasiun.
-- **STEAD** — pretraining encoder node.
-- **Japan K-NET/KiK-net (NIED)** — jaringan padat untuk pelatihan EEW.
-- **Southern California (SCSN / SCEDC)** — katalog padat + ground-truth lokasi/magnitudo.
-- **Indonesia BMKG / GEOFON (FDSN)** — uji generalisasi jaringan jarang.
+
+### 5.1 Dataset Benchmark Publik (≥2, wajib — terverifikasi terbuka)
+1. **INSTANCE** (Michelini et al. 2021, *ESSD*) — metadata stasiun kaya; ideal untuk konstruksi graf multi-stasiun. Terbuka via INGV.
+2. **STEAD** (Mousavi et al. 2019, *IEEE Access*) — pretraining encoder node; terbuka via GitHub.
+3. **SCEDC / Southern California** — Southern California Earthquake Data Center; waveform + katalog lokasi/magnitudo terbuka (AWS Open Data `scedc-pds`).
+
+> Minimal dua benchmark publik (INSTANCE + STEAD) memenuhi syarat; SCEDC menambah jaringan padat dengan ground-truth.
+
+### 5.2 Data Pelengkap / Akses Terbatas
+- **Japan K-NET/KiK-net (NIED)** — registrasi gratis; jaringan padat untuk pelatihan EEW.
+- **Indonesia BMKG / GEOFON (FDSN)** — uji generalisasi jaringan jarang (BMKG via permohonan; GEOFON terbuka).
 
 ## 6. Risiko & Mitigasi
 - *Kompleksitas graf dinamis* → mulai dari graf semi-dinamis (snapshot per interval), tingkatkan bertahap.
