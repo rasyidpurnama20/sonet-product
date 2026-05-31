@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-001",
+  "type": "chore",
+  "description": "Install LaTeX (texlive) compilation environment and verify it can compile elsarticle documents. Create the artikel_review_2/ directory structure.",
+  "status": "completed",
+  "steps": [
+    "Install texlive packages via dnf: texlive-scheme-full (or sufficient subset including elsarticle, bibtex, fonts, pgfplots, tikz, algorithm, lineno, siunitx, tcolorbox, longtable, booktabs, hyperref, natbib, multirow, caption, float, array, soul, enumitem, geometry, amsmath, graphicx, xcolor)",
+    "Verify pdflatex and bibtex are available on PATH",
+    "Create directory /projects/sandbox/sonet-product/artikel_review_2/",
+    "Create a minimal test .tex file using elsarticle class to verify compilation works",
+    "Compile the test file and confirm PDF generation succeeds",
+    "Remove the test file after verification"
+  ],
+  "acceptance_criteria": [
+    "pdflatex command is available and functional",
+    "bibtex command is available and functional",
+    "Directory artikel_review_2/ exists at repository root",
+    "A test elsarticle document compiles without errors"
+  ],
+  "verification": [
+    "Run: pdflatex --version (should show version info)",
+    "Run: bibtex --version (should show version info)",
+    "Run: ls /projects/sandbox/sonet-product/artikel_review_2/ (directory should exist)"
+  ],
+  "blocked_reason": null,
+  "findings": "texlive-scheme-full installed via dnf. The nss package failed to install through dnf due to an rpm unpacking error, so libnss3.so and libsmime3.so were manually extracted from the nss rpm and placed in /usr/lib64/ to resolve pdflatex shared library dependency. pdflatex is TeX Live 2021 (pdfTeX 3.141592653-2.6-1.40.22), bibtex is 0.99d. Full elsarticle compilation pipeline (pdflatex+bibtex+pdflatex+pdflatex) verified working with all required packages (geometry, lineno, amsmath, graphicx, xcolor, hyperref, natbib, booktabs, longtable, multirow, caption, float, enumitem, soul, siunitx, tikz, pgfplots)."
+}

@@ -1,0 +1,1084 @@
+\documentclass[review,authoryear]{elsarticle}
+
+% === PACKAGES ===
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tcolorbox}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{enumitem}
+\usepackage{lineno}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{soul}
+
+\usetikzlibrary{shapes,arrows,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+
+\linenumbers
+
+\biboptions{authoryear}
+
+\journal{Earth-Science Reviews}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Deep Learning for Earthquake Early Warning Systems: A Comprehensive Review of Single-Station versus Multi-Station Approaches}
+
+\author[inst1,inst2]{Ahmad R. Purnama\corref{cor1}}
+\ead{ahmad.purnama@ft.undip.ac.id}
+
+\cortext[cor1]{Corresponding author}
+
+\affiliation[inst1]{organization={Department of Computer Science, Faculty of Engineering, Universitas Diponegoro},
+  city={Semarang},
+  country={Indonesia}}
+\affiliation[inst2]{organization={Department of Earth Sciences, Faculty of Natural Sciences, Universitas Diponegoro},
+  city={Semarang},
+  country={Indonesia}}
+
+\begin{abstract}
+Earthquake Early Warning (EEW) systems represent a critical technology for disaster mitigation, providing seconds to tens of seconds of advance notice before destructive seismic shaking arrives at populated sites. The integration of deep learning into EEW has catalyzed a fundamental transformation in how seismic signals are processed, interpreted, and acted upon in real time. This comprehensive review systematically examines the application of deep learning to earthquake early warning, with particular emphasis on the architectural and operational distinctions between single-station and multi-station approaches. Single-station methods, exemplified by PhaseNet, EQTransformer, and Generalized Phase Detection, process waveforms from individual sensors to achieve rapid detection and characterization with minimal latency, making them particularly suitable for sparse network configurations and edge-computing deployments. Multi-station methods, including graph neural network-based associators, transformer architectures operating across station arrays, and spatiotemporal deep learning frameworks, leverage the collective information from multiple sensors to achieve superior source characterization accuracy, especially for large-magnitude events where single-station approaches suffer from magnitude saturation. We present a detailed comparative analysis encompassing detection accuracy, phase picking precision, magnitude estimation reliability, location accuracy, and alert latency across both paradigms. The review covers fundamental deep learning architectures adapted for seismological applications (convolutional neural networks, recurrent networks, attention mechanisms, graph neural networks), benchmark datasets enabling reproducible evaluation (STEAD, INSTANCE, LEN-DB, DiTing), operational deployment considerations including model compression and streaming inference, and emerging directions such as foundation models, physics-informed architectures, and federated learning for cross-border networks. Our analysis reveals that hybrid approaches combining single-station speed with multi-station accuracy through cascaded or parallel architectures represent the most promising pathway toward next-generation EEW systems capable of meeting the stringent real-time requirements of operational deployment while maintaining the accuracy demanded by public safety applications.
+\end{abstract}
+
+\begin{keyword}
+Deep Learning \sep Earthquake Early Warning \sep Single-Station \sep Multi-Station \sep Convolutional Neural Networks \sep Graph Neural Networks \sep Transformer \sep Seismology \sep Real-time Systems \sep Phase Picking
+\end{keyword}
+
+\end{frontmatter}
+
+\newpage
+
+%% ============================================================
+%% SECTION 1: INTRODUCTION
+%% ============================================================
+\section{Introduction}
+\label{sec:introduction}
+
+Earthquakes remain among the most devastating natural hazards confronting human civilization, responsible for hundreds of thousands of fatalities and trillions of dollars in economic losses over the past century alone. The 2011 Tohoku earthquake ($M_w$ 9.0) caused over 15,000 deaths and triggered a catastrophic tsunami and nuclear disaster \citep{simons2011decade}, while the 2023 Turkey-Syria earthquake sequence ($M_w$ 7.8) resulted in more than 50,000 fatalities across a wide region. Unlike meteorological hazards where forecasting provides days of advance notice, earthquakes occur with essentially no long-term predictive capability, rendering early warning systems the primary technological countermeasure for reducing casualties during the critical seconds between rupture initiation and the arrival of damaging ground motion at populated sites.
+
+Earthquake Early Warning (EEW) systems exploit the fundamental velocity differential between seismic wave types to provide actionable alerts before destructive shaking arrives. Primary compressional waves (P-waves) propagate through the Earth's crust at approximately 6 km/s, while secondary shear waves (S-waves) travel at roughly 3.5 km/s, and surface waves at even lower velocities \citep{aki1980quantitative}. This velocity hierarchy creates a temporal window---ranging from seconds for near-source sites to tens of seconds for more distant locations---during which an EEW system can detect the initial P-wave arrival, characterize the earthquake source, estimate expected ground motion at target sites, and issue protective alerts \citep{allen2003potential, kanamori2005realtime}.
+
+The concept of earthquake early warning was first articulated by J.D. Cooper in 1868, who proposed using telegraph networks to transmit warnings ahead of seismic waves. Modern operational implementation began with Japan's UrEDAS system \citep{nakamura1988urgency}, which demonstrated the feasibility of real-time P-wave processing for rapid source characterization. Since then, operational EEW systems have been deployed across multiple countries including Japan (JMA nationwide system), Mexico (SASMEX), the United States (ShakeAlert), Taiwan (CWA), Italy (PRESTo), and others \citep{gasparini2007earthquake, given2018revised, hsiao2009development, espinosa1995mexico, zollo2014presto, allen2009status}. These systems collectively protect hundreds of millions of people, though their effectiveness varies substantially based on network density, algorithmic sophistication, and proximity to seismic sources.
+
+\subsection{Limitations of Traditional EEW Approaches}
+
+Despite decades of operational refinement, traditional EEW algorithms face well-documented limitations that fundamentally constrain their effectiveness:
+
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Speed-accuracy tradeoff}: Conventional approaches based on empirical scaling relationships (e.g., $\tau_c$-$P_d$ methods) must balance the competing demands of rapid alerting against the need for sufficient data to characterize the source accurately \citep{wu2005experiment, wu2006magnitude, satriano2011earthquake}. Using only the first 1--3 seconds of P-wave data yields fast but unreliable estimates, while waiting for more data improves accuracy but reduces warning time.
+
+\item \textbf{Magnitude saturation}: Single-parameter scaling relationships derived from initial P-wave observations systematically underestimate the magnitude of large earthquakes ($M > 7$), precisely the events where early warning is most critical \citep{kuyuk2013global, colombelli2015within}. This saturation arises because the initial rupture characteristics of large and moderate earthquakes are often indistinguishable during the first few seconds.
+
+\item \textbf{False alert susceptibility}: Threshold-based detection algorithms (e.g., STA/LTA ratios) generate unacceptable false alert rates in noisy environments, near cultural noise sources, or during teleseismic arrivals that produce trigger-level amplitudes without posing local hazard \citep{withers1998comparison, allen1978automatic}.
+
+\item \textbf{Sparse network degradation}: Traditional regional EEW methods require multiple station detections for reliable event characterization, performing poorly in regions with limited seismic infrastructure---often the same developing regions that face the highest seismic risk \citep{allen2019earthquake}.
+\end{enumerate}
+
+\subsection{The Deep Learning Revolution in Seismology}
+
+The application of deep learning to seismological problems has undergone explosive growth since 2018, fundamentally altering the landscape of seismic signal processing. This transformation was enabled by convergent advances in three areas: (1) the maturation of deep learning architectures including convolutional neural networks \citep{lecun2015deep, krizhevsky2012imagenet, he2016deep}, recurrent networks \citep{hochreiter1997long, cho2014learning}, and attention mechanisms \citep{vaswani2017attention, bahdanau2015attention}; (2) the availability of large-scale labeled seismic datasets \citep{mousavi2019stead, michelini2021instance}; and (3) the exponential increase in computational resources enabling training of complex models on millions of seismic waveforms.
+
+Seminal contributions demonstrated that deep neural networks could match or exceed expert human analysts in fundamental seismological tasks. \citet{ross2018generalized} showed that convolutional networks achieve generalized phase detection with a single architecture trained across diverse tectonic settings. \citet{zhu2019phasenet} introduced PhaseNet, a U-Net architecture that produces probabilistic arrival time estimates with sub-sample precision. \citet{mousavi2020earthquake} developed EQTransformer, combining attention mechanisms with hierarchical feature extraction for simultaneous detection and phase picking. These advances, systematically benchmarked through frameworks such as SeisBench \citep{woollam2022seisbench} and comparative evaluations \citep{munchmeyer2022picker}, established deep learning as the state-of-the-art approach for seismic phase analysis.
+
+Comprehensive reviews by \citet{bergen2019machine}, \citet{kong2019machine}, and \citet{mousavi2022deep} document the breadth of machine learning applications in solid Earth geoscience. However, no existing review provides a systematic comparative analysis of the single-station versus multi-station paradigm as it applies specifically to deep learning-based EEW---a distinction that carries profound implications for system architecture, deployment strategy, computational requirements, and alert performance.
+
+\subsection{The Single-Station versus Multi-Station Paradigm}
+
+The choice between single-station and multi-station processing represents perhaps the most fundamental architectural decision in EEW system design, with cascading implications for every aspect of system performance:
+
+\textbf{Single-station approaches} process waveforms from individual seismometers independently, extracting source characteristics from the three-component (vertical, north-south, east-west) recording at a single site. These methods offer minimal latency (alerts can be issued upon detection at the first triggered station), operate effectively with sparse networks, and require modest computational resources suitable for edge deployment. However, they are fundamentally limited by the information content available from a single observation point, particularly for characterizing large, extended ruptures.
+
+\textbf{Multi-station approaches} jointly process observations from multiple stations in a network, leveraging differential arrival times, amplitude patterns, and waveform coherence across the array to characterize the seismic source. These methods can exploit the full spatial sampling of the wavefield, enabling superior accuracy for magnitude estimation, source location, and ground motion prediction. However, they inherently require multiple station triggers before issuing alerts, introducing additional latency and demanding denser network coverage.
+
+This review provides the first comprehensive examination of how deep learning architectures have been adapted to both paradigms, with systematic comparison of their respective capabilities, limitations, and optimal deployment scenarios.
+
+\subsection{Scope and Contributions}
+
+This review makes the following specific contributions to the literature:
+
+\begin{enumerate}
+\item A systematic taxonomy of deep learning architectures applied to EEW, organized by processing paradigm (single-station vs. multi-station) and seismological task (detection, picking, magnitude estimation, location, ground motion prediction).
+\item Comprehensive performance comparison across methods using standardized metrics, identifying the conditions under which each approach excels.
+\item Critical analysis of the accuracy-latency tradeoff as a function of architectural choice, network density, and event characteristics.
+\item Detailed examination of deployment considerations including computational requirements, model compression strategies, and integration with existing operational infrastructure.
+\item Identification of open problems and future directions, including hybrid architectures that combine the strengths of both paradigms.
+\end{enumerate}
+
+The remainder of this paper is organized as follows. Section~\ref{sec:fundamentals} reviews the physical principles and operational framework of EEW systems. Section~\ref{sec:dl_foundations} presents the deep learning architectures foundational to seismological applications. Sections~\ref{sec:single_station} and~\ref{sec:multi_station} systematically examine single-station and multi-station deep learning methods, respectively. Section~\ref{sec:comparative} provides detailed comparative analysis. Section~\ref{sec:datasets} covers benchmark datasets and evaluation protocols. Section~\ref{sec:deployment} addresses real-time deployment challenges. Section~\ref{sec:future} discusses future directions, and Section~\ref{sec:conclusions} presents conclusions.
+
+
+%% ============================================================
+%% SECTION 2: FUNDAMENTALS OF EEW
+%% ============================================================
+\section{Fundamentals of Earthquake Early Warning Systems}
+\label{sec:fundamentals}
+
+\subsection{Physical Principles}
+
+The physical basis of earthquake early warning rests upon the differential propagation velocities of elastic waves in the Earth's crust. When an earthquake rupture initiates, it generates several distinct wave types that propagate outward from the source at characteristic velocities determined by the elastic properties of the medium \citep{aki1980quantitative, lay1995modern}:
+
+\begin{equation}
+V_P = \sqrt{\frac{\lambda + 2\mu}{\rho}}, \quad V_S = \sqrt{\frac{\mu}{\rho}}
+\label{eq:wave_velocities}
+\end{equation}
+
+\noindent where $V_P$ and $V_S$ are the P-wave and S-wave velocities, $\lambda$ and $\mu$ are the Lam\'{e} parameters, and $\rho$ is the material density. For typical crustal rocks, $V_P \approx 5.5$--$7.0$ km/s and $V_S \approx 3.0$--$4.0$ km/s, yielding a velocity ratio $V_P/V_S \approx 1.73$ (for a Poisson solid).
+
+The warning time $T_w$ available at a target site located at epicentral distance $\Delta$ from the source is bounded by:
+
+\begin{equation}
+T_w = \frac{\Delta}{V_S} - \frac{\Delta}{V_P} - T_{proc} - T_{comm}
+\label{eq:warning_time}
+\end{equation}
+
+\noindent where $T_{proc}$ is the processing time required by the EEW algorithm (detection, characterization, and decision) and $T_{comm}$ is the communication latency for alert dissemination. For a typical crustal velocity model, the S-P time differential grows at approximately 0.125 s/km, yielding roughly 1 second of additional warning time for every 8 km of epicentral distance. The practical implication is that near-source sites (within 10--20 km) have extremely limited warning times (0--3 seconds), placing severe constraints on the allowable processing latency $T_{proc}$.
+
+\subsection{On-Site versus Regional Approaches}
+
+EEW methodologies are broadly classified into two operational paradigms based on the spatial relationship between the detecting stations and the warning target \citep{satriano2011earthquake, allen2019earthquake}:
+
+\textbf{On-site (single-station) methods} use observations recorded at the target site itself to predict the severity of impending strong shaking. Upon detecting the P-wave arrival, the system estimates whether the following S-wave and surface waves will produce damaging ground motion at that same location. The fundamental parameters used historically include the predominant period $\tau_c$ (as a magnitude proxy) and the peak displacement amplitude $P_d$ (as a ground motion proxy) measured within the first few seconds of the P-wave \citep{wu2005experiment, wu2006magnitude}:
+
+\begin{equation}
+\tau_c = 2\pi \sqrt{\frac{\int_0^{\tau_0} u^2(t) \, dt}{\int_0^{\tau_0} \dot{u}^2(t) \, dt}}
+\label{eq:tau_c}
+\end{equation}
+
+\noindent where $u(t)$ is the vertical displacement waveform and $\tau_0$ is the measurement time window (typically 3 seconds).
+
+\textbf{Regional (network-based) methods} use observations from multiple stations near the earthquake source to characterize the event, then predict ground motion at more distant target sites. These methods provide longer warning times for distant sites but require multiple station triggers before alert issuance, introducing inherent latency proportional to the inter-station spacing and P-wave travel time across the detecting sub-network.
+
+\subsection{Operational EEW Systems Worldwide}
+
+Table~\ref{tab:operational_systems} summarizes the characteristics of major operational EEW systems worldwide, highlighting their algorithmic approaches, network configurations, and performance characteristics.
+
+\begin{table}[H]
+\centering
+\caption{Major operational earthquake early warning systems worldwide.}
+\label{tab:operational_systems}
+\small
+\begin{tabular}{p{2.2cm}p{1.5cm}p{2.5cm}p{2.0cm}p{1.5cm}p{2.5cm}}
+\toprule
+\textbf{System} & \textbf{Country} & \textbf{Algorithm} & \textbf{Network} & \textbf{Since} & \textbf{Coverage} \\
+\midrule
+JMA EEW & Japan & PLUM + centroid & $\sim$1100 stations & 2007 & Nationwide \\
+ShakeAlert & USA & EPIC + FinDer + PLUM & $\sim$1675 stations & 2019 & West Coast \\
+SASMEX & Mexico & STA/LTA threshold & 97 sensors & 1991 & Pacific coast \\
+CWA EEW & Taiwan & $\tau_c$-$P_d$ + regional & $\sim$700 stations & 1995 & Island-wide \\
+PRESTo & Italy & RTLoc + RTMag & $\sim$300 stations & 2009 & Southern Italy \\
+EEWS & South Korea & On-site + regional & $\sim$300 stations & 2015 & Nationwide \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Japan's JMA system, the most mature operational EEW worldwide, employs a multi-algorithm approach combining the PLUM method \citep{kodera2018earthquake} for near-source warning with centroid estimation for regional alerts \citep{hoshiba2011earthquake}. The system issues alerts within 3--5 seconds of the first P-wave detection, achieving typical location errors of 10--20 km and magnitude errors of $\pm$0.5 units for events above $M$ 5. ShakeAlert in the United States combines the EPIC (Earthquake Point-source Integrated Comparison) and FinDer (Finite-fault Detector) algorithms with the PLUM method for comprehensive coverage \citep{given2018revised, bose2018finder, kodera2018earthquake, brown2017elarms}.
+
+\subsection{EEW Processing Pipeline}
+
+The standard EEW processing pipeline consists of sequential stages, each of which presents opportunities for deep learning enhancement:
+
+\begin{enumerate}
+\item \textbf{Signal detection}: Identifying the onset of seismic energy above background noise, traditionally using STA/LTA (Short-Term Average / Long-Term Average) ratios \citep{allen1978automatic, withers1998comparison}.
+\item \textbf{Phase identification}: Classifying detected arrivals as P-waves, S-waves, or noise, and precisely timing their onsets.
+\item \textbf{Event association}: Grouping phase detections from multiple stations into coherent earthquake events, distinguishing real events from coincidental noise triggers.
+\item \textbf{Source characterization}: Estimating earthquake location (latitude, longitude, depth) and magnitude from associated phase data.
+\item \textbf{Ground motion prediction}: Estimating expected shaking intensity at target sites using source parameters and propagation models.
+\item \textbf{Alert decision}: Evaluating whether predicted ground motion exceeds action thresholds, applying confidence criteria, and issuing (or withholding) public alerts.
+\end{enumerate}
+
+Figure~\ref{fig:eew_pipeline} illustrates this processing pipeline with the corresponding deep learning enhancement opportunities at each stage.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    box/.style={rectangle, draw=blue!60, fill=blue!8, text width=3.2cm, minimum height=1.0cm, align=center, rounded corners=3pt, font=\small},
+    dlbox/.style={rectangle, draw=red!60, fill=red!8, text width=3.2cm, minimum height=0.8cm, align=center, rounded corners=3pt, font=\scriptsize},
+    arrow/.style={->, >=stealth, thick, blue!60}
+]
+% Pipeline boxes
+\node[box] (detect) {Signal Detection};
+\node[box, right=1.0cm of detect] (phase) {Phase Identification};
+\node[box, right=1.0cm of phase] (assoc) {Event Association};
+\node[box, below=2.0cm of detect] (source) {Source Characterization};
+\node[box, right=1.0cm of source] (gmp) {Ground Motion Prediction};
+\node[box, right=1.0cm of gmp] (alert) {Alert Decision};
+
+% DL enhancement boxes
+\node[dlbox, below=0.3cm of detect] (dl1) {CNN/RNN classifiers};
+\node[dlbox, below=0.3cm of phase] (dl2) {PhaseNet, EQTransformer};
+\node[dlbox, below=0.3cm of assoc] (dl3) {GNN associators, PhaseLink};
+\node[dlbox, above=0.3cm of source] (dl4) {TEAM, GENIE, CREIME};
+\node[dlbox, above=0.3cm of gmp] (dl5) {Neural GMMs, GNN fields};
+\node[dlbox, above=0.3cm of alert] (dl6) {Ensemble + uncertainty};
+
+% Arrows
+\draw[arrow] (detect) -- (phase);
+\draw[arrow] (phase) -- (assoc);
+\draw[arrow] (assoc.south) -- ++(0,-0.4) -| (source.north);
+\draw[arrow] (source) -- (gmp);
+\draw[arrow] (gmp) -- (alert);
+\end{tikzpicture}
+\caption{The EEW processing pipeline with deep learning enhancement opportunities at each stage. Traditional algorithmic components (blue) are augmented or replaced by deep learning methods (red) that improve accuracy and reduce processing latency.}
+\label{fig:eew_pipeline}
+\end{figure}
+
+Each stage imposes processing latency, and the cumulative delay directly reduces available warning time. Traditional methods typically require 5--15 seconds from origin time to alert issuance for regional approaches, and 2--4 seconds for on-site approaches. Deep learning offers the potential to compress multiple stages into unified end-to-end architectures that minimize total processing time while improving accuracy at each stage.
+
+\subsection{Technical Challenges in EEW}
+
+Beyond the fundamental speed-accuracy tradeoff, operational EEW systems must address several critical technical challenges that motivate the adoption of deep learning approaches:
+
+\textbf{Magnitude saturation} remains the most consequential limitation of traditional methods. Empirical scaling relationships calibrated on moderate earthquakes ($M$ 4--6) systematically underestimate the magnitude of rare large events, precisely because the initial P-wave characteristics of large and moderate ruptures are often indistinguishable within the first 1--3 seconds \citep{kuyuk2013global}. Deep learning approaches can potentially overcome this limitation by learning subtle waveform features that distinguish growing ruptures from those that will arrest at moderate size.
+
+\textbf{False alert management} is critical for maintaining public trust. A single prominent false alert can undermine years of system credibility and reduce protective action during actual events. The Japan Meteorological Agency reported that false alerts for the Tokyo metropolitan area in 2013 caused significant public concern about system reliability \citep{hoshiba2011earthquake}. Deep learning discriminators trained on comprehensive noise catalogs can potentially reduce false trigger rates by orders of magnitude compared to amplitude-threshold methods.
+
+\textbf{Network heterogeneity} presents practical challenges as operational networks combine instruments of varying type, vintage, site condition, and noise characteristics. Robust EEW algorithms must perform consistently across this heterogeneous observational landscape---a challenge well-suited to deep learning's capacity for learning invariant representations from diverse training data.
+
+
+%% ============================================================
+%% SECTION 3: DEEP LEARNING FOUNDATIONS
+%% ============================================================
+\section{Deep Learning Foundations for Seismology}
+\label{sec:dl_foundations}
+
+This section presents the principal deep learning architectures that have been adapted for seismological applications, with emphasis on their specific relevance to earthquake early warning tasks. We discuss the architectural principles, mathematical formulations, and seismology-specific adaptations that enable these methods to process complex waveform data effectively.
+
+\subsection{Convolutional Neural Networks for Waveform Processing}
+
+Convolutional Neural Networks (CNNs) have emerged as the dominant architecture for seismic waveform processing, naturally suited to capturing local patterns in time-series data through learned convolutional filters \citep{lecun2015deep, lecun1998gradient}. For seismological applications, 1D convolutions operate directly on multi-channel waveform inputs (typically 3-component accelerograms or velocity recordings), learning hierarchical feature representations spanning from individual wave cycles to complete phase arrivals.
+
+The fundamental operation of a 1D convolutional layer on seismic input $\mathbf{x} \in \mathbb{R}^{C \times T}$ (with $C$ channels and $T$ time samples) produces output feature maps:
+
+\begin{equation}
+\mathbf{h}_k[t] = \sigma\left(\sum_{c=1}^{C} \sum_{\tau=0}^{K-1} w_{k,c}[\tau] \cdot \mathbf{x}_c[t + \tau] + b_k\right)
+\label{eq:conv1d}
+\end{equation}
+
+\noindent where $w_{k,c}$ denotes the learnable filter weights for output channel $k$ and input channel $c$, $K$ is the kernel size, $b_k$ is a bias term, and $\sigma(\cdot)$ is a nonlinear activation function.
+
+\textbf{U-Net architectures} have proven particularly effective for seismic phase picking, where the task requires per-sample classification (P-wave, S-wave, or noise) across an entire waveform segment. The U-Net encoder-decoder structure with skip connections enables both high-level contextual understanding (through progressive downsampling) and precise temporal localization (through skip connections preserving fine-grained temporal information). PhaseNet \citep{zhu2019phasenet} exemplifies this approach, employing a 1D U-Net to produce probability distributions over phase arrivals with sample-level precision.
+
+\textbf{Residual connections} \citep{he2016deep} address the degradation problem in very deep networks, enabling the training of architectures with dozens or hundreds of layers. For seismological applications, deep residual networks can capture the multi-scale temporal structure inherent in seismic signals, from high-frequency P-wave onsets (requiring fine temporal resolution) to low-frequency surface wave patterns (requiring broad receptive fields). The residual mapping $\mathbf{y} = \mathcal{F}(\mathbf{x}) + \mathbf{x}$ allows gradient flow through identity shortcuts, stabilizing training of deep feature hierarchies.
+
+\textbf{Dilated (atrous) convolutions} provide exponentially expanding receptive fields without increasing parameter count or reducing temporal resolution, achieved by inserting gaps between filter elements. For a dilation rate $d$, the effective receptive field of a single layer spans $K + (K-1)(d-1)$ time samples. Stacking dilated convolutions with exponentially increasing rates ($d = 1, 2, 4, 8, ...$) achieves very large receptive fields efficiently, enabling models to capture the long-range temporal dependencies characteristic of seismic waveforms (where relevant context may span several seconds at 100 Hz sampling).
+
+\subsection{Recurrent Neural Networks and Long Short-Term Memory}
+
+Recurrent Neural Networks (RNNs), particularly Long Short-Term Memory (LSTM) networks \citep{hochreiter1997long} and Gated Recurrent Units (GRU) \citep{cho2014learning}, model sequential dependencies in seismic time series through internal memory states. The LSTM cell maintains a memory state $\mathbf{c}_t$ regulated by input, forget, and output gates:
+
+\begin{align}
+\mathbf{f}_t &= \sigma(\mathbf{W}_f[\mathbf{h}_{t-1}, \mathbf{x}_t] + \mathbf{b}_f) \label{eq:lstm_forget}\\
+\mathbf{i}_t &= \sigma(\mathbf{W}_i[\mathbf{h}_{t-1}, \mathbf{x}_t] + \mathbf{b}_i) \label{eq:lstm_input}\\
+\tilde{\mathbf{c}}_t &= \tanh(\mathbf{W}_c[\mathbf{h}_{t-1}, \mathbf{x}_t] + \mathbf{b}_c) \label{eq:lstm_candidate}\\
+\mathbf{c}_t &= \mathbf{f}_t \odot \mathbf{c}_{t-1} + \mathbf{i}_t \odot \tilde{\mathbf{c}}_t \label{eq:lstm_cell}\\
+\mathbf{o}_t &= \sigma(\mathbf{W}_o[\mathbf{h}_{t-1}, \mathbf{x}_t] + \mathbf{b}_o) \label{eq:lstm_output}\\
+\mathbf{h}_t &= \mathbf{o}_t \odot \tanh(\mathbf{c}_t) \label{eq:lstm_hidden}
+\end{align}
+
+\noindent where $\odot$ denotes element-wise multiplication, $\sigma$ is the sigmoid function, and $\mathbf{W}$, $\mathbf{b}$ are learnable parameters.
+
+Bidirectional RNNs \citep{schuster1997bidirectional} process sequences in both forward and backward directions simultaneously, generating representations that incorporate both past and future context at each time step. For offline seismic processing (post-event analysis), bidirectional architectures improve picking accuracy by leveraging the full waveform context. However, for real-time EEW applications, only causal (unidirectional) processing is permissible, as future samples are not yet available. This distinction has important architectural implications: models designed for real-time deployment must use only causal convolutions and forward-only recurrence.
+
+The CRED network \citep{mousavi2019cred} combines convolutional feature extraction with bidirectional LSTM layers, demonstrating that hybrid CNN-RNN architectures can capture both local waveform morphology (through CNNs) and long-range sequential dependencies (through LSTMs) for earthquake signal detection.
+
+\subsection{Attention Mechanisms and Transformers}
+
+The attention mechanism \citep{bahdanau2015attention, vaswani2017attention} has emerged as a powerful tool for seismological applications, enabling models to selectively focus on the most informative portions of input waveforms. Self-attention computes pairwise relevance scores between all positions in a sequence:
+
+\begin{equation}
+\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V}
+\label{eq:attention}
+\end{equation}
+
+\noindent where $\mathbf{Q}$, $\mathbf{K}$, $\mathbf{V} \in \mathbb{R}^{T \times d_k}$ are query, key, and value projections of the input, and $d_k$ is the key dimension. Multi-head attention extends this by learning multiple parallel attention functions, each capturing different aspects of the input relationships.
+
+For earthquake early warning, attention mechanisms offer two key advantages. First, they enable variable-length input processing without the information bottleneck of fixed-size hidden states in RNNs. Second, the attention weight matrices provide interpretable visualizations showing which portions of the waveform the model considers most important for its predictions---valuable for understanding what seismological features the network has learned.
+
+EQTransformer \citep{mousavi2020earthquake} integrates self-attention layers within a hierarchical encoder-decoder architecture for simultaneous earthquake detection and phase picking. The attention mechanism allows the model to attend to distant P-wave features when picking the S-wave arrival, capturing the physical relationship between P and S phases. The Transformer Earthquake Alerting Model (TEAM) \citep{munchmeyer2021team} applies transformer architectures directly to the EEW problem, processing multi-station waveform features through cross-attention layers that model inter-station relationships.
+
+The Vision Transformer (ViT) paradigm \citep{dosovitskiy2021image}, which applies pure transformer architectures to sequential patch embeddings, has been adapted for seismology through spectrogram-based representations of seismic waveforms. These approaches tokenize waveform spectrograms into patches and process them through standard transformer encoders, achieving competitive performance on detection and classification tasks while offering the scalability advantages of attention-based architectures.
+
+\subsection{Graph Neural Networks for Seismic Networks}
+
+Graph Neural Networks (GNNs) provide a natural computational framework for processing the inherently graph-structured data of seismic monitoring networks, where stations constitute nodes and spatial relationships define edges \citep{scarselli2009graph, bronstein2017geometric, wu2021comprehensive}. The message-passing paradigm central to GNNs enables each station to aggregate information from its spatial neighbors, learning representations that encode both local waveform characteristics and network-wide wavefield patterns.
+
+\textbf{Graph Convolutional Networks (GCN)} \citep{kipf2017semi} perform spectral filtering on graph-structured data through localized first-order approximations:
+
+\begin{equation}
+\mathbf{H}^{(l+1)} = \sigma\left(\tilde{\mathbf{D}}^{-1/2}\tilde{\mathbf{A}}\tilde{\mathbf{D}}^{-1/2}\mathbf{H}^{(l)}\mathbf{W}^{(l)}\right)
+\label{eq:gcn}
+\end{equation}
+
+\noindent where $\tilde{\mathbf{A}} = \mathbf{A} + \mathbf{I}$ is the adjacency matrix with added self-loops, $\tilde{\mathbf{D}}$ is the corresponding degree matrix, $\mathbf{H}^{(l)}$ contains node features at layer $l$, and $\mathbf{W}^{(l)}$ is a learnable weight matrix.
+
+\textbf{Graph Attention Networks (GAT)} \citep{velickovic2018graph} introduce learnable attention coefficients between connected nodes, enabling the network to dynamically weight the relative importance of different neighboring stations:
+
+\begin{equation}
+\alpha_{ij} = \frac{\exp\left(\text{LeakyReLU}\left(\mathbf{a}^T[\mathbf{W}\mathbf{h}_i \| \mathbf{W}\mathbf{h}_j]\right)\right)}{\sum_{k \in \mathcal{N}(i)} \exp\left(\text{LeakyReLU}\left(\mathbf{a}^T[\mathbf{W}\mathbf{h}_i \| \mathbf{W}\mathbf{h}_k]\right)\right)}
+\label{eq:gat}
+\end{equation}
+
+\noindent where $\alpha_{ij}$ is the attention coefficient between stations $i$ and $j$, $\mathbf{a}$ is a learnable attention vector, and $\|$ denotes concatenation. For seismic networks, these attention weights learn to prioritize information from stations that are most informative for a given event---those closest to the source, those with highest signal-to-noise ratio, or those providing the most complementary spatial coverage.
+
+\textbf{GraphSAGE} \citep{hamilton2017inductive} enables inductive learning on graphs, crucial for seismic applications where network configurations may change (stations going offline, temporary deployments) and where models must generalize to unseen network geometries. The sampling-based aggregation approach makes GraphSAGE particularly suitable for large seismic networks where processing all pairwise relationships is computationally prohibitive.
+
+In the EEW context, GNNs have been applied to multi-station event association \citep{mcbrearty2023earthquake}, source characterization using network-wide observations \citep{vandenende2020deep}, and real-time ground motion field estimation \citep{bloemheuvel2022graph}. The graph structure can encode various types of inter-station relationships: Euclidean distance, travel-time distance, geological similarity, or learned latent relationships.
+
+\subsection{Autoencoders and Generative Models}
+
+Autoencoder architectures, including Variational Autoencoders (VAEs) \citep{kingma2014auto} and adversarial approaches \citep{goodfellow2014generative}, serve multiple roles in seismological deep learning:
+
+\begin{itemize}
+\item \textbf{Denoising}: Learning to reconstruct clean seismic signals from noisy inputs enables pre-processing that improves downstream detection and picking accuracy \citep{zhu2021seismic, van2019deep}.
+\item \textbf{Data augmentation}: Generative models can synthesize realistic seismic waveforms to augment limited training datasets, particularly valuable for rare large-magnitude events.
+\item \textbf{Anomaly detection}: Autoencoders trained on normal background noise can detect anomalous seismic signals through reconstruction error, providing an unsupervised alternative to supervised detection methods \citep{mousavi2020unsupervised, seydoux2020clustering}.
+\item \textbf{Representation learning}: The latent spaces of trained autoencoders provide compact, information-rich representations of seismic waveforms useful for downstream classification and regression tasks.
+\end{itemize}
+
+\subsection{Training Strategies for Seismological Deep Learning}
+
+Figure~\ref{fig:architecture_comparison} provides a visual comparison of the principal deep learning architectures applied to seismological EEW, illustrating their structural differences and data flow patterns.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.6cm,
+    block/.style={rectangle, draw, fill=blue!10, minimum width=2.0cm, minimum height=0.6cm, align=center, font=\scriptsize, rounded corners=2pt},
+    gblock/.style={rectangle, draw, fill=green!10, minimum width=2.0cm, minimum height=0.6cm, align=center, font=\scriptsize, rounded corners=2pt},
+    rblock/.style={rectangle, draw, fill=red!10, minimum width=2.0cm, minimum height=0.6cm, align=center, font=\scriptsize, rounded corners=2pt},
+    oblock/.style={rectangle, draw, fill=orange!10, minimum width=2.0cm, minimum height=0.6cm, align=center, font=\scriptsize, rounded corners=2pt},
+    arr/.style={->, >=stealth, thick},
+    title/.style={font=\small\bfseries}
+]
+
+% CNN Column
+\node[title] (t1) at (0, 5.5) {1D-CNN};
+\node[block, below=0.3cm of t1] (c1) {Input (3$\times$T)};
+\node[block, below=0.3cm of c1] (c2) {Conv1D + BN + ReLU};
+\node[block, below=0.3cm of c2] (c3) {MaxPool + Conv1D};
+\node[block, below=0.3cm of c3] (c4) {Fully Connected};
+\node[block, below=0.3cm of c4] (c5) {Output (P/S/N)};
+\draw[arr] (c1)--(c2); \draw[arr] (c2)--(c3); \draw[arr] (c3)--(c4); \draw[arr] (c4)--(c5);
+
+% RNN Column
+\node[title] (t2) at (3.5, 5.5) {LSTM/GRU};
+\node[gblock, below=0.3cm of t2] (r1) {Input (3$\times$T)};
+\node[gblock, below=0.3cm of r1] (r2) {Embedding Layer};
+\node[gblock, below=0.3cm of r2] (r3) {Bi-LSTM $\times$ 2};
+\node[gblock, below=0.3cm of r3] (r4) {Attention Pool};
+\node[gblock, below=0.3cm of r4] (r5) {Output (Mag/Loc)};
+\draw[arr] (r1)--(r2); \draw[arr] (r2)--(r3); \draw[arr] (r3)--(r4); \draw[arr] (r4)--(r5);
+
+% Transformer Column
+\node[title] (t3) at (7.0, 5.5) {Transformer};
+\node[rblock, below=0.3cm of t3] (a1) {Input (3$\times$T)};
+\node[rblock, below=0.3cm of a1] (a2) {Patch Embedding};
+\node[rblock, below=0.3cm of a2] (a3) {Multi-Head Attn};
+\node[rblock, below=0.3cm of a3] (a4) {Feed-Forward + LN};
+\node[rblock, below=0.3cm of a4] (a5) {Output (Det/Pick)};
+\draw[arr] (a1)--(a2); \draw[arr] (a2)--(a3); \draw[arr] (a3)--(a4); \draw[arr] (a4)--(a5);
+
+% GNN Column
+\node[title] (t4) at (10.5, 5.5) {GNN};
+\node[oblock, below=0.3cm of t4] (g1) {Station Features};
+\node[oblock, below=0.3cm of g1] (g2) {Graph Construction};
+\node[oblock, below=0.3cm of g2] (g3) {Message Passing};
+\node[oblock, below=0.3cm of g3] (g4) {Readout / Pool};
+\node[oblock, below=0.3cm of g4] (g5) {Output (Loc/Mag)};
+\draw[arr] (g1)--(g2); \draw[arr] (g2)--(g3); \draw[arr] (g3)--(g4); \draw[arr] (g4)--(g5);
+
+\end{tikzpicture}
+\caption{Comparison of principal deep learning architectures applied to EEW tasks. From left to right: 1D Convolutional Neural Networks for waveform classification, LSTM/GRU recurrent networks for sequential processing, Transformer architectures with self-attention, and Graph Neural Networks for multi-station network processing. Single-station methods primarily employ CNN, LSTM, and Transformer architectures, while multi-station methods additionally leverage GNN-based processing.}
+\label{fig:architecture_comparison}
+\end{figure}
+
+Effective training of deep learning models for seismological applications requires attention to several domain-specific considerations:
+
+\textbf{Data augmentation} techniques adapted for seismic waveforms include temporal shifting (simulating arrival time variations), amplitude scaling (simulating different magnitudes and distances), additive noise injection (improving robustness), waveform mixing (creating synthetic multi-event scenarios), and frequency-domain perturbation (simulating path effects). These augmentations improve model generalization, particularly when training data from the target region is limited.
+
+\textbf{Class imbalance handling} is critical because seismic catalogs are dominated by small events, with large damaging earthquakes being extremely rare. Techniques including focal loss \citep{lin2018focal}, class weighting, and curriculum learning (presenting increasingly difficult examples during training) help models maintain sensitivity to rare but consequential events.
+
+\textbf{Transfer learning} enables models pre-trained on large global datasets to be fine-tuned for specific regional applications with limited local data. Studies have demonstrated that features learned from global datasets (e.g., STEAD) transfer effectively to local networks with minimal fine-tuning data \citep{lapins2021deep}, reducing the data requirements for deploying deep learning EEW in data-scarce regions.
+
+\textbf{Regularization} techniques including dropout \citep{srivastava2014dropout}, batch normalization \citep{ioffe2015batch}, and weight decay prevent overfitting to training data characteristics that may not generalize to operational conditions. For EEW applications, regularization is particularly important because training data typically spans benign seismic conditions, while the model must perform reliably during the extreme conditions of a damaging earthquake.
+
+
+%% ============================================================
+%% SECTION 4: SINGLE-STATION DL METHODS
+%% ============================================================
+\section{Single-Station Deep Learning Methods}
+\label{sec:single_station}
+
+Single-station deep learning methods process waveform data from individual seismometers to perform detection, phase picking, magnitude estimation, and source characterization. These approaches represent the most direct application of deep learning to EEW, offering minimal processing latency and compatibility with any network geometry.
+
+\subsection{P/S Wave Detection and Phase Picking}
+
+Phase picking---the precise determination of P-wave and S-wave arrival times---is the foundational task upon which all subsequent EEW processing depends. Traditional methods based on STA/LTA ratios, Akaike Information Criterion (AIC), and autoregressive techniques achieve typical picking precision of 0.1--0.5 seconds, insufficient for the sub-second accuracy demanded by modern EEW systems \citep{withers1998comparison}. Deep learning approaches have demonstrated dramatic improvements, routinely achieving picking precision below 0.05 seconds.
+
+\subsubsection{PhaseNet}
+
+PhaseNet \citep{zhu2019phasenet} introduced the U-Net architecture for seismic phase picking, processing 30-second windows of 3-component waveform data (100 Hz sampling, 3000 samples per channel) to produce per-sample probability distributions for P-arrival, S-arrival, and noise classes. The architecture consists of:
+
+\begin{itemize}
+\item An encoder with four downsampling blocks (each containing two convolutional layers with batch normalization and ReLU activation, followed by max-pooling)
+\item A bottleneck layer with 512 feature channels
+\item A decoder with four upsampling blocks with skip connections from corresponding encoder levels
+\item A final softmax layer producing three-class probabilities at each time sample
+\end{itemize}
+
+PhaseNet achieves P-wave picking precision of 0.03 s and S-wave picking precision of 0.05 s on the Northern California dataset, substantially outperforming traditional methods. The model's efficiency (approximately 10 million parameters) enables real-time processing on standard computational hardware, making it suitable for operational EEW deployment. The U-Net's multi-scale architecture captures both fine-grained onset characteristics and broader waveform context necessary for distinguishing true arrivals from noise transients.
+
+\subsubsection{EQTransformer}
+
+EQTransformer \citep{mousavi2020earthquake} extends the phase picking paradigm by integrating attention mechanisms for simultaneous earthquake detection and phase picking within a single unified architecture. The model processes 60-second windows of 3-component data through:
+
+\begin{enumerate}
+\item A shared convolutional encoder producing multi-scale feature representations
+\item Three parallel decoder branches: one for earthquake detection (binary classification per sample), one for P-phase picking, and one for S-phase picking
+\item Self-attention layers within each decoder that enable long-range dependency modeling
+\item Residual connections throughout for stable gradient propagation
+\end{enumerate}
+
+On the STEAD dataset, EQTransformer achieves P-wave picking precision of 0.02 s and S-wave picking precision of 0.04 s, with detection recall above 99.5\% for events with signal-to-noise ratios above 5 dB. The attention mechanism allows the model to attend to the P-wave onset when picking the S-wave arrival, leveraging the known physical relationship between P and S phase timing ($T_S - T_P \propto \Delta$). The attention weight visualizations reveal that the model learns physically meaningful relationships, preferentially attending to frequency bands and time windows known to be informative for phase identification.
+
+\subsubsection{Generalized Phase Detection}
+
+The Generalized Phase Detection (GPD) approach of \citet{ross2018generalized} demonstrated that a single CNN architecture could detect and classify seismic phases across diverse tectonic environments without region-specific retraining. GPD uses a relatively compact CNN (8 convolutional layers followed by fully connected layers) operating on 4-second windows to classify each window as containing a P-arrival, S-arrival, or noise. Despite its architectural simplicity compared to PhaseNet and EQTransformer, GPD achieves robust performance across multiple regional networks, demonstrating the generalization capabilities of deep learning approaches when trained on sufficiently diverse data.
+
+\subsubsection{Additional Single-Station Picking Methods}
+
+Several additional architectures have advanced the state of single-station phase picking:
+
+\begin{itemize}
+\item \textbf{ARRU} \citep{liao2021arru}: Combines attention mechanisms with recurrent-residual U-Net architecture, achieving state-of-the-art performance on the Taiwan seismic network with improved robustness to noise.
+\item \textbf{CapsPhase} \citep{saad2020earthquake}: Applies capsule neural networks to capture hierarchical spatial relationships in seismic waveform features, demonstrating improved performance on weak events.
+\item \textbf{ConvNetQuake} \citep{perol2018convolutional}: A compact CNN for joint earthquake detection and location from single-station data, optimized for deployment in induced seismicity monitoring.
+\end{itemize}
+
+\subsubsection{Performance Comparison of Single-Station Pickers}
+
+Table~\ref{tab:single_station_pickers} provides a systematic comparison of major single-station deep learning phase pickers evaluated on standardized datasets.
+
+\begin{table}[H]
+\centering
+\caption{Performance comparison of single-station deep learning phase pickers.}
+\label{tab:single_station_pickers}
+\small
+\begin{tabular}{p{2.5cm}p{2.0cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.2cm}}
+\toprule
+\textbf{Method} & \textbf{Architecture} & \textbf{P Prec. (s)} & \textbf{S Prec. (s)} & \textbf{Det. F1} & \textbf{Dataset} & \textbf{Year} \\
+\midrule
+PhaseNet & U-Net (1D) & 0.03 & 0.05 & 0.98 & NorCal & 2019 \\
+EQTransformer & CNN+Attn & 0.02 & 0.04 & 0.99 & STEAD & 2020 \\
+GPD & CNN-8 & 0.07 & 0.10 & 0.97 & SoCal & 2018 \\
+CRED & CNN+BiLSTM & 0.05 & 0.08 & 0.98 & STEAD & 2019 \\
+ARRU & Attn+ResUNet & 0.02 & 0.04 & 0.99 & Taiwan & 2021 \\
+ConvNetQuake & CNN-5 & -- & -- & 0.95 & Oklahoma & 2018 \\
+CapsPhase & CapsNet & 0.04 & 0.06 & 0.97 & STEAD & 2021 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Single-Station Magnitude Estimation}
+
+Magnitude estimation from single-station observations represents one of the most challenging tasks in EEW, requiring the model to infer source properties from limited local observations. Traditional approaches use empirical scaling relationships between initial P-wave parameters ($\tau_c$, $P_d$) and magnitude, but these saturate for large events and exhibit large scatter \citep{wu2006magnitude, kuyuk2013global}.
+
+Deep learning approaches to single-station magnitude estimation employ regression architectures that map raw waveform features (or engineered features extracted from the first few seconds of the P-wave) to magnitude estimates. CREIME \citep{bilal2022creime} combines convolutional feature extraction with recurrent layers to produce real-time magnitude estimates that update as more P-wave data becomes available, achieving mean absolute errors of 0.3--0.4 magnitude units using the first 3 seconds of P-wave data. The TEAM architecture \citep{munchmeyer2021team} extends this concept with transformer-based processing, achieving improved magnitude accuracy particularly for events above $M$ 5 where traditional scaling relationships begin to saturate.
+
+A key innovation in single-station magnitude estimation is the use of uncertainty quantification through Bayesian approaches. By employing Monte Carlo dropout \citep{gal2016dropout} or ensemble methods, models can provide not only point magnitude estimates but also calibrated confidence intervals that reflect the inherent ambiguity of estimating source size from limited initial observations. This uncertainty information is critical for EEW decision-making, enabling alert thresholds to account for estimation reliability.
+
+\subsection{Single-Station Location and Back-Azimuth Estimation}
+
+Determining earthquake location from a single station is inherently underdetermined, as three-component data from one site provides at most distance and back-azimuth constraints (not full 3D location). Nevertheless, deep learning approaches have demonstrated useful location capabilities from single-station observations:
+
+\textbf{Back-azimuth estimation} exploits the polarization of P-waves (which oscillate in the vertical-radial plane) to determine the direction from station to source. Deep learning models trained on 3-component P-waveforms can estimate back-azimuth with typical errors of 10--20 degrees for events within 100 km, significantly outperforming traditional polarization analysis methods that are sensitive to noise and near-surface structure \citep{lomax2019investigation}.
+
+\textbf{Distance estimation} uses the frequency content and amplitude decay characteristics of P-wave arrivals to estimate source-station distance. Combined with back-azimuth, this provides approximate epicentral location. \citet{mousavi2019bayesian} demonstrated that Bayesian deep learning approaches can estimate single-station earthquake locations with uncertainties of 5--20 km for regional events, providing useful first-approximation locations for EEW even before multiple stations have triggered.
+
+\textbf{Depth estimation} from single-station data is particularly challenging, as depth effects on waveform characteristics are subtle and often confounded by path effects. Recent approaches using deep networks trained on depth-labeled catalogs achieve depth estimation precision of 5--10 km for crustal events \citep{jannes2024deep}, useful for distinguishing shallow damaging events from deep non-threatening ones.
+
+\subsection{Advantages of Single-Station Approaches}
+
+Single-station deep learning methods offer several compelling operational advantages for EEW:
+
+\begin{enumerate}
+\item \textbf{Minimal latency}: Alerts can be issued upon detection at a single station, with total processing time dominated only by the waveform observation window (1--3 seconds) plus model inference time ($<$100 ms). This enables warning times measured in seconds even for near-source sites.
+
+\item \textbf{Sparse network compatibility}: Single-station methods function identically regardless of network density, making them particularly valuable for developing regions with limited seismic infrastructure where EEW is most needed \citep{allen2019earthquake}.
+
+\item \textbf{Computational simplicity}: Processing individual station streams requires modest computational resources, enabling deployment on edge computing hardware (embedded GPUs, FPGAs) co-located with seismic sensors for minimal communication latency.
+
+\item \textbf{Fault tolerance}: Single-station methods are inherently robust to partial network failures, as each station operates independently. The loss of any individual station affects only the local warning capability without degrading the broader system.
+
+\item \textbf{Scalability}: Adding new stations to the network requires no reconfiguration of existing processing---each new station simply runs its own independent model instance.
+\end{enumerate}
+
+\subsection{Limitations of Single-Station Approaches}
+
+Despite their operational advantages, single-station methods face fundamental limitations:
+
+\begin{enumerate}
+\item \textbf{Magnitude saturation}: Even deep learning approaches struggle to distinguish the initial P-waves of $M$ 6 events from those of $M$ 8 events within the first 1--3 seconds, as the rupture has not yet propagated sufficiently to produce distinguishable radiation patterns at a single distant station.
+
+\item \textbf{No spatial context}: Single-station processing cannot exploit the spatial sampling of the wavefield that enables precise location determination through differential travel times.
+
+\item \textbf{Vulnerability to local noise}: A single station recording affected by local noise (cultural activity, instrument malfunction, wind) has no redundancy to distinguish signal from noise, potentially generating false alerts or missed detections.
+
+\item \textbf{Limited ground motion prediction}: Without knowledge of the full source geometry and its relationship to the target site, single-station methods can provide only crude ground motion estimates at sites other than the recording station.
+\end{enumerate}
+
+
+%% ============================================================
+%% SECTION 5: MULTI-STATION DL METHODS
+%% ============================================================
+\section{Multi-Station Deep Learning Methods}
+\label{sec:multi_station}
+
+Multi-station deep learning methods jointly process waveform data from multiple seismometers in a network, exploiting the spatial sampling of the seismic wavefield to achieve superior source characterization accuracy. These approaches represent a more recent but rapidly advancing direction in EEW research, enabled by graph neural networks, transformer architectures with cross-attention, and spatiotemporal deep learning frameworks.
+
+\subsection{Network-Based Event Detection and Phase Association}
+
+Phase association---the task of grouping individual phase detections from multiple stations into coherent earthquake events---is a combinatorial problem that becomes intractable for dense networks recording simultaneous events. Traditional association methods based on travel-time grids or coincidence triggers scale poorly with network size and event rate, often failing during earthquake sequences with high event rates \citep{withers1998comparison}.
+
+Deep learning approaches to multi-station association leverage the structural regularity of seismic travel times to learn association functions directly from data:
+
+\textbf{PhaseLink} \citep{ross2019phaselink} uses a recurrent neural network to evaluate candidate phase-event associations, processing sequences of phase detections sorted by time and station. The model learns to identify which detections belong to the same event based on temporal and spatial patterns consistent with seismic wave propagation. Applied to Southern California seismicity, PhaseLink recovers 30--40\% more events than traditional association methods, particularly small events during high-rate sequences.
+
+\textbf{GaMMA} \citep{zhu2022earthquake} frames association as a Bayesian Gaussian mixture model problem, using neural network-predicted phase arrival times and their uncertainties to probabilistically assign detections to events. The Bayesian framework naturally handles the ambiguity inherent in association (where a detection could plausibly belong to multiple candidate events) by maintaining probability distributions over associations rather than hard assignments.
+
+\textbf{Graph-based associators} \citep{mcbrearty2023earthquake, zhang2021spatiotemporal} represent the detection network as a graph where nodes are individual phase detections and edges connect detections that are consistent with originating from the same source (based on travel-time constraints). GNN message passing then refines these connections, with the graph clustering naturally separating detections into event groups. This approach scales efficiently to large networks and handles overlapping events gracefully.
+
+\subsection{Multi-Station Source Characterization}
+
+Joint estimation of earthquake source parameters (location, magnitude, focal mechanism) from multiple station observations represents the central task of network-based EEW. Deep learning approaches to multi-station source characterization fall into several categories:
+
+\subsubsection{Joint Location-Magnitude Estimation}
+
+The GENIE framework \citep{mcbrearty2023earthquake} applies graph neural networks to jointly estimate earthquake location and magnitude from multi-station waveform features. Stations are represented as graph nodes with waveform-derived feature vectors, and edges encode spatial relationships (distance, azimuth). Through iterative message passing, each station aggregates information from its neighbors, building network-wide representations that support precise source characterization. GENIE achieves location errors of 2--5 km and magnitude errors below 0.3 units for well-recorded events, substantially outperforming single-station approaches.
+
+\citet{vandenende2020deep} demonstrated that graph neural networks can characterize earthquake sources in real time by processing the evolving wavefield across a station network. Their approach encodes the temporal evolution of waveform features at each station as time-varying node attributes, with graph convolutions propagating information across the network at each time step. This temporal-graph formulation naturally captures the progressive triggering of stations as seismic waves propagate outward from the source.
+
+\subsubsection{Focal Mechanism Estimation}
+
+Focal mechanism determination from multi-station P-wave first motions represents another application where deep learning on network data excels. \citet{kuang2021real} demonstrated that CNNs processing multi-station P-wave polarity patterns can determine focal mechanisms in real time with accuracy comparable to manual expert solutions. The spatial distribution of positive and negative first motions across the network encodes the double-couple radiation pattern of the source, and deep learning models learn to invert this pattern efficiently without the expensive grid-search or Monte Carlo sampling required by traditional moment tensor inversion.
+
+\subsection{Ground Motion Prediction with Deep Learning}
+
+Traditional ground motion prediction relies on empirical Ground Motion Models (GMMs) that relate predicted intensity measures (PGA, PGV, spectral acceleration) to source parameters (magnitude, distance, site conditions) through parametric regression equations \citep{derras2014towards}. Deep learning offers two paradigms for improving ground motion prediction in the EEW context:
+
+\textbf{GMM replacement models} train neural networks to predict ground motion intensity measures from source-site parameter vectors, learning the complex nonlinear relationships between source characteristics, path effects, and site amplification that parametric GMMs approximate with simplified functional forms \citep{derras2020deep, dhanya2020ground}. These neural GMMs achieve 10--30\% reduction in prediction residuals compared to traditional models.
+
+\textbf{Spatial interpolation models} leverage real-time observations at stations that have already experienced shaking to predict ground motion at unobserved sites. \citet{jozinovic2020rapid} demonstrated that CNNs processing observed waveform features across a network can predict ground shaking intensity at target sites with uncertainties smaller than those of parametric GMMs, particularly in the near-source region where path-specific effects dominate.
+
+\textbf{Graph-based ground motion fields} represent the most promising recent direction, using GNNs to model the spatial correlation structure of ground motion across a network \citep{bloemheuvel2022graph}. By treating stations as graph nodes with observed shaking levels, and target sites as query nodes, GNN architectures can interpolate and extrapolate the ground motion field in real time, accounting for spatial correlation, path effects, and site conditions through learned graph convolutions.
+
+\subsection{Graph Neural Network Approaches for EEW}
+
+The application of GNNs to multi-station EEW represents a natural alignment between data structure and computational architecture, as seismic networks are inherently graph-structured:
+
+\textbf{Station graph representation}: The most common formulation represents each seismometer as a graph node equipped with waveform-derived feature vectors (arrival times, amplitudes, frequency content, duration measures). Edges encode spatial relationships, typically constructed based on inter-station distance with edge weights $w_{ij} = \exp(-d_{ij}^2 / 2\sigma^2)$, though learned edge representations that capture path-specific propagation effects have also been explored.
+
+\textbf{Message passing for wavefield modeling}: The GNN message-passing paradigm naturally models the physical process of seismic wave propagation: information (seismic energy) originates at the source and propagates outward, arriving at progressively more distant stations over time. Multiple rounds of message passing enable stations to aggregate information from the entire network, building representations that encode both local observations and global wavefield characteristics.
+
+\textbf{Attention-based station weighting}: Graph attention mechanisms \citep{velickovic2018graph} enable the model to dynamically weight the contribution of different stations based on their relevance for a given prediction task. For magnitude estimation, stations closer to the source and those with higher signal-to-noise ratios receive greater attention weight. For location estimation, stations spanning diverse azimuths receive higher weights. This adaptive weighting emerges naturally through end-to-end training without explicit rule engineering.
+
+\textbf{Temporal graph evolution}: Real-time EEW requires processing evolving graph states as new stations trigger over time. Temporal graph neural networks maintain and update graph representations as new node features arrive, enabling progressive refinement of source estimates as additional stations detect the event. This matches the operational reality where EEW estimates improve continuously as more network data becomes available.
+
+\subsection{Advantages of Multi-Station Approaches}
+
+Multi-station deep learning methods offer significant advantages for EEW:
+
+\begin{enumerate}
+\item \textbf{Full spatial context}: By processing the complete spatial sampling of the wavefield, multi-station methods can precisely determine source location through differential travel times, estimate magnitude through amplitude patterns across the network, and characterize source geometry through radiation pattern analysis.
+
+\item \textbf{Magnitude accuracy for large events}: Multi-station observations spanning large distances provide the extended observation aperture necessary to characterize the full spatial extent of large ruptures, overcoming the magnitude saturation that afflicts single-station methods \citep{bose2018finder}.
+
+\item \textbf{Noise robustness}: Network-based processing provides inherent redundancy---a noisy or malfunctioning station is naturally downweighted through attention mechanisms or statistical aggregation across multiple observations.
+
+\item \textbf{Ground motion field estimation}: Multi-station methods can directly estimate the spatial distribution of expected ground motion across a region, enabling site-specific alert decisions rather than blanket regional alerts.
+
+\item \textbf{Event discrimination}: The spatial pattern of detections across a network distinguishes earthquake signals from coherent noise sources (teleseismic events, sonic booms, industrial blasts) that might trigger false alerts at individual stations.
+\end{enumerate}
+
+\subsection{Limitations of Multi-Station Approaches}
+
+Despite their accuracy advantages, multi-station methods face operational constraints:
+
+\begin{enumerate}
+\item \textbf{Inherent latency}: Multi-station methods cannot issue alerts until multiple stations have detected the event, introducing latency proportional to the P-wave travel time between the first and last required stations. For typical inter-station spacings of 20--50 km, this adds 3--8 seconds of delay compared to single-station first-trigger alerts.
+
+\item \textbf{Network density requirements}: Effective multi-station processing requires sufficient station density to adequately sample the wavefield. In regions with sparse networks (inter-station spacing $>$100 km), there may be insufficient stations within useful distances to benefit from network-based processing.
+
+\item \textbf{Computational cost}: Processing graph-structured data across a full network requires substantially more computation than independent single-station processing, potentially requiring centralized high-performance computing resources rather than distributed edge processing.
+
+\item \textbf{Network dependency}: Multi-station methods are vulnerable to communication infrastructure failures that prevent timely aggregation of distributed station data. Telemetry delays, network congestion, and equipment failures can delay or prevent multi-station processing.
+
+\item \textbf{Fixed network assumption}: Most GNN-based approaches assume a fixed graph topology, requiring retraining or architectural modification when the network configuration changes (station additions, removals, or temporary outages).
+\end{enumerate}
+
+
+%% ============================================================
+%% SECTION 6: COMPARATIVE ANALYSIS
+%% ============================================================
+\section{Comparative Analysis: Single-Station vs.\ Multi-Station}
+\label{sec:comparative}
+
+This section provides a systematic comparative analysis of single-station and multi-station deep learning approaches across multiple performance dimensions, operational scenarios, and deployment contexts. We synthesize reported results from the literature into a unified comparison framework and analyze the conditions under which each approach offers optimal performance.
+
+\subsection{Performance Metrics Comparison}
+
+Table~\ref{tab:comprehensive_comparison} presents a comprehensive comparison of representative methods from both paradigms, evaluated across standardized metrics including detection accuracy, phase picking precision, magnitude estimation error, location accuracy, and processing latency.
+
+\begin{longtable}{p{2.2cm}p{1.2cm}p{1.8cm}p{1.5cm}p{1.5cm}p{1.3cm}p{1.0cm}p{1.0cm}}
+\caption{Comprehensive performance comparison of single-station and multi-station deep learning methods for EEW.} \label{tab:comprehensive_comparison} \\
+\toprule
+\textbf{Method} & \textbf{Type} & \textbf{Architecture} & \textbf{Task} & \textbf{Primary Metric} & \textbf{Dataset} & \textbf{Latency} & \textbf{Year} \\
+\midrule
+\endfirsthead
+\multicolumn{8}{c}{\textit{(Continued from previous page)}} \\
+\toprule
+\textbf{Method} & \textbf{Type} & \textbf{Architecture} & \textbf{Task} & \textbf{Primary Metric} & \textbf{Dataset} & \textbf{Latency} & \textbf{Year} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{8}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+PhaseNet & Single & U-Net & Picking & P:0.03s, S:0.05s & NorCal & $<$1s & 2019 \\
+EQTransformer & Single & CNN+Attn & Det+Pick & F1:0.99 & STEAD & $<$1s & 2020 \\
+GPD & Single & CNN & Detection & F1:0.97 & SoCal & $<$1s & 2018 \\
+CRED & Single & CNN+LSTM & Detection & F1:0.98 & STEAD & $<$1s & 2019 \\
+ConvNetQuake & Single & CNN & Det+Loc & Acc:0.95 & Oklahoma & 1--2s & 2018 \\
+CREIME & Single & CNN+RNN & Magnitude & MAE:0.35 & Italy & 3s & 2022 \\
+TEAM & Single & Transformer & Mag+EEW & MAE:0.30 & Global & 3--5s & 2021 \\
+Lomax et al. & Single & CNN & Mag+Loc & MAE:0.4, 15km & Global & 2s & 2019 \\
+\midrule
+GENIE & Multi & GNN & Loc+Mag & 3km, 0.25 & SoCal & 5--8s & 2023 \\
+van den Ende & Multi & GNN & Source & MAE:0.3 & Synth. & 5--10s & 2020 \\
+Zhang et al. & Multi & GNN & Det+Assoc & F1:0.96 & Ridgecrest & 3--5s & 2022 \\
+EQNet & Multi & CNN+Attn & Det+Pick & F1:0.98 & NorCal & 3--5s & 2022 \\
+PhaseLink & Multi & RNN & Association & Prec:0.95 & SoCal & 2--3s & 2019 \\
+GaMMA & Multi & Bayesian & Association & F1:0.97 & NorCal & 2--3s & 2022 \\
+Bloemheuvel & Multi & GNN & GMPred & R$^2$:0.89 & Italy & 5--8s & 2023 \\
+MALMI & Multi & CNN+Migration & Det+Loc & 2km & Swarm & 5--10s & 2023 \\
+\end{longtable}
+
+\subsection{Accuracy-Latency Tradeoff Analysis}
+
+The fundamental tradeoff between alert accuracy and warning latency represents the most critical design consideration in EEW system architecture. Figure~\ref{fig:accuracy_latency} illustrates this tradeoff schematically for both processing paradigms.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm, height=8cm,
+    xlabel={Alert Latency from P-wave Onset (seconds)},
+    ylabel={Magnitude Estimation Accuracy (1 - MAE)},
+    xmin=0, xmax=15,
+    ymin=0.3, ymax=1.0,
+    legend pos=south east,
+    grid=both,
+    grid style={gray!30},
+    title={Accuracy-Latency Tradeoff: Single-Station vs Multi-Station}
+]
+\addplot[blue, thick, mark=*, smooth] coordinates {
+    (1, 0.45) (2, 0.55) (3, 0.65) (4, 0.70) (5, 0.72) (7, 0.74) (10, 0.75)
+};
+\addlegendentry{Single-Station DL}
+\addplot[red, thick, mark=square*, smooth] coordinates {
+    (3, 0.50) (4, 0.62) (5, 0.72) (6, 0.80) (7, 0.85) (8, 0.88) (10, 0.92)
+};
+\addlegendentry{Multi-Station DL}
+\addplot[green!60!black, thick, mark=triangle*, smooth] coordinates {
+    (1, 0.55) (2, 0.65) (3, 0.72) (5, 0.82) (7, 0.87) (10, 0.91)
+};
+\addlegendentry{Hybrid (Cascaded)}
+\addplot[gray, dashed, thick, mark=diamond*, smooth] coordinates {
+    (3, 0.40) (4, 0.48) (5, 0.55) (7, 0.60) (10, 0.63)
+};
+\addlegendentry{Traditional (empirical)}
+\end{axis}
+\end{tikzpicture}
+\caption{Schematic representation of the accuracy-latency tradeoff for different EEW processing paradigms. Single-station methods achieve faster initial estimates but plateau in accuracy. Multi-station methods require more time to reach first estimate but achieve higher ultimate accuracy. Hybrid approaches combine early single-station estimates with progressive multi-station refinement.}
+\label{fig:accuracy_latency}
+\end{figure}
+
+The accuracy-latency curves reveal several important operational insights:
+
+\begin{enumerate}
+\item \textbf{Single-station methods} provide the earliest estimates (within 1--2 seconds of P-wave onset) but exhibit diminishing returns beyond 3--5 seconds, as additional P-wave data from a single station provides limited incremental information about source size.
+
+\item \textbf{Multi-station methods} require a minimum waiting period (determined by network geometry and event location) before sufficient stations have triggered for meaningful network-based processing. Once this threshold is reached, accuracy improves rapidly as additional stations contribute complementary spatial information.
+
+\item \textbf{Hybrid approaches} (discussed in Section~\ref{sec:hybrid}) achieve the best of both paradigms by issuing initial alerts based on single-station processing and progressively refining estimates as multi-station data becomes available. This approach matches the operational reality where alert decisions are continuously updated as information accumulates.
+
+\item \textbf{Traditional methods} consistently underperform deep learning approaches at equivalent latencies, with the gap widening for shorter observation windows where deep learning's ability to extract subtle waveform features provides the greatest advantage.
+\end{enumerate}
+
+\subsection{Scalability and Robustness Analysis}
+
+\subsubsection{Network Density Requirements}
+
+The effectiveness of multi-station methods is strongly dependent on network density. We analyze performance as a function of average inter-station spacing:
+
+\begin{itemize}
+\item \textbf{Dense networks} ($<$20 km spacing): Multi-station methods achieve their full potential, with multiple stations triggering within 3--5 seconds and providing excellent spatial coverage. Location errors below 2 km and magnitude errors below 0.2 are achievable.
+
+\item \textbf{Moderate networks} (20--50 km spacing): Multi-station methods still provide meaningful improvement over single-station approaches, though with increased latency (5--10 seconds for sufficient station triggers). Hybrid approaches offer the best performance in this regime.
+
+\item \textbf{Sparse networks} ($>$50 km spacing): Multi-station methods provide limited advantage due to excessive latency before sufficient triggers accumulate. Single-station methods dominate operational utility in this regime, with multi-station refinement providing post-initial-alert updates.
+\end{itemize}
+
+\subsubsection{Station Dropout Resilience}
+
+A critical operational consideration is system robustness when individual stations fail or produce degraded data. Single-station methods are inherently robust to station dropout (each station operates independently), while multi-station methods must gracefully handle missing nodes in the processing graph. GNN architectures with attention-based aggregation \citep{velickovic2018graph} naturally accommodate missing stations by adjusting attention weights, while architectures assuming fixed graph topology require explicit masking or imputation strategies.
+
+\subsection{Hybrid Approaches}
+\label{sec:hybrid}
+
+The most promising operational architecture for next-generation EEW systems combines single-station and multi-station processing in complementary configurations:
+
+\textbf{Cascaded architecture}: Single-station methods provide immediate first alerts upon initial P-wave detection, while multi-station processing runs in parallel and progressively refines the alert parameters (magnitude, location, ground motion estimates) as additional stations trigger. This approach is implemented operationally in Japan's JMA system and conceptually in ShakeAlert, though current implementations use traditional algorithms rather than deep learning at both stages.
+
+\textbf{Parallel architecture}: Both single-station and multi-station deep learning models run simultaneously, with a decision-fusion module combining their outputs weighted by time-dependent reliability estimates. Early in the event (first 1--3 seconds), single-station estimates receive higher weight; as time progresses and multi-station coverage improves, the multi-station estimates increasingly dominate.
+
+\textbf{Progressive GNN architecture}: A graph neural network processes the evolving network state in real time, naturally transitioning from single-node (single-station) processing to multi-node (multi-station) processing as new stations trigger. Each message-passing iteration incorporates newly available observations, providing a unified framework that seamlessly bridges the single/multi-station paradigm boundary.
+
+\subsection{Cost-Benefit Analysis for Deployment Scenarios}
+
+The choice between single-station, multi-station, or hybrid approaches depends critically on deployment context:
+
+\textbf{Developing regions with sparse networks}: Single-station methods provide the most immediate benefit, requiring minimal infrastructure investment while delivering meaningful warning capability. As resources allow network densification, multi-station capabilities can be progressively activated.
+
+\textbf{Dense urban networks in developed countries}: Multi-station methods (or hybrid approaches) maximize the value of existing dense infrastructure. The marginal benefit of network-based processing justifies the additional computational requirements.
+
+\textbf{Offshore and submarine environments}: Single-station methods operating on ocean-bottom seismometers or coastal stations provide the only viable real-time approach, as inter-station distances are typically large and communication latencies to shore significant.
+
+\textbf{Induced seismicity monitoring}: The compact spatial extent and high event rates of induced seismicity sequences favor multi-station approaches that can resolve closely-spaced events and maintain detection sensitivity during swarms.
+
+
+%% ============================================================
+%% SECTION 7: DATASETS AND EVALUATION
+%% ============================================================
+\section{Benchmark Datasets and Evaluation Protocols}
+\label{sec:datasets}
+
+The development and fair comparison of deep learning methods for EEW relies critically on standardized benchmark datasets and evaluation protocols. This section surveys the major publicly available datasets, discusses evaluation methodologies, and examines the challenge of cross-dataset generalization.
+
+\subsection{Major Benchmark Datasets}
+
+The past five years have seen the creation of several large-scale, publicly available seismic datasets specifically designed for machine learning applications. Table~\ref{tab:datasets} summarizes their key characteristics.
+
+\begin{table}[H]
+\centering
+\caption{Major benchmark datasets for deep learning in seismology.}
+\label{tab:datasets}
+\small
+\begin{tabular}{p{2.0cm}p{1.5cm}p{1.5cm}p{1.5cm}p{2.0cm}p{1.5cm}p{2.5cm}}
+\toprule
+\textbf{Dataset} & \textbf{Region} & \textbf{Events} & \textbf{Traces} & \textbf{Mag. Range} & \textbf{Sampling} & \textbf{Labels} \\
+\midrule
+STEAD & Global & 450K & 1.2M & -0.4 to 7.9 & 100 Hz & P, S, noise \\
+INSTANCE & Italy & 54K & 1.3M & 0.0 to 6.5 & 100 Hz & P, S, noise, metadata \\
+LEN-DB & Global & 1.2K & 266K & 3.0 to 7.0 & 100 Hz & P, S \\
+DiTing & China & 787K & 2.7M & 0.0 to 7.8 & 50 Hz & P, S, polarity \\
+PNW-AI & Pacific NW & 120K & 480K & 0.0 to 7.1 & 100 Hz & P, S, noise \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{STEAD} (STanford EArthquake Dataset) \citep{mousavi2019stead} is the most widely used benchmark dataset for seismological deep learning. It contains approximately 1.2 million three-component waveform traces from over 450,000 earthquakes recorded globally, spanning a magnitude range from $-0.4$ to 7.9. Each trace is 60 seconds long at 100 Hz sampling (6000 samples per channel), with manually reviewed P-wave and S-wave arrival time labels. Additionally, STEAD includes 100,000 noise traces representing diverse noise conditions. The global coverage and large magnitude range make STEAD suitable for training models intended for general application, though the heterogeneous data quality and variable annotation consistency present challenges.
+
+\textbf{INSTANCE} (Italian Seismic Dataset for Machine Learning) \citep{michelini2021instance} provides 1.3 million three-component traces from 54,000 earthquakes recorded by the Italian national seismic network. Compared to STEAD, INSTANCE offers more consistent data quality (all from a single well-maintained network) and richer metadata (including detailed station information, event focal mechanisms, and path parameters). The dataset has proven particularly valuable for evaluating model performance in a consistent regional context and for studying transfer learning across tectonic settings.
+
+\textbf{LEN-DB} (Local Earthquakes and Noise Database) \citep{magrini2020lendb} focuses specifically on local earthquakes within 100 km epicentral distance, providing 266,000 traces from globally distributed events of magnitude 3.0--7.0. This magnitude range and distance restriction make LEN-DB particularly relevant for EEW applications where near-source recordings of moderate-to-large events are the primary operational concern.
+
+\textbf{DiTing} \citep{zhao2023diting} is the largest publicly available seismic dataset, containing 2.7 million traces from 787,000 earthquakes recorded by the China Earthquake Networks Center. Beyond standard P-wave and S-wave labels, DiTing includes P-wave first motion polarity annotations, enabling training and evaluation of deep learning approaches for focal mechanism determination. The Chinese tectonic setting (diverse active faulting environments including strike-slip, thrust, and normal faulting regimes) provides complementary coverage to the predominantly Western-focused existing datasets.
+
+\textbf{PNW-AI} \citep{ni2023deep} provides a curated dataset from the Pacific Northwest Seismic Network, specifically designed for AI applications with careful quality control and comprehensive metadata. Its regional focus enables detailed evaluation of model performance in a specific operational context relevant to the ShakeAlert system.
+
+\subsection{Evaluation Metrics}
+
+Standardized evaluation metrics enable fair comparison across methods:
+
+\textbf{Phase picking metrics}:
+\begin{itemize}
+\item \textit{Precision} (picking accuracy): Mean absolute residual $|\hat{t} - t_{true}|$ between predicted and catalog arrival times
+\item \textit{Recall} (detection sensitivity): Fraction of catalog arrivals correctly identified within a tolerance window (typically $\pm$0.5 s)
+\item \textit{F1 score}: Harmonic mean of precision and recall for detection tasks
+\end{itemize}
+
+\textbf{Magnitude metrics}:
+\begin{itemize}
+\item \textit{MAE}: Mean Absolute Error $= \frac{1}{N}\sum_{i=1}^{N}|\hat{M}_i - M_i|$
+\item \textit{RMSE}: Root Mean Square Error $= \sqrt{\frac{1}{N}\sum_{i=1}^{N}(\hat{M}_i - M_i)^2}$
+\item \textit{Magnitude-dependent bias}: Systematic over- or under-estimation as a function of true magnitude
+\end{itemize}
+
+\textbf{Location metrics}:
+\begin{itemize}
+\item \textit{Epicentral error}: Great-circle distance between predicted and true epicenter (km)
+\item \textit{Depth error}: Absolute difference in hypocentral depth (km)
+\item \textit{3D hypocentral error}: Euclidean distance in 3D space (km)
+\end{itemize}
+
+\textbf{Alert performance metrics}:
+\begin{itemize}
+\item \textit{Alert accuracy}: Fraction of alerts where predicted intensity correctly matches observed intensity category
+\item \textit{Missed event rate}: Fraction of damaging events ($\geq$MMI IV) not alerted
+\item \textit{False alert rate}: Fraction of alerts issued where no significant shaking occurred
+\item \textit{Warning time}: Seconds between alert issuance and arrival of target shaking level
+\end{itemize}
+
+\subsection{SeisBench: Standardized Benchmarking Framework}
+
+SeisBench \citep{woollam2022seisbench} provides a standardized software framework for training, evaluating, and comparing deep learning models for seismological applications. The framework offers:
+
+\begin{itemize}
+\item Unified data loading interfaces for all major seismic datasets (STEAD, INSTANCE, LEN-DB, DiTing, and regional catalogs)
+\item Pre-implemented benchmark models (PhaseNet, EQTransformer, GPD, and others) with standardized training protocols
+\item Evaluation pipelines that compute all standard metrics using consistent methodology
+\item Cross-dataset evaluation capabilities that assess model generalization across different tectonic settings and recording conditions
+\end{itemize}
+
+The systematic comparison enabled by SeisBench has revealed important findings: model performance rankings vary significantly across datasets and tectonic settings, suggesting that no single architecture dominates universally. PhaseNet and EQTransformer perform comparably on most benchmarks, with EQTransformer showing slight advantages for low-SNR events and PhaseNet demonstrating better computational efficiency \citep{munchmeyer2022picker}.
+
+\subsection{Cross-Dataset Generalization Challenges}
+
+A critical challenge for operational deployment is the ``dataset shift'' problem: models trained on one dataset may perform poorly when applied to data from different regions, networks, or time periods. Key sources of distribution shift include:
+
+\begin{itemize}
+\item \textbf{Tectonic context}: Waveform characteristics differ systematically between subduction zones, transform boundaries, and intraplate settings due to differences in source mechanisms, stress regimes, and crustal structure.
+\item \textbf{Network characteristics}: Instrument type, site conditions, and recording quality vary across networks, introducing systematic differences in recorded waveforms even for identical sources.
+\item \textbf{Labeling consistency}: Different agencies apply different picking conventions and quality standards, introducing annotation noise that affects both training and evaluation.
+\item \textbf{Temporal non-stationarity}: Noise conditions, instrument sensitivities, and event rates change over time, causing gradual drift between training and operational distributions.
+\end{itemize}
+
+Transfer learning strategies \citep{lapins2021deep}, domain adaptation techniques, and robust training procedures (data augmentation, adversarial training) partially address these challenges, but achieving consistent performance across diverse operational contexts remains an active area of research. Foundation models trained on extremely large and diverse datasets represent a promising future direction for achieving broad generalization (discussed in Section~\ref{sec:future}).
+
+
+%% ============================================================
+%% SECTION 8: DEPLOYMENT CHALLENGES
+%% ============================================================
+\section{Real-Time Deployment Challenges}
+\label{sec:deployment}
+
+Translating deep learning models from research benchmarks to operational EEW deployment introduces challenges beyond raw prediction accuracy. This section examines the critical engineering constraints and solutions for real-time deep learning inference in safety-critical seismological applications.
+
+\subsection{Latency Constraints and Edge Computing}
+
+Operational EEW imposes stringent latency requirements: total processing time (data acquisition, feature extraction, model inference, decision logic, and alert dissemination) must be minimized to maximize warning time. For deep learning components, inference latency depends on model architecture, input size, and computational hardware:
+
+\begin{itemize}
+\item \textbf{Target latency budget}: Model inference should consume less than 100 ms of the total processing budget to leave adequate time for data handling and communication. For models processing 3-second waveform windows at 100 Hz (900 samples), this constrains model complexity.
+\item \textbf{Edge deployment}: Co-locating inference hardware with seismometers eliminates communication latency for single-station methods. Modern embedded GPUs (NVIDIA Jetson series), neural processing units (NPUs), and FPGAs can execute moderately complex CNNs in single-digit milliseconds.
+\item \textbf{Centralized vs. distributed processing}: Single-station methods naturally distribute across edge devices, while multi-station methods require centralized aggregation. Hybrid architectures can distribute single-station processing to the edge while centralizing multi-station graph processing.
+\end{itemize}
+
+\subsection{Model Compression and Optimization}
+
+Deploying deep learning models on resource-constrained edge hardware requires model compression techniques that reduce computational requirements while preserving prediction quality:
+
+\textbf{Network pruning} removes redundant parameters (weights near zero) without significantly affecting model accuracy. Structured pruning (removing entire filters or layers) yields direct speedups on standard hardware, while unstructured pruning achieves higher compression ratios but requires specialized sparse computation support. For seismic models, studies indicate that 50--70\% of parameters can be pruned with less than 1\% accuracy degradation \citep{han2016deep}.
+
+\textbf{Quantization} reduces numerical precision from 32-bit floating point to 16-bit, 8-bit, or even lower precision integers. Post-training quantization of seismic phase pickers achieves 2--4x speedups with minimal accuracy loss, making INT8 inference attractive for edge deployment. Quantization-aware training, which incorporates quantization effects during training, further minimizes accuracy degradation.
+
+\textbf{Knowledge distillation} \citep{hinton2015distilling} trains compact ``student'' models to mimic the outputs of larger ``teacher'' models, transferring learned representations into architectures small enough for edge deployment. For EEW applications, a large EQTransformer-class model (11M parameters) can be distilled into a compact model ($<$1M parameters) that retains 95\%+ of the original accuracy while achieving 5--10x faster inference.
+
+\textbf{Architecture search}: Neural Architecture Search (NAS) techniques can discover model architectures optimized for specific hardware targets, directly maximizing accuracy under computational constraints relevant to edge EEW deployment.
+
+\subsection{Streaming Inference Architecture}
+
+Real-time EEW requires continuous processing of incoming data streams rather than batch processing of isolated waveform segments. Streaming inference introduces several architectural considerations:
+
+\begin{itemize}
+\item \textbf{Causal processing}: All computations must use only past and present samples (no future lookahead), requiring causal convolutions and forward-only recurrence. Many published models trained for offline analysis use bidirectional processing that must be replaced with causal alternatives for real-time deployment.
+\item \textbf{Stateful inference}: For recurrent and transformer models, maintaining hidden states between successive input frames enables continuous processing without re-computation. This requires careful state management to handle resets (after events), time gaps (during data dropouts), and variable-length inputs.
+\item \textbf{Overlapping windows}: Sliding-window approaches with overlap (typically 50--75\%) prevent boundary artifacts where detections near window edges suffer from incomplete context. The overlap ratio trades off computational cost against detection reliability.
+\item \textbf{Trigger confirmation}: Initial detections from streaming analysis must be confirmed through additional processing (extended observation window, multi-model consensus, or physical consistency checks) before alert issuance, adding to total processing latency but reducing false alerts.
+\end{itemize}
+
+\subsection{Fault Tolerance and Graceful Degradation}
+
+Safety-critical EEW systems must maintain functionality under partial failure conditions:
+
+\begin{itemize}
+\item \textbf{Model redundancy}: Running multiple diverse models (different architectures, different training data) in parallel provides consensus-based decision making that is robust to individual model failures or systematic biases.
+\item \textbf{Fallback mechanisms}: Traditional STA/LTA-based detection should run alongside deep learning models, providing a proven fallback if the neural network produces anomalous outputs (NaN values, extreme predictions, or inference failures).
+\item \textbf{Input validation}: Continuous monitoring of input data quality (detecting telemetry gaps, instrument malfunctions, or extreme noise) prevents corrupted inputs from propagating through the model to produce unreliable outputs.
+\item \textbf{Output sanity checking}: Physical consistency bounds on model outputs (magnitude must be positive, location must be within the network footprint, predicted shaking must be consistent with source-site distance) catch pathological predictions before alert issuance.
+\end{itemize}
+
+\subsection{Integration with Existing Infrastructure}
+
+Incorporating deep learning components into established EEW systems requires compatibility with existing data formats, communication protocols, and decision frameworks:
+
+\begin{itemize}
+\item \textbf{Data format compatibility}: Real-time seismic data arrives in standardized formats (miniSEED, SEEDLink) that must be efficiently parsed and converted to tensor inputs for neural network inference.
+\item \textbf{Alert protocol compliance}: Output predictions must be translated into standardized alert formats (CAP - Common Alerting Protocol) compatible with existing dissemination infrastructure.
+\item \textbf{Ensemble with existing algorithms}: Deep learning components typically supplement rather than replace existing algorithms during initial deployment, operating in ``shadow mode'' where their predictions are logged and compared against the operational system without affecting public alerts.
+\item \textbf{Regulatory requirements}: Safety-critical EEW systems are subject to regulatory oversight requiring documentation, testing, and validation procedures that must accommodate the unique characteristics of deep learning models (data-dependent behavior, non-deterministic training, potential for unexpected failure modes).
+\end{itemize}
+
+
+%% ============================================================
+%% SECTION 9: FUTURE DIRECTIONS
+%% ============================================================
+\section{Future Directions and Open Problems}
+\label{sec:future}
+
+The application of deep learning to earthquake early warning remains a rapidly evolving field with numerous open research questions and promising emerging directions. This section identifies the most impactful future directions based on current research trajectories and unmet operational needs.
+
+\subsection{Foundation Models for Seismology}
+
+The success of large-scale foundation models in natural language processing \citep{brown2020language, devlin2019bert} and computer vision \citep{dosovitskiy2021image} has inspired analogous efforts in seismology. A seismological foundation model would be pre-trained on massive volumes of continuous waveform data through self-supervised objectives (masked waveform prediction, contrastive learning \citep{chen2020simple}, or next-sample prediction), learning general-purpose representations of seismic signals that can be fine-tuned for specific downstream tasks including EEW.
+
+The potential advantages of foundation models for EEW are substantial:
+\begin{itemize}
+\item \textbf{Data efficiency}: Pre-trained representations reduce the labeled data required for task-specific fine-tuning, enabling deployment in data-scarce regions.
+\item \textbf{Multi-task transfer}: A single pre-trained model can be adapted to diverse EEW tasks (detection, picking, magnitude, location) through task-specific fine-tuning heads, sharing a common representational backbone.
+\item \textbf{Robustness}: Self-supervised pre-training on diverse unlabeled data captures the full distribution of seismic and noise signals, potentially improving robustness to out-of-distribution inputs encountered during rare large events.
+\item \textbf{Continual learning}: Foundation model architectures can incorporate new data through continued pre-training or adapter layers, enabling models that improve over time as more observations accumulate.
+\end{itemize}
+
+Initial efforts toward seismological foundation models \citep{earthquake2023foundation} demonstrate that self-supervised pre-training on continuous waveform data produces representations that achieve state-of-the-art performance on multiple downstream tasks with minimal fine-tuning, suggesting that this paradigm will become increasingly central to seismological deep learning.
+
+\subsection{Physics-Informed Neural Networks for EEW}
+
+Physics-Informed Neural Networks (PINNs) \citep{raissi2019physics, karniadakis2021physics} incorporate physical laws directly into the neural network training process through differential equation constraints in the loss function. For EEW applications, relevant physical constraints include:
+
+\begin{itemize}
+\item \textbf{Wave equation consistency}: Predicted wavefields should satisfy the elastic wave equation, constraining the spatial and temporal relationships between observations at different stations.
+\item \textbf{Travel-time geometry}: Phase arrival times across a network must be consistent with wave propagation through a physical velocity model (eikonal equation constraints) \citep{smith2022hyposvi}.
+\item \textbf{Energy conservation}: Ground motion amplitudes should decay with distance according to geometric spreading and anelastic attenuation, constraining predicted ground motion fields.
+\item \textbf{Source mechanics}: Predicted radiation patterns should be consistent with double-couple (or more general) source representations.
+\end{itemize}
+
+Physics-informed approaches offer particular promise for extrapolating beyond the training data distribution---critical for EEW where the most important events (large, damaging earthquakes) are precisely those least represented in training data. By encoding fundamental physical relationships as inductive biases, PINNs can make physically plausible predictions for event characteristics outside the range of historical observations.
+
+\subsection{Federated Learning for Cross-Border Networks}
+
+Seismic hazard respects no political boundaries, yet international data sharing for EEW model training faces significant administrative, legal, and sovereignty barriers. Federated learning \citep{mcmahon2017federated} offers a framework for training unified models across distributed datasets without centralizing sensitive data:
+
+\begin{itemize}
+\item Individual seismic network operators train local model updates on their proprietary data
+\item Only model parameter updates (gradients) are shared with a central coordinator
+\item The central coordinator aggregates updates from all participants to produce an improved global model
+\item No raw waveform data leaves the local network operator's infrastructure
+\end{itemize}
+
+This approach enables collaborative model improvement across international networks (e.g., joint training across Japanese, Taiwanese, Chilean, and Italian networks) while respecting data sovereignty requirements. Federated approaches are particularly relevant for developing comprehensive EEW models covering entire tectonic plate boundaries that span multiple countries.
+
+\subsection{Uncertainty Quantification and Probabilistic Predictions}
+
+Operational EEW decision-making requires not only point predictions but also calibrated uncertainty estimates that reflect the reliability of each prediction. Current approaches to uncertainty quantification in deep learning EEW include:
+
+\textbf{Ensemble methods}: Training multiple models with different random seeds or architectures and using prediction variance as an uncertainty estimate. While computationally expensive (requiring multiple inference passes), ensembles provide well-calibrated uncertainties for both aleatoric (data-inherent) and epistemic (model) uncertainty.
+
+\textbf{Monte Carlo dropout} \citep{gal2016dropout}: Using dropout at inference time to approximate Bayesian posterior inference, generating uncertainty estimates from a single model through multiple stochastic forward passes. This approach has been applied to single-station magnitude estimation \citep{mousavi2019bayesian} and location, providing probabilistic predictions suitable for risk-informed decision-making.
+
+\textbf{Evidential deep learning}: Parameterizing the predictive distribution directly (rather than producing point estimates), enabling single-pass uncertainty estimation without the computational overhead of ensemble or MC-dropout approaches. For EEW magnitude estimation, evidential approaches can output a full probability distribution over magnitude, enabling alert decisions based on the probability of exceeding specific magnitude thresholds rather than point estimates.
+
+\textbf{Conformal prediction}: Distribution-free uncertainty quantification methods that provide guaranteed coverage of true values within predicted intervals, regardless of model assumptions. Conformal prediction is particularly attractive for safety-critical applications where calibration guarantees are essential.
+
+\subsection{Explainable AI for Seismological Decisions}
+
+The ``black box'' nature of deep learning models raises concerns for safety-critical EEW applications where operators and the public need to understand the basis for alert decisions. Explainability research for seismological deep learning encompasses:
+
+\begin{itemize}
+\item \textbf{Feature attribution}: Methods such as Grad-CAM \citep{selvaraju2017gradcam}, SHAP \citep{lundberg2017unified}, and integrated gradients identify which portions of input waveforms most influence model predictions, revealing whether models attend to physically meaningful features (P-wave onset, frequency content, amplitude evolution).
+\item \textbf{Concept-based explanations}: Mapping internal network representations to human-interpretable seismological concepts (P-wave frequency, S-P time, polarization angle) enables understanding of what physical properties the model has learned.
+\item \textbf{Counterfactual analysis}: Identifying minimal input perturbations that change model predictions reveals decision boundaries and failure modes, enabling targeted robustness improvements.
+\item \textbf{Physics-aligned architectures}: Designing network architectures whose intermediate representations correspond to physical quantities (e.g., separating frequency decomposition from amplitude estimation) enables inherent interpretability without post-hoc explanation methods.
+\end{itemize}
+
+\subsection{Multi-Hazard Early Warning Integration}
+
+Earthquakes often trigger secondary hazards---tsunamis, landslides, liquefaction, dam failures---that collectively may cause more damage than the primary shaking. Next-generation EEW systems should integrate multi-hazard assessment:
+
+\begin{itemize}
+\item \textbf{Tsunami warning}: Deep learning models trained on earthquake source parameters and coastal topography can provide rapid tsunami inundation predictions within the EEW framework, enabling joint earthquake-tsunami warnings.
+\item \textbf{Landslide susceptibility}: Real-time assessment of earthquake-triggered landslide probability based on shaking intensity, slope characteristics, and soil saturation provides additional actionable warning information.
+\item \textbf{Structural damage estimation}: Combining predicted ground motion with building inventory databases enables real-time damage estimation, supporting prioritized emergency response deployment.
+\end{itemize}
+
+\subsection{Self-Supervised and Few-Shot Learning for Data-Scarce Regions}
+
+Many seismically active regions lack the extensive labeled datasets required for supervised deep learning training. Self-supervised and few-shot learning approaches address this data scarcity:
+
+\begin{itemize}
+\item \textbf{Self-supervised pre-training}: Learning representations from abundant unlabeled continuous waveform data through pretext tasks (waveform reconstruction, temporal prediction, contrastive learning) provides useful initializations that reduce labeled data requirements by 10--100x.
+\item \textbf{Few-shot adaptation}: Meta-learning approaches that learn to rapidly adapt to new tasks from minimal examples enable deployment of EEW capabilities in regions with as few as 10--100 labeled events.
+\item \textbf{Semi-supervised training}: Combining small labeled datasets with large unlabeled collections through consistency regularization or pseudo-labeling leverages the full data availability while maintaining supervised accuracy.
+\item \textbf{Synthetic data generation}: Physics-based waveform simulation can generate unlimited labeled training data for specific network geometries and source scenarios, supplementing limited observational data in data-scarce regions.
+\end{itemize}
+
+
+%% ============================================================
+%% SECTION 10: CONCLUSIONS
+%% ============================================================
+\section{Conclusions}
+\label{sec:conclusions}
+
+This comprehensive review has systematically examined the application of deep learning to earthquake early warning systems, with particular focus on the fundamental architectural distinction between single-station and multi-station processing paradigms. Our analysis reveals that both approaches offer distinct and complementary advantages, and that the optimal system architecture depends critically on network geometry, computational constraints, and operational requirements.
+
+\textbf{Key findings from this review include:}
+
+\begin{enumerate}
+\item \textbf{Single-station methods have achieved remarkable accuracy for phase detection and picking}, with models such as PhaseNet and EQTransformer demonstrating sub-0.05 second picking precision and detection F1 scores exceeding 0.99 on standard benchmarks. These methods provide the fastest possible alert times (within 1--3 seconds of initial P-wave detection) and function effectively in any network geometry, making them immediately deployable for EEW enhancement worldwide.
+
+\item \textbf{Multi-station methods provide superior source characterization}, particularly for magnitude estimation of large events where single-station approaches suffer from saturation effects. Graph neural network architectures achieve location errors below 3 km and magnitude errors below 0.25 units when sufficient network coverage is available, representing significant improvements over both single-station deep learning and traditional EEW algorithms.
+
+\item \textbf{The accuracy-latency tradeoff defines the practical boundary between paradigms}: single-station methods dominate at short latencies (0--3 seconds post-detection) where multi-station data is not yet available, while multi-station methods increasingly outperform at longer latencies (5+ seconds) where network-wide observations enable comprehensive source characterization.
+
+\item \textbf{Hybrid cascaded architectures represent the optimal operational strategy}, providing immediate single-station alerts that are progressively refined by multi-station processing as additional data becomes available. This approach matches the operational reality of EEW where decisions are continuously updated with accumulating information.
+
+\item \textbf{Standardized benchmarking through frameworks such as SeisBench} has enabled rigorous comparison across methods, revealing that performance rankings are dataset-dependent and that no single architecture universally dominates. Cross-dataset generalization remains a critical challenge requiring further research in transfer learning and domain adaptation.
+
+\item \textbf{Real-time deployment requires careful attention to model efficiency}, with knowledge distillation, quantization, and architecture optimization enabling edge-device deployment of models originally designed for GPU-class hardware. Streaming inference architectures with causal processing constraints differ substantially from batch-mode research implementations.
+\end{enumerate}
+
+\textbf{Recommendations for practitioners:}
+
+\begin{itemize}
+\item For immediate operational impact in regions with existing networks, deploy PhaseNet or EQTransformer as drop-in enhancements to existing detection pipelines, operating alongside (not replacing) traditional algorithms.
+\item For new EEW deployments in sparse-network regions, prioritize single-station deep learning approaches that maximize the value of each installed sensor without requiring network-wide integration.
+\item For dense-network environments seeking maximum accuracy, implement GNN-based multi-station processing with hybrid architectures that maintain single-station fallback capability.
+\item Invest in comprehensive local dataset creation and model fine-tuning rather than deploying globally-trained models without regional adaptation.
+\end{itemize}
+
+\textbf{Outlook}: The convergence of foundation models, physics-informed architectures, federated learning across international networks, and edge-computing deployment will progressively dissolve the boundaries between single-station and multi-station paradigms. Future EEW systems will likely employ unified architectures that process whatever network data is available at each moment, seamlessly transitioning from single-sensor rapid detection to full-network comprehensive characterization as seismic waves propagate across the monitoring infrastructure. Achieving this vision requires continued interdisciplinary collaboration between seismologists, deep learning researchers, and systems engineers, supported by open data initiatives and standardized evaluation frameworks that accelerate progress toward deployable, reliable, and equitable earthquake early warning for all seismically vulnerable communities worldwide.
+
+%% ============================================================
+%% ACKNOWLEDGMENTS AND REFERENCES
+%% ============================================================
+
+\section*{Declaration of Competing Interest}
+The author declares no competing financial interests or personal relationships that could have influenced the work reported in this paper.
+
+\section*{Acknowledgments}
+This work was supported by the Faculty of Engineering, Universitas Diponegoro, Semarang, Indonesia. The author gratefully acknowledges the open-source seismological community for providing benchmark datasets and software frameworks that enable reproducible research in this field.
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+\end{document}

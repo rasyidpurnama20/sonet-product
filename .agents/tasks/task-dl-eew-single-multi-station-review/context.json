@@ -1,0 +1,21 @@
+{
+  "project_type": "Academic document repository with LaTeX articles, presentations, and research documents",
+  "language": "LaTeX (primary for this task), Python (for auxiliary scripts)",
+  "build_system": "LaTeX compilation via pdflatex + bibtex (or latexmk)",
+  "test_framework": "No automated tests - validation is PDF compilation success",
+  "build_command": "cd /projects/sandbox/sonet-product/artikel_review_2 && pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex",
+  "test_command": "pdflatex -interaction=nonstopmode main.tex (check exit code 0 and PDF generation)",
+  "verification_instructions": "1. Install texlive packages if not present. 2. Run pdflatex + bibtex compilation. 3. Verify PDF is generated. 4. Check page count is >= 30.",
+  "snapshot_or_generated_files": "main.pdf is the generated output from main.tex + references.bib",
+  "setup_instructions": "dnf install -y texlive-scheme-full or at minimum: texlive-latex texlive-elsarticle texlive-bibtex texlive-collection-fontsrecommended texlive-collection-latexrecommended texlive-collection-latexextra",
+  "environment_constraints": "OPEN_INTERNET - can install any packages. LaTeX (texlive) not pre-installed - must install via dnf. Python 3.11 available.",
+  "contribution_requirements": "Create folder artikel_review_2/ at repo root. Include main.tex, references.bib, and compiled main.pdf.",
+  "key_patterns": "Existing artikel_review/ uses elsarticle document class with [review,authoryear] options, geometry a4paper margin=2.5cm, linenumbers enabled, tikz figures, longtable, booktabs. References in separate .bib file. Journal set to Earth-Science Reviews.",
+  "relevant_files": [
+    "artikel_review/main.tex (pattern reference for document structure and formatting)",
+    "artikel_review/references.bib (pattern reference for bibliography format)",
+    "artikel_review_2/main.tex (to be created)",
+    "artikel_review_2/references.bib (to be created)"
+  ],
+  "directory_structure": "Repository root contains multiple project folders: artikel_review/ (existing GNN-EEW article), doc_spec_fsm_superapp/, fsm-superapp/, hilirisasi_fsm/, research-map/, etc. New folder artikel_review_2/ to be created at root level."
+}
