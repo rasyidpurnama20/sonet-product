@@ -1,8 +1,15 @@
-# 📦 ICICOS 2026 - Deliverables Summary
+# 📦 ICICOS 2026 - Deliverables Summary (IMPROVED VERSION V2)
 
 ## ✅ Yang Sudah Dibuat
 
-### 🎨 Visual Assets (20 Frame PNG @ 1920x1080)
+### 🎨 Visual Assets (20 Frame PNG @ 1920x1080) - **IMPROVED!**
+
+**Peningkatan V2:**
+- ✨ **Tulisan JAUH LEBIH BESAR** (80-140pt font size)
+- ✨ **Text dengan stroke/outline** untuk clarity maksimal
+- ✨ **Kontras warna lebih tinggi** untuk readability
+- ✨ **Layout lebih clean** dan professional
+- ✨ **Icons dan shapes lebih prominent**
 
 #### Day 1 Content
 1. ✅ `01_video_loop_day1.png` - Waiting screen

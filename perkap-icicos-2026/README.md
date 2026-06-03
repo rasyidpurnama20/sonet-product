@@ -2,6 +2,15 @@
 
 Repository persiapan untuk **International Conference on Informatics and Computing Systems (ICICOS) 2026**
 
+## 🎯 IMPROVED VERSION V2 - Lebih Besar & Jelas!
+
+**Apa yang baru:**
+- ✨ Font size ditingkatkan drastis (80-140pt)
+- ✨ Text dengan stroke/outline untuk maksimal readability
+- ✨ Warna lebih vibrant dengan kontras tinggi
+- ✨ Layout lebih clean dan professional
+- ✨ Perfect untuk ditampilkan di Zoom/OBS streaming
+
 ## 📁 Struktur Folder
 
 ```
