@@ -38,15 +38,102 @@ SGC sebagai tema INCOSAI 2028 menjawab semua tren ini dengan pendekatan holistik
 
 ### 4. Kesinambungan dengan Tema INCOSAI Sebelumnya (2013-2025)
 
-SGC melanjutkan dan memperdalam tema-tema INCOSAI sebelumnya:
+#### Evolusi Tema INCOSAI: Dari Good Governance menuju Sustainable Global Governance
 
-- **INCOSAI XXI (2013, Beijing)**: "Promoting Good Governance from the Citizen Perspective"
-- **INCOSAI XXII (2016, Abu Dhabi)**: "Accountability and Sustainability in the Public Sector"
-- **INCOSAI XXIII (2019, Moscow)**: "Future of Public Audit: Innovations and Transformation"
-- **INCOSAI XXIV (2022, Rio de Janeiro)**: "The Digitalization of Public Audit"
-- **INCOSAI XXV (2025, Paris)**: "SAIs as Independent, Agile, and Transparent Organizations"
+| Tahun | Negara | Tema Utama | Kontribusi ke SGC 2028 |
+|-------|---------|------------|------------------------|
+| **2013** | **China** | **National Audit and National Governance**<br>• The Role of SAIs in Safeguarding Long-Term Sustainability of Finance Policies | Fondasi: Peran SAI dalam governance dan sustainability jangka panjang |
+| **2016** | **UAE** | **How can INTOSAI contribute to the UN 2030 Agenda for Sustainable Development**<br>• Good governance and strengthening the fight against corruption<br>• Professionalization: what can promote INTOSAI's credibility | Koneksi langsung: SDGs, good governance, dan anti-korupsi sebagai pilar SGC |
+| **2019** | **Russia** | **Information Technologies for the Development of Public Administration**<br>• The Role of the Supreme Audit Institutions in the Achievement of National Priorities and Goals | Transformasi digital: Teknologi untuk governance yang lebih baik |
+| **2022** | **Brazil** | **The work of SAIs in the context of emergency situations**<br>• Global voice, global outcome, far reaching impact<br>• The role of SAIs in auditing government activities during financial and economic crises | Resiliensi: SAI dalam krisis dan situasi darurat |
+| **2025** | **Egypt** | **Using artificial intelligence techniques in auditing** | Inovasi: AI sebagai enabler untuk audit masa depan |
 
-SGC mengintegrasikan pembelajaran dari tema-tema sebelumnya dengan fokus pada sustainability, innovation, dan governance di era digital.
+#### Lima Prinsip Kesinambungan SGC 2028
+
+**1. Melanjutkan Kesinambungan Tema INCOSAI 2013–2025**
+
+SGC 2028 bukan tema yang terpisah, melainkan **sintesis dan evolusi natural** dari diskursus INTOSAI selama 15 tahun:
+
+- **Dari China 2013**: Mengadopsi konsep sustainability dalam finance policies → diperluas ke **seluruh aspek governance**
+- **Dari UAE 2016**: Mengimplementasikan komitmen SDGs → diperdalam menjadi **preparasi agenda pasca-2030**
+- **Dari Russia 2019**: Memanfaatkan IT untuk administrasi publik → dikembangkan menjadi **ekosistem digital governance**
+- **Dari Brazil 2022**: Membangun kapasitas SAI dalam krisis → ditransformasi menjadi **resilience framework**
+- **Dari Egypt 2025**: Menggunakan AI dalam audit → diintegrasikan dalam **AI-enabled innovation ecosystem**
+
+**2. Pendekatan Inklusif, Berkelanjutan, dan Selaras**
+
+SGC 2028 mencerminkan:
+
+- **Inklusif**: Melibatkan perspektif dari berbagai region, mengakomodasi kebutuhan developing dan developed countries
+- **Berkelanjutan**: Fokus pada long-term impact, bukan quick wins semata
+- **Selaras**: Harmonis dengan arah pembahasan INCOSAI sebelumnya, tidak mengubah atau menggantikan agenda yang telah dibangun
+
+**3. Bukan Tema yang Berdiri Sendiri**
+
+SGC 2028 adalah **kelanjutan dari diskursus strategis INTOSAI**, dengan karakteristik:
+
+- **Evolutionary, not Revolutionary**: Membangun di atas fondasi yang ada
+- **Integrative**: Menyatukan elemen-elemen terbaik dari tema sebelumnya
+- **Progressive**: Membawa INTOSAI ke tahap berikutnya tanpa meninggalkan akar
+
+**4. Menjembatani Transisi SDGs menuju Agenda Pasca-2030**
+
+SGC memperkenalkan konsep **Sustainability Governance Continuum**:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  SDGs 2015-2030          SGC Framework        Post-2030     │
+│                                                               │
+│  [Agenda Saat Ini] ───────► [Transisi] ───────► [Masa Depan]│
+│                                                               │
+│  • 17 Goals              • Audit untuk        • New Global  │
+│  • 169 Targets             sustainability       Development │
+│  • Accountability        • Governance           Agenda      │
+│                            resilience                        │
+│                          • Knowledge                         │
+│                            ecosystem                         │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**5. Komitmen BPK dalam Memperkaya Diskursus INTOSAI**
+
+Indonesia melalui BPK menunjukkan:
+
+- **Continuity**: Menghormati dan melanjutkan legacy INCOSAI sebelumnya
+- **Innovation**: Menghadirkan perspektif baru tanpa membuang yang lama
+- **Collaboration**: Mengajak seluruh SAI untuk bersama-sama membangun framework SGC
+- **Legacy**: Meninggalkan kontribusi jangka panjang untuk INTOSAI community
+
+#### Visualisasi Kesinambungan: dari 2013 ke 2028
+
+```
+INCOSAI 2013 (China) ─┐
+National Governance   │
+                      ├──► SUSTAINABILITY
+INCOSAI 2016 (UAE) ───┤    PILLAR
+SDGs & Good Gov       │
+                      ┘
+                                    ┌──► SGC 2028
+INCOSAI 2019 (Russia)─┐            │    Sustainable
+IT & Tech             │            │    Global
+                      ├──► INNOVATION │    Governance
+INCOSAI 2025 (Egypt)──┤    PILLAR   │
+AI in Audit           │            │
+                      ┘            ┘
+
+INCOSAI 2022 (Brazil)─┐
+Crisis & Emergency    ├──► RESILIENCE
+                      │    PILLAR
+                      ┘
+```
+
+**Kesimpulan:**
+
+SGC 2028 adalah **culmination point** dari journey INTOSAI 2013-2025, yang:
+- ✅ Menghormati semua tema sebelumnya
+- ✅ Mengintegrasikan learning dari 5 INCOSAI terakhir
+- ✅ Memberikan direction clear untuk masa depan
+- ✅ Memposisikan Indonesia sebagai thoughtful steward of INTOSAI legacy
 
 ---
 
