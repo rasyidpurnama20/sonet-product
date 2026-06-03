@@ -2,6 +2,7 @@
 """
 Generator untuk frame OBS ICICOS 2026
 Membuat placeholder visual untuk setiap scene yang dibutuhkan
+IMPROVED VERSION - Text lebih besar dan lebih jelas!
 """
 
 from PIL import Image, ImageDraw, ImageFont
@@ -11,80 +12,118 @@ import os
 WIDTH = 1920
 HEIGHT = 1080
 
-# Color scheme ICICOS
-COLOR_PRIMARY = "#1e3a8a"  # Blue
-COLOR_SECONDARY = "#3b82f6"  # Light Blue
-COLOR_ACCENT = "#f59e0b"  # Orange
-COLOR_BG = "#f8fafc"  # Light gray
-COLOR_TEXT = "#1e293b"  # Dark gray
+# Color scheme ICICOS - More vibrant
+COLOR_PRIMARY = "#0c4a6e"  # Deep Blue
+COLOR_SECONDARY = "#0ea5e9"  # Sky Blue
+COLOR_ACCENT = "#f97316"  # Vibrant Orange
+COLOR_BG = "#ffffff"  # Pure white
+COLOR_TEXT = "#0f172a"  # Very dark
+COLOR_DARK = "#1e293b"
 
 def create_frame(title, subtitle="", frame_type="default", filename="frame.png"):
-    """Create a visual placeholder for OBS scene"""
+    """Create a visual placeholder for OBS scene with BIG, CLEAR text"""
     
     # Create image
     img = Image.new('RGB', (WIDTH, HEIGHT), COLOR_BG)
     draw = ImageDraw.Draw(img)
     
-    # Try to use a better font, fallback to default
+    # Load fonts - MUCH BIGGER!
     try:
-        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 72)
-        subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 48)
-        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 32)
+        logo_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 140)  # Huge!
+        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)  # Very big
+        subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 80)  # Big
+        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 56)  # Medium
+        label_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 100)  # For labels
     except:
-        title_font = ImageFont.load_default()
-        subtitle_font = ImageFont.load_default()
-        small_font = ImageFont.load_default()
+        logo_font = title_font = subtitle_font = small_font = label_font = ImageFont.load_default()
     
     # Background based on type
     if "video" in frame_type.lower():
-        # Video frames - darker background
+        # Video frames - gradient-like effect with darker background
         draw.rectangle([0, 0, WIDTH, HEIGHT], fill=COLOR_PRIMARY)
-        text_color = "white"
-    elif "camera" in frame_type.lower():
-        # Camera frames - split screen layout
-        draw.rectangle([0, 0, WIDTH//2, HEIGHT], fill=COLOR_SECONDARY)
-        draw.rectangle([WIDTH//2, 0, WIDTH, HEIGHT], fill="#0f172a")
-        text_color = "white"
-    elif "presentasi" in frame_type.lower():
-        # Presentation + Camera - main content area
-        draw.rectangle([0, 0, WIDTH*3//4, HEIGHT], fill="#0f172a")
-        draw.rectangle([WIDTH*3//4, 0, WIDTH, HEIGHT], fill=COLOR_SECONDARY)
-        # Label areas
-        draw.text((WIDTH*3//8, HEIGHT//2-100), "PRESENTATION", fill="white", font=subtitle_font, anchor="mm")
-        draw.text((WIDTH*7//8, HEIGHT//2), "CAMERA", fill="white", font=subtitle_font, anchor="mm")
-        text_color = "white"
-    else:
-        # Default frames - speaker frames
-        draw.rectangle([0, 0, WIDTH, 200], fill=COLOR_PRIMARY)
-        draw.rectangle([0, HEIGHT-150, WIDTH, HEIGHT], fill=COLOR_PRIMARY)
-        text_color = COLOR_TEXT
         
-        # Speaker area indicator
+        # Add decorative elements
+        draw.rectangle([0, HEIGHT//2-100, WIDTH, HEIGHT//2+100], fill=COLOR_SECONDARY)
+        
+        # Big centered text
+        draw.text((WIDTH//2, HEIGHT//2-150), title, fill="white", font=title_font, anchor="mm", stroke_width=3, stroke_fill=COLOR_PRIMARY)
+        if subtitle:
+            draw.text((WIDTH//2, HEIGHT//2+50), subtitle, fill=COLOR_ACCENT, font=subtitle_font, anchor="mm", stroke_width=2, stroke_fill=COLOR_PRIMARY)
+        
+    elif "camera" in frame_type.lower():
+        # Camera frames - split screen with labels
+        draw.rectangle([0, 0, WIDTH//2-10, HEIGHT], fill="#1e293b")
+        draw.rectangle([WIDTH//2+10, 0, WIDTH, HEIGHT], fill="#334155")
+        
+        # Vertical divider
+        draw.rectangle([WIDTH//2-10, 0, WIDTH//2+10, HEIGHT], fill=COLOR_ACCENT)
+        
+        # Big labels for camera areas
+        draw.text((WIDTH//4, HEIGHT//2), "CAMERA 1", fill="white", font=label_font, anchor="mm", stroke_width=3, stroke_fill="black")
+        draw.text((WIDTH*3//4, HEIGHT//2), "CAMERA 2", fill="white", font=label_font, anchor="mm", stroke_width=3, stroke_fill="black")
+        
+        # Title at top
+        draw.rectangle([0, 0, WIDTH, 200], fill=COLOR_PRIMARY)
+        draw.text((WIDTH//2, 100), title, fill="white", font=subtitle_font, anchor="mm", stroke_width=2, stroke_fill="black")
+        
+    elif "presentasi" in frame_type.lower():
+        # Presentation + Camera - clear separation
+        # Main presentation area (left 75%)
+        draw.rectangle([0, 0, WIDTH*3//4-20, HEIGHT], fill="#0f172a")
+        
+        # Camera area (right 25%)
+        draw.rectangle([WIDTH*3//4+20, 0, WIDTH, HEIGHT], fill="#334155")
+        
+        # Orange divider
+        draw.rectangle([WIDTH*3//4-20, 0, WIDTH*3//4+20, HEIGHT], fill=COLOR_ACCENT)
+        
+        # HUGE labels
+        draw.text((WIDTH*3//8, HEIGHT//2), "PRESENTATION\nSLIDES", fill="white", font=label_font, anchor="mm", align="center", stroke_width=3, stroke_fill="black")
+        draw.text((WIDTH*7//8, HEIGHT//2), "CAM", fill="white", font=label_font, anchor="mm", stroke_width=3, stroke_fill="black")
+        
+        # Title bar
+        draw.rectangle([0, 0, WIDTH, 200], fill=COLOR_PRIMARY)
+        draw.text((WIDTH//2, 100), title, fill="white", font=subtitle_font, anchor="mm", stroke_width=2, stroke_fill="black")
+        
+    else:
+        # Speaker frames - clean and professional
+        # Background gradient effect
+        draw.rectangle([0, 0, WIDTH, HEIGHT], fill="#f1f5f9")
+        draw.rectangle([WIDTH//4, HEIGHT//4, WIDTH*3//4, HEIGHT*3//4], fill="white")
+        
+        # Large speaker area with border
+        speaker_radius = 320
         if "frame" in frame_type.lower() and frame_type.lower() != "frame kosong":
-            draw.ellipse([WIDTH//2-250, HEIGHT//2-250, WIDTH//2+250, HEIGHT//2+250], 
-                        outline=COLOR_ACCENT, width=8)
-            draw.text((WIDTH//2, HEIGHT//2), "👤", font=title_font, anchor="mm")
+            # Outer glow
+            for i in range(5, 0, -1):
+                draw.ellipse([WIDTH//2-speaker_radius-i*10, HEIGHT//2-speaker_radius-i*10, 
+                            WIDTH//2+speaker_radius+i*10, HEIGHT//2+speaker_radius+i*10], 
+                           outline=COLOR_SECONDARY, width=8)
+            
+            # Main circle
+            draw.ellipse([WIDTH//2-speaker_radius, HEIGHT//2-speaker_radius, 
+                        WIDTH//2+speaker_radius, HEIGHT//2+speaker_radius], 
+                       outline=COLOR_ACCENT, width=20)
+            
+            # Center icon (bigger)
+            draw.text((WIDTH//2, HEIGHT//2), "👤", font=logo_font, anchor="mm")
+        
+        # Title below speaker area
+        if title and "kosong" not in title.lower():
+            # Background for text
+            text_y = HEIGHT//2 + speaker_radius + 120
+            draw.rectangle([WIDTH//4, text_y-80, WIDTH*3//4, text_y+80], fill=COLOR_PRIMARY)
+            draw.text((WIDTH//2, text_y), title, fill="white", font=title_font, anchor="mm", stroke_width=2, stroke_fill="black")
     
-    # Header bar
-    draw.rectangle([0, 0, WIDTH, 180], fill=COLOR_PRIMARY)
+    # Header bar with logo
+    draw.rectangle([0, 0, WIDTH, 220], fill=COLOR_PRIMARY)
     
-    # ICICOS 2026 logo text
-    draw.text((WIDTH//2, 90), "ICICOS 2026", fill=COLOR_ACCENT, font=title_font, anchor="mm")
+    # ICICOS 2026 - HUGE!
+    draw.text((WIDTH//2, 110), "ICICOS 2026", fill=COLOR_ACCENT, font=logo_font, anchor="mm", stroke_width=4, stroke_fill="black")
     
-    # Title
-    title_y = HEIGHT//2 if "video" in frame_type.lower() else 350
-    if "presentasi" not in frame_type.lower():
-        draw.text((WIDTH//2, title_y), title, fill="white" if "video" in frame_type.lower() or "camera" in frame_type.lower() else COLOR_TEXT, 
-                 font=subtitle_font, anchor="mm")
-    
-    # Subtitle
-    if subtitle:
-        draw.text((WIDTH//2, title_y + 80), subtitle, fill="white" if "video" in frame_type.lower() else COLOR_SECONDARY, 
-                 font=small_font, anchor="mm")
-    
-    # Footer
-    draw.rectangle([0, HEIGHT-120, WIDTH, HEIGHT], fill=COLOR_PRIMARY)
-    draw.text((WIDTH//2, HEIGHT-60), "International Conference on Informatics and Computing Systems", 
+    # Footer bar
+    draw.rectangle([0, HEIGHT-180, WIDTH, HEIGHT], fill=COLOR_PRIMARY)
+    draw.text((WIDTH//2, HEIGHT-90), "International Conference on Informatics and Computing Systems", 
              fill="white", font=small_font, anchor="mm")
     
     # Save

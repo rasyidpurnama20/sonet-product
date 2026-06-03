@@ -36,14 +36,20 @@ Folder ini berisi placeholder visual untuk streaming Zoom menggunakan OBS Studio
 - `19_frame_camera_plenary3.png` - Frame Camera Plenary 3
 - `20_frame_presentasi_camera_plenary3.png` - Frame Presentasi Window + Camera Plenary 3
 
-## 🎨 Desain Spesifikasi
+## 🎨 Desain Spesifikasi (IMPROVED VERSION)
 
 - **Resolusi**: 1920x1080 (16:9 Full HD)
+- **Typography**: BESAR & JELAS TERBACA - Font size 80-140pt
 - **Color Scheme**:
-  - Primary: Blue (#1e3a8a)
-  - Secondary: Light Blue (#3b82f6)
-  - Accent: Orange (#f59e0b)
-  - Background: Light Gray (#f8fafc)
+  - Primary: Deep Blue (#0c4a6e)
+  - Secondary: Sky Blue (#0ea5e9)
+  - Accent: Vibrant Orange (#f97316)
+  - Background: Pure White (#ffffff)
+- **Features**:
+  - Tulisan sangat besar dan bold
+  - Kontras tinggi untuk readability
+  - Stroke/outline pada text untuk clarity
+  - Icon dan shapes yang lebih prominent
 
 ## 🎬 Tipe Frame
 
