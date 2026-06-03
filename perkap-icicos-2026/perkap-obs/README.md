@@ -36,20 +36,25 @@ Folder ini berisi placeholder visual untuk streaming Zoom menggunakan OBS Studio
 - `19_frame_camera_plenary3.png` - Frame Camera Plenary 3
 - `20_frame_presentasi_camera_plenary3.png` - Frame Presentasi Window + Camera Plenary 3
 
-## 🎨 Desain Spesifikasi (IMPROVED VERSION)
+## 🎨 Desain Spesifikasi (ULTIMATE V3 - SUPER UPGRADE!)
 
 - **Resolusi**: 1920x1080 (16:9 Full HD)
-- **Typography**: BESAR & JELAS TERBACA - Font size 80-140pt
+- **Typography**: ULTRA MASSIVE - Font size 70pt sampai 200pt!
+  - Logo "ICICOS 2026": 200pt (ABSOLUTELY GIANT!)
+  - Labels utama: 160-200pt (MASSIVE!)
+  - Titles: 100-120pt (HUGE!)
+  - Body text: 70pt (BIG!)
 - **Color Scheme**:
-  - Primary: Deep Blue (#0c4a6e)
-  - Secondary: Sky Blue (#0ea5e9)
-  - Accent: Vibrant Orange (#f97316)
-  - Background: Pure White (#ffffff)
+  - Primary: Strong Blue (#1e40af)
+  - Accent: Strong Orange (#ea580c)
+  - Backgrounds: Pure contrast (#ffffff / #0f172a)
 - **Features**:
-  - Tulisan sangat besar dan bold
-  - Kontras tinggi untuk readability
-  - Stroke/outline pada text untuk clarity
-  - Icon dan shapes yang lebih prominent
+  - ⭐ Stroke outline TEBAL (6-10px)
+  - ⭐ Border super thick (15-30px)
+  - ⭐ Giant shapes (radius 400px)
+  - ⭐ Multi-layer glow effects (8 layers)
+  - ⭐ Divider ultra-wide (60-80px)
+  - ⭐ Header/footer 220-300px height
 
 ## 🎬 Tipe Frame
 
