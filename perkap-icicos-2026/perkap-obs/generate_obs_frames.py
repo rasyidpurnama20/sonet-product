@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 Generator untuk frame OBS ICICOS 2026
-Membuat placeholder visual untuk setiap scene yang dibutuhkan
-IMPROVED VERSION - Text lebih besar dan lebih jelas!
+ULTIMATE VERSION V3 - SUPER BESAR, SANGAT JELAS!
 """
 
 from PIL import Image, ImageDraw, ImageFont
@@ -12,119 +11,137 @@ import os
 WIDTH = 1920
 HEIGHT = 1080
 
-# Color scheme ICICOS - More vibrant
-COLOR_PRIMARY = "#0c4a6e"  # Deep Blue
-COLOR_SECONDARY = "#0ea5e9"  # Sky Blue
-COLOR_ACCENT = "#f97316"  # Vibrant Orange
-COLOR_BG = "#ffffff"  # Pure white
-COLOR_TEXT = "#0f172a"  # Very dark
-COLOR_DARK = "#1e293b"
+# Color scheme - Maximum contrast
+COLOR_PRIMARY = "#1e40af"  # Strong Blue
+COLOR_ACCENT = "#ea580c"  # Strong Orange
+COLOR_BG_LIGHT = "#f8fafc"
+COLOR_BG_DARK = "#0f172a"
+COLOR_WHITE = "#ffffff"
 
 def create_frame(title, subtitle="", frame_type="default", filename="frame.png"):
-    """Create a visual placeholder for OBS scene with BIG, CLEAR text"""
+    """Create OBS frame with MASSIVE, ULTRA CLEAR text and labels"""
     
-    # Create image
-    img = Image.new('RGB', (WIDTH, HEIGHT), COLOR_BG)
+    img = Image.new('RGB', (WIDTH, HEIGHT), COLOR_WHITE)
     draw = ImageDraw.Draw(img)
     
-    # Load fonts - MUCH BIGGER!
+    # SUPER MASSIVE FONTS!
     try:
-        logo_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 140)  # Huge!
-        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)  # Very big
-        subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 80)  # Big
-        small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 56)  # Medium
-        label_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 100)  # For labels
+        mega_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 200)  # MASSIVE!
+        huge_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 160)  # HUGE!
+        big_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)   # BIG!
+        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 100)  # Title
+        medium_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 70)  # Medium
     except:
-        logo_font = title_font = subtitle_font = small_font = label_font = ImageFont.load_default()
+        mega_font = huge_font = big_font = title_font = medium_font = ImageFont.load_default()
     
-    # Background based on type
+    # === VIDEO FRAMES ===
     if "video" in frame_type.lower():
-        # Video frames - gradient-like effect with darker background
+        # Full background gradient
         draw.rectangle([0, 0, WIDTH, HEIGHT], fill=COLOR_PRIMARY)
         
-        # Add decorative elements
-        draw.rectangle([0, HEIGHT//2-100, WIDTH, HEIGHT//2+100], fill=COLOR_SECONDARY)
+        # Giant center box
+        box_height = 400
+        draw.rectangle([100, HEIGHT//2-box_height//2, WIDTH-100, HEIGHT//2+box_height//2], 
+                      fill=COLOR_ACCENT, outline=COLOR_WHITE, width=15)
         
-        # Big centered text
-        draw.text((WIDTH//2, HEIGHT//2-150), title, fill="white", font=title_font, anchor="mm", stroke_width=3, stroke_fill=COLOR_PRIMARY)
+        # MASSIVE title
+        draw.text((WIDTH//2, HEIGHT//2-100), title, fill=COLOR_WHITE, font=huge_font, 
+                 anchor="mm", stroke_width=8, stroke_fill=COLOR_PRIMARY)
+        
+        # Big subtitle
         if subtitle:
-            draw.text((WIDTH//2, HEIGHT//2+50), subtitle, fill=COLOR_ACCENT, font=subtitle_font, anchor="mm", stroke_width=2, stroke_fill=COLOR_PRIMARY)
-        
+            draw.text((WIDTH//2, HEIGHT//2+100), subtitle, fill=COLOR_WHITE, font=big_font, 
+                     anchor="mm", stroke_width=5, stroke_fill=COLOR_PRIMARY)
+    
+    # === CAMERA PLENARY FRAMES ===
     elif "camera" in frame_type.lower():
-        # Camera frames - split screen with labels
-        draw.rectangle([0, 0, WIDTH//2-10, HEIGHT], fill="#1e293b")
-        draw.rectangle([WIDTH//2+10, 0, WIDTH, HEIGHT], fill="#334155")
+        # Split dengan divider super tebal
+        draw.rectangle([0, 0, WIDTH//2-30, HEIGHT], fill=COLOR_BG_DARK)
+        draw.rectangle([WIDTH//2+30, 0, WIDTH, HEIGHT], fill="#1e293b")
+        draw.rectangle([WIDTH//2-30, 0, WIDTH//2+30, HEIGHT], fill=COLOR_ACCENT)
         
-        # Vertical divider
-        draw.rectangle([WIDTH//2-10, 0, WIDTH//2+10, HEIGHT], fill=COLOR_ACCENT)
+        # GIANT labels di tengah
+        draw.text((WIDTH//4, HEIGHT//2), "CAMERA\n1", fill=COLOR_WHITE, font=mega_font, 
+                 anchor="mm", align="center", stroke_width=8, stroke_fill="black")
+        draw.text((WIDTH*3//4, HEIGHT//2), "CAMERA\n2", fill=COLOR_WHITE, font=mega_font, 
+                 anchor="mm", align="center", stroke_width=8, stroke_fill="black")
         
-        # Big labels for camera areas
-        draw.text((WIDTH//4, HEIGHT//2), "CAMERA 1", fill="white", font=label_font, anchor="mm", stroke_width=3, stroke_fill="black")
-        draw.text((WIDTH*3//4, HEIGHT//2), "CAMERA 2", fill="white", font=label_font, anchor="mm", stroke_width=3, stroke_fill="black")
-        
-        # Title at top
-        draw.rectangle([0, 0, WIDTH, 200], fill=COLOR_PRIMARY)
-        draw.text((WIDTH//2, 100), title, fill="white", font=subtitle_font, anchor="mm", stroke_width=2, stroke_fill="black")
-        
+        # Title bar SUPER BESAR
+        draw.rectangle([0, 0, WIDTH, 280], fill=COLOR_PRIMARY, outline=COLOR_ACCENT, width=10)
+        draw.text((WIDTH//2, 140), title, fill=COLOR_ACCENT, font=big_font, 
+                 anchor="mm", stroke_width=6, stroke_fill="black")
+    
+    # === PRESENTATION + CAMERA FRAMES ===
     elif "presentasi" in frame_type.lower():
-        # Presentation + Camera - clear separation
-        # Main presentation area (left 75%)
-        draw.rectangle([0, 0, WIDTH*3//4-20, HEIGHT], fill="#0f172a")
+        # Main presentation (70%)
+        draw.rectangle([0, 0, WIDTH*7//10-40, HEIGHT], fill=COLOR_BG_DARK)
         
-        # Camera area (right 25%)
-        draw.rectangle([WIDTH*3//4+20, 0, WIDTH, HEIGHT], fill="#334155")
+        # Camera PiP (30%)
+        draw.rectangle([WIDTH*7//10+40, 0, WIDTH, HEIGHT], fill="#1e293b")
         
-        # Orange divider
-        draw.rectangle([WIDTH*3//4-20, 0, WIDTH*3//4+20, HEIGHT], fill=COLOR_ACCENT)
+        # SUPER THICK divider
+        draw.rectangle([WIDTH*7//10-40, 0, WIDTH*7//10+40, HEIGHT], fill=COLOR_ACCENT)
         
-        # HUGE labels
-        draw.text((WIDTH*3//8, HEIGHT//2), "PRESENTATION\nSLIDES", fill="white", font=label_font, anchor="mm", align="center", stroke_width=3, stroke_fill="black")
-        draw.text((WIDTH*7//8, HEIGHT//2), "CAM", fill="white", font=label_font, anchor="mm", stroke_width=3, stroke_fill="black")
+        # GIANT labels
+        draw.text((WIDTH*35//100, HEIGHT//2), "PRESENTATION\n\nSLIDES", fill=COLOR_WHITE, 
+                 font=mega_font, anchor="mm", align="center", stroke_width=8, stroke_fill="black")
+        draw.text((WIDTH*85//100, HEIGHT//2), "CAM", fill=COLOR_ACCENT, font=mega_font, 
+                 anchor="mm", stroke_width=8, stroke_fill="black")
         
         # Title bar
-        draw.rectangle([0, 0, WIDTH, 200], fill=COLOR_PRIMARY)
-        draw.text((WIDTH//2, 100), title, fill="white", font=subtitle_font, anchor="mm", stroke_width=2, stroke_fill="black")
-        
+        draw.rectangle([0, 0, WIDTH, 280], fill=COLOR_PRIMARY, outline=COLOR_ACCENT, width=10)
+        draw.text((WIDTH//2, 140), title, fill=COLOR_ACCENT, font=big_font, 
+                 anchor="mm", stroke_width=6, stroke_fill="black")
+    
+    # === SPEAKER FRAMES ===
     else:
-        # Speaker frames - clean and professional
-        # Background gradient effect
-        draw.rectangle([0, 0, WIDTH, HEIGHT], fill="#f1f5f9")
-        draw.rectangle([WIDTH//4, HEIGHT//4, WIDTH*3//4, HEIGHT*3//4], fill="white")
+        # Clean background
+        draw.rectangle([0, 0, WIDTH, HEIGHT], fill=COLOR_BG_LIGHT)
         
-        # Large speaker area with border
-        speaker_radius = 320
-        if "frame" in frame_type.lower() and frame_type.lower() != "frame kosong":
-            # Outer glow
-            for i in range(5, 0, -1):
-                draw.ellipse([WIDTH//2-speaker_radius-i*10, HEIGHT//2-speaker_radius-i*10, 
-                            WIDTH//2+speaker_radius+i*10, HEIGHT//2+speaker_radius+i*10], 
-                           outline=COLOR_SECONDARY, width=8)
-            
-            # Main circle
-            draw.ellipse([WIDTH//2-speaker_radius, HEIGHT//2-speaker_radius, 
-                        WIDTH//2+speaker_radius, HEIGHT//2+speaker_radius], 
-                       outline=COLOR_ACCENT, width=20)
-            
-            # Center icon (bigger)
-            draw.text((WIDTH//2, HEIGHT//2), "👤", font=logo_font, anchor="mm")
+        # Giant colored box for speaker
+        margin = 200
+        draw.rectangle([margin, 350, WIDTH-margin, HEIGHT-280], 
+                      fill=COLOR_WHITE, outline=COLOR_PRIMARY, width=20)
         
-        # Title below speaker area
+        if "frame" in frame_type.lower() and "kosong" not in frame_type.lower():
+            # MASSIVE speaker circle
+            radius = 400
+            center_y = HEIGHT//2 + 50
+            
+            # Multi-layer glow
+            for i in range(8, 0, -1):
+                alpha_color = COLOR_ACCENT if i % 2 == 0 else COLOR_PRIMARY
+                draw.ellipse([WIDTH//2-radius-i*15, center_y-radius-i*15,
+                            WIDTH//2+radius+i*15, center_y+radius+i*15],
+                           outline=alpha_color, width=10)
+            
+            # Main circle - SUPER THICK border
+            draw.ellipse([WIDTH//2-radius, center_y-radius, 
+                         WIDTH//2+radius, center_y+radius],
+                       fill=COLOR_WHITE, outline=COLOR_ACCENT, width=30)
+            
+            # MASSIVE icon
+            draw.text((WIDTH//2, center_y), "👤", font=mega_font, anchor="mm")
+        
+        # Title in GIANT box at bottom
         if title and "kosong" not in title.lower():
-            # Background for text
-            text_y = HEIGHT//2 + speaker_radius + 120
-            draw.rectangle([WIDTH//4, text_y-80, WIDTH*3//4, text_y+80], fill=COLOR_PRIMARY)
-            draw.text((WIDTH//2, text_y), title, fill="white", font=title_font, anchor="mm", stroke_width=2, stroke_fill="black")
+            title_height = 220
+            draw.rectangle([margin, HEIGHT-280, WIDTH-margin, HEIGHT-280+title_height], 
+                         fill=COLOR_PRIMARY, outline=COLOR_ACCENT, width=15)
+            draw.text((WIDTH//2, HEIGHT-170), title, fill=COLOR_ACCENT, font=title_font, 
+                     anchor="mm", stroke_width=6, stroke_fill="black")
     
-    # Header bar with logo
-    draw.rectangle([0, 0, WIDTH, 220], fill=COLOR_PRIMARY)
+    # === TOP HEADER - SUPER PROMINENT ===
+    draw.rectangle([0, 0, WIDTH, 300], fill=COLOR_PRIMARY, outline=COLOR_ACCENT, width=15)
     
-    # ICICOS 2026 - HUGE!
-    draw.text((WIDTH//2, 110), "ICICOS 2026", fill=COLOR_ACCENT, font=logo_font, anchor="mm", stroke_width=4, stroke_fill="black")
+    # ICICOS 2026 - ABSOLUTELY MASSIVE
+    draw.text((WIDTH//2, 150), "ICICOS 2026", fill=COLOR_ACCENT, font=mega_font, 
+             anchor="mm", stroke_width=10, stroke_fill="black")
     
-    # Footer bar
-    draw.rectangle([0, HEIGHT-180, WIDTH, HEIGHT], fill=COLOR_PRIMARY)
-    draw.text((WIDTH//2, HEIGHT-90), "International Conference on Informatics and Computing Systems", 
-             fill="white", font=small_font, anchor="mm")
+    # === BOTTOM FOOTER - CLEAR ===
+    draw.rectangle([0, HEIGHT-220, WIDTH, HEIGHT], fill=COLOR_PRIMARY, outline=COLOR_ACCENT, width=15)
+    draw.text((WIDTH//2, HEIGHT-110), "International Conference on Informatics and Computing Systems", 
+             fill=COLOR_WHITE, font=medium_font, anchor="mm", stroke_width=3, stroke_fill="black")
     
     # Save
     output_path = os.path.join(os.path.dirname(__file__), filename)
