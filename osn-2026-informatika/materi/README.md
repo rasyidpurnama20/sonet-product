@@ -13,15 +13,17 @@ Kumpulan ringkasan materi untuk persiapan OSK Informatika 2026.
 | `03-kombinatorika-dan-deret.md` | Permutasi, kombinasi, pigeonhole, deret aritmetika & geometri | B |
 | `04-graf-dan-pohon.md` | BFS, DFS, representasi graf, tree traversal | B, C |
 | `05-algoritma-dasar-cpp.md` | Trace kode C++, loop, rekursi, array, fungsi | C |
+| `06-modulo-dan-teori-bilangan.md` | Modulo, FPB/KPK, Fungsi Euler, Fermat's theorem, XOR, biner | B, C |
+| `07-teori-graf-lanjutan.md` | Count paths DAG, DP Graf, Independent Set, Pigeonhole + Graf | B, C |
 
 ---
 
 ## Topik yang Perlu Ditambahkan
 
 - [ ] Berpikir Komputasional & Bebras
-- [ ] Simulasi & Optimisasi
+- [ ] Simulasi & Optimasi
 - [ ] Geometri Dasar
-- [ ] Sorting & Searching
+- [ ] Sorting & Searching (Kadane, Inversion Count)
 
 ---
 
