@@ -4,19 +4,32 @@ Kumpulan soal latihan dan pembahasannya untuk persiapan OSK Informatika 2026.
 
 ---
 
+## File Pembahasan Tersedia
+
+| File | Isi | Soal |
+|------|-----|------|
+| `tryout-koja-1-pembahasan.md` | Try Out Koja 1 lengkap dengan langkah penyelesaian & tautan materi | 40 soal |
+
+---
+
 ## Struktur Folder
 
 ```
 latihan/
-├── README.md           ← file ini
-├── bagian-a/           ← Latihan soal tipe Bebras (Abstraksi CT)
-├── bagian-b/           ← Latihan studi kasus komputasional
-└── bagian-c/           ← Latihan trace kode C++
+├── README.md                        ← file ini
+├── tryout-koja-1-pembahasan.md      ← TO Koja 1: 40 soal + pembahasan
+├── Try Out Koja 1 - Soal + Kunci Jawaban.pdf  ← soal asli PDF
+└── imgs/                            ← gambar kode program dari PDF
 ```
 
 ---
 
 ## Checklist Latihan
+
+### Try Out / Simulasi
+- [x] Try Out Koja 1 — 40 soal (lihat `tryout-koja-1-pembahasan.md`)
+- [ ] Try Out Koja 2 (jika tersedia)
+- [ ] Simulasi soal OSK tahun lalu (2024, 2023, 2022)
 
 ### Bagian A — Bebras / Abstraksi CT
 - [ ] Kerjakan 10 soal Bebras Indonesia 2024
