@@ -1,0 +1,23 @@
+{
+  "id": "FEAT-003",
+  "type": "docs",
+  "description": "Expand materi Bab 5 (Algoritma Dasar & C++ Code Tracing) and Bab 6 (Modulo & Teori Bilangan) to comprehensive study guides. Each file rewritten to 600-1000+ lines. All content in Bahasa Indonesia.",
+  "status": "completed",
+  "steps": [
+    "Rewrite osn-2026-informatika/materi/05-algoritma-dasar-cpp.md to be comprehensive. Add: (1) More C++ syntax coverage: string operations, char arithmetic, type casting, (2) Sorting algorithms with full traces: bubble sort, selection sort, insertion sort, (3) Searching: linear search, binary search with trace, (4) More complex loop patterns: nested loops, loop with conditions, (5) At least 10 complete trace examples of increasing difficulty, (6) String manipulation in C++ (length, substr, find, compare), (7) 2D array operations with examples, (8) Pointer basics for understanding pass-by-reference, (9) Common C++ pitfalls in OSN (integer overflow, array bounds, operator precedence), (10) Bitwise operations in C++ (&, |, ^, <<, >>), (11) STL basics relevant to code reading (vector, pair, sort), (12) Function call trace with stack frames visualization, (13) Tips and tricks for fast code tracing in exams",
+    "Rewrite osn-2026-informatika/materi/06-modulo-dan-teori-bilangan.md to be comprehensive. Add: (1) Modular arithmetic properties with proofs/explanations, (2) More modular exponentiation examples and fast power algorithm, (3) Extended Euclidean algorithm basics, (4) Modular inverse concept, (5) Chinese Remainder Theorem basic idea with examples, (6) Divisibility rules for 2,3,4,5,6,7,8,9,11, (7) Number of divisors formula from prime factorization, (8) Sum of divisors, (9) Perfect numbers concept, (10) Floor and ceiling functions with applications, (11) More XOR applications and patterns (XOR 1..n pattern), (12) Binary representation deeper coverage, (13) At least 12 worked examples with step-by-step solutions"
+  ],
+  "acceptance_criteria": [
+    "File 05-algoritma-dasar-cpp.md is at least 800 lines with comprehensive C++ tracing material and 10+ trace examples",
+    "File 06-modulo-dan-teori-bilangan.md is at least 700 lines with comprehensive number theory and 12+ worked examples",
+    "Both files are entirely in Bahasa Indonesia",
+    "C++ code examples are correct and traceable by hand"
+  ],
+  "verification": [
+    "Check that both files exist and are well-formatted markdown",
+    "Verify line count meets minimum requirements",
+    "Verify content is in Bahasa Indonesia"
+  ],
+  "blocked_reason": null,
+  "findings": "Both parts completed. Part 1: 05-algoritma-dasar-cpp.md rewritten to 1833 lines. Part 2: 06-modulo-dan-teori-bilangan.md rewritten to 1654 lines covering all 13 required topics: modular arithmetic properties with proofs, modular exponentiation with fast power algorithm, extended Euclidean algorithm, modular inverse, CRT with examples, divisibility rules for 2-11, number of divisors formula, sum of divisors, perfect numbers, floor/ceiling functions with applications, XOR patterns (1..n), binary representation deeper coverage, and 15 worked examples with step-by-step solutions."
+}
