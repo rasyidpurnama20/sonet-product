@@ -17,7 +17,7 @@ Pilih **satu** bidang yang paling dekat dengan paper, lalu pada kolom *justifika
 harus menjelaskan kenapa kompetensinya valid. Semua opsi berada dalam cakupan ICICoS dan relevan
 dengan topik paper.
 
-| No | Bidang Keahlian (ICICoS) | Relevansi dengan paper ini |
+| No | Bidang Keahlian (ICICoS) | Relevansi dengan paper ini (Contoh) |
 |------|--------------------------|----------------------------|
 | **1** | Machine Learning & Pattern Recognition | Inti paper: model klasifikasi, fitur, evaluasi |
 | **2** | Data Science / Data Mining & Big Data Analytics | Rekayasa fitur "early process signatures", kualitas data |
