@@ -37,21 +37,16 @@ justifikasi   : Saya memilih Machine Learning karena ...
 
 ## 2. Aturan Etika & Penggunaan AI (BACA DULU)
 
-**DILARANG**
-1. **Mengunggah manuskrip / bagian manuskrip ke AI publik** (mis. ChatGPT publik). Manuskrip
+1. **DILARANG Mengunggah manuskrip / bagian manuskrip ke AI publik** (mis. ChatGPT publik). Manuskrip
    bersifat rahasia, sehingga mengunggahnya melanggar kerahasiaan peer review. Gunakan hanya tool
    yang menjamin data tidak dipakai untuk training.
-2. **Mendelegasikan keputusan akhir ke AI.** Rekomendasi Accept/Reject tetap tanggung jawab manusia.
-3. **Membuat klaim/temuan fiktif** dari AI (halusinasi referensi, angka, atau "kelemahan" yang
+2. **DILARANG Mendelegasikan keputusan akhir ke AI.** Rekomendasi Accept/Reject tetap tanggung jawab manusia.
+3. **DILARANG Membuat klaim/temuan fiktif** dari AI (halusinasi referensi, angka, atau "kelemahan" yang
    tidak ada).
-
-**BOLEH**
 4. AI sebagai **asisten bahasa**: merapikan tata bahasa & nada komentar agar profesional.
 5. AI sebagai **checklist/penstruktur**: memastikan tiap section tertinjau, format komentar konsisten.
 6. AI untuk **brainstorming pertanyaan** — tetapi reviewer **memverifikasi** setiap poin terhadap
    isi paper.
-
-**WAJIB**
 7. **Akuntabilitas**: setiap komentar harus bisa ditelusuri ke baris/halaman paper yang nyata.
 
 ---
@@ -59,16 +54,17 @@ justifikasi   : Saya memilih Machine Learning karena ...
 ## 3. Struktur Komentar per-Section (kerangka daftar komentar)
 
 Agent dapat membuat komentar di tiap section memakai **format komentar** dari Bagian 4. Pastikan jumlah komentar di setiap format komentar agar review menyeluruh: 
-S1 Abstract, fokus pada kesesuaian klaim dengan hasil dan keberadaan angka kunci; 
-S2 Introduction & Motivasi, fokus pada kejelasan masalah, urgensi, kontribusi, dan apakah kontribusi dapat diuji; 
-S3 Related Work, fokus pada posisi penelitian terhadap literatur, kejelasan gap, dan kemutakhiran sitasi; 
-S4 Data & Early Process Signatures, fokus pada sumber data, definisi label “violation”, fitur “early signature”, kualitas data, serta potensi data leakage; 
-S5 Metodologi/Model, fokus pada pemilihan algoritma, baseline, hyperparameter, validasi, dan replikabilitas; 
-S6 Eksperimen & Hasil, fokus pada metrik, ketidakseimbangan data, signifikansi, ablation, dan kejelasan hasil; 
-S7 Diskusi, fokus pada interpretasi, batasan, dan ancaman validitas; 
-S8 Kesimpulan & Future Work; 
-S9 Referensi & Format; dan 
-S10 Reproducibility.
+#### S1 Abstract, fokus pada kesesuaian klaim dengan hasil dan keberadaan angka kunci; 
+#### S2 Introduction & Motivasi, fokus pada kejelasan masalah, urgensi, kontribusi, dan apakah kontribusi dapat diuji; 
+#### S3 Related Work, fokus pada posisi penelitian terhadap literatur, kejelasan gap, dan kemutakhiran sitasi; 
+#### S4 Data & Early Process Signatures, fokus pada sumber data, kejelasan atribut, kualitas data, serta potensi data leakage; 
+#### S5 Metodologi/Model, fokus pada pemilihan algoritma, baseline, hyperparameter, validasi, dan replikabilitas; 
+#### S6 Eksperimen & Hasil, fokus pada metrik, ketidakseimbangan data, signifikansi, ablation, dan kejelasan hasil; 
+#### S7 Diskusi, fokus pada interpretasi, batasan, dan ancaman validitas; 
+#### S8 Kesimpulan & Future Work; 
+#### S9 Referensi & Kepatuhan Format; 
+#### S10 Tatabahasa dan efektifitas kalimat; dan
+#### S11 Reproducibility.
 
 ---
 
