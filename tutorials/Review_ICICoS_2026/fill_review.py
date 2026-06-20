@@ -56,7 +56,7 @@ review_data = {
 # ══════════════════════════════════════════════════════
 #  BAGIAN 2 — KONFIGURASI
 # ══════════════════════════════════════════════════════
-TEMPLATE_PATH = "review-template.docx"
+TEMPLATE_PATH = "form-review-icicos.docx"
 OUTPUT_PATH   = "review-filled.docx"
 
 INLINE_FIELDS = {

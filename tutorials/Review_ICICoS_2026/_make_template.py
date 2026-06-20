@@ -100,5 +100,5 @@ p = doc.add_paragraph("Thank you for your contribution to ICICoS 2026.")
 p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 sf(p.runs[0], size=9, color=(0x88,0x88,0x88))
 
-doc.save("review-template.docx")
-print("✅  review-template.docx created.")
+doc.save("form-review-icicos.docx")
+print("✅  form-review-icicos.docx created.")
