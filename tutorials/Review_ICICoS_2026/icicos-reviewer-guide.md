@@ -1,28 +1,12 @@
-# Panduan Reviewer ICICoS 2026 — Review Berbantuan AI yang Etis & Bernilai Tinggi
-
-Template otomasi review yang *reusable* (dapat dipakai berulang untuk paper apa pun di ICICoS),
-dengan penekanan kuat pada **etika penggunaan AI** — titik yang paling sering jadi celah ketika
-reviewer mulai memakai AI.
-
-> Catatan sumber: ICICoS (International Conference on Informatics and Computational Sciences)
-> adalah konferensi IEEE yang dikelola Universitas Diponegoro. Daftar bidang di bawah disusun
-> dari cakupan resmi "Informatics & Computational Sciences" konferensi ini pada edisi-edisi
-> sebelumnya. *Content was rephrased for compliance with licensing restrictions.*
-
----
+# Panduan Reviewer ICICoS 2026 — Review Berbantuan AI
 
 ## 0. Header / Metadata Review (wajib diisi reviewer)
 
 ```
-paper_file    : draft v3.pdf
+paper_file    : [submission_id]_[paper_id]_paper.pdf
 paper_id      : 123123123
 paper_title   : Improving Machine Learning Classification of Container Dwelling
                 Time Violations Using Early Process Signatures
-reviewer_id   : R-____
-review_round  : ____
-recommendation: [Accept / Minor Revision / Major Revision / Reject]
-overall_score : __ / 10
-confidence    : [1=Rendah  2=Sedang  3=Tinggi  4=Sangat Tinggi]
 ```
 
 ---
@@ -31,29 +15,27 @@ confidence    : [1=Rendah  2=Sedang  3=Tinggi  4=Sangat Tinggi]
 
 Pilih **satu** bidang yang paling dekat dengan paper, lalu pada kolom *justifikasi* reviewer
 harus menjelaskan kenapa kompetensinya valid. Semua opsi berada dalam cakupan ICICoS dan relevan
-dengan topik paper (klasifikasi ML untuk pelanggaran *dwelling time* peti kemas — irisan ML +
-logistik/proses bisnis).
+dengan topik paper.
 
-| Kode | Bidang Keahlian (ICICoS) | Relevansi dengan paper ini |
+| No | Bidang Keahlian (ICICoS) | Relevansi dengan paper ini |
 |------|--------------------------|----------------------------|
-| **A** | Machine Learning & Pattern Recognition | Inti paper: model klasifikasi, fitur, evaluasi |
-| **B** | Data Science / Data Mining & Big Data Analytics | Rekayasa fitur "early process signatures", kualitas data |
-| **C** | Artificial Intelligence & Intelligent Systems | Pendekatan AI untuk pengambilan keputusan |
-| **D** | Decision Support Systems & Business Process Analytics | Konteks deteksi pelanggaran/proses operasional pelabuhan |
-| **E** | Information Systems & Enterprise/Logistics Systems | Domain logistik peti kemas, integrasi sistem pelabuhan |
-| **F** | Computational Science, Optimization & Operations Research | Pemodelan waktu proses, optimasi prediksi |
-| **G** | Time-Series & Predictive Analytics | "Early signatures" = sinyal temporal awal proses |
+| **1** | Machine Learning & Pattern Recognition | Inti paper: model klasifikasi, fitur, evaluasi |
+| **2** | Data Science / Data Mining & Big Data Analytics | Rekayasa fitur "early process signatures", kualitas data |
+| **3** | Artificial Intelligence & Intelligent Systems | Pendekatan AI untuk pengambilan keputusan |
+| **4** | Decision Support Systems & Business Process Analytics | Konteks deteksi pelanggaran/proses operasional pelabuhan |
+| **5** | Information Systems & Enterprise/Logistics Systems | Domain logistik peti kemas, integrasi sistem pelabuhan |
+| **6** | Computational Science, Optimization & Operations Research | Pemodelan waktu proses, optimasi prediksi |
+| **7** | Time-Series & Predictive Analytics | "Early signatures" = sinyal temporal awal proses |
 
 > **Format justifikasi keahlian (diisi reviewer):**
-> `Keahlian dipilih: [A] — Justifikasi: "Saya memilih Machine Learning karena ...
-> (pengalaman/publikasi/keilmuan). Saya kompeten menilai pilihan algoritma, protokol evaluasi,
-> dan klaim performa pada paper ini."`
+```
+keahlian      : Machine Learning ...
+justifikasi   : Saya memilih Machine Learning karena ...
+```
 
 ---
 
 ## 2. Aturan Etika & Penggunaan AI (BACA DULU)
-
-Pagar yang membuat AI bernilai tinggi **tanpa** melanggar integritas IEEE:
 
 **DILARANG**
 1. **Mengunggah manuskrip / bagian manuskrip ke AI publik** (mis. ChatGPT publik). Manuskrip
@@ -63,41 +45,34 @@ Pagar yang membuat AI bernilai tinggi **tanpa** melanggar integritas IEEE:
 3. **Membuat klaim/temuan fiktif** dari AI (halusinasi referensi, angka, atau "kelemahan" yang
    tidak ada).
 
-**BOLEH (penggunaan bijak & bernilai)**
+**BOLEH**
 4. AI sebagai **asisten bahasa**: merapikan tata bahasa & nada komentar agar profesional.
 5. AI sebagai **checklist/penstruktur**: memastikan tiap section tertinjau, format komentar konsisten.
 6. AI untuk **brainstorming pertanyaan** — tetapi reviewer **memverifikasi** setiap poin terhadap
    isi paper.
 
 **WAJIB**
-7. **Disclosure**: reviewer mencantumkan satu baris di akhir: *"AI digunakan terbatas untuk
-   [perapihan bahasa/penstrukturan], seluruh penilaian substantif dilakukan dan diverifikasi oleh
-   reviewer."*
-8. **Akuntabilitas**: setiap komentar harus bisa ditelusuri ke baris/halaman paper yang nyata.
+7. **Akuntabilitas**: setiap komentar harus bisa ditelusuri ke baris/halaman paper yang nyata.
 
 ---
 
 ## 3. Struktur Komentar per-Section (kerangka daftar komentar)
 
-Reviewer mengisi komentar di tiap section memakai **format komentar** dari Bagian 4. Berikan
-minimal jumlah yang disarankan agar review menyeluruh.
-
-| Section | Fokus penilaian | Min. komentar |
-|---------|-----------------|---------------|
-| **S1. Abstract** | Klaim sepadan dengan hasil? Angka kunci ada? | 1–2 |
-| **S2. Introduction & Motivasi** | Masalah jelas? Kontribusi eksplisit & dapat diuji? | 2–3 |
-| **S3. Related Work** | Posisi vs literatur? Ada *gap* yang dijelaskan? Sitasi mutakhir? | 2 |
-| **S4. Data & Early Process Signatures** | Sumber data, label "violation", definisi fitur "early signature", kebocoran data (*leakage*)? | 3–4 |
-| **S5. Metodologi / Model** | Pilihan algoritma, baseline, hyperparameter, validasi | 3–4 |
-| **S6. Eksperimen & Hasil** | Metrik (akurasi vs F1 untuk data tak seimbang), signifikansi, ablation | 3–4 |
-| **S7. Diskusi** | Interpretasi, batasan, ancaman validitas | 2 |
-| **S8. Kesimpulan & Future Work** | Klaim tidak berlebihan, arah lanjutan konkret | 1–2 |
-| **S9. Referensi & Format** | Gaya IEEE, kelengkapan, kesesuaian template | 1–2 |
-| **S10. Reproducibility** | Ketersediaan data/kode/parameter | 1 |
+Agent dapat membuat komentar di tiap section memakai **format komentar** dari Bagian 4. Pastikan jumlah komentar di setiap format komentar agar review menyeluruh: 
+S1 Abstract, fokus pada kesesuaian klaim dengan hasil dan keberadaan angka kunci; 
+S2 Introduction & Motivasi, fokus pada kejelasan masalah, urgensi, kontribusi, dan apakah kontribusi dapat diuji; 
+S3 Related Work, fokus pada posisi penelitian terhadap literatur, kejelasan gap, dan kemutakhiran sitasi; 
+S4 Data & Early Process Signatures, fokus pada sumber data, definisi label “violation”, fitur “early signature”, kualitas data, serta potensi data leakage; 
+S5 Metodologi/Model, fokus pada pemilihan algoritma, baseline, hyperparameter, validasi, dan replikabilitas; 
+S6 Eksperimen & Hasil, fokus pada metrik, ketidakseimbangan data, signifikansi, ablation, dan kejelasan hasil; 
+S7 Diskusi, fokus pada interpretasi, batasan, dan ancaman validitas; 
+S8 Kesimpulan & Future Work; 
+S9 Referensi & Format; dan 
+S10 Reproducibility.
 
 ---
 
-## 4. Pustaka Format Komentar (Format #1 + 13 format akademik tambahan)
+## 4. Pustaka Format Komentar
 
 Setiap komentar diberi **kode format** agar konsisten & dapat diotomasi. Contoh disesuaikan dengan
 paper ini.
@@ -154,28 +129,12 @@ paper ini.
 
 ---
 
-## 5. Ketentuan Tambahan (simple, akademik, etis)
+## 5. Ketentuan Tambahan
 
 1. **Aturan "Bukti-atau-Hapus"**: setiap komentar harus menunjuk lokasi nyata (hal./baris).
    Komentar tanpa rujukan tidak sah (mencegah halusinasi AI).
 2. **Nada Konstruktif**: kritik ke *naskah*, bukan ke *penulis*. Gunakan kalimat netral dan spesifik.
 3. **Pemisahan Major vs Minor di ringkasan**: agar penulis & editor tahu prioritas revisi.
 4. **Batas panjang kutipan**: kutip seperlunya (1–2 kalimat) demi kerahasiaan & keringkasan.
-5. **Satu baris disclosure AI** di akhir review (lihat Bagian 2 poin 7).
-6. **Skor terstruktur** (Novelty / Soundness / Clarity / Significance / Reproducibility,
-   masing-masing 1–5) untuk konsistensi antar-reviewer.
 
 ---
-
-## 6. Contoh Penutup Review (template jadi)
-
-```
-RINGKASAN: [2–3 kalimat netral tentang isi & kontribusi]
-MAJOR ISSUES: [#1, #5, #8 ...]
-MINOR ISSUES: [#6, #12 ...]
-SKOR: Novelty 3 | Soundness 2 | Clarity 4 | Significance 4 | Reproducibility 2
-REKOMENDASI: Major Revision
-Keahlian reviewer: [A] Machine Learning — (justifikasi)
-Disclosure AI: "AI digunakan terbatas untuk perapihan bahasa & penstrukturan;
-seluruh penilaian substantif diverifikasi oleh reviewer."
-```
