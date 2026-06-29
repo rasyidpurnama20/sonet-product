@@ -1,67 +1,71 @@
 # LEMBAR PENILAIAN TUGAS KELOMPOK — ASA KELAS D 2026
 
-**Mata Kuliah:** Analisis dan Strategi Algoritma  
-**Kelas:** D  
-**Topik Tugas:** Decrease and Conquer (3 jenis: Constant / Constant-Factor / Variable-Size)  
-**Sumber Data:** [Spreadsheet ASA D](https://docs.google.com/spreadsheets/d/1kqJDXs_Ib073WuR75VtUZTIT_9d-EFTbdeoD5iMjPzQ)  
+**Mata Kuliah:** Analisis dan Strategi Algoritma
+**Kelas:** D
+**Topik Tugas:** Decrease and Conquer (3 jenis: Constant / Constant-Factor / Variable-Size)
+**Sumber Data:** [Spreadsheet ASA D](https://docs.google.com/spreadsheets/d/1kqJDXs_Ib073WuR75VtUZTIT_9d-EFTbdeoD5iMjPzQ)
 **Rubrik Acuan:** Lihat `RUBRIK.md`
+
+> ⚠️ **Catatan — Link Laporan:**
+> Dari 12 kelompok, **hanya Kelompok 1** yang memiliki URL laporan langsung (terlihat di kolom teks).
+> Kelompok 2–12 mengisi kolom link dengan **teks hyperlink** (seperti "Laporan DeNC", "ASA_DnC_D_7")
+> yang URL-nya hanya dapat dilihat dengan membuka spreadsheet asli dan mengklik sel tersebut.
 
 ---
 
 ## 1. Daftar Anggota Kelompok & Persoalan Komputasi
 
-| Kel | No | NIM | Nama | Persoalan Komputasi | Link Laporan |
-|-----|----|-----|------|---------------------|-------------|
-| 1 | 1 | 24060124140165 | Dinda Isyariani | P1 (Constant): Menghitung Jumlah Bilangan dari 0 sampai n | [Laporan Kel. 1](https://docs.google.com/document/d/19bOdBTfOuDXhxbgz76Pq96TVP-NcwF5iT5IzrUqlGiE/edit) |
+| Kel | No | NIM | Nama | Persoalan Komputasi | Status Link |
+|-----|----|-----|------|---------------------|------------|
+| 1 | 1 | 24060124140165 | Dinda Isyariani | P1 (Constant): Menghitung Jumlah Bilangan dari 0 sampai n | ✅ [Google Doc Kel. 1](https://docs.google.com/document/d/19bOdBTfOuDXhxbgz76Pq96TVP-NcwF5iT5IzrUqlGiE/edit) *(tgl: 21 Mar 2026)* |
 | 1 | 2 | 24060124130065 | Elza Khoirisma Carrynda | P2 (Constant-Factor): Menghitung Perpangkatan | ↑ |
 | 1 | 3 | 24060124130095 | Zulfa Nabilah | P3 (Variable-Size): Menghasilkan Elemen ke-k Terkecil dari T[0..N] | ↑ |
 | 1 | 4 | 24060121120026 | M. Ghani Aryasuta | — | ↑ |
-| 2 | 1 | 24060124140196 | Saburo Rafqi Hidayat | P1 (Constant): Topological Sort | [Laporan DeNC](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
-| 2 | 2 | 24060124120030 | An Al Rivaldi | P2 (Constant-Factor): Perkalian Petani Rusia | ↑ |
+| 2 | 1 | 24060124140196 | Saburo Rafqi Hidayat | P1 (Constant): Topological Sort | ⚠️ Hyperlink teks: "Laporan DeNC" |
+| 2 | 2 | 24060124120030 | An Al Rivaldi | P2 (Constant-Factor): Perkalian Petani Rusia (Russian Peasant) | ↑ |
 | 2 | 3 | 24060124130054 | Raffie Aditya Akbar | P3 (Variable-Size): Hitung Jumlah Elemen Kurang dari T | ↑ |
 | 2 | 4 | 24060124130092 | Syuraih Umar Khottob | — | ↑ |
-| 3 | 1 | 24060124140170 | Naufal Rayan Attallah | P1 (Constant): The Celebrity Problem | [Laporan Kel. 3](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 3 | 1 | 24060124140170 | Naufal Rayan Attallah | P1 (Constant): The Celebrity Problem | ⚠️ Hyperlink teks: "Laporan Tugas Decrease & Conquer" |
 | 3 | 2 | 24060124130056 | Muhammad Kamal Hamzah | P2 (Constant-Factor): Exponential Search | ↑ |
 | 3 | 3 | 24060124140126 | Rafa Azlan | P3 (Variable-Size): Angka Terkecil ke-i dalam Unsorted Array | ↑ |
 | 3 | 4 | 24060124130075 | Naufal Dwi Yusmawan | — | ↑ |
-| 4 | 1 | 24060124120036 | Marchella Arkhina Ratunesia | P1 (Constant): Ranking Skor Game | [Laporan Kel. 4](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 4 | 1 | 24060124120036 | Marchella Arkhina Ratunesia | P1 (Constant): Ranking Skor Game | ⚠️ Hyperlink teks: "Laporan Tugas Decrease & Conquer" |
 | 4 | 2 | 24060124120004 | Kayla Febrina Laura Ayu | P2 (Constant-Factor): Ternary Search — Koin Palsu | ↑ |
 | 4 | 3 | 24060124140150 | Nashwa Aldebaran | P3 (Variable-Size): Menentukan Apakah Suatu Elemen Muncul Lebih dari Sekali | ↑ |
 | 4 | 4 | — | *(anggota ke-4 tidak terdaftar)* | — | — |
-| 5 | 1 | 24060123140130 | Ratu Sekar Ayu Nisa | P1 (Constant): Optimasi Pengisian Kargo Logistik | [Laporan Kel. 5](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 5 | 1 | 24060123140130 | Ratu Sekar Ayu Nisa | P1 (Constant): Optimasi Pengisian Kargo Logistik | ⚠️ Hyperlink teks: "Laporan Tugas ASA" |
 | 5 | 2 | 24060123140131 | Mutiara Ayu Pramono | P2 (Constant-Factor): Pencarian ID Transaksi (Fibonacci Search) | ↑ |
 | 5 | 3 | 24060123140174 | Duta Adi Pamungkas | P3 (Variable-Size): Randomized Treap | ↑ |
 | 5 | 4 | — | *(anggota ke-4 tidak terdaftar)* | — | — |
-| 6 | 1 | 24060124140133 | Muhammad Hafidh Al-Ghifari | P1 (Constant): Pengurutan Data Nilai Mahasiswa | [ASA_DnC_Kel6](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 6 | 1 | 24060124140133 | Muhammad Hafidh Al-Ghifari | P1 (Constant): Pengurutan Data Nilai Mahasiswa | ⚠️ Hyperlink teks: "ASA_DnC_Kel6" |
 | 6 | 2 | 24060124140164 | Muhammad Hafidh Zufar Dewantara | P2 (Constant-Factor): Mencari Data Mahasiswa Berdasarkan NIM | ↑ |
 | 6 | 3 | — | Muhammad Lutfi Febriansyah | P3 (Variable-Size): Pencarian Kode Produk — Randomized BST | ↑ |
 | 6 | 4 | — | Adefritz Einar Sinaga | — | ↑ |
-| 7 | 1 | 24060124130118 | Dewangga Ramadhan Halim | P1 (Constant): Memeriksa Data Palindrom | [ASA_DnC_D_7](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 7 | 1 | 24060124130118 | Dewangga Ramadhan Halim | P1 (Constant): Memeriksa Apakah Suatu Data Palindrom | ⚠️ Hyperlink teks: "ASA_DnC_D_7" |
 | 7 | 2 | 24060124140145 | Ferdy Prasetya Putra | P2 (Constant-Factor): Mencari Elemen Puncak (Ternary Search) | ↑ |
 | 7 | 3 | 24060124120051 | Caesar Ferdiana Suwandi | P3 (Variable-Size): Mencari Titik Nilai Pivot (Randomized Pivot Search) | ↑ |
-| 7 | 4 | 24060124140171 | Ghatfan Muhammad Atiwiar | — | ↑ |
-| 8 | 1 | 24060123140184 | Muhammad Kievlan Hakim | P1 (Constant): Josephus Problem | [Asa Kelompok 8](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 7 | 4 | 24060124140171 | Ghatfan Muhammad Atiwiar | — *(ditandai "P" di spreadsheet)* | ↑ |
+| 8 | 1 | 24060123140184 | Muhammad Kievlan Hakim | P1 (Constant): Josephus Problem | ⚠️ Hyperlink teks: "Asa Kelompok 8" |
 | 8 | 2 | 24060123140171 | Muhammad Iman Sasongko | P2 (Constant-Factor): Median of Medians | ↑ |
 | 8 | 3 | 24060123130067 | Nindya Kirana | P3 (Variable-Size): Skip List Search | ↑ |
 | 8 | 4 | 24060123140045 | Dewi Larasati Mumpuni | — | ↑ |
-| 9 | 1 | 24060124130107 | Muhammad Firdaus Argifari | P1 (Constant): Pengecekan Palindrom dari Sebuah String | [laporan](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 9 | 1 | 24060124130107 | Muhammad Firdaus Argifari | P1 (Constant): Pengecekan Palindrom dari Sebuah String | ⚠️ Hyperlink teks: "laporan" |
 | 9 | 2 | 24060124140160 | Basil Ayman Hariadi | P2 (Constant-Factor): Menghitung Fibonacci ke-n (Fast Doubling Fibonacci) | ↑ |
 | 9 | 3 | 24060124140130 | Crystiano Bayu Satya Alves | P3 (Variable-Size): QuickSelect — Jumlah Elemen dalam Rentang | ↑ |
 | 9 | 4 | — | *(anggota ke-4 tidak terdaftar)* | — | — |
-| 10 | 1 | 24060124140149 | Devano Trestanto | P1 (Constant): String Matching | [Laporan ASA Decrease n Conquer](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 10 | 1 | 24060124140149 | Devano Trestanto | P1 (Constant): String Matching | ⚠️ Hyperlink teks: "Laporan ASA Decrease n conquer" |
 | 10 | 2 | 24060124120008 | Amelia Aristianti | P2 (Constant-Factor): Library Book Search | ↑ |
 | 10 | 3 | 24060124140190 | Mohammad Andhika Ramadhan | P3 (Variable-Size): Ranking Terbesar ke-n dari Nilai | ↑ |
 | 10 | 4 | 24060124140174 | Novelya Cherina | — | ↑ |
-| 11 | 1 | 24060124130119 | Hasta Putra Wildantara | P1 (Constant): Evaluasi Polinomial dengan Horner's Rule | [Dcnc_Kelompok11](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 11 | 1 | 24060124130119 | Hasta Putra Wildantara | P1 (Constant): Evaluasi Polinomial dengan Horner's Rule | ⚠️ Hyperlink teks: "Dcnc_Kelompok11" |
 | 11 | 2 | 24060124140183 | Hanif Ihsanul Huda | P2 (Constant-Factor): Hitung a^n (Fast Eksponensial) | ↑ |
 | 11 | 3 | 24060124120039 | Izzatu Khoirul Fata | P3 (Variable-Size): Cari FPB dari Banyak Bilangan | ↑ |
 | 11 | 4 | — | *(anggota ke-4 tidak terdaftar)* | — | — |
-| 12 | 1 | 24060124140202 | Ikrar Maheswara Rabbani Wibowo | P1 (Constant): Anagram Check | [ASA](https://drive.google.com/drive/folders/1c-iCrEZyDhIhCDFmPbkgG5WnIt_PjOoI) *(konfirmasi link)* |
+| 12 | 1 | 24060124140202 | Ikrar Maheswara Rabbani Wibowo | P1 (Constant): Anagram Check | ⚠️ Hyperlink teks: "ASA" |
 | 12 | 2 | 24060124140138 | Menza Isaiah Tampubolon | P2 (Constant-Factor): Exponentiation by Squaring (Pemangkatan Cepat) | ↑ |
 | 12 | 3 | 24060124130072 | Ali Maskan Ferry Purwanto | P3 (Variable-Size): Randomized Missing Sequence Search | ↑ |
 | 12 | 4 | 24060124140161 | Azka Wayasy Al Hafizh | — | ↑ |
 
-> *Catatan: Link laporan sebagian besar tercatat sebagai nama singkat (bukan URL). Konfirmasi link asli ke masing-masing kelompok.*
 
 ---
 
@@ -88,15 +92,15 @@
 
 | Kel | Catatan |
 |-----|---------|
-| 1 | Tanggal pengerjaan tercatat 21 Maret 2026. NIM M. Ghani (24060121120026) — angkatan 2021, perlu konfirmasi status mahasiswa. |
-| 2 | Link laporan tercatat sebagai nama singkat, bukan URL. Konfirmasi link asli. |
-| 3 | Link laporan tercatat sebagai nama singkat. Konfirmasi link asli. |
-| 4 | Hanya 3 anggota terdaftar. Link laporan tercatat sebagai nama singkat. |
-| 5 | Hanya 3 anggota terdaftar. Link laporan tercatat sebagai nama singkat. |
-| 6 | **NIM Muhammad Lutfi dan Adefritz tidak tercatat di spreadsheet.** Konfirmasi NIM. |
-| 7 | Ghatfan (anggota ke-4) tidak mendapat persoalan — kemungkinan sebagai support. |
-| 9 | Hanya 3 anggota terdaftar. Link laporan tercatat sebagai nama singkat. |
-| 11 | Hanya 3 anggota terdaftar. Link laporan tercatat sebagai nama singkat. |
+| 1 | Tanggal pengerjaan tercatat 21 Maret 2026 di kolom link. NIM M. Ghani (24060121120026) — angkatan 2021, konfirmasi status aktif. |
+| 2 | Link "Laporan DeNC" adalah hyperlink — buka spreadsheet asli untuk URL. |
+| 3 | Link "Laporan Tugas Decrease & Conquer" adalah hyperlink. ⚠️ Topik sama dengan Kel.4 (Laporan Tugas Decrease & Conquer) — pastikan isi berbeda. |
+| 4 | Hanya 3 anggota terdaftar. Link hyperlink. |
+| 5 | Hanya 3 anggota terdaftar. Link hyperlink. |
+| 6 | 🚨 **NIM Muhammad Lutfi Febriansyah dan Adefritz Einar Sinaga tidak tercatat** di spreadsheet. Wajib konfirmasi NIM sebelum nilai diinput. |
+| 7 | Ghatfan Muhammad Atiwiar ditandai **"P"** di spreadsheet — kemungkinan berarti *Pasif* atau tidak aktif. Konfirmasi partisipasi Ghatfan dalam pengerjaan. |
+| 9 | Hanya 3 anggota terdaftar. Link "laporan" adalah hyperlink. |
+| 11 | Hanya 3 anggota terdaftar. Link hyperlink. |
 
 ---
 
