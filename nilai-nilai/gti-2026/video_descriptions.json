@@ -1,0 +1,260 @@
+{
+  "A4": {
+    "title": "Maze Runner BTS (Fikri)",
+    "desc": "Muhammad Fikri(24060124130069)\nKhanza Qaila(24060124120011)\nNayla Husna(24060124140158)\n\nProject ini mengimplementasikan sistem POV 3D dengan continuous input movement dan delta time untuk menciptakan pergerakan navigasi yang halus serta animasi head bobbing yang imersif di dalam labirin.\n\nAtmosfer horor diperkuat melalui sistem pencahayaan dinamis yang menggabungkan spotlight pada kamera pemain dengan point-light pada obor yang memiliki efek kedipan (flicker) berbasis frekuensi sinusoidal.\n\nDetail visual lingkungan dihasilkan secara real-time menggunakan teknik procedural texture generation berbasis hash noise untuk menciptakan tekstur dinding dan lantai yang unik tanpa ketergantungan pada aset eksternal.",
+    "ok": true,
+    "vid": "_jsEwoba0yQ"
+  },
+  "A5": {
+    "title": "3D Airplane Flight Shooter Simulation (Shalom)",
+    "desc": "3D Airplane Flight Shooter Simulation\n\n1. Arsy Thariq Munawar (24060124120009)\n2. ⁠Fernanda Galih Saputra (24060121140176)\n3. Shalom Kurniawan (24060124120033)\n4. Yuma Hazza Yuditama (24060124120035)\n\nTema: 3D Game\n\nIde utama: Pemain mengendalikan pesawat tempur 3D di atas sebuah kota dan harus menghancurkan musuh-musuh yang terus datang dalam gelombang (wave) yang semakin sulit setiap menitnya.\n\nSemakin banyak musuh dihancurkan, semakin tinggi skor yang didapat. \n\nTantangan:\n1. Wave akan naik level setiap menitnya dan kesulitan bertambah\n2. 5 musuh pesawat tempur untuk wave awal dan akan bertambah setiap pergantian wave hingga total 20 pesawat.\n\nBerikut adalah rincian teknis implementasinya:\n\nRepresentasi Objek 3D: Menggabungkan Polygon Mesh (B-Rep) untuk detail pesawat yang kustom serta Solid Primitives (GLUT) untuk efisiensi rendering objek lingkungan seperti pohon dan bangunan.\n\nProyeksi Orthographic: Implementasi gluOrtho2D khusus untuk HUD (Health Bar \\u0026 Crosshair) agar elemen UI tetap presisi dan tidak terdistorsi oleh pergerakan kamera.\n\nPerspective (3-Point): Menggunakan gluPerspective dengan FOV 60° untuk menciptakan depth perception yang realistis saat manuver terbang.\n\nRendering Pipeline:\n\nGeometri dan Kamera: \nSistem kamera dinamis menggunakan gluLookAt yang mengikuti pergerakan pesawat secara real-time.\n\nLighting , Shading \\u0026 Material: Menggunakan Gouraud Shading (GL_SMOOTH) untuk gradasi cahaya yang halus dan pengaturan material specular untuk memberikan efek kilau logam pada badan pesawat.\n\nAlgoritma Rendering: Implementasi Z-Buffering (GL_DEPTH_TEST) untuk memastikan urutan rendering objek berdasarkan jarak yang akurat.\n\nAtmospheric Effects: Penambahan Linear Fog untuk menyamarkan clipping plane, menciptakan transisi dunia yang menyatu (seamless) dan menambah kedalaman visual (depth).",
+    "ok": true,
+    "vid": "snYwaR38XQ4"
+  },
+  "A6": {
+    "title": "Masakuy! BTS Silvani",
+    "desc": "Tugas Kelompok Grafika Teknik Interaktif (GTI) Sebelum UTS\n\nKelompok:\n1. Silvani Salsabilla (24060124130066)\n2. Jessica Laurencia Panjaitan (24060124130084)\n3. Eileen Albert Tandrio (24060124140180)\n\n\nMasakuy! adalah game memasak 3D yang kami kembangkan menggunakan GLUT, di mana pemain berperan sebagai chef yang harus menyiapkan pesanan dengan cepat dan tepat. 🍳\n\npada BTS ini kami mulai membangun Masakuy! dari primitive 3D seperti cube, sphere dan sebagainya, yang dikombinasikan menggunakan konsep CSG (Constructive Solid Geometry) untuk membentuk karakter dan objek dapur. Setiap objek diatur menggunakan transformasi (translasi, rotasi, scaling) agar tersusun rapi dalam ruang 3D.\n\nUntuk tampilan, kami menggunakan proyeksi perspective 1 titik hilang agar tercipta kesan kedalaman, didukung dengan pengaturan kamera menggunakan gluLookAt. Visual juga diperkuat dengan lighting OpenGL dan material untuk memberikan efek pencahayaan, serta Gouraud shading (smooth shading) agar gradasi warna terlihat halus dan objek tampak lebih realistis.\n\nMasih banyak hal yang dapat dan akan kami kembangkan untuk tugas besar ini, terima kasih atas perhatiannya ! :D",
+    "ok": true,
+    "vid": "Z59d6nk4PAs"
+  },
+  "A7": {
+    "title": "Diponegoro Endless Run BTS (Fahri)",
+    "desc": "Anggota Kelompok:\n1. Muhammad Fahri (24060124120037)\n2. Nouvella Rahma Fitrah L. (24060124120029)\n3. Ovilia Suci Ramadhani (24060124120040)\n4. Biyani Andarisky Maratia (24060124130070)\n\nDiponegoro Endless Run\nGame ini merupakan permainan 3D yang dikembangkan menggunakan OpenGL dan GLUT, di mana karakter bergerak secara otomatis ke depan dan pemain bertugas menghindari berbagai obstacle yang muncul di sepanjang jalur. Pengembangan game ini bertujuan untuk mengimplementasikan konsep dasar grafika 3D, seperti transformasi objek, animasi, serta interaksi dalam lingkungan virtual. Genre endless runner dipilih karena sifatnya yang sederhana, memungkinkan fokus pada konsep inti grafika, serta tidak memerlukan kecerdasan buatan yang kompleks. Fokus utama dari proyek ini adalah transformasi, animasi, dan interaksi secara real-time.",
+    "ok": true,
+    "vid": "oQcXjDnyGJU"
+  },
+  "A3": {
+    "title": "3D MAZE SHADOW DEMO VERSION (JOHAN) - Proyek Penugasan GTI Kelompok 3",
+    "desc": "PENUGASAN PROYEK GTI KELOMPOK 3\n3D SHADOW MAZE DEMO VERSION\nKELAS: A\n\nANGGOTA KELOMPOK:\n24060124130076 - Johan Reinhart Calvin(Ketua)\n24060124140198 - Ilham Muhammad Raffi\n24060124120046 - Romualdus Yoas Wicaksono\n24060124130123 - Muhammad Akmal Fazli Riyadi\n\nProyek ini merupakan implementasi game maze tiga dimensi berbasis OpenGL dan GLUT dengan konsep \"Shadow Maze\", di mana pemain diberikan waktu terbatas untuk mengamati layout maze sebelum pencahayaan dipadamkan dan navigasi dilakukan sepenuhnya berdasarkan ingatan.\n\nTeknik yang diterapkan dalam proyek ini meliputi:\nRepresentasi Objek 3D menggunakan pendefinisian vertex secara manual (glVertex3f)\nProyeksi Orthographic untuk tampilan top-down layout maze\nProyeksi Perspective (1-point) untuk mode first-person gameplay\nRendering Pipeline mencakup: Geometri, Kamera (gluLookAt), Sistem Pencahayaan dua fase (GL_LIGHT), Karakteristik Permukaan (glMaterialfv), Algoritma Rendering (Depth Test, Fog, Alpha Blending), serta Shading (GL_SMOOTH / Gouraud Shading).",
+    "ok": true,
+    "vid": "Im8KWkQt2oA"
+  },
+  "A10": {
+    "title": "Tugas GTI - Behind the Scene - Space Runner (3D Endless Runner Game)",
+    "desc": "Identitas Kelompok\n\nJurusan: Informatika\nKelas: A\nKelompok: 10\nAnggota Kelompok:\n1. Ammar Rozan Rusyaidan (24060124140147)\n2. Arya Naufal Akmal (24060124130089)\n3. Misbachul Munir (24060124120031)",
+    "ok": true,
+    "vid": "NOa6aFGw6cs"
+  },
+  "A9": {
+    "title": "City Checkpoint Rush BTS (Elang)",
+    "desc": "Kelompok 9 terdiri dari:\n1. Elang Fadila Ahmad - 24060124130108\n2. Dehar Zaidan D. A. - 24060124130099\n3. Ridho Tri Saputra - 24060124130122\n4. Axel Anggian H. P. - 24060124140127\n\nPada proyek ini, kami mengembangkan game 3D bertema eksplorasi kota, di mana player mengendalikan sebuah mobil untuk mencari checkpoint dalam batas waktu tertentu.\n\nDalam implementasinya, kami menerapkan beberapa teknik dalam grafik 3D. Representasi objek dilakukan menggunakan primitive geometri seperti cube yang kemudian ditransformasikan menjadi elemen lingkungan seperti gedung dan mobil. Transformasi geometri seperti translasi, rotasi, dan scaling digunakan untuk mengatur posisi, arah, dan bentuk objek dalam scene.\n\nKami juga menggunakan perspective projection untuk menampilkan efek kedalaman, sehingga objek yang lebih jauh terlihat lebih kecil. Sistem kamera yang digunakan adalah third-person camera yang mengikuti pergerakan mobil. Selain itu, kami menerapkan pencahayaan dasar dan shading untuk memberikan perbedaan terang dan gelap pada objek agar tidak terlihat datar.\n\nDengan penerapan teknik-teknik tersebut, kami dapat membangun lingkungan 3D yang interaktif sebagai dasar dari gameplay yang dikembangkan.",
+    "ok": true,
+    "vid": "donL48coYQE"
+  },
+  "A8": {
+    "title": "Dinosaurus Penjaga Dataran Purba BTS (Andiny)",
+    "desc": "📌 Identitas Kelompok\n\nMata Kuliah: Grafika dan Teknik Interaktif\nKelompok: 8\nKelas: A\nJurusan: Informatika\nAngkatan: 2024\nUniversitas: Universitas Diponegoro\n\nJumlah anggota: 4 orang\n\nAndiny Khaerany Suhartady - 24060124140194\nAgung Rama Pramana Putra - 24060124120007\nHadrian Shandhy Yudha - 24060124140207\nMohammad Najib Fitrianto - 24060124140203\n\nProyek ini merupakan tugas mata kuliah Grafika dan Teknik Interaktif (GTI) dengan judul Penjaga Dataran Purba.\n\nPada proyek ini, kami membuat animasi 3D menggunakan OpenGL yang menampilkan ekosistem prasejarah yang terdiri dari beberapa objek seperti Triceratops, T-rex, Quetzalcoatlus, serta pohon purba sebagai lingkungan utama. Animasi ini menggambarkan keseimbangan alam yang sempat terganggu dan kembali stabil.\n\nDalam proses pembuatannya, kami menerapkan berbagai teknik grafika komputer seperti pembuatan objek 3D dari bentuk dasar (primitif), transformasi (translasi, rotasi, dan scaling), pewarnaan, serta pengaturan kamera dan perspektif untuk menghasilkan tampilan animasi yang lebih interaktif dan realistis.",
+    "ok": true,
+    "vid": "f-mvyIQzta4"
+  },
+  "A11": {
+    "title": "Chicken Cross The Road 🐓🚘 BTS",
+    "desc": "Tugas Besar GTI\n\nKelompok 11 :\n1. Putri Elizabeth Simanjuntak (24060124120018)\n2. Dzaki Fathul 'Alim Cahyo (24060124130103)\n3. Daniel Lamganda Tua Gultom ( 24060124120048)\n\nLatar Belakang Chicken Cross The Road \n\nKami awalnya terbayang seekor ayam kecil berdiri di pinggir jalan yang ramai dengan kendaraan yang melaju cepat tanpa henti, klakson berbunyi dan lampu berkedip, sementara tidak ada yang peduli dengan keberadaannya; dari situasi sederhana yang sering kita lihat ini, muncul ide untuk membuat game di mana player mengendalikan seekor ayam dengan tujuan menyeberang jalan yang penuh risiko, setiap langkah membutuhkan keputusan cepat karena mobil datang dari berbagai arah dengan kecepatan yang berubah-ubah, sehingga player harus tetap fokus dan waspada karena satu kesalahan akan langsung mengakhiri permainan, menghadirkan pengalaman yang simpel namun menegangkan, dengan kontrol yang mudah dipahami tetapi tantangan yang terus meningkat, semua berangkat dari pengamatan kecil di dunia nyata yang kemudian berkembang menjadi game refleks dan strategi dengan satu tujuan utama, yaitu seberapa jauh player bisa membawa ayam itu menyeberang dengan selamat.",
+    "ok": true,
+    "vid": "PEcKOSPsxIc"
+  },
+  "A13": {
+    "title": "Tugas GTI Behind The Scene Tugas besar Kelompok 7",
+    "desc": "Tugas Behind The Scene Tugas Besar GTI\nKelas: A\nKelompok : 7\nAnggota Kelompok:\n1. Revanska Athallah Muhammad (24060124140129)\n2. Kiyoshi Akila Tira (24060124130074)\n3. Yustinus Hendi Setyawan (24060124130114)",
+    "ok": true,
+    "vid": "FltKiLTQOOE"
+  },
+  "B1": {
+    "title": "Car Drifting Animation BTS (ichan) - Muchammad Rajib Tafrichan (Ketua)",
+    "desc": "Anggota Kelompok 1:\n24060124140141 - Muchammad Rajib Tafrichan (Ketua)\n24060124130121 - Fazl Nizam Priyambodho\n24060124140140 - Muhammad Ibrahim Alghifari\n24060124140179 - Adam Mulya Rasyid",
+    "ok": true,
+    "vid": "8CHXPfwOpLE"
+  },
+  "B3": {
+    "title": "Look Around BTS (Qila)",
+    "desc": "Kelompok 3 \nKelas B / Lab B1\n\n1. Shofwan Fikrul Huda          24060124130106      (bagian 1)\n2. Rafi Anandra Dharmawan  24060124130071      (bagian 2)\n3. Shafa Aqilla Zahira              24060124140146   (bagian 3) *Ketua\n\nDeskripsi  :\n\n\"Look Around\" adalah mini-game FPS (First-Person Shooter) di mana pemain harus bertahan hidup dari serangan musuh berbentuk bola yang terus mendekat ke arah kamera. Proyek ini dibuat sebagai implementasi tugas mata kuliah GTI.\n\nGame ini memanfaatkan OpenGL dengan menerapkan representasi objek 3D yang disusun dari primitif geometri dasar. \n1. Lantai dibentuk dari poligon (GL_QUADS)\n2. Senjata dirakit dari kombinasi balok dan bola (glutSolidCube, glutSolidSphere)\n3. Musuh direpresentasikan secara utuh menggunakan objek bola.\n\nUntuk menampilkan elemen-elemen tersebut, game ini menggunakan dua teknik proyeksi yang berbeda:\n\nProyeksi Perspektif: \nDiterapkan pada fungsi reshape() melalui gluPerspective() ini berfungsi untuk membuat objek seperti musuh akan tampak mengecil saat menjauhi kamera serta garis garis yang menuju vanishing point dan memberi kesan 3D.\n\nProyeksi Orthographic: \nDiimplementasikan pada fungsi drawCrosshair() dan drawMenu() menggunakan gluOrtho2D(). \nTeknik ini digunakan untuk merender antarmuka simpel secara datar di atas layar tanpa dipengaruhi oleh jarak atau skala dari dunia 3D tersebut.\n\nSelain itu fitur lainnya :\nSistem kamera FPS dengan mouse look (yaw \\u0026 pitch)\nPencahayaan dasar (directional light) dan efek emissive (muzzle flash)\nSmooth shading (Gouraud)\nDepth buffer \\u0026 alpha blending\nAnti-aliasing (MSAA \\u0026 line smoothing)",
+    "ok": true,
+    "vid": "kPP7qwyveFU"
+  },
+  "B2": {
+    "title": "Furiosa Riding BTS (Moses)",
+    "desc": "Kelompok 2 (Kelas B):\nMoses Morell Yosefan (24060124130094)\nLintang Aulia Nuraini (24060124120017)\nAlyssa Shane Kurniawan (24060124120038)\nOlivia Oktaviani (24060124120050)\n\nDeskripsi:\nDi project ini, kami membuat simulasi mobil 3D yang terinspirasi dari kendaraan di film Furiosa, lengkap dengan lingkungan berupa rute atau jalur yang dilalui mobil.\n\nDesain mobil dibuat dengan konsep sederhana tapi tetap terlihat kuat dan punya kesan “liar”, khas dunia post-apocalyptic. Selain itu, kami juga menambahkan rute sebagai lingkungan agar mobil tidak hanya tampil sebagai objek statis, tetapi terlihat seperti bergerak dalam suatu scene.\n\nSecara konsep, baik mobil maupun rute dibangun dari bentuk-bentuk dasar terlebih dahulu. Setiap bagian kemudian disusun dan digabungkan hingga menjadi satu kesatuan yang utuh. Dengan pendekatan ini, objek yang terlihat kompleks sebenarnya berasal dari kombinasi elemen-elemen sederhana.\n\nMelalui project ini, kami mencoba menggabungkan konsep dasar grafika 3D dengan inspirasi visual dari film, sehingga hasilnya tidak hanya teknis tetapi juga memiliki konsep dan suasana.",
+    "ok": true,
+    "vid": "ke7Sop09qNc"
+  },
+  "B4": {
+    "title": "3D TilesRush BTS (Birela)",
+    "desc": "Birela Miadeta Purita - (24060124120002)\nDiah Maulida Pratiwi - (24060124120034)\nHana Nafi'atul Haq  - (24060124130081)\nArga Yura Danendra - (24060124140191)\n\nini merupakan Behind The Scenes (BTS) dari proses pembuatan game 3D TilesRush menggunakan OpenGL.\n\nkami menerapkan beberapa teknik : \n\nRepresentasi objek 3D menggunakan primitive seperti cube dan sphere\nTransformasi objek (translate, rotate, scale) untuk penempatan dalam ruang 3D\nProyeksi perspective dan orthographic untuk tampilan kamera\nCollision detection untuk interaksi antara player dan tile\nTexture mapping untuk meningkatkan tampilan visual\nLighting dan material untuk memberikan efek pencahayaan pada objek",
+    "ok": true,
+    "vid": "w0AvKSJOdfg"
+  },
+  "B5": {
+    "title": "Hamster Ball BTS (Jordan)",
+    "desc": "Project ini merupakan tahap awal pengembangan game 3D sederhana bertema Hamster Ball yang dibuat menggunakan bahasa C++ dengan library OpenGL (GLUT). Pada video ini, kami menampilkan proses behind the scene dari pembuatan project, mulai dari perancangan konsep hingga implementasi dasar dalam grafika komputer.\n\nDalam tahap ini, kami telah merancang objek utama berupa bola sebagai karakter, serta arena sebagai lingkungan permainan. Selain itu, kami juga mulai mengimplementasikan beberapa konsep penting dalam grafika komputer, seperti representasi objek 3D, penggunaan kamera (third-person view), pencahayaan (lighting), serta shading untuk menghasilkan tampilan yang lebih realistis.\n\nProject ini masih berada dalam tahap pengembangan awal (draft), sehingga ke depannya akan terus dikembangkan dengan penambahan object interaktif, pengembangan arena yang lebih kompleks, serta peningkatan kualitas visual dan fitur gameplay.\n\nKelompok 5\nJordan Tenggara 24060124120044\nReynaldi Bertinus Hutagaol 24060124140157\nMohammad Banyuputra Eka Pramudhita 24060124140193\nIda Bagus Ngurah Yudistira Kemenuh  24060124140128",
+    "ok": true,
+    "vid": "X7-EdNZdfr8"
+  },
+  "B7": {
+    "title": "",
+    "desc": "",
+    "ok": false,
+    "vid": "rWW6hoEYtHc"
+  },
+  "B6": {
+    "title": "Love Simulator Game BTS (Galang)",
+    "desc": "Nama Kelompok (Kelas B) : \n1. Galang Bintang Ramadhan (NIM. 24060124130101)\n2. Syifa Aeni Mudrikah (NIM. 24060124120043)\n3. Puti Shasta Khafiyani (NIM. 24060124140132)\n4. Revalina Salwa Aliya Wicaksono Prabowo ( NIM. 24060124140155)\n\nDeskripsi Love Game Simulator : \nSeorang lelaki bernama Gilang ingin menaklukan hati seorang perempuan. Uniknya, untuk bisa menaklukkan hati satu perempuan tersebut, Gilang harus memenuhi persyaratan darinya. Interaksi Gilang dan perempuan tersebut akan mempengaruhi tingkat hubungan mereka. Jika Gilang berhasil menyelesaikan misi, hubungan akan meningkat lebih serius, sedangkan jika gagal maka hubungan akan turun level. Kegagalan dihitung berdasarkan ketidaktepatan waktu dan kesesuaiian Gilang dalam menyelesaikan misi tersebut.",
+    "ok": true,
+    "vid": "OxwGDezCivo"
+  },
+  "B8": {
+    "title": "3D Train Simulator(Yoga)",
+    "desc": "Raffa Putra Nugroho - 24060124130085\nLaurensius Brian Prayoga - 24060124130077\nIza Yunus Andhika - 24060124140153\n\nGame 3D Train Simulator ini merupakan simulasi kereta berbasis OpenGL yang menerapkan berbagai teknik dalam grafik komputer seperti transformasi objek, sistem kamera (first person, free, dan third person), serta rendering pipeline yang mencakup proyeksi (perspective \\u0026 orthographic), shading (flat \\u0026 smooth), dan lighting (ambient, diffuse, specular), sehingga menghasilkan visual 3D yang interaktif dan realistis.",
+    "ok": true,
+    "vid": "EqYGuwdQ4b8"
+  },
+  "B9": {
+    "title": "EZ Flappy Bird Game BTS (Nawaal)",
+    "desc": "Anggota Kelompok:\n1. Nawaal Hanif Mumtaz Arriye 24060124120041\n2. Rizky Saefirdaus 24060124120001\n3. ⁠Galvin Shalahudin Mumtaz 24060124140162\n4. Muhammad Nauval Fadli 24060124120027\n\nHaii Semuanyaaa!!! ini adalah BTS pembuatan game kami. Teknik dalam pembuatan game kami meliputi: Sistem Pencahayaan 3D (3D Lighting \\u0026 Materials), Transformasi Geometri (Translation, Rotation, Scaling), Isolasi Matriks/Transformasi (Push \\u0026 Pop Matrix), Proyeksi Perspektif (Perspective Projection), Pengujian Kedalaman (Depth Testing / Z-Buffer), Double Buffering, Deteksi Tabrakan Sederhana (AABB Collision Detection).",
+    "ok": true,
+    "vid": "rOyCfo1IjeY"
+  },
+  "B11": {
+    "title": "Tower Stacker Game Behind The Scene (Michael)",
+    "desc": "Michael Stevano (24060124140187)",
+    "ok": true,
+    "vid": "Q-S8BUXXiSE"
+  },
+  "B10": {
+    "title": "Quizmaze BTS Kelompok 10 B IF Undip",
+    "desc": "Proyek ini merupakan implementasi dasar konsep grafika komputer dalam bentuk permainan 3D sederhana berupa maze (labirin) yang dikembangkan menggunakan C++ dan OpenGL. Objek-objek dalam permainan direpresentasikan menggunakan teknik primitive geometry, khususnya kubus, yang disusun berdasarkan struktur data matriks 2D. Matriks tersebut kemudian dipetakan ke dalam ruang 3D untuk membentuk elemen seperti dinding, lantai, dan jalur permainan.\n\nSistem proyeksi yang digunakan adalah perspective projection, yang memberikan efek kedalaman sehingga objek yang berada lebih jauh dari kamera tampak lebih kecil, menyerupai persepsi visual manusia di dunia nyata. Dalam proses rendering, aplikasi ini mengikuti tahapan utama dalam rendering pipeline, yaitu transformasi geometri dari koordinat lokal ke koordinat dunia, transformasi kamera menggunakan pendekatan view transformation, proyeksi ke ruang perspektif, serta rasterisasi menjadi piksel yang ditampilkan pada layar.\n\nSelain itu, aspek pencahayaan diterapkan secara sederhana untuk meningkatkan persepsi bentuk dan kedalaman objek, sehingga lingkungan tidak terlihat datar. Karakteristik permukaan objek diatur melalui pemberian warna dan tekstur, termasuk penambahan tekstur pada elemen lingkungan seperti langit untuk meningkatkan kesan imersif. Proses rendering menggunakan algoritma dasar OpenGL dengan pendekatan shading sederhana, sehingga objek tetap terlihat jelas tanpa kompleksitas komputasi yang tinggi.\n\nSebagai pengembangan interaktif, proyek ini juga dilengkapi dengan fitur quiz yang terintegrasi dalam permainan. Ketika pemain mendekati objek tertentu berupa kertas 3D yang melayang, sistem akan memicu pertanyaan yang harus dijawab oleh pemain. Fitur ini menambahkan elemen edukatif sekaligus meningkatkan interaktivitas dalam eksplorasi labirin.\n\nSecara keseluruhan, proyek ini bertujuan untuk mengimplementasikan dan memahami konsep-konsep fundamental dalam grafika komputer, termasuk representasi objek 3D, sistem proyeksi, proses rendering, serta integrasi interaksi pengguna dalam lingkungan virtual 3D.\n\n24060124140152 Adhyaksa Margandatua Banjar Nahor\n24060124140178 Raaihan Lazuardi\n24060124140185 Farhan Muhtarram\n24060124120025 Ganendra Satya Sindhunata\n\n#ifundip #if ‪@WindahBasudara‬",
+    "ok": true,
+    "vid": "VV_jRwETrEY"
+  },
+  "C3": {
+    "title": "Maze Game (Ruth Septriana)",
+    "desc": "Behind The Scene (kinda) \nTubes GTI\n\nKelompok 3\nKelas C / Lab C2\n\nRuth Septriana Sipangkar (24060124120024)\nSarifa Nuha Ardanti Jusmar (24060124130082)\nSyafira Azka Ramadhani (24060124130088)\nYasmina Syahidah (24060124130116)",
+    "ok": true,
+    "vid": "3wSXNM-3HzA"
+  },
+  "C5": {
+    "title": "Minecart Pin Jam BTS (Binar)",
+    "desc": "Video Behind The Scenes (BTS) pengembangan game \"Minecart Pin Jam\" untuk Tugas Besar Mata Kuliah Grafika dan Teknik Interaktif. Video ini mendokumentasikan proses implementasi teknik grafika komputer menggunakan library OpenGL dan GLUT.\n\nANGGOTA KELOMPOK:\nBinar Ridha Wiritanaya - 24060124140143 (Ketua)\nAnnis Fakhiroh Akbar - 24060124130110\nNabila Kayla Rafa - 24060124120022\n\nTENTANG PROYEK:\nMinecart Pin Jam adalah game puzzle 2.5D yang berlatar di lorong tambang bawah tanah. Pemain mencabut baut berwarna dari dinding dan menariknya ke dalam gerbong lori. Jika 3 baut dengan warna yang sama terkumpul pada indikator lori, warna tersebut akan \"clear\". Proyek ini mengutamakan penerapan pipeline grafika secara utuh dari geometri hingga rendering akhir.\n\nFILE PPT:\ns.id/OoCfz",
+    "ok": true,
+    "vid": "_HqhHM9IX80"
+  },
+  "C6": {
+    "title": "Rolling Ball: Dynamic Terrain [KELOMPOK 6]",
+    "desc": "Kelompok 6 - Kelas C\nNama Anggota Kelompok :\nFarras Hilmy Zaidan - 24060124120003 \nImam Alfarezzel - 24060124120028 \nMarco Falias Pangkado - 24060124130112\nHaydar Rafi' Sultansyah - 24060124120023\n\nEditor \\u0026 Script Writer : Farras Hilmy Zaidan\n\nRolling Ball: Dynamic Terrain merupakan sebuah proyek game interaktif di mana pemain harus memandu sebuah bola untuk mengumpulkan seluruh kunci yang tersebar. Pemain dapat mengontrol arah bola dengan menggeser dan menekan kursor pada bidang untuk memanipulasi permukaan tanah menjadi lebih tinggi (bukit buatan). Setelah seluruh kunci terkumpul, atmosfer ruangan (warna background) akan berubah, dan garis akhir (finish line) akan aktif. Pemain dinyatakan menang jika bola berhasil mencapai garis finish, dan kalah jika bola jatuh keluar dari area pertandingan.\n\nSaat ini, game tersebut masih dalam tahap pengembangan (work in progress). Video behind the scene kali ini berfokus pada perancangan salah satu objek 3D krusial di dalam game, yaitu Kunci Emas.\n\nTerdapat berbagai teknik grafika komputer yang digunakan dalam pembuatan objek kunci tersebut. Teknik representasi objek 3D diterapkan dengan menyusun gabungan poligon dasar (primitives) bawaan GLUT, seperti Torus untuk kepala kunci, silinder untuk leher dan batang, serta kubus untuk gigi kunci. Agar objek terlihat seperti emas murni, karakteristik permukaan (material properties) diatur secara spesifik menggunakan fungsi pencahayaan; nilai Specular dan Shininess dinaikkan secara signifikan agar memantulkan cahaya yang mengkilap. Selain itu, prinsip geometri dan transformasi matriks (glTranslatef, glRotatef, glScalef) diterapkan tidak hanya untuk menyatukan bagian-bagian kunci, tetapi juga untuk memberikan animasi rotasi statis dan efek melayang (floating) yang dinamis menggunakan fungsi trigonometri sinus (sin) berdasarkan waktu berjalan.",
+    "ok": true,
+    "vid": "KcBhLfcCoas"
+  },
+  "C4": {
+    "title": "SAMSAT QUEST (Izzat Fauzan)",
+    "desc": "Anggota Kelompok:\nAkbar Mukti Wibowo (24060124130063)\nMaulana Ghazzam Adil Al Faiq (24060124130083)\nMuhammad Izzat Fauzan Putra Arya (24060124130096)\nMuhammad Rofad Hamdani (24060124130117)\n\n\n\nSamsat Quest adalah sebuah game RPG bertema satir birokrasi yang mengangkat pengalaman pengurusan administrasi kendaraan secara unik dan humoris. Pemain berperan sebagai warga yang berusaha menyelesaikan proses perpanjangan STNK melalui berbagai tahapan layanan di lingkungan Samsat, mulai dari pengumpulan dokumen, antrean loket, hingga validasi akhir.\n\nMeskipun tujuan utamanya sederhana, pemain akan dihadapkan pada beragam tantangan administratif, seperti persyaratan yang berubah, alur prosedur yang tidak konsisten, serta interaksi dengan karakter non-pemain yang memiliki informasi berbeda. Melalui mekanik eksplorasi, manajemen dokumen, dan pengambilan keputusan berbasis dialog, game ini menghadirkan pengalaman yang merefleksikan kompleksitas birokrasi dengan pendekatan komedi satir.\n\nUntuk sementara waktu, prototipe game kami dikembangkan menggunakan C++ dengan OpenGL GLUT. Representasi objek 3D dilakukan menggunakan pendekatan modular, sebagai alternatif dari Constructive Solid Geometry (CSG), dengan memecah objek kompleks menjadi beberapa bagian terpisah untuk mempermudah proses pemodelan dan rendering.",
+    "ok": true,
+    "vid": "dBWuYekfPr0"
+  },
+  "C7": {
+    "title": "Halang Rintang Mobil 3D (Haikal Rafli)",
+    "desc": "Anggota Kelompok:\nHaikal Rafli Sembiring(24060124130079)\nMohammad Sulthon Ariefin (24060124130104)\nNaufal Akbar Nugroho (24060124130057)\nRio Setiawan Hastanu Putra (24060124130068)\n\nRepresentasi objek 3D menggunakan bentuk dasar seperti kubus dan bola dari OpenGL yang dikombinasikan dan ditransformasi posisi serta ukurannya untuk membentuk mobil, jalan, dan matahari. Terdapat dua mode proyeksi yang  digunakan, yaitu Orthographic yang menampilkan scene dari atas mobil tanpa ada efek 3D. Kemudian, ada Perspective yang dapat menampilkan posisi mobil dari sisi depan, samping, dan belakang.",
+    "ok": true,
+    "vid": "HQRgEdBYV2k"
+  },
+  "C8": {
+    "title": "MAZE 3D - LIMINAL SPACE (Agil Yudis Wibawa)",
+    "desc": "",
+    "ok": true,
+    "vid": "OrlicuJV3tQ"
+  },
+  "C9": {
+    "title": "Master Crack: The 7th Golden Silence BTS (Dian Aulya)",
+    "desc": "Kelompok 9 - Kelas C\nNama Anggota Kelompok :\nHusni Ulyaa Khanifah - 24060124120021\nDian Berlian Hutasoit - 24060124120005\nChristianna Olivia Juniarti M - 24060124140168\nDian Aulya Dewiyani - 24060124130059\n\nMaster Crack: The 7th Golden Silence merupakan game yang menantang pemain untuk mencuri emas dari brankas bank dengan tingkat keamanan yang tinggi. Pemain harus menyelesaikan berbagai teka-teki dalam waktu kurang dari atau sama dengan 5 menit. Jika pemain melakukan kesalahan atau waktu habis, alarm keamanan akan menyala dan pemain gagal!\n\nTerdapat berbagi teknik yang digunakan dalam pembuatan game tersebut. Teknik Orthographic diterapkan pada pembuatan brankas sehingga brankas bisa memiliki tampak depan dan samping sesuai dengan aturan Orthographic. Prinsip Perspective dilakukan dengan 2 titik hilang. Prinsip geometri digunakan dalam pembuatan balok untuk ruang brankas. Kamera diprogram agar bisa bergerak ke depan dan ke belakang serta menengok ke kanan dan ke kiri. Cahaya diatur agar mempengaruhi permukaan dinding ruang sehingga terlihat mengkilap. Warna dinding bergradasi dari warna abu-abu, kuning terang, hingga putih (secara visual berubah seiring jauh dekatnya kamera.",
+    "ok": true,
+    "vid": "ewmR8Pro5bg"
+  },
+  "C11": {
+    "title": "Turret Defense - Behind The Scenes",
+    "desc": "Anggota Kelompok:\n1. Muhammad Abhista Pratama Sava (24060124130058)\n2. Wipin Saputra Poh (24060124130080)",
+    "ok": true,
+    "vid": "IpFz4pn92Ow"
+  },
+  "C12": {
+    "title": "Straight Drift: Dodge The Obstacle - BTS - FAAREL",
+    "desc": "Anggota Kelompok : \n1. Aufaaral Nabiil Aryadh Mecca - 24060124140206\n2. Muhammad Zaidan Alfarizi - 24060124130102\n3. Shifa Buja Jauza - 24060124140182\n\nDeskripsi:\n\nVideo ini mendemonstrasikan penerapan teknik pencahayaan dan bayangan pada objek kendaraan 3D menggunakan OpenGL dan GLUT. Fokus utama proyek ini adalah menciptakan visual yang dinamis dan bervolume dalam ruang perspektif.\n\nFitur Teknis yang Diimplementasikan:\n\n1.Gouraud Shading (GL_SMOOTH): Menggunakan model shading halus untuk menciptakan gradasi warna yang alami pada ban dan bodi mobil, menghindari tampilan warna flat.\n2. Sistem Material \\u0026 Specular: Menambahkan komponen Specular dan Shininess pada bodi mobil agar memberikan efek pantulan cahaya (kilap) yang realistis saat terkena sumber cahaya.\n3.Planar Shadow Projection: Teknik proyeksi matematis untuk menciptakan bayangan yang menempel tepat di bawah ban mobil. Bayangan ini diposisikan sedikit di atas lantai untuk menghindari Z-fighting.\n4.Navigasi Kamera Perspektif: Implementasi kamera interaktif menggunakan gluLookAt yang memungkinkan navigasi bebas (Walkthrough) di dalam grid 3D.\n\nKontrol:\nW/S: Bergerak Maju/Mundur\nA/D: Rotasi Kamera (Kiri/Kanan)\nESC: Keluar Aplikasi\n\nTeknologi: C++, OpenGL (GLUT), Dev-C++.",
+    "ok": true,
+    "vid": "rEJk762uNYw"
+  },
+  "D1": {
+    "title": "Find Anomalies (Dinda)",
+    "desc": "Anggota \n1. Amelia Aristianti 24060124120008\n2.Dinda Isyariani 24060124140165 \n3. Marchella Arkhina Ratunesia 24060124120036\n\nPenerapan Teknik\n\nGame ini dibuat dengan bentuk-bentuk dasar, seperti bola. kubus, dan nantinya akan dikembangkan lagi. Bentuk-bentuk ini ditransformasikan menggunakan perintah translasi agar posisinya tertata sejajar di dalam ruangan. Untuk membuat tampilan sekitarnya, dinding dan lantai ruangan menggunakan titik koordinat yang membentuk segiempat.\n\nAgar setiap objek bisa dibedakan, menerapkan teknik karakteristik permukaan dengan mengatur warna dasar pada masing-masing benda. Warna ini kemudian bereaksi terhadap sistem pencahayaan yang ditempatkan di atas ruangan, sehingga objek berbentuk bola terlihat memiliki gradasi bayangan.\n\ngame ini menggunakan dua sistem proyeksi. Proyeksi perspective digunakan untuk menampilkan dunia 3D utama, di mana kamera dapat digerakkan ke segala arah (dengan pergerakan mouse dan keyboard) sehingga menciptakan efek perspective tergantung sudut pandang pemain. Serta proyeksi orthographic digunakan khusus untuk menampilkan antarmuka layarseperti sisa waktu dan instruksi permainan, agar teks tetap menempel di layar tanpa terpengaruh oleh posisi kamera pemain. agar pemain tidak bisa menembus dinding ruangan, diterapkan sistem tabrakan yang membatasi area pergerakan koordinat kamera.",
+    "ok": true,
+    "vid": "u5T9oImjFh8"
+  },
+  "D3": {
+    "title": "Dark Hour in FSM (Saburo)",
+    "desc": "Anggota kelompok:\nDevano Trestanto (24060124140149)\nRaffie Aditya Akbar (24060124130054)\nSaburo Rafqi Hidayat (24060124140196)\nSyuraih Umar Khotthob (24060124130092)\n\nDeskripsi penerapan teknik:\nGame horror ini dibuat objek 3D dengan cara yang sederhana, yaitu dari bentuk dasar seperti kotak (cube) dan bola (sphere). Bentuk-bentuk ini kemudian diubah ukurannya (scale), dipindah posisinya (translate), dan disusun jadi bangunan, tangga, pohon, dan karakter. Supaya objeknya kelihatan beda-beda, digunakan pengaturan material untuk ngasih warna dan kesan seperti beton, kayu, atau tanah. Selain itu, ada juga pencahayaan biar suasananya lebih hidup, misalnya cahaya bulan dan lampu yang berkedip-kedip. Untuk interaksi, digunakan sistem tabrakan sederhana pakai kotak pembatas (bounding box) supaya player nggak nembus tembok. Jadi intinya, teknik yang dipakai adalah gabungan bentuk dasar, transformasi, pencahayaan, dan collision sederhana buat bikin dunia 3D yang bisa dijelajahi.",
+    "ok": true,
+    "vid": "zBAv8qhIzN4"
+  },
+  "D4": {
+    "title": "F1 Simulator Dwi - BTS (Behind The Scene)",
+    "desc": "Project Tugas Besar GTI Kelompok\n\nMata Kuliah Grafik Teknik dan Interaksi\nAnggota Kelompok 4  - NIM:\nNaufal Dwi Yusmawan - 24060124130075\nRafa Azlan - 24060124140126\nMuhammad Kamal Hamzah - 24060124130056\n\nGame Simulasi F1 ini menampilkan dunia 3D yang dibangun dari gabungan bentuk dasar seperti kubus dan bola, yang kemudian diproses melalui rendering pipeline menggunakan proyeksi perspective untuk memberikan kesan kedalaman pada sirkuit serta proyeksi orthographic untuk menampilkan antarmuka UI, ditambah dengan pengaturan pencahayaan, shading, dan sistem tabrakan sederhana agar pengalaman balapannya terasa lebih interaktif dan hidup.",
+    "ok": true,
+    "vid": "3ojOKIl4RUs"
+  },
+  "D5": {
+    "title": "GTI_Kelompok5_Kelas D",
+    "desc": "Kelompok 5 (Kelas D):\nAn Al Rivaldi (24060124120030)\nElza Khoirisma Carrynda (24060124130065)\nNashwa Aldebaran (24060124140150)\nZulfa Nabilah (24060124130095)\n\nDeskripsi Penerapan Teknik:\nProgram ini menggunakan teknik grafika komputer 3D untuk menampilkan lingkungan berbentuk labirin. Objek-objek seperti dinding, lantai, player, dan target dibuat dari bentuk dasar kubus yang diatur posisi dan ukurannya sehingga membentuk dunia 3D.\n \nUntuk tampilan, digunakan proyeksi perspective agar objek terlihat memiliki kedalaman seperti di dunia nyata, di mana objek yang jauh tampak lebih kecil. Kamera juga dibuat mengikuti pergerakan player sehingga sudut pandang terasa dinamis. Selain itu, digunakan proyeksi orthographic untuk menampilkan elemen 2D seperti GPS di layar, sehingga tampilannya tetap stabil dan tidak terpengaruh perspektif.\n \nDalam proses rendering, program menampilkan objek, mengatur posisi kamera, memberikan warna pada objek, serta menggambar seluruh scene secara berurutan hingga menghasilkan tampilan akhir. Secara keseluruhan, program ini menggabungkan tampilan 3D yang realistis dengan elemen 2D sebagai pelengkap antarmuka.",
+    "ok": true,
+    "vid": "18sq-LZdQtc"
+  },
+  "D2": {
+    "title": "Urban Monster Battle - BTS ( Hasta )",
+    "desc": "Kelompok 2 \nAnggota :\n1. Hasta Putra Wildantara (24060124130119)\n2. Hanif Ihsanul Huda (24060124140183)\n3.  Izzatu Khairul Fata (24060124120039)\n\nTeknik representasi 3D diterapkan dalam membangun game sederhana \"Urban Monster Battle\" ini dengan membangun objek menggunakan primitif dasar seperti kubus, bola, dan kerucut untuk membentuk karakter, bangunan, dan elemen lingkungan. Sistem proyeksi menggunakan dua pendekatan, yaitu orthographic dan perspective (1, 2, dan 3 titik hilang) untuk memberikan kesan kedalaman ruang melalui pengaturan kamera. Pencahayaan diatur dengan model lighting OpenGL yang memanfaatkan komponen ambient, diffuse, dan specular agar objek tampak realistis, sementara teknik shading (flat dan smooth) menentukan bagaimana warna dan cahaya dirender pada permukaan objek. Seluruh proses ini berjalan dalam rendering pipeline yang mencakup transformasi geometri, pengaturan kamera, pencahayaan, hingga proses rasterisasi sehingga menghasilkan visual 3D yang dinamis.",
+    "ok": true,
+    "vid": "9r7-SSIk6kQ"
+  },
+  "D6": {
+    "title": "GTI Kelompok 6",
+    "desc": "1. Naufal Rayan Attallah 24060124140170\n2. Basil Ayman Hariadi 24060124140160\n3. Ferdy Prasetya Putra 24060124140145\n4. Muhammad Firdaus Argifari 24060124130107",
+    "ok": true,
+    "vid": "EYOkbbIlPjc"
+  },
+  "D7": {
+    "title": "Crazy Cat Kelompok 7 (Dewa)",
+    "desc": "Kelompok 7\n\nDewangga Ramadhan Halim 24060124130118\nCrystiano Bayu Satya Alves 24060124140130\nCaesar Ferdiana Suwandi 24060124120051\nGhatfan Muhammad Atiwiar 24060124140171\n\nGame horror Crazy Cat 3D ini dibuat menggunakan representasi objek yang dirakit dari bentuk dasar (Primitive Instancing) seperti bola, kerucut, dan tabung untuk membentuk karakter kucing, serta kubus untuk tembok labirin. Agar gerakan karakter rapi dan menyatu, diterapkan Hierarchical Modeling sehingga anggota tubuh bergerak mengikuti badan utama. Desain tata letak labirin awalnya dibuat menggunakan matriks proyeksi Ortografis (2D dari atas) agar presisi, namun saat dimainkan, sudut pandang diubah menjadi proyeksi Perspektif 1 titik hilang untuk memberikan ilusi kedalaman lorong yang nyata dan mencekam. Untuk menghidupkan suasana horor, lingkungan dibuat gelap dan mengandalkan sistem Lighting, di mana cahaya hanya memancar dari mata kucing (menggunakan material emissive agar menyala) dan perlahan memudar tertelan kegelapan di ujung lorong. Sentuhan akhirnya menggunakan Smooth Shading agar pantulan cahaya di tembok terlihat halus.",
+    "ok": true,
+    "vid": "LGzCdTaglz0"
+  },
+  "D9": {
+    "title": "Project Aphelion - BTS (Hafidh)",
+    "desc": "Kelompok 9\nMuhammad Hafidh Al-Ghifari - 24060124140133\n⁠Muhammad Hafidh Zufar Dewantara - 24060124140164\n⁠Muhammad Lutfi Febriansyah - 24060124140197\n⁠Adefritz Einar Sinaga - 24060124140186\nPenerapan Tekniknya\nTeknik Iteratif — pengembangan dilakukan bertahap tiap pertemuan, mulai dari setup kamera, pemodelan objek, hingga gameplay lengkap\nProyeksi Perspektif \\u0026 Orthographic — untuk rendering scene 3D dan proses pembuatan objek\nRendering Pipeline — geometri 3D, kamera, pencahayaan, material permukaan, dan shading\nCollision Detection — bounding sphere untuk deteksi tabrakan pesawat dan asteroid",
+    "ok": true,
+    "vid": "6FlXx3K7jj8"
+  },
+  "D10": {
+    "title": "MBG (Mission: Balanced Gizi) - BTS (Menza)",
+    "desc": "Kelompok 10 :\n24060124140161 - Azka Wayasy Al Hafizh\n24060124130072 - Ali Maskan Ferry Purwanto\n24060124140202 - Ikrar Maheswara Rabbani Wibowo\n24060124140138 - Menza Isaiah Tampubolon\n\nGame ini memanfaatkan bentuk 3D kubus dan balok untuk membuat area map, beberapa asset seperti meja, tangga yang kemudian akan dipotong agar lebih detail. \nTentu akan memanfaatkan teknik ortografi dan perspektif agar memberi kesan 3D (depth).\nNantinya akan menggunakan gambar untuk memberi tekstur untuk objek-objek dasar yang ada.\nDiadakan nya collision agar objek sebisa mungkin tidak bisa menembus objek lain sehingga tidak terjadi sesuatu yang tidak diinginkan.\nDiadakannya pencahayaan agar beberapa bagian map akan terlihat gelap, agar ada \"feel\"-nya.",
+    "ok": true,
+    "vid": "5uoeRSHvfQI"
+  },
+  "D8": {
+    "title": "Jumping Platform Game BTS (Novelya)",
+    "desc": "-Novelya Cherina (24060124140174)\n-Mohammad Andhika Ramadhan (24060124140190)\n-Kayla Febrina Laura Ayu (24060124120004)\n-Nevlyn Abbel Fikri Ardho (24060123140215)\n\nPenerapan teknik dalam game “Jumping Platform” yaitu dengan objek 3D yang dibangun menggunakan primitive seperti cube dan sphere, lalu ditransformasikan dengan translasi, rotasi, dan skala untuk membentuk karakter manusia serta platform. Pergerakan karakter memanfaatkan translasi pada sumbu X dan Y serta simulasi gravitasi sederhana untuk menghasilkan efek lompat.\n\nDigunakan perspective projection untuk memberikan efek kedalaman (depth) dan orthographic projection sebagai alternatif tampilan tanpa perspektif, dengan kamera yang diatur menggunakan gluLookAt agar mengikuti posisi karakter. Game ini menerapkan pencahayaan menggunakan model lighting OpenGL yang terdiri dari komponen ambient, diffuse, dan specular, serta pengaturan material untuk menentukan karakteristik permukaan seperti kilap (shininess). Proses rendering dilakukan dengan double buffering dan depth testing agar tampilan halus dan urutan objek sesuai kedalaman. Teknik smooth shading juga digunakan untuk menghasilkan gradasi warna yang lebih natural.",
+    "ok": true,
+    "vid": "kUmYg1qulW4"
+  },
+  "E2": {
+    "title": "Game Maze- Kelompok 2 Kelas E GTI (Varissa)",
+    "desc": "Anggota:\n24060124140125 Varissa Nabila Kifli\n24060124140134 Wahyu Aji Gumelar Tri Nugroho\n24060124140188 Claudia Meitania Putri\n24060124140204 Adelia Clearesta",
+    "ok": true,
+    "vid": "uxiIlfewLVs"
+  },
+  "E4": {
+    "title": "Tata Surya (Aron)",
+    "desc": "Aron Sorimuda Johannes Pasaribu (24060124130086)\nHusein Avicenna (24060124120047)\nRahmat Argyandha Aminuddin (24060124130061)\nPenjelasan projek:\nPenerapan teknik yang dipakai  untuk projek kami adalah translasi untuk mengatur posisi planet dan orbit, transformasi untuk revolusi planet pada matahari dan lain2.",
+    "ok": true,
+    "vid": "8rbqDYMV0Bo"
+  },
+  "E9": {
+    "title": "Hill Climbing 3D BTS (Akmal)",
+    "desc": "Kelompok 9 \nAkmal Dzaki Rahmatullah (24060124140151)\nWahyu Eko Setyo Pribowo (24060124120151)",
+    "ok": true,
+    "vid": "IVyrxIBSRzE"
+  }
+}
