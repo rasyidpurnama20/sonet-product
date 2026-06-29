@@ -1,27 +1,90 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Menambahkan 3 kolom penilaian (Oral, Arsitektur, Proyek) ke file penilaian
-Pengenalan Pola A (pola-2026), digabung dengan kolom yang sudah ada.
+Membangun file penilaian Pengenalan Pola A (pola-2026) yang FINAL & bersih.
 
-Sumber penilaian:
-  - oral/        : esai reflektif "Pattern Recognition Design Cycle" (HTML onlinetext)
-  - arsitektur/  : laporan arsitektur deep learning segmentasi tumor otak MRI (PDF)
-  - proyek/      : tugas KELOMPOK klasifikasi suara burung / dll (PDF/PPTX) -> nilai grup
+Kolom keluaran:
+  NIM, Nama,
+  Classification Task (Intermediate),
+  Evaluation Metric Quiz,
+  Manual Classification Task (Beginner),
+  Oral,                              <- dinilai dari folder oral/  (esai design cycle)
+  Arsitektur,                        <- dinilai dari folder arsitektur/ (laporan DL MRI)
+  Proyek (Presentasi + Keaktifan)    <- nilai milik pengampu (master sheet)
 
-Skala 0-10 (konsisten dengan kolom lain). Sel kosong = tidak mengumpulkan.
-Setiap nilai disertai justifikasi singkat (lihat penilaian-pola-2026-detail.csv).
+Catatan:
+- ROSTER (master) adalah daftar resmi 50 mahasiswa berikut nilai
+  Classification/Quiz/Manual + "Proyek (Presentasi + Keaktifan)" dari pengampu.
+- Kolom Oral & Arsitektur (skala 0-10) ditambahkan dari hasil pembacaan submission.
+  Sel kosong = tidak mengumpulkan.
+- Penilaian kualitas laporan proyek kelompok TIDAK lagi dijadikan kolom terpisah
+  agar tidak menduplikasi kolom "Proyek (Presentasi + Keaktifan)" milik pengampu.
+- Justifikasi tiap nilai Oral & Arsitektur ada di penilaian-pola-2026-detail.csv.
 """
 import csv, os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(BASE, "penilaian-pola-2026.csv")
 
 # ---------------------------------------------------------------------------
-# ORAL  (NIM -> (nilai, justifikasi))
+# ROSTER MASTER (resmi): [NIM, Nama, ClassificationTask, Quiz, Manual, ProyekPK]
+# ---------------------------------------------------------------------------
+ROSTER = [
+ ['24060119120041', 'Abida Akbar Rusyadin', '', '2.50', '', '0'],
+ ['24060123120030', 'Adrian Asarel Deandra Kristiawan', '9.67', '5.00', '10.00', '95'],
+ ['24060123120029', 'Aisha', '9.00', '10.00', '3.33', '80'],
+ ['24060123130093', 'Arib Taufiqurrohman', '10.00', '7.50', '10.00', '92'],
+ ['24060123130084', 'Assyifa Haqqi Dusanto', '8.00', '0.00', '3.33', '80'],
+ ['24060123140201', 'Athiqotuz Zulaiva', '8.33', '10.00', '3.33', '80'],
+ ['24060123130058', 'Axel Natakesuma', '10.00', '10.00', '3.33', '80'],
+ ['24060123120002', 'Bagus Athallah', '10.00', '10.00', '8.33', '80'],
+ ['24060123130051', 'Brilianita Eva Syafitri', '', '', '', '82'],
+ ['24060123130079', 'Christiano Bryan Budiman', '9.33', '10.00', '6.67', '-10'],
+ ['24060123140175', 'Cikal Wahyuning Bachtiar', '9.00', '10.00', '5.00', '80'],
+ ['24060123130073', 'Dary Ihsan Amanullah', '', '', '', '85'],
+ ['24060123140045', 'Dewi Larasati Mumpuni', '9.00', '', '8.33', '0'],
+ ['24060123120040', 'Dhimas Luthfi Arnanda', '9.67', '7.50', '10.00', '87'],
+ ['24060123130080', 'Dimas A Albanna Zain', '9.00', '7.50', '8.33', '82'],
+ ['24060123120016', 'Dina Amelia', '', '', '', '82'],
+ ['24060123140147', 'Eliza Talent Sirait', '7.67', '10.00', '5.00', '80'],
+ ['24060123140111', 'Evia Auamara Unsa Nasyta', '10.00', '10.00', '8.33', '80'],
+ ['24060123130098', 'Felis Eren Cristi Milala', '6.00', '7.50', '8.33', '80'],
+ ['24060123140211', 'Ferza Farrell Wibowo', '', '0.00', '', '-10'],
+ ['24060123130094', 'Gabriel Prakosa Ardhi', '8.67', '0.00', '6.67', '87'],
+ ['24060123120028', 'George Imanuel Surya', '7.67', '0.00', '6.67', '87'],
+ ['24060123130112', 'Gibran Ahmad Maulana', '10.00', '10.00', '10.00', '0'],
+ ['24060123130110', 'Gusti Ayu Genta Bhuana Paramitha', '9.67', '10.00', '8.33', '0'],
+ ['24060123140197', 'Hadyan Kholish Prasetio', '9.33', '2.50', '8.33', '90'],
+ ['24060123140151', 'Haidar Ali Laudza', '8.33', '10.00', '8.33', '90'],
+ ['24060120130039', 'Hikmal Arkan Nur Zaidan', '', '', '', '-10'],
+ ['24060123120009', 'Indah Nurul Janah', '8.67', '5.00', '3.33', '87'],
+ ['24060123140150', 'Indra Purwanto', '9.67', '0.00', '10.00', '80'],
+ ['24060123130101', 'Jihan Saniyya Pudaliba', '', '', '', '-10'],
+ ['24060123130117', 'Julius Tegar Aji Putra', '9.67', '10.00', '8.33', '90'],
+ ['24060123140179', 'Kaila Talitha Putri', '9.67', '10.00', '10.00', '0'],
+ ['24060123140152', 'Kayis Hilmi Farih', '', '', '0.00', '0'],
+ ['24060123130081', 'Kevin Adi Santoso', '9.33', '10.00', '10.00', '0'],
+ ['24060123140166', 'Khairiya Fatih Izzudin Emarin', '9.00', '0.00', '5.00', '90'],
+ ['24060123120032', 'Lulu Nikita Sitanggang', '6.67', '7.50', '6.67', '0'],
+ ['24060123140204', 'Mohammad Imron Rosyadi', '9.33', '10.00', '8.33', '90'],
+ ['24060123140139', 'Mohammad Izza Hakiki', '', '', '', '87'],
+ ['24060123130086', 'Muhammad Azka Subhan', '8.00', '', '6.67', '80'],
+ ['24060123130107', 'Muhammad Renno Baihaqi', '6.33', '5.00', '8.33', '-10'],
+ ['24060123130106', 'Muhammad Yoga Aminudin', '8.00', '7.50', '6.67', '0'],
+ ['24060123120023', 'Nadia Syifa Khairunnisa', '9.33', '5.00', '8.33', '0'],
+ ['24060123120038', 'Nazla Azzahra Hermana', '', '', '', '0'],
+ ['24060123140148', 'Nicholas Gunawan', '9.67', '7.50', '10.00', '80'],
+ ['24060123130067', 'Nindya Kirana', '8.00', '', '8.33', '0'],
+ ['24060123140142', 'Parisya Lituhayu Chandrawati Gunawarman', '7.00', '', '3.33', '0'],
+ ['24060123130100', 'Patriot Antaras Bangsa', '', '7.50', '', '77'],
+ ['24060122140184', 'Raden Rico Dwianda', '', '0.00', '', '0'],
+ ['24060123120010', 'Shopia Mudjahidah', '8.00', '10.00', '5.00', '82'],
+ ['24060123130114', 'Tsuraya Olivia', '9.33', '5.00', '10.00', '0'],
+]
+
+# ---------------------------------------------------------------------------
+# ORAL (NIM -> (nilai 0-10, justifikasi))
 # Rubrik: cakupan pipeline design cycle (data->preprocessing->ekstraksi fitur->
-# model->evaluasi) + ketepatan konsep lanjutan (metrik, Bayesian, decision
-# boundary, overfitting, dimensionality) + kejelasan/relevansi.
+# model->evaluasi) + ketepatan konsep lanjutan + kejelasan/relevansi.
 # ---------------------------------------------------------------------------
 ORAL = {
  "24060119120041": (6.5, "Bahasan terpencar (ekstraksi fitur ResNet/MobileNet, confusion matrix multikelas, piksel RGB); tidak menggambarkan siklus utuh."),
@@ -66,10 +129,9 @@ ORAL = {
 }
 
 # ---------------------------------------------------------------------------
-# ARSITEKTUR (NIM -> (nilai, justifikasi))
-# Rubrik: kelengkapan section (deskripsi task, bentuk data/tensor, arsitektur+justifikasi,
-# diagram, penjelasan komponen, input/output, referensi, alur, parameter) +
-# kedalaman & ketepatan teknis + kecanggihan arsitektur + kerapian akademik.
+# ARSITEKTUR (NIM -> (nilai 0-10, justifikasi))
+# Rubrik: kelengkapan section + kedalaman & ketepatan teknis + kecanggihan
+# arsitektur + kerapian akademik.
 # ---------------------------------------------------------------------------
 ARSITEKTUR = {
  "24060122140184": (8.5, "U-Net; section lengkap (deskripsi, bentuk data, arsitektur, diagram, penjelasan, input/output, referensi, alur). Solid & rapi."),
@@ -115,98 +177,45 @@ ARSITEKTUR = {
  "24060123140211": (9.4, "TransUNet (ResNet50 + ViT 12-layer), format akademik dgn abstrak, patch tokenization; komprehensif & lanjutan."),
 }
 
-# ---------------------------------------------------------------------------
-# PROYEK (tugas KELOMPOK -> nilai grup dipropagasi ke semua anggota terdokumentasi)
-# ---------------------------------------------------------------------------
-PROYEK_GROUPS = {
- "A_UwU": (9.3, "Klasifikasi suara burung; bandingkan 5 model (GNB/LDA/KNN/SVM-RBF/RF), skenario 3 vs 83 fitur, PCA+scree plot, decision boundary semua model, bahas data leakage, Colab.",
-           ["24060123120029","24060123140175","24060123140111","24060123130084","24060123140201"]),
- "B_HERONS": (9.5, "Hybrid feature + Transfer Learning (EfficientNetB0/MobileNetV2) pada Mel-spectrogram, heavy augmentation, seleksi fitur ANOVA+RF, 5-fold CV, metrik lengkap (acc 82.7%, AUC 95.7%), rencana Grad-CAM.",
-           ["24060123120002","24060123120010","24060123130058","24060123130080"]),
- "C_Indah": (8.5, "Klasifikasi audio burung; SVM RBF + SMOTE, 3 fitur MFCC_std, feature space 3D, stratified 5-fold, confusion matrix, F1 (macro 0.54), ROC-AUC per kelas (macro 0.82).",
-           ["24060123120028","24060123120009","24060123130094","24060123120040"]),
- "D_Kel7": (9.3, "Klasifikasi spesies burung; ADASYN oversampling, GridSearchCV tuning, chunking 5 detik, Macro F1 0.76, ROC-AUC 0.94, pairplot & analisis overlap, Colab.",
-           ["24060123130112","24060123140152","24060123120038","24060123130081"]),
- "E_CF": (9.0, "PR Design Cycle suara burung; 15 fitur (MFCC+SC+ZCR) -> PCA 3D (60.1% variance), SVM RBF (C=10), 5-fold, analisis AUC per kelas, keterbatasan jelas (acc 58%, macro AUC 0.73).",
-           ["24060123130079","24060123140211"]),
- "F_MEDANJAWA": (9.0, "Klasifikasi suara burung; Active Segment Detection (uji 5 ambang), seleksi fitur (mfcc_std/rolloff/zcr), uji RF vs SVM, acc 0.65, Macro F1 0.62, Macro AUC 0.81, analisis per kelas.",
-           ["24060123130086","24060123130098","24060123140150","24060123140148","24060123140147"]),
- "G_Manggis": (8.7, "Klasifikasi suara burung; 5 fitur (3 MFCC + Centroid + ZCR), 3 model (GNB/RF/SVM-RBF), normalisasi & justifikasi fitur rinci, feature space 3D.",
-           ["24060123120023","24060123130106","24060123130067","24060123140045"]),
- "H_Arib": (8.8, "Bird Sound Classification; 3 fitur ortogonal (Mean F0/MFCC-PC1/Mel Energy), RF 300 estimators, bandingkan RF/SVM/GNB, prinsip complementarity, RF F1macro 0.245 AUC 0.77.",
-           ["24060123120030","24060123130093","24060123130100"]),
- "I_Heart": (9.2, "Deteksi penyakit jantung (UCI Heart Disease, 920 sampel); EDA & penanganan missing value, 3 fitur (thalch/oldpeak/age), SVM linear, acc 86%, ROC-AUC 0.818; pipeline lengkap & berbeda topik.",
-           ["24060123140179","24060123130114","24060123120032","24060123140142","24060123130110"]),
- "J_Kel5": (9.0, "Bird Sound Classification; 3 fitur ortogonal (MelSpec Std/MFCC Std/MFCC delta-delta Std), GNB vs SVM RBF, F1-macro 0.78, ROC-AUC 0.94, decision boundary PCA-2D.",
-           ["24060123130117","24060123140166","24060123140151","24060123140204","24060123140197"]),
-}
-PROYEK = {}
-for gid, (nilai, just, members) in PROYEK_GROUPS.items():
-    for nim in members:
-        PROYEK[nim] = (nilai, f"[Kelompok {gid}] {just}")
-
-# Mahasiswa baru (tidak ada di roster awal) yang punya submission
-EXTRA_STUDENTS = {
- "24060123120038": "Nazla Azzahra Hermana",
-}
-
-# ---------------------------------------------------------------------------
 def fmt(v):
     return "" if v is None else f"{v:.2f}"
 
-# baca roster existing
-rows = []
-with open(SRC, encoding="utf-8-sig") as f:
-    r = csv.reader(f)
-    header = next(r)
-    for row in r:
-        if row and row[0].strip():
-            rows.append(row)
+def oral_v(nim): return ORAL.get(nim, (None,))[0]
+def arsi_v(nim): return ARSITEKTUR.get(nim, (None,))[0]
 
-existing_nims = {row[0].strip() for row in rows}
-# tambahkan mahasiswa baru (kolom existing kosong)
-for nim, nama in EXTRA_STUDENTS.items():
-    if nim not in existing_nims:
-        rows.append([nim, nama, "", "", ""])
+rows = sorted(ROSTER, key=lambda x: x[1].lower())
 
-def oral_v(nim):  return ORAL.get(nim, (None,))[0]
-def arsi_v(nim):  return ARSITEKTUR.get(nim, (None,))[0]
-def proy_v(nim):  return PROYEK.get(nim, (None,))[0]
-
-# urutkan berdasar nama (konsisten dgn file asli)
-rows.sort(key=lambda x: x[1].lower())
-
-# tulis CSV utama (gabungan 5 + 3 kolom)
+# ---- CSV utama ----
 out_main = os.path.join(BASE, "penilaian-pola-2026.csv")
 with open(out_main, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f)
-    w.writerow(header + ["Oral", "Arsitektur", "Proyek"])
-    for row in rows:
-        nim = row[0].strip()
-        w.writerow(row + [fmt(oral_v(nim)), fmt(arsi_v(nim)), fmt(proy_v(nim))])
+    w.writerow(["NIM", "Nama",
+                "Classification Task (Intermediate)",
+                "Evaluation Metric Quiz",
+                "Manual Classification Task (Beginner)",
+                "Oral", "Arsitektur",
+                "Proyek (Presentasi + Keaktifan)"])
+    for nim, nama, ct, quiz, manual, proyekpk in rows:
+        w.writerow([nim, nama, ct, quiz, manual,
+                    fmt(oral_v(nim)), fmt(arsi_v(nim)), proyekpk])
 
-# tulis CSV detail justifikasi
+# ---- CSV detail justifikasi (Oral & Arsitektur) ----
 out_detail = os.path.join(BASE, "penilaian-pola-2026-detail.csv")
 with open(out_detail, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f)
-    w.writerow(["NIM","Nama",
-                "Oral","Justifikasi Oral",
-                "Arsitektur","Justifikasi Arsitektur",
-                "Proyek","Justifikasi Proyek"])
-    for row in rows:
-        nim = row[0].strip(); nama = row[1]
-        o = ORAL.get(nim, (None,"(tidak mengumpulkan)"))
-        a = ARSITEKTUR.get(nim, (None,"(tidak mengumpulkan)"))
-        p = PROYEK.get(nim, (None,"(tidak ada submission proyek kelompok)"))
-        w.writerow([nim, nama,
-                    fmt(o[0]), o[1] if len(o)>1 else "",
-                    fmt(a[0]), a[1] if len(a)>1 else "",
-                    fmt(p[0]), p[1] if len(p)>1 else ""])
+    w.writerow(["NIM", "Nama",
+                "Oral", "Justifikasi Oral",
+                "Arsitektur", "Justifikasi Arsitektur"])
+    for nim, nama, *_ in rows:
+        o = ORAL.get(nim, (None, "(tidak mengumpulkan)"))
+        a = ARSITEKTUR.get(nim, (None, "(tidak mengumpulkan)"))
+        w.writerow([nim, nama, fmt(o[0]), o[1], fmt(a[0]), a[1]])
 
-# ringkasan verifikasi
-print(f"Total baris mahasiswa : {len(rows)}")
-print(f"Punya nilai Oral      : {sum(1 for r in rows if oral_v(r[0].strip()) is not None)}")
-print(f"Punya nilai Arsitektur: {sum(1 for r in rows if arsi_v(r[0].strip()) is not None)}")
-print(f"Punya nilai Proyek    : {sum(1 for r in rows if proy_v(r[0].strip()) is not None)}")
+# ---- verifikasi ----
+nims = [r[0] for r in rows]
+assert len(nims) == len(set(nims)), "Ada NIM duplikat!"
+print(f"Total mahasiswa  : {len(rows)} (unik, tanpa duplikat)")
+print(f"Punya nilai Oral : {sum(1 for r in rows if oral_v(r[0]) is not None)}")
+print(f"Punya Arsitektur : {sum(1 for r in rows if arsi_v(r[0]) is not None)}")
 print(f"Ditulis: {out_main}")
 print(f"Ditulis: {out_detail}")
