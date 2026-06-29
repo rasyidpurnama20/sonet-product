@@ -16,6 +16,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 F1 = os.path.join(BASE, "Pengenalan Pola A-Classification Task (Intermediate)-grades.csv")
 F2 = os.path.join(BASE, "Pengenalan Pola A-Evaluation Metric Quiz-responses.csv")
 F3 = os.path.join(BASE, "Pengenalan Pola A-Manual Classification Task (Beginner)-grades.csv")
+F4 = os.path.join(BASE, "nilai-proyek-keaktifan-raw.csv")  # ekspor Google Sheets
 
 def read_rows(path):
     with open(path, encoding="utf-8-sig") as f:
@@ -110,13 +111,43 @@ f1_best = highest_grades(F1)
 f3_best = highest_grades(F3)
 quiz = grade_quiz(F2)
 
+# ---------- File 4: Nilai Proyek (max menjelaskan/menerapkan/modifikasi + keaktifan) ----------
+def to_int(s):
+    s = (s or "").strip()
+    if s in ("", "-"):
+        return 0
+    try:
+        return int(float(s.replace(",", ".")))
+    except ValueError:
+        return 0
+
+def read_proyek(path):
+    rows = read_rows(path)
+    res = {}  # nim -> (name, nilai_proyek)
+    for r in rows[1:]:
+        if not r or not r[0].strip().isdigit():
+            continue
+        nim = r[0].strip()
+        name = r[1].strip()
+        menjelaskan = to_int(r[4]) if len(r) > 4 else 0
+        menerapkan = to_int(r[5]) if len(r) > 5 else 0
+        modifikasi = to_int(r[6]) if len(r) > 6 else 0
+        keaktifan = to_int(r[7]) if len(r) > 7 else 0
+        nilai = max(menjelaskan, menerapkan, modifikasi) + keaktifan
+        res[nim] = (name, nilai)
+    return res
+
+proyek = read_proyek(F4)
+
 # ---------- gabung berdasar NIM ----------
-all_nims = set(f1_best) | set(quiz) | set(f3_best)
+all_nims = set(f1_best) | set(quiz) | set(f3_best) | set(proyek)
 
 def name_for(nim):
     for src in (quiz, f1_best, f3_best):
         if nim in src:
             return src[nim][0]
+    if nim in proyek:                      # hanya ada di sheet proyek -> title-case
+        return proyek[nim][0].title()
     return ""
 
 rows_out = []
@@ -125,12 +156,16 @@ for nim in all_nims:
     n1 = f1_best.get(nim, (None, None))[1]
     n2 = quiz.get(nim, (None, None))[1]
     n3 = f3_best.get(nim, (None, None))[1]
-    rows_out.append((nim, name, n1, n2, n3))
+    n4 = proyek.get(nim, (None, None))[1]
+    rows_out.append((nim, name, n1, n2, n3, n4))
 
 rows_out.sort(key=lambda x: x[1].lower())
 
 def fmt(v):
     return "" if v is None else f"{v:.2f}"
+
+def fmt_int(v):
+    return "" if v is None else f"{v:g}"
 
 out_csv = os.path.join(BASE, "penilaian-pola-2026.csv")
 with open(out_csv, "w", encoding="utf-8-sig", newline="") as f:
@@ -138,9 +173,10 @@ with open(out_csv, "w", encoding="utf-8-sig", newline="") as f:
     w.writerow(["NIM", "Nama",
                 "Classification Task (Intermediate)",
                 "Evaluation Metric Quiz",
-                "Manual Classification Task (Beginner)"])
-    for nim, name, n1, n2, n3 in rows_out:
-        w.writerow([nim, name, fmt(n1), fmt(n2), fmt(n3)])
+                "Manual Classification Task (Beginner)",
+                "Proyek (Presentasi + Keaktifan)"])
+    for nim, name, n1, n2, n3, n4 in rows_out:
+        w.writerow([nim, name, fmt(n1), fmt(n2), fmt(n3), fmt_int(n4)])
 
 # ---------- verifikasi sampel ----------
 print("=== Verifikasi sampel file 2 (NIM -> acc, f1micro, f1macro, f1weighted) ===")
@@ -151,3 +187,9 @@ for nim in ["24060123140151", "24060123130112", "24060123120002"]:
         print(f"   jawaban={resp} marks={marks} -> nilai {grade}")
 print(f"\nTotal mahasiswa: {len(rows_out)}")
 print(f"File ditulis: {out_csv}")
+
+print("\n=== Sampel kolom Proyek (max menjelaskan/menerapkan/modifikasi + keaktifan) ===")
+for nim in ["24060123130073", "24060123130100", "24060123130107", "24060123140197"]:
+    if nim in proyek:
+        nm, nv = proyek[nim]
+        print(f"{nim} {nm}: nilai proyek = {nv}")
