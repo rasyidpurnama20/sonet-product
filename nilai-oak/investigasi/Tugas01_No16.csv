@@ -1,0 +1,971 @@
+﻿Nama,NIM,soal,jawaban,ekspektasi jawaban,evaluasi kesalahan/feedback,skor
+ADAM ARDHINATA PAMUNGKAS,"=""24060125140168""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2_""""""
+Diketahui:
+Clock speed 		= 40 MHz	 = 40 × 10^6 Hz
+Total instruksi	 	= 100.000
+Total clock cycle 	= 45.000 + 64.000 + 30.000 + 16.000
+Total clock cycle	= 155.000 siklus
+Integer ArithmeticData TransferFloating PointControl Transfer45.000 x 1 = 45.000 Siklus32.000 x 2 = 64.000 Siklus15.000 x 2 = 30.000 Siklus8.000 x 2 = 16.000 Siklus
+1. Effective CPI
+CPI 	= Total cycle / Total instruksi
+CPI 	= 155.000 / 100.000
+CPI 	= 1,55
+
+2. MIPS Rate
+MIPS	 = Clock rate / (CPI × 10^6)
+MIPS 	= 40 / 1,55
+MIPS 	˜ 25,8 MIPS
+
+3. Execution Time
+Execution time 	= Total cycle / Clock rate
+Execution time 	= 155.000 / (40 × 10^6)
+Execution time 	= 0,003875 detik
+Execution time 	= 3,875 ms
+Jadi,
+Effective CPI 		= 1,55
+MIPS 			˜ 25,8 MIPS
+Execution time 	˜ 3,875 ms""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Adjie Akbar Paizal,"=""24060125120019""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_””” 1. Menghitung CPI rata-rata dengan rumus : 
+       	-  Hitung total clock cycle : 45,000 x 1 + 32,000 x 2 + 15,000 x 2 + 8,000 x 2 
+	    = 45,000 + 64,000 + 30,000 + 16,000 = 155,000 cycles
+- Hitung CPI = 155,000 / 100,000 ( Itotal) = 1,55
+2. Hitung Execution time dengan rumus : 
+- Clock rate = 40 MHz = 40 x 106 Hz
+- T = 155,000 / (40 X 106) 
+              T = 0,003875 detik atau 3,875 ms
+	3. Hitung MIPS dengan rumus : 
+	- MIPS = 40 x 106 / (1,55 x 106 )
+	   MIPS = 40 / 1,55 ? 25, 8. ”””",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+AGITHA SELY JEFAYONA BANGUN,"=""24060125140212""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_ """""" Total: Instruction Count x Cycles per Instruction
+	Integer Arithmetic: 45,000 x 1 = 45,000
+	Data Transfer: 32,000 x 2 = 64,000
+	Floating Point: 15,000 x 2 = 30,000
+	Control transfer: 8000 x 2 = 16,000
+	Total Cycle : 45,000 + 64,000 + 30,000 + 16,000 = 155,000 cycle
+ 
+CPI : Total cycle / Total instruction
+155,000/100,000 = 1,55
+
+MIPS Rate: f/CPI x 10^6
+1 MHz = 1.000.000 Hz
+f: 40 MHz = 40 x 10^6
+MIPS : 40 x 10^6 / 1,55 x 10^6
+           : 40 / 1,55
+           :  25,8 MIPS
+
+Execution Time: ( total instruction x CPI) / clock rate (1 detik = 1000 milidetik (ms))
+                          : 155,000 / 40 x 10^6
+                          : 0,00388 
+                          : 3,88 ms""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Ananda Bagus Tri Utomo,"=""24060122130091""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""Diketahui: Total Instruksi = 100.000. Clock Rate = 40 MHz.
+Rincian Cycle: (45.000x1) + (32.000x2) + (15.000x2) + (8.000x2) = 155.000 cycles.
+Jawaban:
+1. Effective CPI = 155.000 / 100.000 = 1,55.
+2. MIPS Rate = 40.000.000 / (1,55 x 1.000.000) = 25,806 MIPS.
+3. Execution Time = 155.000 / 40.000.000 = 0,003875 detik.""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Aufaadhani Agista Raihaana,"=""24060125120007""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_""""""Effective CPI = Total Cycles / Total Instructions
+Total Cycles:
+45000 x 1 = 45000
+32000 x 2 = 64000
+15000 x 2 = 30000
+8000  x 2 = 16000
+Total instructions = 100000 instructions
+Total cycles       = 155000 cycles
+Effective CPI = 155000 / 100000 = 1.55
+
+MIPS Rate = Clock Rate / CPIx1000000
+CLock rate = 40 Mhz = 40 x 1000000 Hz
+CPI + 1.55
+Mips rate = 40 x 1000000 / 1.55 x 1000000
+Mips rate = 40 / 1.55
+Mips rate = 25.806 Mips
+
+Execution time = T = Total cycles / clock rate
+T = 155000 / 40 x 1000000
+T = 0.003875 detik
+T = 3.875 ms """"""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Aulya Salsabila Khairunnisa,"=""24060122140163""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Data yang diberikan:
+- Clock frequency: 40 MHz
+- Total instruction executions: 100,000
+
+Instruction Type   = Count  | CPI
+Integer arithmetic = 45,000 | 1
+Data transfer      = 32,000 | 2 
+Floating point     = 15,000 | 2 
+Control transfer   = 8,000  | 2 
+
+Perhitungan:
+
+Effective CPI:
+CPI = [(45,000 × 1) + (32,000 × 2) + (15,000 × 2) + (8,000 × 2)] / 100,000
+CPI = [45,000 + 64,000 + 30,000 + 16,000] / 100,000
+CPI = 155,000 / 100,000 = 1.55
+
+MIPS rate:
+f = 40 MHz 
+f = 40 × 10⁶ Hz
+MIPS rate = f / (CPI × 10⁶) 
+MIPS rate = 40 / 1.55 
+MIPS rate = 25.81 MIPS
+
+Execution time:
+T = Ic × CPI × τ
+τ = 1/f 
+τ = 1/(40 × 10⁶) 
+τ = 25 × 10⁻⁹ seconds
+T = 100,000 × 1.55 × (25 × 10⁻⁹)
+T = 3.875 × 10⁻³ seconds 
+T = 3.875 ms
+
+2.1_""""""Effective CPI = 1.55, MIPS rate = 25.81 MIPS, Execution time = 3.875 milliseconds""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Azqya Sadidatun Nisa,"=""24060125120040""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","""""""
+Diketahui : 
+clock rate prosesor : 40 MHz = 40 × 10^6 cycles/detik
+Total instruksi : 100.000
+
+Jumlah Instruksi	Jumlah 	CPI
+Integer arithmetic	45.000	1
+Data Transfer		32.000	2
+Floating point		15.000	2
+Control transfer	8.000	2
+
+
+Hitung total clock cycles
+total cycle = jumlah instruksi x CPI
+
+Integer: 45.000 × 1 = 45.000
+Data transfer: 32.000 × 2 = 64.000
+Floating point: 15.000 × 2 = 30.000
+Control: 8.000 × 2 = 16.000
+
+total cycle = 45.000 + 64.000 + 30.000 + 16.000
+total cycle = 155.000
+
+Hitung effective CPI 
+	CPI = total cycle / total instruction 
+cari rata-rata setiap instruksi butuh berapa cycle
+CPI = 155.000/100.000 
+Effective CPI= 1,55
+
+Menghitung MIPS rate 
+MIPS = Million Instructions Per Second
+	MIPS = clock rate / CPI x 10^6
+MIPS = 40 x 10^6 / 1.55 x 10^6
+MIPS = 25,8
+
+Menghitung execution time 
+menghitung total waktu program berjalan 
+	Execution time = total cycle / clock rate
+Execution time = 155.00 / 40 x 10^6
+Execution time = 0,003875 detik
+atau 3,88 ms
+""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Bagas Nur Ardianto,"=""24060123140063""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Diketahui:
+Clock rate processor : 40 MHz
+Total instruksi : 100.000
+Detail instruksi:
+| Instruction Type | Instruction Count | Cycles per Instruction |
+| :--- | :---: | :---: |
+| Integer arithmetic | 45,000 | 1 |
+| Data transfer | 32,000 | 2 |
+| Floating point | 15,000 | 2 |
+| Control transfer | 8,000 | 2 |
+
+Cycles Per Instruction (CPI):
+CPI = Total Cycles / Total Instructions
+Total Cycles = (45.000 X 1) + (32.000 X 2) + (15.000 X 2) + (8.000 X 2) = 155.000
+-> CPI = 155.000 / 100.000 = 1,55
+
+MIPS Rate:
+MIPS = Clock Rate (Hz) / (CPI X 10^6)
+-> MIPS = (40 X 10^6) / (1,55 X 10^6) = 25,81
+
+Execution Time:
+Execution Time = Total Cycles / Clock Rate (Hz)
+-> Execution Time = 155.000 / (40 X 10^6) = 0,003875 detik =  3,875 ms",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Cindy Claudia Sihotang,"=""24060125120049""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1 A benchmark program is run on a 40 MHz processor. The executed program consists of 100,000 instruction executions, with the following instruction mix and clock cycle count :
+
+Instruction Type	Instruction Count	Cycles per Instruction
+Integer arithmetic	45,000	                      1
+Data Transfer	        32,000	                      2
+floating point	        15,000	                      2
+Control transfer	8000	                      2
+
+Determine the effective CPI, MIPS rate, and execution time for this program
+
+Diketahui:
+Processor Frequency (f): 40 MHz = 40 * 10^6 Hz
+Total Instruction Executions (Ic): 100,000
+Instruction Mix & Cycles :
+Integer arithmetic: I1 = 45,000, CPI_1 = 1
+Data transfer:I2 = 32,000, CPI_2 = 2
+Floating point: I3 = 15,000, CPI_3 = 2
+Control transfer: I4 = 8,000, CPI_4 = 2
+
+
+1. Determine the Effective CPI (Cycles Per Instruction)
+Total Clock Cycles
+= (45,000* 1) + (32,000 * 2) + (15,000 * 2) + (8,000 * 2)                         
+= 45,000 + 64,000 + 30,000 + 16,000 = 155,000 cycles
+Effective CPI 
+= 155,000 / 100,000
+= 1.55
+
+2. Determine the MIPS Rate
+Formula: MIPS rate = f / CPI * 10^6
+MIPS rate
+= 40 * 10^6 / 1.55 * 10^6 
+= 40 / 1.55 
+= 25.81
+
+3. Determine the Execution Time (T)
+Formula: T = Ic * CPI * T (T = 1/f) 
+T = 100,000 * 1.55 * 1 / 40 * 10^6
+T = 155,000 * 0.000000025
+Execution Time = 0.003875 seconds (or 3.875 ms)
+
+Summary of Results:
+Effective CPI: 1.55
+MIPS Rate: 25.81
+Execution Time: 0.003875 s",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Cipta Fikri Wiratama,"=""24060123140172""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""1. Effective CPI (Cycles Per Instruction):
+Pertama, hitung total siklus memori (Total Cycles) dari seluruh instruksi:
+Total Cycles = (45.000 * 1) + (32.000 * 2) + (15.000 * 2) + (8.000 * 2)
+Total Cycles = 45.000 + 64.000 + 30.000 + 16.000 = 155.000 cycles 
+
+Effective CPI = Total Cycles / Total Instruction Count
+Effective CPI = 155.000 / 100.000
+Effective CPI = 1.55
+
+2. MIPS rate (Millions of Instructions Per Second):
+Diketahui Clock Rate (f) = 40 MHz  = 40  * 10^6 Hz 
+MIPS = f / (CPI * 10^6)
+MIPS = (40  * 10^6) / (1.55 * 10^6)
+MIPS = 40 / 1.55
+MIPS rate = 25.81 MIPS ( kurang lebih )
+
+3. Execution time:
+Execution time (T) = Total Cycles / Clock rate
+Execution time = 155.000 / (40  * 10^6)
+Execution time = 0.003875 detik 
+Execution time = 3.875 ms (milidetik)""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+DIMAS ANGGA SAPUTRA,"=""24060125140235""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""Frekuensi Clock (f): 40 MHz = 40 x 10^6 Hz
+Jumlah Instruksi Total (Ic): 100.000 instruksi
+
+
+Total Siklus Jam :
+45.000 x 1 = 45.000 
+32.000 x 2 = 64.000
+15.000 x 2 = 30.000
+8.000  x 2 = 16.000
+
+Total Siklus = 45.000 + 64.000 + 30.000 + 16.000 = 155.000 siklus
+
+CPI = 155.000/100.000 = 1,55
+
+MIPS = 40 x 10^6 / 1,55 x 10^6
+     = 40/1,55
+     = 25,806
+
+T = Ic x CPI/f
+  = (100.000 x 1,55) / (40 x 10^6)
+  = 155.000/40.000.000
+  = 0,003875 detik
+  = 3,875 ms""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+FACHRILLAH FAUZANUDDIN,"=""24060125140167""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""Diketahui :
+       f = 40 MHz (40 x 1.000.000 cycles per sec)
+       Instruksi total = 100.000
+      
+       Ditanya : CPI average, MIPS, Execution time
+
+       Jawab : 
+       a) CPI avg : Total Cycles / Total instructions
+          Integer Arithmetic: 45,000 x 1 = 45,000 cycles
+          Data Transfer: 32,000 x 2 = 64,000 cycles
+          Floating Point: 15,000 x 2 = 30,000 cycles
+          Control Transfer: 8,000 x 2 = 16,000 cycles
+          
+          45,000 + 64,000 + 30,000 + 16,000 = 155,000 cycles
+          CPI avg : 155,000/100,000 = 1,55
+       
+       b) MIPS : f / (CPI avg x 1,000,000)
+               : 40 x 1,000,000 / (1,55 x 1,000,000) = 25.8 MIPS
+
+       c) T : Total cycles / f 
+            : 155,000 / (40 x 1,000,000) = 0.003875 s = 3.875 ms
+
+       Jawaban : 1) Effective CPI : 1.55
+                 2) MIPS Rate : 25.8
+                 3) Execution time : 0.003875 s (3.875 ms)""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Fatimah Azzakiyah,"=""24060125120010""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""	Diket.	Frekuensi clock (f) = 40 MHz = 40*(10^6) Hz
+		Total instruksi (I-c) = 100.000
+		Integer arithmatic:
+			I-i = 45.000 ; CPI-i = 1	
+		Data transfer:
+			I-i = 32.000 ; CPI-i = 2
+		Floating point:
+ 			I-i = 15.000 ; CPI-i = 2
+		Control transfer:
+ 			I-i = 8.000 ; CPI-i = 2
+
+	Dicari. CPI efektif?
+	Jawab. 	CPI = Total (CPI-i*I-i) / (I-c)
+		CPI = ((45.000*1) + (32.000*2) + (15.000*2) + (8.000*2)) / 100.000
+		CPI = (45.000 + 64.000 + 30.000 + 16.000) / 100.000
+		CPI = 155.000 / 100.000
+		CPI = 1,55
+
+	Dicari. MIPS rate?
+	Jawab.	MIPS = f / CPI*(10)^6
+		MIPS = 40*(10^6) / 1,55*(10^6)
+		MIPS = 25,806...
+		MIPS = 25,81 (dibulatkan)
+
+	Dicari. Excecution time (processor time [T])?
+	Jawab.	Cycle time (t) = 1/f = 1/40*(10^6)
+		T = I-c * CPI * t
+		T = 100.000 * 1,55 * 1/40*(10^6)
+		T = 0,1*(10^6) * 1,55 * 1/40*(10^6)
+		T = 0,155 * 0,025 
+		T = 0,003875
+		T = 3,875*10^(-3) detik""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+FRISKA AMALIA PUTRI,"=""24060125140127""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""Tujuannya adalah menghitung tiga hal: Effective CPI (CPI Rata-rata), MIPS rate, dan Execution time (Waktu Eksekusi).
+       - Data yang diketahui dari soal:
+         f = 40 MHz (40 x 1.000.000 cycles per sec)
+         Instruksi total = 100.000
+
+       - Ditanya : CPI average, MIPS, Execution time
+
+       - Jawaban : 
+         a) CPI avg : Total Cycles / Total instructions
+          Integer Arithmetic: 45,000 x 1 = 45,000 cycles
+          Data Transfer: 32,000 x 2 = 64,000 cycles
+          Floating Point: 15,000 x 2 = 30,000 cycles
+          Control Transfer: 8,000 x 2 = 16,000 cycles
+          
+          45,000 + 64,000 + 30,000 + 16,000 = 155,000 cycles
+          CPI avg : 155,000/100,000 = 1,55
+       
+        b) MIPS : f / (CPI avg x 1,000,000)
+               : 40 x 1,000,000 / (1,55 x 1,000,000) = 25.8 MIPS
+
+        c) T : Total cycles / f 
+            : 155,000 / (40 x 1,000,000) = 0.003875 s = 3.875 ms
+
+        Jawaban : 1) Effective CPI : 1.55
+                  2) MIPS Rate : 25.8
+                  3) Execution time : 0.003875 s (3.875 ms)""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Gamma Abdillah Muqorrobin,"=""24060125130113""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1. _""""""Effective CPI = total cycles/total instruction.
+total cycles = (45.000 x1) + (32.000 x 2) + (15.000 x 2) + (8.000 x 2) = 155.000 cycles
+total instruction= 45.000 + 32.000 + 15.000 + 8.000 = 100.000
+Effective CPI = 155.000 / 100.000 = 1,55
+MIPS Rate = clock rate / CPI x 106
+clock rate = 40 MHz = 40 x 106
+MIPS = 40 x 106/ 1,55 x 106 = 40/1,55
+Execution time= Total cycles / clock rate = 155.000 / 40 x 106 = 3,875 ms""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sebagian benar. Sudah ada: total cycle 155000; effective CPI 1.55; execution time 0.003875 s atau 3.875 ms. Kurang/salah: MIPS sekitar 25.8.,0.5
+HAFIZH ARRASYID,"=""24060125140225""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Clock frequency: 40 MHz = 40 * 10^6 Hz
+Cycle time: 1 / f = 1 / 40,0000,000 = 0.000000025 
+Total Instruction: 100,000
+Integer arithmetic: 45,000 * 1 = 45,000 cycles
+Data transfer: 32,000 * 2 = 64,000 cycles
+Floating point: 15,000 * 2 = 30,000 cycles
+Control transfer: 8,000 * 2 = 16,000 cycles
+Total Cycles = 45,000 + 64,000 + 30,000 + 16,000 = 155,000
+
+1_""CPI= Total Cycles / Total Instructions
+155,000 / 100,000 = 1.55""
+
+2_""MIPS rate= f / CPI * 10^6
+40,000,000 / 1.55 * 10,000,000 = 25.81""
+
+3_""Execution Time= Total Instructions * CPI * cycle time
+100,000 * 1.55 * 0.000000025 = 0.003875 seconds""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+HILMI LAUDZA AT HALLAH,"=""24060125130119""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""CPI efektif -> Total clock cycles/Total instruction = ((45.000 × 1) + (32.000 × 2) + (15.000 × 2) + (8.000 × 2))/100.000 = 155.000/100.000 = 1,55. MIPS -> clock rate/(CPI × 1.000.000) = (40 × 1.000.000)/(1,55 × 1.000.000) = 40/1,55 = 25,8. Waktu eksekusi -> Total clock cycles/clock rate = 155.000/(40 × 1.000.000) = 0,003875 = 3,875 ms.""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Hosianna A Simangunsong,"=""24060125120026""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Dik :   speed = 40 MHz = 40×106Hz
+Total instruksi = 100.000
+Tipe
+Jumlah
+CPI
+Integer
+45.000
+1
+Data transfer
+32.000
+2
+Floating point
+15.000
+2
+Control
+8.000
+2
+
+Jawaban :
+Clock Cycles
+Total cycles=∑(Ii×CPIi) 
+=45,000(1)+32,000(2)+15,000(2)+8,000(2)
+=45,000+64,000+30,000+16,000=155,000 cycles
+
+Effective CPI :     CPIavg=Total cyclesTotal instructions=155,000100,000=1.55
+
+
+ Execution Time :      T=Total cyclesClock rate=155,00040×106=0.003875 s
+       T=3.875 ms
+
+ MIPS Rate  :      MIPS=Clock (MHz)CPI  =401.55=25.8 MIPS",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Ibnu Farrel Athaillah Firdaus,"=""24060125120022""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Perhitungan Effective CPI
+-------------------------------
+Rumus: CPI = [ Sigma (CPI_i * I_i) ] / I_c
+
+Total Siklus = (1 * 45.000) + (2 * 32.000) + (2 * 15.000) + (2 * 8.000)
+             = 45.000 + 64.000 + 30.000 + 16.000
+             = 155.000 siklus
+
+Effective CPI = 155.000 / 100.000
+              = 1,55
+
+
+Perhitungan MIPS Rate
+---------------------------
+Rumus: MIPS = f / (CPI * 10^6)
+
+Diketahui f (clock speed) = 40 MHz = 40.000.000 Hz
+
+MIPS = 40.000.000 / (1,55 * 1.000.000)
+     = 40 / 1,55
+     = 25,81 MIPS
+
+
+Perhitungan Execution Time (T)
+------------------------------------
+Rumus: T = (I_c * CPI) / f
+
+T = (100.000 * 1,55) / 40.000.000
+  = 155.000 / 40.000.000
+  = 0,003875 detik
+
+Hasil akhir:
+T = 3,875 ms (milidetik)",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Ibrahim Naufaltsaqif Handoko,"=""24060125120042""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","- - - - -
+1_""""""	CPI
+Diketahui:
+a)	Clock frequency (f) = 40 MHz = 40 x 10^6 Hz
+b)	Total instruction executions = 100,000 instruksi
+
+Data instruksi:
+a)	Integer arithmetic: 45,000 instruksi, CPI = 1
+b)	Data transfer: 32,000 instruksi, CPI = 2
+c)	Floating point: 15,000 instruksi, CPI = 2
+d)	Control transfer: 8,000 instruksi, CPI = 2
+
+Rumus: CPI = Sigma (CPIi x Ii) / Ic
+
+Langkah penyelesaian:
+a)	Integer arithmetic: 1 x 45,000 = 45,000
+b)	Data transfer: 2 x 32,000 = 64,000
+c)	Floating point: 2 x 15,000 = 30,000
+d)	Control transfer: 2 x 8,000 = 16,000
+
+Total cycles = 45,000 + 64,000 + 30,000 + 16,000 = 155,000 cycles
+CPI efektif = 155,000 / 100,000 = 1.55 cycles/instruksi.""""""
+
+2_""""""	MIPS
+Diketahui:
+a)	f = 40 MHz = 40 x 10^6 Hz
+b)	CPI = 1.55
+
+Rumus: MIPS rate = f / (CPI x 10^6)
+
+Penyelsaian: 
+
+MIPS rate = (40 x 10^6) / (1.55 x 10^6) 
+MIPS rate = 40 / 1.55 MIPS rate = 25.81 MIPS
+Jadi prosesor ini dapat mengeksekusi sekitar 25.81 juta instruksi per detik.""""""
+
+3_""""""	Execution Time
+Rumus: T = Ic x CPI x t
+
+a.	t = 1/f
+b.	T = Processor Time (waktu eksekusi program)
+c.	Ic = Instruction Count = 100,000 instruksi
+d.	CPI = Cycles Per Instruction = 1.55
+e.	f = clock frequency = 40 x 10^6 Hz
+
+Penyelesaiannya:
+
+Pertama, hitung t: 
+
+t  = 1/f 
+t = 1 / (40 x 10^6) 
+
+Kemudian, hitung T: 
+
+T = Ic x CPI x t 
+T = 100,000 x 1.55 x (1 / 40 x 10^6) 
+T = 100,000 x 1.55 / (40 x 10^6) 
+T = 155,000 / 40,000,000 
+T = 0.003875 detik 
+T = 3.875 milidetik""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Johansen Beltsazar Siahaan,"=""24060125130085""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Clock: 40 MHz = 40*10⁶Hz
+	Instruction executions: 100000
+					Instruction Count | Cycles per Instruction
+		Integer arithmatic		45000 	  	1
+		Data transfer			32000	  	2
+		Floating point			15000	  	2
+		Control transfer		8000	  	2
+===========================tasks===================================
+	effective CPI:
+		Integer arithmatic	: (45000*1)/100000 = 0.45
+		Data transfer		: (32000*2)/100000 = 0.64
+		Floating point		: (15000*2)/100000 = 0.3
+		Control transfer	: (8000*2)/100000  = 0.16
+
+		CPI = 0.45 + 0.64 + 0.3 + 0.16 
+		CPi = 1.55
+
+	MIPS: 
+		40*10⁶Hz/(1.55*10⁶) = 25.8 MIPS
+
+	Execution Time: 
+		155000/40*10⁶Hz = 0.003875",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Justin Christian Lumbantobing,"=""24060125130101""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Frekuensi Clock (f)     : 40 MHz (40.000.000 Hz) a 
+Total Instruksi (Ic)    : 100.000 instruksi 
+
+Rincian Campuran Instruksi:
+1. Integer arithmetic   : 45.000 instruksi | CPI: 1 
+2. Data transfer        : 32.000 instruksi | CPI: 2 
+3. Floating point       : 15.000 instruksi | CPI: 2 
+4. Control transfer     :  8.000 instruksi | CPI: 2 
+
+B. PERHITUNGAN
+   Total Cycles = (45.000 * 1) + (32.000 * 2) + (15.000 * 2) + (8.000 * 2
+   Total Cycles = 45.000 + 64.000 + 30.000 + 16.000
+   Total Cycles = 155.000 siklus
+
+1_Menghitung Effective CPI:
+   Rumus: CPI = Total Cycles / Total Instruksi
+   CPI = 155.000 / 100.000
+   CPI = 1,55
+
+2_Mnghitung MIPS :
+   Rumus: MIPS = f / (CPI * 10^6) 
+   MIPS = 40.000.000 / (1,55 * 1.000.000)
+   MIPS = 40 / 1,55
+   MIPS = 25,806- (dibulatkan menjadi 25,81)
+
+3_Mnghitung Execution Time (T):
+   Rumus: T = Total Cycles / f
+   T = 155.000 / 40.000.000
+   T = 0,003875 detik",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+LAILI ANGGITA NASOKA,"=""24060125140215""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Diketahui:
+Clock rate = 40 MHz = 40 * 10^6 Hz
+Total instruksi = 100.000
+
+Total cycle = 45.000 + 30.000 + 16.000 + 155.000 cycles
+
+CPI = total cycles / total instructions
+CPI = 155.000 / 100.000 = 1,55
+Effective CPI = 1,55
+
+MIPS = Clock rate / CPI * 10^6
+MIPS = 40 * 10^6 / 1,55 * 10^6
+MIPS = 40 / 1,55 = 25,8 
+
+Execution time = Total cycles / clock rate
+Execution time = 155.000 / 40 * 10^6 
+Execution time = 3,875 * 10^-3 detik",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sebagian benar. Sudah ada: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8. Kurang/salah: execution time 0.003875 s atau 3.875 ms.,0.5
+M. RAIHAN NAJMUDDIN FAWWAZ,"=""24060125140244""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""Diketahui:
+​Kecepatan Prosesor (f): 40 MHz
+​Total eksekusi instruksi (Ic): 100.000
+Rumus: CPI = Σ (CPIi × Ii) / Ic
+
+Jawab:
+​Integer arithmetic: 1 × 45.000 = 45.000
+​Data transfer: 2 × 32.000 = 64.000
+​Floating point: 2 × 15.000 = 30.000
+​Control transfer: 2 × 8.000 = 16.000
+​Total Siklus Clock: 45.000 + 64.000 + 30.000 + 16.000 = 155.000
+​Effective CPI: 155.000 / 100.000 = 1,55
+
+​- Menghitung MIPS Rate
+Rumus: MIPS rate = f / (CPI × 10^6)
+​MIPS rate = 40.000.000 / (1,55 × 1.000.000)
+​MIPS Rate: 40 / 1,55 = 25,81
+
+​- Menghitung Execution Time (T)
+Rumus: T = (Ic × CPI) / f
+​T = (100.000 × 1,55) / 40.000.000
+​T = 155.000 / 40.000.000
+​Execution Time (T): 0,003875 detik (atau 3,875 ms)""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Mikail Farras Fairuzzabad,"=""24060125130072""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Effective CPI:
+CPI  = (45000 / 100000) + (2 * (32000 / 100000)) + (2 * (15000 / 100000)) + (2 * (8000 / 100000))
+		= 0.45 + 0.64 + 0.3 + 0.16
+		= 1.55
+		
+MIPS Rate:
+MIPS  = (40 * 10^6) / (1.55 * 10^6)
+			≈ 26
+
+Processor Time / Execution Time:
+T = 100000 * 1.55 * (1 / 40 * 10^6)
+	= 3.875 * 10^-3 s
+	= 0.003875 s",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sebagian benar. Sudah ada: effective CPI 1.55; execution time 0.003875 s atau 3.875 ms. Kurang/salah: total cycle 155000; MIPS sekitar 25.8.,0.5
+MOCHAMAD FARREL ABYANTARA,"=""24060125140161""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_""""""The CPI, MIPS, and Execution Time of that program:
+A) CPI = (45,000+(2*32,000)+(2*15,000)+(2*8,000))/100,000
+       = (45,000+64,000+30,000+16,000)/100,000
+       = 155,000/100,000
+   CPI = 1,55
+
+B) Execution Time = 100,000*1,55*1/40*10^6
+                  = 155,000/40,000,000
+   Execution Time = 0,003875
+
+C) MIPS = 100,000/0,003875*10^6
+        = 100,000/3,875
+        = 25,8064516129
+   MIPS = 25,807""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Muhamad Diar Madonny,"=""24060125130107""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""
+Clock frequency: 40 MHz = 40 * 10^6 Hz
+Cycle time: 1 / f = 1 / 40,0000,000 = 0.000000025 
+Total Instruction: 100,000
+Integer arithmetic: 45,000 * 1 = 45,000 cycles
+Data transfer: 32,000 * 2 = 64,000 cycles
+Floating point: 15,000 * 2 = 30,000 cycles
+Control transfer: 8,000 * 2 = 16,000 cycles
+Total Cycles = 45,000 + 64,000 + 30,000 + 16,000 = 155,000
+
+1_ CPI = Total Cycles / Total Instructions
+CPI = 155,000 / 100,000 = 1.55
+
+2_ MIPS rate = f / CPI * 10^6
+MIPS rate = 40,000,000 / 1.55 * 10^6 = 25.81
+
+3_ Execution Time = Total Instructions * CPI * cycle time
+Execution Time = 100,000 * 1.55 * 0.000000025 = 0.003875 seconds""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+MUHAMAD GEGESYAWA SENJAYA,"=""24060125140223""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.",,Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,"Jawaban kosong. Seharusnya menghitung CPI=1.55, MIPS sekitar 25.8, dan execution time 0.003875 s atau 3.875 ms.",0
+MUHAMMAD FAZA SALAM,"=""24060125140194""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_""""""Berdasarkan data operasional:
+
+Total Siklus = (45.000 * 1) + (32.000 * 2) + (15.000 * 2) + (8.000 * 2) = 155.000 siklus.
+
+CPI Efektif = Total Siklus / Total Instruksi = 155.000 / 100.000 = 1,55.""""""
+
+2_""""""MIPS Rate dihitung dengan rumus f / (CPI * 10^6):
+
+MIPS Rate = 40.000.000 / (1,55 * 1.000.000) = 25,81.""""""
+
+3_""""""Waktu Eksekusi dihitung dengan rumus Instruksi * CPI * Cycle Time:
+
+Waktu Eksekusi = 100.000 * 1,55 * 0,000000025 = 0,003875 detik.""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Muhammad Hanif,"=""24060125130083""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_"""""" Diketahui: 
+      Clock Rate = 40 MHz = 40 x 10^6 Hz
+Total instruksi = 100.000
+* Hitung Total Cycle
+Integer arithmetic --> 45.000 x 1 = 45.000
+Data transfer --> 32.000 x 2 = 64.000
+Floating point --> 15.000 x 2 = 30.000
+Control transfer --> 8.000 x 2 = 16.000
+Total cycle = 45.000 + 64.000 + 30.000 + 16.000 = 155.000
+* Hitung Cycles Per Instruction (CPI)
+CPI = Total Cycles / Total instruksi = 155.000 / 100.000 = 1,55
+* Hitung MIPS Rate
+MIPS = Clock Rate? / (CPI x 10^6) = (40 x 10^6) / (1,55 x 10^6) = 25,8
+* Hitung Execution Time
+Execution Time = Total Cycle / Clock Rate = 155.000 / (40 x 10^6) = 0,003875 s
+      CPI = 1,55 
+      MIPS Rate = 25,8 
+      Execution Time = 0,003875 s """"""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+MUHAMMAD NAWFAL PASHA IMANDRIKA,"=""24060125140151""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.",":
+
+Processor speed : 40 MHz
+Total instruction execution : 100.000 instruction
+
+integer aritmatic - 45.000 - 1
+Data transfer - 32.000 - 2
+Floating point - 15.000 - 2
+Control transfer - 8.000 - 2
+
+- Data transfer:
+32.000×2= 64.000
+
+- Floating point:
+15.000×2= 30.000
+
+- Control transfer:
+8.000×2= 16.000
+
+Total clock cycle:
+45.000 + 64.000 + 30.000 + 16.000 = 155.000 cycles
+
+
+Cycles Per Instruction : 155.000 / 100.000 = 1,55
+
+Execution Time : Total cycles / Clock Rate
+Clock rate = 40 MHz = 40x10^6Hz
+T= 155.000 / 40×10^6
+T= 3,875×10^−3
+T= 0,003875 detik
+
+MIPS Rate : Clock Rate / CPI x 10^6 
+
+MIPS : 40x10^6 / 1,55x10^6
+MIPS : 40 / 1,55
+MIPS : 25,81",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+MUHAMMAD RADHIN AGHFIAR,"=""24060125140155""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","Clock frequency: 40 MHz = 40 * 10^6 HzCycle time: 1 / f = 1 / 40,000,000 = 0.000000025Total Instruction: 100,000Integer arithmetic: 45,000 * 1 = 45,000 cyclesData transfer: 32,000 * 2 = 64,000 cyclesFloating point: 15,000 * 2 = 30,000 cyclesControl transfer: 8,000 * 2 = 16,000 cyclesTotal Cycles = 45,000 + 64,000 + 30,000 + 16,000 = 155,0001_""CPI = Total Cycles / Total Instructions155,000 / 100,000 = 1.55""2_""MIPS rate = f / CPI * 10^640,000,000 / 1.55 * 10,000,000 = 25.81""3_""Execution Time = Total Instructions * CPI * cycle time100,000 * 1.55 * 0.000000025 = 0.003875 seconds""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+MUHAMMAD RAVILINO PRASETYO,"=""24060125140213""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_""""""
+CPI efektif:
+CPI = (Σ (Ii × CPIi)) / Ic
+
+Total cycle:
+Arithmetic integer	: 45.000 × 1 = 45.000
+Data transfer		: 32.000 × 2 = 64.000
+Floating point		: 15.000 × 2 = 30.000
+Control transfer	: 8.000 × 2  = 16.000
+Total cycle 	= 5.000 + 64.000 + 30.000 + 16.000 = 155.000
+Total instruksi = 45.000 + 32.000 + 15.000 + 8.000 = 100.000
+CPI efektif 	= 155.000 / 100.000 = 1,55
+
+MIPS rate:
+MIPS = f / (CPI × 10^6)
+Note: MHz adalah Mega Hertz, mega = 10^6
+
+MIPS = (40 x 10^6) / (1,55 x 10^6) ≈ 25,8
+
+Execution time:
+T = Ic x CPI x τ = (Ic x CPI) / f
+  = (100.000 x 1,55) / (40 x 10^6) = 155.000 / (40 x 10^6) = 0,003875 detik atau 3,875 ms""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+MUHAMMAD ROFIF ZUHDI,"=""24060125140231""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","--
+
+1_""""""CPI
+-Diket:
+a)Clock frequency (f) = 40 MHz = 40 x 10^6 Hz
+b)Total instruction executions = 100,000 instruksi
+
+-Data instruksi:
+a)Integer arithmetic: 45,000 instruksi, CPI = 1
+b)Data transfer: 32,000 instruksi, CPI = 2
+c)Floating point: 15,000 instruksi, CPI = 2
+d)Control transfer: 8,000 instruksi, CPI = 2
+
+-Rumus: CPI = Sigma (CPIi x Ii) / Ic
+
+-penyelesaian:
+a)Integer arithmetic: 1 x 45,000 = 45,000
+b)Data transfer: 2 x 32,000 = 64,000
+c)Floating point: 2 x 15,000 = 30,000
+d)Control transfer: 2 x 8,000 = 16,000
+
+Total cycles = 45,000 + 64,000 + 30,000 + 16,000 = 155,000 cycles
+CPI efektif = 155,000 / 100,000 = 1.55 cycles/instruksi.""""""
+
+2_""""""MIPS
+-Diket:
+a)f = 40 MHz = 40 x 10^6 Hz
+b)CPI = 1.55
+
+-Rumus: MIPS rate = f / (CPI x 10^6)
+
+-Penyelsaian: 
+MIPS rate = (40 x 10^6) / (1.55 x 10^6) 
+MIPS rate = 40 / 1.55 MIPS rate = 25.81 MIPS
+Jadi prosesor ini mengeksekusi sekitar 25.81 juta instruksi per detik.""""""
+
+3_""""""Execution Time
+
+-Rumus: T = Ic x CPI x t
+
+t = 1/f
+T = Processor Time (waktu eksekusi program)
+Ic = Instruction Count = 100,000 instruksi
+CPI = Cycles Per Instruction = 1.55
+f = clock frequency = 40 x 10^6 Hz
+
+-Penyelesaiannya:
+-hitung t: 
+
+t = 1/f 
+t = 1 / (40 x 10^6) 
+
+-hitung T: 
+T = Ic x CPI x t 
+T = 100,000 x 1.55 x (1 / 40 x 10^6) 
+T = 100,000 x 1.55 / (40 x 10^6) 
+T = 155,000 / 40,000,000 
+T = 0.003875 detik 
+T = 3.875 milidetik""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+MUHAMMAD ZIDAN ZEIN PURWADI,"=""24060125140178""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","A benchmark program is run on a 40 MHz processor. The executed program consists of 100,000 instruction executions, with the following instruction mix and clock cycle count:
+Instruction Type	Instruction Count	Cycles per Instruction
+Integer arithmetic	     45,000	                    1
+Data transfer	             32,000	                    2
+Floating point	             15,000	                    2
+Control transfer	               8000	                            2
+Determine the effective CPI, MIPS rate, and execution time for this program.
+ 
+
+Diketahui:
+Frekuensi (f) = 40 MHz = 40 × 10⁶ Hz
+Total instruksi (Ic) = 100.000
+Hitung total siklus clock:
+Integer arithmetic → 45.000 × 1 = 45.000
+Data transfer → 32.000 × 2 = 64.000
+Floating point → 15.000 × 2 = 30.000
+Control transfer → 8.000 × 2 = 16.000
+Total cycle = 45.000 + 64.000 + 30.000 + 16.000 = 155.000 cycle
+
+1.	Effective CPI
+CPI = Total cycle / Total instruksi
+CPI = 155.000 / 100.000 = 1,55
+
+2.	Execution Time (T)
+T = Total cycle / f
+T = 155.000 / (40 × 10⁶)
+T = 0,003875 detik = 3,875 ms
+
+3.	MIPS Rate
+MIPS = f / (CPI × 10⁶)
+MIPS = 40 × 10⁶ / (1,55 × 10⁶)
+MIPS = 25,8 MIPS
+
+Hasil akhir:
+Effective CPI = 1,55
+Execution time = 3,875 ms
+MIPS rate = 25,8 MIPS",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+Naila Ayu Farras Hanun,"=""24060125130086""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""Diketahui :
+       f = 40 MHz (40 x 1.000.000 cycles per sec)
+       Instruksi total = 100.000
+      
+       Ditanya : CPI average, MIPS, Execution time
+
+       Jawab : 
+       a) CPI avg : Total Cycles / Total instructions
+          Integer Arithmetic: 45,000 x 1 = 45,000 cycles
+          Data Transfer: 32,000 x 2 = 64,000 cycles
+          Floating Point: 15,000 x 2 = 30,000 cycles
+          Control Transfer: 8,000 x 2 = 16,000 cycles
+          
+          45,000 + 64,000 + 30,000 + 16,000 = 155,000 cycles
+          CPI avg : 155,000/100,000 = 1,55
+       
+       b) MIPS : f / (CPI avg x 1,000,000)
+               : 40 x 1,000,000 / (1,55 x 1,000,000) = 25.8 MIPS
+
+       c) T : Total cycles / f 
+            : 155,000 / (40 x 1,000,000) = 0.003875 s = 3.875 ms
+
+       Jawaban : 1) Effective CPI : 1.55
+                 2) MIPS Rate : 25.8
+                 3) Execution time : 0.003875 s (3.875 ms)""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+RAJENDRA NABIL HUTOMO,"=""24060125140122""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","_"""""" 
+
+MIPS rate= Ic/T x 10^6 = f/CPI x 10^6
+
+CPI= Total cycle/Total instruksi= 155000/100000= 1,55
+
+Waktu eksekusi= total cycle/clock rate = 155000/40 x 10^6 = 3,875 x 10^-3 = 0,003875 = 3875 ms
+
+MIPS= clock rate (MHz)/CPI = 40/1.55 = 25,8",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+REIHAN REMIGIA RIHI,"=""24060125130100""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_""""""CPI = ((45000 * 1) + (32000 * 2) + (15000 * 2) + (8000 * 2))/(45000 + 32000 + 15000 + 8000) = 1.55
+     MIPS = (40 * (10*10*10*10*10*10))/(1.55 * (10*10*10*10*10*10)) = 25.8
+     T = (45000 + 32000 + 15000 + 8000) * 1.55 * (1/(4 * (10*10*10*10*10*10))) = 0.03875 sekon""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sebagian benar. Sudah ada: effective CPI 1.55; MIPS sekitar 25.8. Kurang/salah: total cycle 155000; execution time 0.003875 s atau 3.875 ms.,0.5
+RIZQI RAMADHAN,"=""24060125140171""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_"""""" 
+
+Diketahui: 
+
+Ic = 100,000 
+
+CPIi  = 45,000 ; 32,000 ; 15,000 ; 8,000 
+
+Ii = 1 ; 2 ; 2 ; 2 
+
+Ditanya: CPI? 
+
+Jawab: 
+
+CPI= Σ(CPIi x Ii) / Ic = (45,000 x 1) + (32,000 x 2) + (15,000 x 2) x (8000 x 2) / 100,000 = 45,000 + 64,000 + 30,000 + 16,000 / 100,000 = 155,000 / 100,000 = 1.55""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sebagian benar. Sudah ada: total cycle 155000; effective CPI 1.55. Kurang/salah: MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,0.5
+Talita Elvina Putri Kusuma,"=""24060125120046""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","1_""""""
+a. CPI
+Diketahui:
+Ic = 100.000
+∑(Ii*CPIi) = 45.000*1 + 32.000*2 + 15.000*2 + 8.000*2 = 155.000
+
+Ditanyakan:
+CPI?
+
+Jawab:
+CPI = ∑(Ii*CPIi)/Ic 
+CPI = 155.000 / 100.000
+CPI = 1,55
+
+
+b. MIPS rate
+Diketahui:
+CPI = 1,55
+f = 40 MHz = 40*10^6
+
+Ditanyakan:
+MIPS rate?
+
+Jawab:
+MIPS = f / (CPI*10^6)
+MIPS = 40*10^6 / 1,55*10^6
+MIPS = 40 / 1,55
+MIPS = 25,8 
+
+
+c. Execution Time
+Diketahui:
+Ic = 100.000
+CPI = 1,55
+f = 40 MHz = 40*10^6
+
+Ditanyakan:
+Execution Time?
+
+Jawab:
+T = Ic * CPI * t
+T = Ic * CPI * 1/f
+T = (Ic * CPI) / f
+T = (100.000 * 1,55) / 40*10^6
+T = 155.000 / 40*10^6
+T = 0,003875 detik
+""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+TORIBIO DESMOND DONOVAN,"=""24060125140196""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","_
+""""""Total siklus clock= 155.000 siklus
+Effective CPI= total siklus/total instruksi =155.000/100.000=1,55
+Execution time= total siklus/clock rate = 155.000/40*10^6 = 0,003875 detik = 3,875 ms
+MIPS Rate= clock (MHz)/CPI = 40/1,55 = 25,8 MIPS""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+UMMU DIANA MAGHFIROH,"=""24060125140203""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""
+- Effective CPI
+Rumus CPI rata-rata:
+		CPI = (Σ (CP_i × I_i)) / I_c
+Total siklus:
+(45.000 × 1) + (32.000 × 2) + (15.000 × 2) + (8.000 × 2) = 155.000
+CPI = 155.000 / 100.000
+CPI = 1,55
+
+- MIPS Rate
+Rumus MIPS:
+		MIPS rate = f / (CPI x 10^6)
+Clock rate = 40 MHz = 40 × 10^6
+MIPS = (40 x 10^6) / (1,55 x 10^6)
+MIPS = 40 / 1,55
+MIPS ≈ 25,8
+
+- Execution Time
+Rumus:
+		T = Total Cycles / Clock Rate
+T = 155.000 / (40 x 10^6)
+T = 0,003875 detik
+T = 3,88 ms
+
+Jadi, 
+Effective CPI = 1,55
+MIPS rate ≈ 25,8 MIPS
+Execution time = 3,88 ms""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1
+VARES DYON TYAS KUSUMA,"=""24060125140183""","Hitung effective CPI, MIPS rate, dan execution time untuk benchmark 40 MHz.","2.1_""""""Berdasarkan tabel pada soal:
+- Total Instruksi (Ic) = 100.000
+- Total Siklus = (45.000 x 1) + (32.000 x 2) + (15.000 x 2) + (8.000 x 2) = 45.000 + 64.000 + 30.000 + 16.000 = 155.000 siklus.
+- Frekuensi Clock (f) = 40 MHz = 40.000.000 Hz.
+
+Perhitungan:
+1. Effective CPI = Total Siklus / Total Instruksi = 155.000 / 100.000 = 1,55
+2. Execution Time = Total Siklus / Frekuensi Clock = 155.000 / 40.000.000 = 0,003875 detik (atau 3,875 milidetik)
+3. MIPS Rate = Frekuensi Clock / (CPI x 1.000.000) = 40.000.000 / (1,55 x 1.000.000) = 40 / 1,55 = 25,806 MIPS""""""",Untuk benchmark 40 MHz dengan 100000 instruksi: total cycle = 45000*1 + 32000*2 + 15000*2 + 8000*2 = 155000 cycle. Effective CPI = 155000/100000 = 1.55. MIPS rate = 40/1.55 = sekitar 25.8 MIPS. Execution time = 155000/(40*10^6) = 0.003875 detik atau 3.875 ms.,Sesuai. Perhitungan mencakup: total cycle 155000; effective CPI 1.55; MIPS sekitar 25.8; execution time 0.003875 s atau 3.875 ms.,1

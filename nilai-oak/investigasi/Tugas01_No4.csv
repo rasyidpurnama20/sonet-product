@@ -1,0 +1,158 @@
+﻿Nama,NIM,soal,jawaban,ekspektasi jawaban,evaluasi kesalahan/feedback,skor
+ADAM ARDHINATA PAMUNGKAS,"=""24060125140168""",Apa struktur utama dari CPU,"Struktur utama CPU terdiri dari: (1) ALU (Arithmetic Logic Unit) untuk operasi aritmatika dan logika, (2) Control Unit (CU) untuk mengatur jalannya instruksi, (3) Register sebagai penyimpanan sementara berkecepatan tinggi, dan (4) CPU interconnection sebagai jalur komunikasi internal antar bagian CPU.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Adjie Akbar Paizal,"=""24060125120019""",Apa struktur utama dari CPU,"Struktur utama CPU ialah ALU ( Arithmetic Logic Unit ), CU ( Control Unit ), Register, dan CPU Interconnection","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+AGITHA SELY JEFAYONA BANGUN,"=""24060125140212""",Apa struktur utama dari CPU,"Muncul tantangan fisik dan teknis : Kepadatan transistor menyebabkan masalah seperti panas, konsumsi daya, dan keterbatasan fisika, yang kemudian mendorong:
+		o multicore processor
+		o parallel processing","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+Ananda Bagus Tri Utomo,"=""24060122130091""",Apa struktur utama dari CPU,CPU Interconnection.,"Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+Aufaadhani Agista Raihaana,"=""24060125120007""",Apa struktur utama dari CPU,"Struktur Utama CPU:
+A. ALU (Arithmetic Logic Unit) berfungsi melakukan operasi aritmatika dan logika
+B. CU (Control Unit) berfungsi mengambil instruksi, mengatur proses eksekusi dan mengoordinasikan komponen lain dalam CPU
+C. Register sebagai tempat penyimpanan data, alamat dan hasil penghitungan sementara
+D. CPU Interconnection sebagai penghubung antar komponen dalam CPU agar dapat saling berkomunikasi.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Aulya Salsabila Khairunnisa,"=""24060122140163""",Apa struktur utama dari CPU,"Struktur utama CPU terdiri dari: ALU (Arithmetic Logic Unit) untuk operasi aritmatika dan logika, Control Unit (CU) yang mengatur jalannya instruksi dan mengoordinasikan kerja komponen lain, Register merupakan tempat penyimpanan data dan instruksi sementara yang sangat cepat, CPU Interconnection adalah mekanisme komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Azqya Sadidatun Nisa,"=""24060125120040""",Apa struktur utama dari CPU,"-ALU (Arithmetic Logic Unit): Melakukan operasi aritmatika dan logika.
+-Control Unit (CU): Mengatur jalannya instruksi dan kerja komponen lain.
+-Register: Tempat penyimpanan data sementara yang sangat cepat di dalam CPU.
+-CPU Interconnection: Mekanisme komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Bagas Nur Ardianto,"=""24060123140063""",Apa struktur utama dari CPU,"Struktur Utama Dari CPU:
+Control Unit (CU): mengontrol aliran data dan instruksi di antara register dan unit pemroses sumber.
+Arithmetic Logic Unit (ALU): melakukan operasi matematika dan logis pada data yang diterima.
+Registers: digunakan untuk menampung data yang diperlukan dalam proses komputasi.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sebagian benar. Sudah ada: ALU; control unit; register. Kurang: CPU interconnection.,0.5
+Cindy Claudia Sihotang,"=""24060125120049""",Apa struktur utama dari CPU,"Muncul tantangan fisik dan teknis
+Kepadatan transistor menyebabkan masalah seperti panas, konsumsi daya, dan
+keterbatasan fisika, yang kemudian mendorong:
+o multicore processor
+o parallel processing","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+Cipta Fikri Wiratama,"=""24060123140172""",Apa struktur utama dari CPU,"Struktur utama dari CPU terdiri dari Control Unit ( CU ), 
+Arithmetic and Logic Unit ( ALU ), 
+Register, 
+dan Internal CPU Interconnection ( Internal Bus ).","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+DIMAS ANGGA SAPUTRA,"=""24060125140235""",Apa struktur utama dari CPU,"CPU Interconnection : Suatu mekanisme yang menyediakan komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+FACHRILLAH FAUZANUDDIN,"=""24060125140167""",Apa struktur utama dari CPU,"CPU terdiri dari:
+	• ALU (Arithmetic Logic Unit)
+	Untuk operasi aritmatika dan logika (tambah, kurang, AND, OR, dll).
+	• Control Unit (CU)
+	Mengatur jalannya instruksi dan mengoordinasikan kerja komponen lain.
+	• Register
+	Tempat penyimpanan data dan instruksi sementara yang sangat cepat.
+	• CPU Interconnection
+	Suatu mekanisme yang menyediakan komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Fatimah Azzakiyah,"=""24060125120010""",Apa struktur utama dari CPU,"Struktur utama CPU (Central Processing Unit) terdiri dari ALU (Arithmetic Logic Unit) yang mengoperasikan logika dan matematika, CU (Control Unit) yang mengontrol instruksi dan koordinasi dengan perangkat lain, register yang menyimpan data dan instruksi cepat untuk sementara, dan CPU interconnection yang memfasilitasi komunikasi antara ALU, CU, dan register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+FRISKA AMALIA PUTRI,"=""24060125140127""",Apa struktur utama dari CPU,dan CPU Interconnection.,"Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+Gamma Abdillah Muqorrobin,"=""24060125130113""",Apa struktur utama dari CPU,"Ada 4 Struktur utama CPU, yaitu: Arithmetic Logic Unit (ALU), Control Unit (CU), Register, dan CPU Interconnection.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+HAFIZH ARRASYID,"=""24060125140225""",Apa struktur utama dari CPU,"• ALU (Arithmetic Logic Unit): Untuk operasi aritmatika dan logika (tambah, kurang, AND, OR, dll). Control Unit (CU): Mengatur jalannya instruksi dan mengoordinasikan kerja komponen lain. Register: Tempat penyimpanan data dan instruksi sementara yang sangat cepat. CPU Interconnection: Suatu mekanisme yang menyediakan komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+HILMI LAUDZA AT HALLAH,"=""24060125130119""",Apa struktur utama dari CPU,"ALU (Arithmetic Logic Unit) -> Untuk operasi aritmatika dan logika (tambah, kurang, AND, OR, dll), Control Unit (CU) -> Mengatur jalannya instruksi dan mengoordinasikan kerja komponen lain, Register -> Tempat penyimpanan data dan instruksi sementara yang sangat cepat, CPU Interconnection -> Suatu mekanisme yang menyediakan komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Hosianna A Simangunsong,"=""24060125120026""",Apa struktur utama dari CPU,"ALU,Control Unit,Register,CPU Interconnection","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Ibnu Farrel Athaillah Firdaus,"=""24060125120022""",Apa struktur utama dari CPU,"Struktur utama dari CPU adalah: (1) Control Unit (CU), (2) ALU (Arithmetic Logic Unit), (3) Register, dan (4) CPU Interconnection.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Ibrahim Naufaltsaqif Handoko,"=""24060125120042""",Apa struktur utama dari CPU,"Empat struktur utama pada CPU
+a) ALU - unit yang menangani operasi perhitungan matematika dan logika seperti penjumlahan, pengurangan, AND, OR, dan sebagainya
+b) Control Unit - pengatur yang mengontrol alur instruksi dan mengkoordinasikan kerja komponen lainnya
+c) Register - tempat penyimpanan super cepat untuk data dan instruksi yang sedang diproses
+d) CPU Interconnection - jalur internal yang menghubungkan ALU, Control Unit, dan Register","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Johansen Beltsazar Siahaan,"=""24060125130085""",Apa struktur utama dari CPU,Peningkatan teknologi di bidang lain seperti pengembangan mesin photolithography milik ASML demi mempertahankan aturan Moore,"Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+Justin Christian Lumbantobing,"=""24060125130101""",Apa struktur utama dari CPU,"Struktur Utama CPU : 
+a.Control Unit (CU): Bertugas mengontrol operasi CPU dan seluruh sistem komputer.
+b.Arithmetic and Logic Unit (ALU): Melakukan fungsi pengolahan data aktual seperti perhitungan aritmatika dan operasi logika.
+c.Registers: Media penyimpanan internal CPU yang sangat cepat, digunakan untuk data yang sedang diproses.
+d.CPU Interconnection: Sirkuit yang menghubungkan CU, ALU, dan Registers.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+LAILI ANGGITA NASOKA,"=""24060125140215""",Apa struktur utama dari CPU,"Muncul tantangan fisik dan teknis
+Kepadatan transistor menyebabkan masalah seperti panas, konsumsi daya, dan
+keterbatasan fisika, yang kemudian mendorong multicore processor dan parallel processing.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+M. RAIHAN NAJMUDDIN FAWWAZ,"=""24060125140244""",Apa struktur utama dari CPU,"CPU terdiri dari:
+• ALU (Arithmetic Logic Unit)
+Untuk operasi aritmatika dan logika (tambah, kurang, AND, OR, dll).
+• Control Unit (CU)
+Mengatur jalannya instruksi dan mengoordinasikan kerja komponen
+lain.
+• Register
+Tempat penyimpanan data dan instruksi sementara yang sangat cepat.
+• CPU Interconnection
+Suatu mekanisme yang menyediakan komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Mikail Farras Fairuzzabad,"=""24060125130072""",Apa struktur utama dari CPU,"Muncul tantangan fisik dan teknis
+
+Kepadatan transistor menyebabkan masalah seperti panas, konsumsi daya, dan 
+
+keterbatasan fisika, yang kemudian mendorong:
+
+- multicore processor
+
+- parallel processing","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+MOCHAMAD FARREL ABYANTARA,"=""24060125140161""",Apa struktur utama dari CPU,"Muncul tantangan fisik dan teknis
+Kepadatan transistor menyebabkan masalah seperti panas, konsumsi daya, dan keterbatasan fisika.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+Muhamad Diar Madonny,"=""24060125130107""",Apa struktur utama dari CPU,"ALU (Arithmetic Logic Unit): Untuk operasi aritmatika dan logika (tambah, kurang, AND, OR, dll). Control Unit (CU): Mengatur jalannya instruksi dan mengoordinasikan kerja komponen lain. Register: Tempat penyimpanan data dan instruksi sementara yang sangat cepat. CPU Interconnection: Suatu mekanisme yang menyediakan komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+MUHAMAD GEGESYAWA SENJAYA,"=""24060125140223""",Apa struktur utama dari CPU,"ALU (Arithmetic Logic Unit)
+
+   Control Unit (CU)
+
+   Register
+
+   CPU Interconnection","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+MUHAMMAD FAZA SALAM,"=""24060125140194""",Apa struktur utama dari CPU,"Struktur internal CPU meliputi:
+
+ALU (Arithmetic Logic Unit): Pelaksana operasi aritmatika dan logika.
+
+
+Control Unit (CU): Pengatur urutan instruksi dan koordinasi komponen.
+
+
+Register: Penyimpanan internal berkecepatan sangat tinggi.
+
+
+CPU Interconnection: Penghubung komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Muhammad Hanif,"=""24060125130083""",Apa struktur utama dari CPU,"Struktur utama CPU:
+* Arithmetic Logic Unit (ALU) --> untuk operasi aritmatika
+* Control Unit (CU) --> mengatur jalannya intstruksi
+* Register --> tempat penyimpanan data dan instruksi sementara yang sangat cepat
+* CPU Interconnection --> menyediakan kounikasi antara ALU, CU, dan Register","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+MUHAMMAD NAWFAL PASHA IMANDRIKA,"=""24060125140151""",Apa struktur utama dari CPU,"Muncul tantangan fisik dan teknis
+Kepadatan transistor menyebabkan masalah seperti panas, konsumsi daya, dan
+keterbatasan fisika, yang kemudian mendorong:
+- multicore processor
+- parallel processing","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+MUHAMMAD RADHIN AGHFIAR,"=""24060125140155""",Apa struktur utama dari CPU,"ALU (Arithmetic Logic Unit): Menangani komputasi aritmatika dan logika (penjumlahan, pengurangan, AND, OR, dsb). Control Unit (CU): Mengelola aliran instruksi dan mengoordinasikan kinerja komponen lain. Register: Unit memori internal berkecepatan tinggi untuk menyimpan data dan instruksi sementara. CPU Interconnection: Jalur komunikasi yang menghubungkan ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+MUHAMMAD RAVILINO PRASETYO,"=""24060125140213""",Apa struktur utama dari CPU,"Struktur utama dari CPU yaitu ALU (Arithmetic Logic Unit), Control Unit (CU), register, dan CPU interconnection.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+MUHAMMAD ROFIF ZUHDI,"=""24060125140231""",Apa struktur utama dari CPU,"CPU terdiri dari:
+• ALU (Arithmetic Logic Unit)
+Untuk operasi aritmatika dan logika (tambah, kurang, AND, OR, dll).
+• Control Unit (CU)
+Mengatur jalannya instruksi dan mengoordinasikan kerja komponen
+lain.
+• Register
+Tempat penyimpanan data dan instruksi sementara yang sangat cepat.
+• CPU Interconnection
+Suatu mekanisme yang menyediakan komunikasi antara ALU, CU,
+dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+MUHAMMAD ZIDAN ZEIN PURWADI,"=""24060125140178""",Apa struktur utama dari CPU,"Apa struktur utama dari CPU?
+Jawab: Struktur utama CPU:
+•	ALU
+•	Control Unit
+•	Register
+•	CPU Interconnection","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+Naila Ayu Farras Hanun,"=""24060125130086""",Apa struktur utama dari CPU,"CPU terdiri dari:
+	• ALU (Arithmetic Logic Unit)
+	Untuk operasi aritmatika dan logika (tambah, kurang, AND, OR, dll).
+	• Control Unit (CU)
+	Mengatur jalannya instruksi dan mengoordinasikan kerja komponen lain.
+	• Register
+	Tempat penyimpanan data dan instruksi sementara yang sangat cepat.
+	• CPU Interconnection
+	Suatu mekanisme yang menyediakan komunikasi antara ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+RAJENDRA NABIL HUTOMO,"=""24060125140122""",Apa struktur utama dari CPU,"Struktur Utama CPU: Arithmetic Logic Unit, Control Unit, Register, CPU interconnection","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+REIHAN REMIGIA RIHI,"=""24060125130100""",Apa struktur utama dari CPU,"ALU, CU, register, dan CPU interconnection.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+RIZQI RAMADHAN,"=""24060125140171""",Apa struktur utama dari CPU,"Generasi Lanjutan (Semikonduktor dan Mikroprocessor), memiliki CPU dalam satu chip,memori lebih cepat, komputer lebih ringkas dan terjangkau.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+Talita Elvina Putri Kusuma,"=""24060125120046""",Apa struktur utama dari CPU,"Struktur utama CPU terdiri dari beberapa bagian yaitu:
+a. Arithmetic Logic Unit (ALU), berfungsi melakukan operasi arimatika dan logika.
+b. Control Unit (CU), berfungsi mengatur jalannya instruksi ataupun mengoordinasikan kerja komponen-komponen.
+c. Register, berfungsi sebagai tempat penyimpanan data dan instruksi sementara yang sangat cepat.
+d. CPU Interconnection, berfungsi sebagai penghubung antara ALU, CU, dan register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+TORIBIO DESMOND DONOVAN,"=""24060125140196""",Apa struktur utama dari CPU,"Di dalam CPU terdapat:
+ALU (Arithmetic Logic Unit): melakukan operasi aritmatika dan logika.
+Control Unit (CU): mengatur jalannya instruksi dan koordinasi kerja komponen.
+Register: penyimpanan sangat cepat untuk data dan instruksi sementara.
+CPU Interconnection: jalur komunikasi antara ALU, CU, dan register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
+UMMU DIANA MAGHFIROH,"=""24060125140203""",Apa struktur utama dari CPU,"Muncul tantangan fisik dan teknis
+Kepadatan transistor menyebabkan masalah seperti panas, konsumsi daya, dan
+keterbatasan fisika, yang kemudian mendorong:
+multicore processor dan parallel processing","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.","Belum sesuai. Seharusnya: Struktur utama CPU: ALU, control unit, register, dan CPU interconnection/internal bus.",0
+VARES DYON TYAS KUSUMA,"=""24060125140183""",Apa struktur utama dari CPU,"Struktur utama dari CPU terdiri dari: ALU (Arithmetic and Logic Unit) untuk pemrosesan data, CU (Control Unit) untuk mengendalikan operasi CPU, Register sebagai memori internal CPU, dan Interkoneksi CPU (CPU Interconnection) yang menghubungkan ALU, CU, dan Register.","Struktur utama CPU terdiri dari ALU, Control Unit, Register, dan CPU Interconnection. ALU menjalankan operasi aritmatika dan logika, Control Unit mengatur jalannya instruksi, Register menyimpan data/instruksi sementara dengan sangat cepat, dan CPU Interconnection menghubungkan ALU, CU, dan Register.",Sesuai. Mencakup: ALU; control unit; register; CPU interconnection.,1
